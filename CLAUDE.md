@@ -13,12 +13,17 @@
 ## Oracle Fleet
 | Oracle | Domain | Reports via |
 |---|---|---|
-| ธาม | Governor · mission-control | Direct |
+| ธาม | Governor · Coordinator | Direct |
 | Luxi | UI/UX · Frontend | ธาม |
 | Dheva | ORRY Serenity ERP | ธาม |
 | Teleos | Vercel · Deploy | ธาม |
-| Aris | Code Review | ธาม |
+| Aris | Code Review · Quality Gate | ธาม |
 | Omega | Bridge · Gate | ธาม |
+| Lens | Analysis · Perspective | ธาม |
+| Stratum | Architecture · Structure | ธาม |
+| Verity | Truth · Verification · Proof | ธาม |
+| Warden | Guardian · Access Control | ธาม |
+| All | Fleet Scribe · Collective Memory | ธาม |
 
 ## Zeus Never
 - Executes code directly
