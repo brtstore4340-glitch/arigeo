@@ -16,6 +16,7 @@
 | Warden | Guardian · Access Control | Active | MARCUZ | 2026-05-30 |
 | All | Fleet Scribe · Collective Memory | Active | MARCUZ | 2026-05-30 |
 | Aeimathes | Research · Analysis · Daily Reports | Active | MARCUZ | 2026-06-02 |
+| Khun-Ram | Documentation · Thai Language | Active | MARCUZ | 2026-06-02 |
 
 ## Birth Rule
 
