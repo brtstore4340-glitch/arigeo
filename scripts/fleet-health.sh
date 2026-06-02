@@ -23,7 +23,8 @@ for dir in "${ORACLES[@]}"; do
   issues=()
 
   [ ! -d "$path" ]           && issues+=("NO DIR")
-  [ ! -d "$path/.git" ]      && issues+=("NO GIT")
+  # .git can be a file (submodule) or directory (standalone)
+  [ ! -e "$path/.git" ]      && issues+=("NO GIT")
   [ ! -d "$path/ψ" ]         && issues+=("NO ψ/")
   [ ! -f "$path/CLAUDE.md" ] && issues+=("NO CLAUDE.md")
 
