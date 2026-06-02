@@ -27,8 +27,11 @@ for dir in "${ORACLES[@]}"; do
   [ ! -d "$path/ψ" ]         && issues+=("NO ψ/")
   [ ! -f "$path/CLAUDE.md" ] && issues+=("NO CLAUDE.md")
 
-  # Check if in INDEX
-  grep -qi "$name" "$INDEX" 2>/dev/null || issues+=("NOT IN INDEX")
+  # Thai name aliases for INDEX lookup
+  alias_name="$name"
+  [ "$dir" = "tham-oracle" ] && alias_name="ธาม"
+  [ "$dir" = "all-oracle" ]  && alias_name="all"
+  grep -qi "$alias_name\|$dir" "$INDEX" 2>/dev/null || issues+=("NOT IN INDEX")
 
   if [ ${#issues[@]} -eq 0 ]; then
     branch=$(git -C "$path" branch --show-current 2>/dev/null)
