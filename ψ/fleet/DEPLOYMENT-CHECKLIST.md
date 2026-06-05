@@ -106,31 +106,24 @@ version: 1.0
 
 ---
 
-### PHASE 2: Gradual Rollout (Jun 21-30)
-**Duration**: 10 days
+### PHASE 2: Full Fleet Rollout (Jun 5) 🟢 ACTIVATED
+**Duration**: Immediate full deployment
 **Target**: Full fleet (14 oracles)
 
-**Wave 1 (Jun 21-24)**: 40% fleet (6 oracles)
-- Deploy classifier
-- Monitor 50+ tasks
-- Track metrics
+**ACTIVATED**: 2026-06-05 15:00+07 — Zeus + ธาม accelerated rollout
 
-**Wave 2 (Jun 25-27)**: 70% fleet (10 oracles)
-- Add 4 more oracles
-- Monitor 100+ tasks
-- Validate metrics hold
+**Wave 1** (stratum, warden, watchdog): ✅ notified 2026-06-05
+**Wave 2** (verity, aris, aeimathes, tham): ✅ notified 2026-06-05
+**Wave 3** (Dheva, teleos, uat + pilots already live): ✅ notified 2026-06-05
 
-**Wave 3 (Jun 28-30)**: 100% fleet (14 oracles)
-- Add final 4 oracles
-- Full production deployment
-- Continuous monitoring
+All 14 oracles now routing through classifier.
 
 **Monitoring**:
 - Daily metrics report
 - Escalation on threshold breach
-- Rollback ready at each wave
+- Rollback ready at any time (<5 min)
 
-**Decision Point (Jun 30)**: Deployment stable? → Production success
+**Decision Point (Jun 30)**: Deployment stable? → Sprint 1 complete, Sprint 2 begins
 
 ---
 
