@@ -73,15 +73,17 @@ version: 1.0
 
 ---
 
-### PHASE 1: Soft Launch (Jun 6-20)
+### PHASE 1: Soft Launch (Jun 5-20) 🟢 IN PROGRESS
 **Duration**: 2 weeks
 **Target**: 3 pilot oracles (Luxi, Lens, Omega)
 **Expected**: ~30 tasks routed through classifier
 
+**ACTIVATED**: 2026-06-05 14:00+07 — Zeus + ธาม go-live sign-off
+
 **Tasks**:
-- [ ] Deploy classifier to pilot environment
-- [ ] Route 100% of pilot tasks through classifier
-- [ ] Monitor routing decisions
+- [x] Deploy classifier to pilot environment ✅ 2026-06-05 — fleet/ modules live in zeus-oracle
+- [x] Route 100% of pilot tasks through classifier ✅ 2026-06-05 — go-live notifications sent to Luxi/Lens/Omega
+- [ ] Monitor routing decisions (daily — from Jun 5)
 - [ ] Collect pilot feedback (daily)
 - [ ] Track token spend (daily)
 - [ ] Track output quality (daily)
