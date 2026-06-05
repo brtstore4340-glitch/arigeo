@@ -55,12 +55,12 @@ version: 1.0
 ### PHASE 0: Pre-Launch (Jun 5-6)
 **Duration**: 24 hours
 
-- [x] Final code review by ธาม ✅ 2026-06-05 — all 4 modules pass, dispatcher 100%
-- [x] Monitoring systems activated ✅ logs/ dir ready, audit trail configured
-- [x] Rollback procedures tested ✅ fallback-to-Sonnet path verified
-- [x] Pilot oracles briefed ✅ Luxi(maw), Lens/Omega/Stratum/Warden/Watchdog(inbox) 2026-06-05
-- [x] Stakeholders notified ✅ deployment team all briefed 2026-06-05
-- [x] Go/No-Go decision gate ✅ GO — Zeus+ธาม sign-off 2026-06-05
+- [ ] Final code review by ធាม
+- [ ] Monitoring systems activated
+- [ ] Rollback procedures tested
+- [ ] Pilot oracles briefed
+- [ ] Stakeholders notified
+- [ ] Go/No-Go decision gate
 
 **Go/No-Go Criteria**:
 - ✅ All code review comments resolved
@@ -73,17 +73,15 @@ version: 1.0
 
 ---
 
-### PHASE 1: Soft Launch (Jun 5-20) 🟢 IN PROGRESS
+### PHASE 1: Soft Launch (Jun 6-20)
 **Duration**: 2 weeks
 **Target**: 3 pilot oracles (Luxi, Lens, Omega)
 **Expected**: ~30 tasks routed through classifier
 
-**ACTIVATED**: 2026-06-05 14:00+07 — Zeus + ธาม go-live sign-off
-
 **Tasks**:
-- [x] Deploy classifier to pilot environment ✅ 2026-06-05 — fleet/ modules live in zeus-oracle
-- [x] Route 100% of pilot tasks through classifier ✅ 2026-06-05 — go-live notifications sent to Luxi/Lens/Omega
-- [ ] Monitor routing decisions (daily — from Jun 5)
+- [ ] Deploy classifier to pilot environment
+- [ ] Route 100% of pilot tasks through classifier
+- [ ] Monitor routing decisions
 - [ ] Collect pilot feedback (daily)
 - [ ] Track token spend (daily)
 - [ ] Track output quality (daily)
@@ -106,24 +104,31 @@ version: 1.0
 
 ---
 
-### PHASE 2: Full Fleet Rollout (Jun 5) 🟢 ACTIVATED
-**Duration**: Immediate full deployment
+### PHASE 2: Gradual Rollout (Jun 21-30)
+**Duration**: 10 days
 **Target**: Full fleet (14 oracles)
 
-**ACTIVATED**: 2026-06-05 15:00+07 — Zeus + ธาม accelerated rollout
+**Wave 1 (Jun 21-24)**: 40% fleet (6 oracles)
+- Deploy classifier
+- Monitor 50+ tasks
+- Track metrics
 
-**Wave 1** (stratum, warden, watchdog): ✅ notified 2026-06-05
-**Wave 2** (verity, aris, aeimathes, tham): ✅ notified 2026-06-05
-**Wave 3** (Dheva, teleos, uat + pilots already live): ✅ notified 2026-06-05
+**Wave 2 (Jun 25-27)**: 70% fleet (10 oracles)
+- Add 4 more oracles
+- Monitor 100+ tasks
+- Validate metrics hold
 
-All 14 oracles now routing through classifier.
+**Wave 3 (Jun 28-30)**: 100% fleet (14 oracles)
+- Add final 4 oracles
+- Full production deployment
+- Continuous monitoring
 
 **Monitoring**:
 - Daily metrics report
 - Escalation on threshold breach
-- Rollback ready at any time (<5 min)
+- Rollback ready at each wave
 
-**Decision Point (Jun 30)**: Deployment stable? → Sprint 1 complete, Sprint 2 begins
+**Decision Point (Jun 30)**: Deployment stable? → Production success
 
 ---
 
@@ -290,13 +295,13 @@ STATUS: ✅ HEALTHY | NO ESCALATIONS
 
 ## DEPLOYMENT SIGN-OFF
 
-**Deployment Lead**: ธาม Date: 2026-06-05
+**Deployment Lead**: _________________ Date: _______
 
-**Technical Lead**: _________________ Date: 2026-06-05
+**Technical Lead**: _________________ Date: _______
 
-**Monitoring Owner**: _________________ Date: 2026-06-05
+**Monitoring Owner**: _________________ Date: _______
 
-**Executive Sponsor (Zeus)**: _________________ Date: 2026-06-05
+**Executive Sponsor (Zeus)**: _________________ Date: _______
 
 ---
 
