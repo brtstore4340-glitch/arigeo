@@ -4,7 +4,18 @@
       "Bash(tmux capture-pane *)",
       "Bash(tmux list-panes *)",
       "Bash(tmux list-windows *)",
-      "Bash(tmux list-sessions *)"
+      "Bash(tmux list-sessions *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr list *)",
+      "Bash(gh pr diff *)",
+      "Bash(gh run view *)",
+      "Bash(gh run list *)",
+      "Bash(git rev-parse *)",
+      "Bash(git config *)",
+      "Bash(jq *)"
     ]
   }
 }
