@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Certificate Request System - Project Quotation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        .quotation-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 18px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .summary-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+        }
+        .summary-label {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .summary-value {
+            font-size: 16px;
+            color: #27ae60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .total-row {
+            background-color: #ecf0f1;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .timeline-item {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 12px;
+            height: 12px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+        .timeline-phase {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .timeline-duration {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .terms-list {
+            margin-left: 20px;
+        }
+        .terms-list li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .footer-section h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .footer-section p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .signature-line {
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            padding-top: 5px;
+            margin-top: 50px;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: #ffffcc;
+            padding: 2px 4px;
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>PROJECT QUOTATION</h1>
+            <h3 style="color: #7f8c8d; font-weight: normal; margin: 5px 0;">Salary Certificate Request System</h3>
+            <div class="quotation-meta">
+                <span><strong>Quotation ID:</strong> SCR-2026-06-20-001</span>
+                <span><strong>Date:</strong> June 20, 2026</span>
+                <span><strong>Valid Until:</strong> July 20, 2026</span>
+            </div>
+        </header>
+
+        <!-- Project Summary -->
+        <div class="section">
+            <h2>1. PROJECT SUMMARY</h2>
+            <p style="margin-bottom: 15px;">
+                The <span class="highlight">Salary Certificate Request Portal</span> is a modern web application enabling employees to submit benefit certificate requests with automated admin review and email notification workflows. The system is built on Next.js, React, and Supabase PostgreSQL for scalability and reliability.
+            </p>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-label">Current Status</div>
+                    <div class="summary-value">75-80% Complete</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Critical Issues</div>
+                    <div class="summary-value">4 Blockers (API, routing, response handling)</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Codebase Size</div>
+                    <div class="summary-value">6,575 LOC (52 files)</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Tech Stack</div>
+                    <div class="summary-value">Next.js 16, React 19, TypeScript 5.7</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scope & Deliverables -->
+        <div class="section">
+            <h2>2. SCOPE & DELIVERABLES</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Salary Certificate Request Form</td>
+                        <td style="color: #27ae60;">✓ Complete</td>
+                        <td>Multi-field form with Thai localization</td>
+                    </tr>
+                    <tr>
+                        <td>Email Authentication (Gmail OAuth)</td>
+                        <td style="color: #27ae60;">✓ Complete</td>
+                        <td>Login/register flow with session management</td>
+                    </tr>
+                    <tr>
+                        <td>Admin Dashboard</td>
+                        <td style="color: #f39c12;">⚠ Needs fixes</td>
+                        <td>Statistics, filtering, bulk operations</td>
+                    </tr>
+                    <tr>
+                        <td>Status Tracking (Public)</td>
+                        <td style="color: #27ae60;">✓ Complete</td>
+                        <td>Request lookup and status notifications</td>
+                    </tr>
+                    <tr>
+                        <td>API Endpoints</td>
+                        <td style="color: #e74c3c;">✗ Fix needed</td>
+                        <td>6 endpoints (routing issues to resolve)</td>
+                    </tr>
+                    <tr>
+                        <td>Email System</td>
+                        <td style="color: #27ae60;">✓ Complete</td>
+                        <td>Confirmation and status update emails</td>
+                    </tr>
+                    <tr>
+                        <td>Security & Access Control</td>
+                        <td style="color: #27ae60;">✓ Complete</td>
+                        <td>RLS enabled, email whitelist, rate limiting</td>
+                    </tr>
+                    <tr>
+                        <td>Testing & Documentation</td>
+                        <td style="color: #f39c12;">⚠ Partial</td>
+                        <td>7 test files, 80% doc coverage</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cost Breakdown -->
+        <div class="section">
+            <h2>3. COST BREAKDOWN</h2>
+
+            <h3 style="margin-top: 20px; margin-bottom: 10px; color: #34495e; font-size: 16px;">3.1 Development Cost</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Work Item</th>
+                        <th style="text-align: right;">Hours</th>
+                        <th style="text-align: right;">Rate/Hour</th>
+                        <th style="text-align: right;">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fix 4 Critical Bugs</td>
+                        <td style="text-align: right;">2-3</td>
+                        <td style="text-align: right;">$100</td>
+                        <td style="text-align: right;">$200-$300</td>
+                    </tr>
+                    <tr>
+                        <td>Fix 5 High-Severity Issues</td>
+                        <td style="text-align: right;">3-4</td>
+                        <td style="text-align: right;">$100</td>
+                        <td style="text-align: right;">$300-$400</td>
+                    </tr>
+                    <tr>
+                        <td>Dashboard Stability & Stats Refactor</td>
+                        <td style="text-align: right;">2-3</td>
+                        <td style="text-align: right;">$100</td>
+                        <td style="text-align: right;">$200-$300</td>
+                    </tr>
+                    <tr>
+                        <td>End-to-End Testing</td>
+                        <td style="text-align: right;">3-4</td>
+                        <td style="text-align: right;">$100</td>
+                        <td style="text-align: right;">$300-$400</td>
+                    </tr>
+                    <tr>
+                        <td>Production Deployment Prep</td>
+                        <td style="text-align: right;">1-2</td>
+                        <td style="text-align: right;">$100</td>
+                        <td style="text-align: right;">$100-$200</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Total Development</strong></td>
+                        <td style="text-align: right;"><strong>12-17 hours</strong></td>
+                        <td style="text-align: right;"></td>
+                        <td style="text-align: right;"><strong>$1,100-$1,600</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px; margin-bottom: 10px; color: #34495e; font-size: 16px;">3.2 Infrastructure & Hosting (Monthly)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th style="text-align: right;">Monthly Cost</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cloudflare Pages</td>
+                        <td style="text-align: right;">$0-$20</td>
+                        <td>Free tier + builds (standard setup)</td>
+                    </tr>
+                    <tr>
+                        <td>Supabase PostgreSQL</td>
+                        <td style="text-align: right;">$25-$100</td>
+                        <td>Shared project with quota limits</td>
+                    </tr>
+                    <tr>
+                        <td>Email Delivery (Resend/Nodemailer)</td>
+                        <td style="text-align: right;">$5-$50</td>
+                        <td>~100 emails/month = ~$5</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Domain (Optional)</td>
+                        <td style="text-align: right;">$1</td>
+                        <td>Annual domain cost (~$12/year)</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Monthly Total</strong></td>
+                        <td style="text-align: right;"><strong>$40-$170</strong></td>
+                        <td></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Annual Total</strong></td>
+                        <td style="text-align: right;"><strong>$500-$2,000</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px; margin-bottom: 10px; color: #34495e; font-size: 16px;">3.3 Maintenance (Post-Launch, Monthly)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th style="text-align: right;">Hours/Month</th>
+                        <th style="text-align: right;">Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bug Fixes & Patches</td>
+                        <td style="text-align: right;">2-4</td>
+                        <td style="text-align: right;">$200-$400</td>
+                    </tr>
+                    <tr>
+                        <td>Email/Auth Debugging</td>
+                        <td style="text-align: right;">1-2</td>
+                        <td style="text-align: right;">$100-$200</td>
+                    </tr>
+                    <tr>
+                        <td>Database Optimization</td>
+                        <td style="text-align: right;">1</td>
+                        <td style="text-align: right;">$100</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Monthly Maintenance</strong></td>
+                        <td style="text-align: right;"><strong>4-7 hours</strong></td>
+                        <td style="text-align: right;"><strong>$400-$700</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 20px; margin-bottom: 10px; color: #34495e; font-size: 16px;">3.4 Total Project Cost Summary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th style="text-align: right;">Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Development (to MVP)</td>
+                        <td style="text-align: right;">$1,100-$1,600</td>
+                    </tr>
+                    <tr>
+                        <td>First Year Infrastructure</td>
+                        <td style="text-align: right;">$500-$2,000</td>
+                    </tr>
+                    <tr>
+                        <td>First Year Maintenance (12 months)</td>
+                        <td style="text-align: right;">$4,800-$8,400</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Total Year 1</strong></td>
+                        <td style="text-align: right;"><strong>$6,400-$12,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Subsequent Years (Infrastructure + Maintenance)</td>
+                        <td style="text-align: right;">$5,300-$10,400/year</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <h2>4. PROJECT TIMELINE</h2>
+            <p style="margin-bottom: 20px;">Development and deployment path with estimated durations:</p>
+
+            <div class="timeline-item">
+                <span class="timeline-phase">Phase 1: Critical Bug Fixes</span>
+                <span class="timeline-duration">2-3 days</span>
+                <p style="margin-top: 5px; color: #555; font-size: 14px;">Fix API endpoint mismatch, NextResponse import, response validation, and email prop sync</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-phase">Phase 2: Testing & Validation</span>
+                <span class="timeline-duration">3-4 days</span>
+                <p style="margin-top: 5px; color: #555; font-size: 14px;">End-to-end testing, form submission, email delivery, admin dashboard operations</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-phase">Phase 3: Dashboard Stabilization</span>
+                <span class="timeline-duration">2-3 days</span>
+                <p style="margin-top: 5px; color: #555; font-size: 14px;">Refactor statistics queries, resolve 17-commit debugging issue, validate with 100+ test records</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-phase">Phase 4: Production Deployment</span>
+                <span class="timeline-duration">1 day</span>
+                <p style="margin-top: 5px; color: #555; font-size: 14px;">Deploy to production, configure monitoring, verify live traffic</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-phase">Phase 5: Live Monitoring & Iteration</span>
+                <span class="timeline-duration">1 week</span>
+                <p style="margin-top: 5px; color: #555; font-size: 14px;">Monitor user reports, fix issues, refine email templates and UI based on feedback</p>
+            </div>
+
+            <div class="note" style="margin-top: 30px;">
+                <strong>Estimated Total Timeline:</strong> 2-4 weeks from current state (assuming dedicated development team)
+            </div>
+        </div>
+
+        <!-- Risk Factors -->
+        <div class="section">
+            <h2>5. RISK ASSESSMENT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Risk</th>
+                        <th>Likelihood</th>
+                        <th>Impact</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dashboard stats still broken after fixes</td>
+                        <td style="color: #e74c3c;">HIGH</td>
+                        <td style="color: #e74c3c;">Blocks deployment</td>
+                        <td>Complete query refactor, test with 100+ records</td>
+                    </tr>
+                    <tr>
+                        <td>Email delivery failures in production</td>
+                        <td style="color: #f39c12;">MEDIUM</td>
+                        <td style="color: #f39c12;">Lost notifications</td>
+                        <td>Add Resend monitoring, production email testing</td>
+                    </tr>
+                    <tr>
+                        <td>Rate limiting blocks legitimate users</td>
+                        <td style="color: #f39c12;">MEDIUM</td>
+                        <td style="color: #f39c12;">User access denied</td>
+                        <td>Review and tune rate limit config, admin bypass</td>
+                    </tr>
+                    <tr>
+                        <td>Supabase quota exceeded</td>
+                        <td style="color: #27ae60;">LOW</td>
+                        <td style="color: #f39c12;">Service degradation</td>
+                        <td>Monitor table sizes, plan migration if needed</td>
+                    </tr>
+                    <tr>
+                        <td>Cloudflare Pages build failures</td>
+                        <td style="color: #27ae60;">LOW</td>
+                        <td style="color: #f39c12;">Deployment blocked</td>
+                        <td>Pre-test builds locally with npm run build</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="section">
+            <h2>6. TERMS & CONDITIONS</h2>
+            <ul class="terms-list">
+                <li><strong>Payment Terms:</strong> 50% upon agreement, 50% upon delivery/deployment</li>
+                <li><strong>Development Rate:</strong> $100/hour (senior developer rate; adjust per team level)</li>
+                <li><strong>Warranty Period:</strong> 30 days post-launch (bug fixes included)</li>
+                <li><strong>Support SLA:</strong> 4-7 hours/month maintenance (included in annual cost)</li>
+                <li><strong>Scope Changes:</strong> Any changes beyond stated scope will be quoted separately</li>
+                <li><strong>Timeline:</strong> Estimates assume full-time dedicated development team</li>
+                <li><strong>Infrastructure:</strong> Costs assume existing Supabase and Cloudflare projects</li>
+                <li><strong>Intellectual Property:</strong> All code and deliverables remain client property</li>
+                <li><strong>Quotation Validity:</strong> This quotation is valid for 30 days (until July 20, 2026)</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-section">
+                <h3>PREPARED BY</h3>
+                <p>Development Team</p>
+                <p>E0993599799</p>
+                <p>Date: June 20, 2026</p>
+            </div>
+            <div class="footer-section">
+                <h3>CLIENT ACCEPTANCE</h3>
+                <p>Name: _______________________</p>
+                <p>Title: _______________________</p>
+                <div class="signature-line">Signature & Date</div>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center; color: #999; font-size: 12px;">
+            <p>This quotation is based on analysis completed on June 20, 2026</p>
+            <p>For questions or modifications, please contact the development team</p>
+        </div>
+    </div>
+</body>
+</html>
