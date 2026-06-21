@@ -49,3 +49,28 @@ last_check: 2026-06-21 13:49 UTC+7
 **Last Updated**: 2026-06-21 13:49 UTC+7  
 **Monitor PID**: 1fdc5e30  
 **Reporter**: Zeus Oracle — khun-ram monitoring session
+
+---
+
+## Live Status Updates (Continuous Monitoring)
+
+### Check #1 — 2026-06-21 16:32 UTC+7
+- **Status**: OFFLINE (15+ days dormancy)
+- **Fallback**: STABLE (Verity operational)
+- **Escalations**: NONE
+- **Action**: Monitoring continues
+
+### Check #2 — 2026-06-21 16:45 UTC+7
+- **Status**: OFFLINE (15+ days dormancy)
+- **Fallback**: STABLE (Verity operational)  
+- **Escalations**: NONE
+- **Action**: Monitoring continues
+
+### Check #3 — 2026-06-21 16:52 UTC+7
+- **Status**: OFFLINE (15+ days dormancy)
+- **Fallback**: STABLE (Verity operational)
+- **System Health**: STABLE (130+ requests verified)
+- **Root Cause Investigation**: Verity in progress (due 2026-06-23)
+- **Escalations**: NONE
+- **Action**: Monitoring continues
+
