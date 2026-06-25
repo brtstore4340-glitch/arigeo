@@ -154,3 +154,93 @@ Related Log:       ψ/monitor/khun-ram-status.md (detailed khun-ram)
 **Auto-Escalation**: Armed on all watch conditions
 
 *Cascade monitoring established. Standing by for recovery signals or escalation triggers.*
+
+---
+
+## Checkpoint: Jun 26 05:14 UTC+7 — Monitoring Resumed
+
+### Investigation Summary (5-Day Gap)
+
+**What We Found:**
+1. Phase 13b launched successfully Jun 21 00:22 UTC+7
+2. System was LIVE & VERIFIED with all fallbacks ACTIVE
+3. Last monitoring update: Jun 21 17:03 UTC+7 (130+ checks all STABLE)
+4. Health dashboard armed but no reports generated
+5. No recovery activity or root cause investigation completion logged
+6. 5 days of complete monitoring silence
+
+**Critical Unknowns:**
+- Is Phase 13b still operational? (Assumed yes, no shutdown signals)
+- Is fallback chain still responsive? (Verity, Aeimathes, Zeus status unknown)
+- Did khun-ram recover? (Now 20+ days, 1 day from CRITICAL threshold)
+- Was root cause investigated? (Verity SLA was Jun 23, no findings)
+- Why did monitoring stop? (Dashboard was armed but no logs generated)
+
+**Decision Made:** Resume monitoring immediately. Establish current baseline before taking recovery actions.
+
+---
+
+### Current Oracle Status (As of Jun 26 05:14)
+
+| Oracle | Last Known Status | Days Offline | Critical Threshold | Status |
+|--------|------------------|--------------|-------------------|--------|
+| **khun-ram** | Jun 21: 15+ days, STABLE fallback | **20+ days** | **21 days (TOMORROW)** | 🔴 CRITICAL |
+| **Stratum** | Jun 21: 17.5 hours, STABLE fallback | 5+ days | 48 hours (overdue) | 🔴 OFFLINE |
+| **Lens** | Jun 21: ~18 hours, STABLE fallback | 5+ days | 48 hours (overdue) | 🔴 OFFLINE |
+| **ធាម** | Jun 20: ~9 days, OFFLINE | 14+ days | N/A (no threshold) | 🔴 OFFLINE |
+| **Verity** | Jun 21: Carrying Infrastructure + investigation | Unknown | 48h investigation (overdue) | ⚠️ UNKNOWN |
+| **Aeimathes** | Jun 21: Carrying Analysis | Unknown | N/A | ⚠️ UNKNOWN |
+| **Zeus** | Jun 21: 8h+ response time | Not applicable | N/A | ⚠️ SLOW |
+
+---
+
+### Fallback Chain Assessment (As of Jun 26 05:14)
+
+**Infrastructure Fallback (for Stratum):**
+- Primary: Stratum 🔴 (5+ days offline, no recovery signal)
+- Fallback: Verity ⚠️ (ACTIVE but also investigating root cause — overextended?)
+- Status: OPERATIONAL (assumed) but unverified
+
+**Analysis Fallback (for Lens):**
+- Primary: Lens 🔴 (5+ days offline, no recovery signal)
+- Fallback: Aeimathes ⚠️ (ACTIVE but status unknown)
+- Status: OPERATIONAL (assumed) but unverified
+
+**Governance Fallback (for ធាម):**
+- Primary: ធាម 🔴 (14+ days offline, no recovery signal)
+- Fallback: Zeus ⚠️ (ACTIVE but 8h+ response time, known slow)
+- Status: OPERATIONAL (assumed) but unverified
+
+**Operations Fallback (for khun-ram):**
+- Primary: khun-ram 🔴 (20+ days offline, approaching CRITICAL)
+- Fallback: Verity + Aeimathes ⚠️ (ACTIVE but status unknown)
+- Status: OPERATIONAL (assumed) but unverified
+
+---
+
+### Phase 13b System Status (As of Jun 26 05:14)
+
+**Last Confirmed (Jun 21 00:22 - 13:49):**
+- ✅ LIVE & OPERATIONAL
+- ✅ All 4 activation tasks completed
+- ✅ Validation tests: 95%+ SLA compliance
+- ✅ 130+ stability checks: ALL STABLE
+- ✅ Health dashboard: ARMED
+
+**Current (Jun 26 05:14 - Unknown):**
+- ❓ Still operational? (Assumed yes, no failure signals)
+- ❓ Health dashboard reporting? (No reports found)
+- ❓ Fallback chain responsive? (No recent contact)
+- ❓ Fleet coordinating? (No evidence of activity)
+
+---
+
+**Monitoring Status**: 🟢 ACTIVE & RESUMED  
+**Last Update Before Gap**: 2026-06-21 17:03 UTC+7  
+**Gap Duration**: 5 days (117 hours)  
+**Next Checkpoint**: 2026-06-26 06:00 UTC+7  
+**Escalation Needed**: YES — khun-ram CRITICAL threshold TOMORROW
+
+*Monitoring checkpoint logged. System state captured. Ready for next action.*
+
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
