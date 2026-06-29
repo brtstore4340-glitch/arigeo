@@ -81,6 +81,25 @@ function Test-RouterConnection {
     }
 }
 
+function Invoke-RouterDoctor {
+    Write-Host ""
+    Write-Host "⚠️  9router appears to be down" -ForegroundColor Yellow
+    Write-Host "Running diagnostic..." -ForegroundColor Cyan
+    Write-Host ""
+
+    try {
+        # Try to run 9router doctor
+        $output = & 9router doctor 2>&1
+        Write-Host $output
+        return $true
+    } catch {
+        Write-Host "❌ 9router doctor not found in PATH" -ForegroundColor Red
+        Write-Host "💡 Try: 9router doctor" -ForegroundColor Yellow
+        Write-Host ""
+        return $false
+    }
+}
+
 function Send-ToCodex {
     param([string]$Query)
 
@@ -152,7 +171,11 @@ function Invoke-HybridQuery {
 
         # Check router availability
         if (-not (Test-RouterConnection)) {
-            if ($Verbose) { Write-Host "   ⚠️  9router not available, using local fallback" -ForegroundColor Yellow }
+            if ($Verbose) {
+                Write-Host "   ⚠️  9router not available" -ForegroundColor Yellow
+                Write-Host "   Suggestion: Run '9router doctor' in terminal" -ForegroundColor Cyan
+                Write-Host "   Using local fallback..." -ForegroundColor Yellow
+            }
             return & $LocalAnswerHandler
         }
 
@@ -240,6 +263,9 @@ if ($MyInvocation.InvocationName -ne ".") {
     } else {
         Write-Host "⚠️  9router not reachable" -ForegroundColor Yellow
         Write-Host "   RAM will use local responses" -ForegroundColor Gray
+        Write-Host ""
+        Write-Host "🔧 If 9router should be running:" -ForegroundColor Cyan
+        Write-Host "   Run: 9router doctor" -ForegroundColor Yellow
     }
 
     Write-Host ""
