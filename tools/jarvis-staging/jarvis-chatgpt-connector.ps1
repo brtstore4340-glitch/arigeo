@@ -2,12 +2,28 @@
 # Read and ingest ChatGPT conversation history into JARVIS memory
 
 param(
-    [string]$APIKey = $env:OPENAI_API_KEY,
+    [string]$APIKey = "",
     [string]$ConversationID = "",
     [int]$MaxConversations = 10,
     [switch]$IngestToMemory = $true,
     [string]$MemoryDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\memory"
 )
+
+# Auto-load API key from .env if not provided
+if ([string]::IsNullOrWhiteSpace($APIKey)) {
+    $envFile = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\.env"
+    if (Test-Path $envFile) {
+        $envContent = Get-Content $envFile -Raw
+        if ($envContent -match 'OPENAI_API_KEY\s*=\s*"([^"]+)"') {
+            $APIKey = $matches[1]
+        }
+    }
+}
+
+# Fallback to environment variable
+if ([string]::IsNullOrWhiteSpace($APIKey)) {
+    $APIKey = $env:OPENAI_API_KEY
+}
 
 # ============================================================================
 # CONFIGURATION
