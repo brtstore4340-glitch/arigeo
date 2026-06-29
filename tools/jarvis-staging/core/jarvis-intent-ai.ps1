@@ -245,12 +245,54 @@ function Call-GeminiAPI {
 # MAIN ROUTING
 # ============================================================================
 
+function Call-LocalAPI {
+    param(
+        [string]$UserInput,
+        [string]$Endpoint = "http://localhost:20128/v1"
+    )
+
+    $localScript = Join-Path (Split-Path $MyInvocation.MyCommand.Path) "jarvis-local-api.ps1"
+
+    if (-not (Test-Path $localScript)) {
+        return @{
+            error = "Local API module not found"
+            provider = "local"
+        }
+    }
+
+    try {
+        $result = & $localScript -LocalEndpoint $Endpoint -UserInput $UserInput
+
+        if ($result.error) {
+            return $result
+        }
+
+        return @{
+            success = $true
+            provider = "local"
+            model = $result.model
+            action = $result.action
+            target = $result.target
+            parameters = $result.parameters
+            confidence = $result.confidence
+            reasoning = $result.reasoning
+        }
+    } catch {
+        return @{
+            error = $_.Exception.Message
+            provider = "local"
+            hint = "Ensure local LLM server is running at $Endpoint"
+        }
+    }
+}
+
 function Parse-IntentWithAI {
     param(
         [string]$UserInput,
         [string]$Provider = "openrouter",
         [string]$APIKey = "",
-        [string]$Model = "anthropic/claude-3.5-sonnet"
+        [string]$Model = "anthropic/claude-3.5-sonnet",
+        [string]$LocalEndpoint = "http://localhost:20128/v1"
     )
 
     if (-not $UserInput) {
@@ -260,6 +302,9 @@ function Parse-IntentWithAI {
     }
 
     switch ($Provider.ToLower()) {
+        "local" {
+            return Call-LocalAPI -UserInput $UserInput -Endpoint $LocalEndpoint
+        }
         "openrouter" {
             return Call-OpenRouterAPI -UserInput $UserInput -APIKey $APIKey -Model $Model
         }
@@ -275,7 +320,7 @@ function Parse-IntentWithAI {
         default {
             return @{
                 error = "Unknown provider: $Provider"
-                available = @("openrouter", "claude", "grok", "gemini")
+                available = @("local", "openrouter", "claude", "grok", "gemini")
             }
         }
     }
