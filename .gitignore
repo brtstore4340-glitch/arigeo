@@ -87,6 +87,8 @@
 !/tools/RAM*
 !/tools/consolidate-*.ps1
 !/tools/ingest-*.ps1
+!/tools/ai-models-*.json
+!/tools/ai-models-*.ps1
 !/tools/RUN_JARVIS_GUARD.cmd
 !/tools/jarvis-config.json
 !/tools/logs/
