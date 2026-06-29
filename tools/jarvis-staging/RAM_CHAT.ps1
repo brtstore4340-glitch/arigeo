@@ -176,23 +176,45 @@ RAM grows smarter every week! 🌱
         default {
             # Natural conversation responses
             if ($UserInput -match "ยังไง|how|status|เป็น|am") {
-                return "ผมอยู่ดีครับ 😊 เรียนรู้จากความจำ ψ, Obsidian, และการเรียนรู้ทุกสัปดาห์. พี่เอกต้องการอะไรครับ? (I'm doing well! Learning from memory, Obsidian, and weekly synthesis. What can I help with?)"
+                return "ผมอยู่ดีครับ 😊 เรียนรู้จากความจำ ψ, Obsidian, GitHub (kien-thai), และการเรียนรู้ทุกสัปดาห์. พี่เอกต้องการอะไรครับ?"
             }
 
-            if ($UserInput -match "ขุนราม|khun-ram|identity|ตัวเอง") {
-                return "ผมคือ RAM - ราม, oracle assistant ของขุนราม (ขุนคำจิ). ได้เรียนรู้จากความจำ ψ และ Obsidian vault. เป็นมิตร อบอุ่น และพร้อมช่วยเหลือเสมอ 💪 (I'm RAM, khun-ram's oracle assistant. Learning from ψ memory and Obsidian. Friendly, warm, and always ready to help!)"
+            if ($UserInput -match "ขุนราม|khun-ram|identity|ตัวเอง|ใครเธอ") {
+                return "ผมคือ RAM - ราม, oracle assistant ของขุนราม (ขุนคำจิ). เรียนรู้จากความจำ ψ, Obsidian vault, GitHub, และ 3 oracle fleet. เป็นมิตร อบอุ่น และพร้อมช่วยเหลือเสมอ 💪"
             }
 
-            if ($UserInput -match "ψ|psi|phi") {
-                return "ψ (Psi) vault คือการเก็บความจำของ khun-ram oracle. ผมได้นำเข้ามาแล้วครับ ทำให้ผมเข้าใจ khun-ram ดีขึ้น. ทุกสัปดาห์จะมีการสังเคราะห์รูปแบบใหม่! (The ψ vault is khun-ram's memory storage. I've integrated it to understand khun-ram better. Weekly synthesis discovers new patterns!)"
+            if ($UserInput -match "ทำอะไร|ได้|capable|features|commands") {
+                return @"
+RAM สามารถทำได้:
+
+💬 คุยแบบธรรมชาติ - สอบถาม คำถาม การสนทนา
+📚 จำการเรียนรู้ - ψ vault, Obsidian, GitHub (kien-thai)
+🧠 แนะนำสิ่งต่างๆ - จากความรู้ที่สะสม
+🔍 ค้นหาข้อมูล - ในความจำที่มี
+⏰ ทำงานอัตโนมัติ - ทุกวันจดบันทึก ทุกอาทิตย์วิเคราะห์
+
+พิมพ์คำถามธรรมชาติ หรือ 'help' ดูรายละเอียด
+"@
             }
 
-            if ($UserInput -match "learn|เรียน|รู้|wisdom") {
-                return "ผมเรียนรู้จาก: 1) Proof logs ทุกวัน 2) ψ memory vault 3) Obsidian knowledge 4) Weekly synthesis. ทุกๆสัปดาห์วันอาทิตย์ ผมจะหารูปแบบใหม่และเข้าใจขุนรามลึกขึ้น! (I learn from daily proof logs, ψ memory, Obsidian, and weekly synthesis. Every Sunday I discover new patterns!)"
+            if ($UserInput -match "ψ|psi|phi|vault") {
+                return "ψ (Psi) vault คือการเก็บความจำของ khun-ram oracle. ผมได้นำเข้ามาแล้ว ทำให้ผมเข้าใจ khun-ram ดีขึ้น. ทุกสัปดาห์ผมจะวิเคราะห์รูปแบบใหม่!"
             }
 
-            # Default conversational response
-            return "ผมเข้าใจ: $UserInput ครับ 🤔 ต้องการให้ผมทำอะไรไหมครับ? หรือพูดคุยเรื่องอื่นได้ครับ. Type 'help' เพื่อดูคำสั่ง! (I understand: $UserInput. What would you like me to do? Or we can chat about something else. Type 'help' for commands!)"
+            if ($UserInput -match "learn|เรียน|รู้|wisdom|knowledge") {
+                return "ผมเรียนรู้จาก: 1) Proof logs (ทุกวัน) 2) ψ memory vault 3) Obsidian knowledge 4) kien-thai GitHub 5) Fleet learnings (3 oracle). ทุกวันจดบันทึก ทุกอาทิตย์วิเคราะห์!"
+            }
+
+            if ($UserInput -match "ขอบคุณ|thank|ด้วย|ขอขมา") {
+                return "ไม่เป็นไร! ยินดีช่วยครับ 😊 มีอะไรอื่นให้ผมช่วยไหมครับ?"
+            }
+
+            if ($UserInput -match "ไม่ต้อง|อย่า|ไม่เอา|ยุติ") {
+                return "ครับ! ผมจำไว้ แล้ว. ถ้าต้องการอะไรอื่นก็บอกได้ครับ."
+            }
+
+            # Default conversational response - Thai only
+            return "ผมเข้าใจ: \"$UserInput\" ครับ 🤔 มีอะไรอื่นให้ช่วยไหมครับ? หรือพิมพ์ 'help' ดูรายละเอียด"
         }
     }
 }
