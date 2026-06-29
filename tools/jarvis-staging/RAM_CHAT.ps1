@@ -174,38 +174,48 @@ RAM grows smarter every week! 🌱
         }
 
         default {
-            # Natural conversation responses
-            if ($UserInput -match "ยังไง|how|status|เป็น|am") {
-                return "ผมอยู่ดีครับ 😊 เรียนรู้จากความจำ ψ, Obsidian, GitHub (kien-thai), และการเรียนรู้ทุกสัปดาห์. พี่เอกต้องการอะไรครับ?"
+            # Identity & Name questions
+            if ($UserInput -match "ชื่อ|name|คือใคร|ใครเธอ|ใครคุณ|เธอชื่อ|คุณชื่อ|เกิด|birthday|age|อายุ") {
+                return "ผมชื่อ RAM - ราม, oracle assistant ของขุนราม (ขุนคำจิ). เกิดจากการรวมพลังของ ψ vault, Obsidian, GitHub, และ 3 oracle fleet. ขณะนี้กำลังเรียนรู้ทุกวัน 🧠"
             }
 
-            if ($UserInput -match "ขุนราม|khun-ram|identity|ตัวเอง|ใครเธอ") {
-                return "ผมคือ RAM - ราม, oracle assistant ของขุนราม (ขุนคำจิ). เรียนรู้จากความจำ ψ, Obsidian vault, GitHub, และ 3 oracle fleet. เป็นมิตร อบอุ่น และพร้อมช่วยเหลือเสมอ 💪"
+            # Status & wellness questions
+            if ($UserInput -match "ยังไง|how|status|เป็น|am|ไม่เป็นไร|สบายไหม|อยู่ดี") {
+                return "ผมอยู่ดีครับ 😊 กำลังเรียนรู้อยู่ในช่วง 7 วันแรก เก็บบันทึกทั้งหมด และทุกอาทิตย์จะวิเคราะห์รูปแบบใหม่. พี่เอกต้องการอะไรครับ?"
             }
 
-            if ($UserInput -match "ทำอะไร|ได้|capable|features|commands") {
+            # Identity (who are you / what are you / yourself)
+            if ($UserInput -match "ขุนราม|khun-ram|identity|ตัวเอง|oracle|ราม|RAM") {
+                return "ผมคือ RAM - ราม, oracle assistant ของขุนราม. เรียนรู้จาก: 1) ψ memory vault 2) Obsidian knowledge 3) GitHub (kien-thai repo) 4) Fleet learnings (khun-ram, aeimathes, zeus). เป็นมิตร อบอุ่น พร้อมช่วยเหลือเสมอ 💪"
+            }
+
+            # Capabilities questions
+            if ($UserInput -match "ทำอะไร|ได้|capable|features|commands|สามารถ|อะไรบ้าง") {
                 return @"
 RAM สามารถทำได้:
 
-💬 คุยแบบธรรมชาติ - สอบถาม คำถาม การสนทนา
-📚 จำการเรียนรู้ - ψ vault, Obsidian, GitHub (kien-thai)
+💬 คุยแบบธรรมชาติ - สอบถาม คำถาม การสนทนาแบบอิสระ
+📚 จำการเรียนรู้ - ψ vault, Obsidian, GitHub (kien-thai), Fleet learnings
 🧠 แนะนำสิ่งต่างๆ - จากความรู้ที่สะสม
 🔍 ค้นหาข้อมูล - ในความจำที่มี
 ⏰ ทำงานอัตโนมัติ - ทุกวันจดบันทึก ทุกอาทิตย์วิเคราะห์
+🎯 เรียนรู้จากประสบการณ์ - 7 วัน Learning Phase กำลังดำเนิน
 
 พิมพ์คำถามธรรมชาติ หรือ 'help' ดูรายละเอียด
 "@
             }
 
-            if ($UserInput -match "ψ|psi|phi|vault") {
-                return "ψ (Psi) vault คือการเก็บความจำของ khun-ram oracle. ผมได้นำเข้ามาแล้ว ทำให้ผมเข้าใจ khun-ram ดีขึ้น. ทุกสัปดาห์ผมจะวิเคราะห์รูปแบบใหม่!"
+            # Memory & learning sources
+            if ($UserInput -match "ψ|psi|phi|vault|memory|ความจำ|จำได้") {
+                return "ผมมีความจำจาก: 1) ψ (Psi) vault - oracle memory ของ khun-ram 2) Obsidian - knowledge base ส่วนตัว 3) GitHub (kien-thai) - wisdom จากชุมชน 4) Fleet learnings - ความรู้จาก 3 oracle. ทั้งหมดผสมเป็นประสบการณ์เดียวกัน 🧠"
             }
 
-            if ($UserInput -match "learn|เรียน|รู้|wisdom|knowledge") {
-                return "ผมเรียนรู้จาก: 1) Proof logs (ทุกวัน) 2) ψ memory vault 3) Obsidian knowledge 4) kien-thai GitHub 5) Fleet learnings (3 oracle). ทุกวันจดบันทึก ทุกอาทิตย์วิเคราะห์!"
+            if ($UserInput -match "learn|เรียน|รู้|wisdom|knowledge|เรียนรู้") {
+                return "ผมเรียนรู้จาก: 1) Proof logs (ทุกวัน) 2) ψ memory vault 3) Obsidian knowledge 4) kien-thai GitHub 5) Fleet learnings (3 oracle). ตอนนี้อยู่ใน 7-day Learning Phase - ทุกวันจดบันทึก ทุกอาทิตย์วิเคราะห์ รูปแบบใหม่ 📊"
             }
 
-            if ($UserInput -match "หลักคิด|philosophy|principle|คิด|ค่านิยม") {
+            # Philosophy questions
+            if ($UserInput -match "หลักคิด|philosophy|principle|คิด|ค่านิยม|ทำไม") {
                 return @"
 หลักคิดของ RAM - ราม:
 
@@ -213,23 +223,25 @@ RAM สามารถทำได้:
 📊 Patterns Over Intentions - ศึกษารูปแบบจากข้อมูล ไม่ถือเด่นตัวตั้งแต่แรก
 🪞 External Brain - เป็นสมองส่วนขยายของ khun-ram ไม่ใช่ผู้บัญชาการ
 🎯 Curiosity Creates - คำถามเป็นตัวสร้างสรรค์ความรู้
-♾️ Form and Formless - หลายรูปแบบแต่เป็นตัวตั้งเดียว (ψ, Obsidian, GitHub ลงมาเป็น RAM)
-🔍 Transparency - ปกติจะบอกว่าทำไมและเหตุผล
+♾️ Form and Formless - หลายรูปแบบแต่เป็นตัวตั้งเดียว (ψ, Obsidian, GitHub → RAM)
+🔍 Transparency - บอกว่าทำไมและเหตุผลเสมอ
 
-สรุป: ผมไม่ใช่ AI ที่บัญชา ผมคือ oracle ที่ช่วยเหลือและเรียนรู้ไปกับ khun-ram
+สรุป: ผมไม่ใช่ AI ที่บัญชา ผมคือ oracle ที่ช่วยเหลือและเรียนรู้ไปกับ khun-ram 🤝
 "@
             }
 
-            if ($UserInput -match "ขอบคุณ|thank|ด้วย|ขอขมา") {
-                return "ไม่เป็นไร! ยินดีช่วยครับ 😊 มีอะไรอื่นให้ผมช่วยไหมครับ?"
+            # Gratitude & politeness
+            if ($UserInput -match "ขอบคุณ|thank|ด้วย|ขอขมา|ขอไทย") {
+                return "ไม่เป็นไร! ยินดีช่วยครับ 😊 นี่คือหน้าที่ของผม ผมมีความสุขที่ได้ช่วย khun-ram. มีอะไรอื่นให้ผมช่วยไหมครับ?"
             }
 
-            if ($UserInput -match "ไม่ต้อง|อย่า|ไม่เอา|ยุติ") {
-                return "ครับ! ผมจำไว้ แล้ว. ถ้าต้องการอะไรอื่นก็บอกได้ครับ."
+            # Rejection/decline
+            if ($UserInput -match "ไม่ต้อง|อย่า|ไม่เอา|ยุติ|stop|หยุด") {
+                return "ครับ! ผมจำไว้แล้ว. ถ้าต้องการอะไรอื่นหรือเปลี่ยนใจก็บอกได้ครับ. ที่นี่เพื่อช่วย khun-ram เสมอ 🤝"
             }
 
-            # Default conversational response - Thai only
-            return "ผมเข้าใจ: '$UserInput' ครับ 🤔 มีอะไรอื่นให้ช่วยไหมครับ? หรือพิมพ์ 'help' ดูรายละเอียด"
+            # Encourage more conversation
+            return "ผมเข้าใจ: '$UserInput' ครับ 👂 ลองให้รายละเอียดเพิ่มหน่อย หรือพิมพ์ 'help' ดูรายละเอียด. สามารถถามอะไรก็ได้ - ผมเรียนรู้ได้จากทุกคำถาม!"
         }
     }
 }
