@@ -86,6 +86,27 @@ function Write-Log {
     }
 }
 
+function Parse-DateWithThaiYear {
+    param([string]$DateString)
+
+    try {
+        # Handle Thai Buddhist year (25xx) → Gregorian (20xx)
+        # Pattern: "06/30/2569" or "2569-06-30T05:50:28"
+        if ($DateString -match '25\d{2}') {
+            $thaiYear = $DateString -replace '.*?(25\d{2}).*', '$1'
+            $gregorianYear = [int]$thaiYear - 543
+            $correctedDate = $DateString -replace "25\d{2}", $gregorianYear
+            return [datetime]::Parse($correctedDate)
+        } else {
+            return [datetime]::Parse($DateString)
+        }
+    } catch {
+        # Fallback: return current date - 1 day if parse fails
+        Write-Log "⚠️  Could not parse date: $DateString" "WARNING"
+        return (Get-Date).AddDays(-1)
+    }
+}
+
 function Get-RelevanceScore {
     param([string]$Content, [string]$Query, [float]$RecencyScore)
 
@@ -151,7 +172,7 @@ function Find-MemoryEntries {
             foreach ($entry in $entries) {
                 # Check TTL
                 if ($entry.timestamp) {
-                    $entryDate = [datetime]::Parse($entry.timestamp)
+                    $entryDate = Parse-DateWithThaiYear -DateString $entry.timestamp
                     $daysOld = [math]::Ceiling(((Get-Date) - $entryDate).TotalDays)
 
                     if ($daysOld -gt $categoryConfig.ttl_days) {
