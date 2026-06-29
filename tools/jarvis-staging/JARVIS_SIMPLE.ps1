@@ -40,16 +40,16 @@ $KnownCommands = @{
 # ============================================================================
 
 function Parse-SimpleIntent {
-    param([string]$Input)
+    param([string]$CommandText)
 
-    $input = $Input.Trim().ToLower()
+    $cmd = $CommandText.Trim().ToLower()
 
     # Strip "jarvis>" prefix if user accidentally types it
-    if ($input.StartsWith("jarvis>")) {
-        $input = $input.Substring(7).Trim()
+    if ($cmd.StartsWith("jarvis>")) {
+        $cmd = $cmd.Substring(7).Trim()
     }
 
-    $parts = $input -split ' ', 2
+    $parts = $cmd -split ' ', 2
 
     # Check known commands
     foreach ($cmd in $KnownCommands.Keys) {
@@ -179,7 +179,7 @@ function Start-InteractiveLoop {
         }
 
         # Parse intent (simple, no parameter passing issues)
-        $intent = Parse-SimpleIntent -Input $userInput
+        $intent = Parse-SimpleIntent -CommandText $userInput
         $session.commands++
 
         Write-Host ""
