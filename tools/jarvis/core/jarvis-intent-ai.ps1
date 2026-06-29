@@ -62,7 +62,7 @@ function Call-OpenRouterAPI {
     param(
         [string]$UserInput,
         [string]$APIKey,
-        [string]$Model = "anthropic/claude-3.5-sonnet"
+        [string]$Model = "anthropic/claude-3-5-sonnet"
     )
 
     if (-not $APIKey) {
