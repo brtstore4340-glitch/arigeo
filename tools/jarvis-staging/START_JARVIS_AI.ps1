@@ -106,12 +106,15 @@ function Start-JarvisLoop {
 
         # Execute core logic with AI
         try {
-            & $coreScript `
-                -Command $userInput `
-                -Mode $Mode `
-                -IntentProvider $IntentProvider `
-                -DryRun:$DryRun `
-                -UseAI:$UseAI
+            # Use splatting to avoid parameter binding issues
+            $params = @{
+                Command = $userInput
+                Mode = $Mode
+                IntentProvider = $IntentProvider
+                DryRun = $DryRun
+                UseAI = $UseAI
+            }
+            & $coreScript @params
         } catch {
             Write-Error "Execution error: $($_.Exception.Message)"
         }
