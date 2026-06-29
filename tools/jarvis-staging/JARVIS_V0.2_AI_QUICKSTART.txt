@@ -1,0 +1,197 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║               JARVIS LOCAL v0.2.0-ai - AI UPGRADE                       ║
+║                                                                          ║
+║            From Regex Patterns to Intelligent Intent Parser             ║
+║                                                                          ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+WHAT'S NEW
+════════════════════════════════════════════════════════════════════════
+
+✓ AI-Powered Intent Understanding (Claude, Grok, or Gemini)
+✓ Natural Language Command Support
+✓ Thai Language Support (with Claude)
+✓ Confidence Scoring for Intent Parsing
+✓ Automatic Fallback to Regex if API Fails
+✓ 100% Backward Compatible with v0.1
+
+QUICK START (5 MINUTES)
+════════════════════════════════════════════════════════════════════════
+
+STEP 1: Get Free API Key
+─────────────────────────
+
+  OPTION A: Claude (Best for Thai)
+    → Go to: https://console.anthropic.com
+    → Create API Key
+    → Copy key like: sk-ant-v0-...
+
+  OPTION B: Grok (Fastest, Cheapest)
+    → Go to: https://console.x.ai
+    → Create API Key
+    → Copy key like: xai-...
+
+  OPTION C: Gemini (Free Tier)
+    → Go to: https://ai.google.dev
+    → Get API Key (no credit card)
+    → Copy key like: AIza...
+
+STEP 2: Set Environment Variable
+─────────────────────────────────
+
+  In PowerShell:
+
+  For Claude:
+    $env:ANTHROPIC_API_KEY = "sk-ant-v0-..."
+
+  For Grok:
+    $env:GROK_API_KEY = "xai-..."
+
+  For Gemini:
+    $env:GOOGLE_AI_KEY = "AIza..."
+
+STEP 3: Run Jarvis with AI
+──────────────────────────
+
+  cd "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\jarvis-staging"
+
+  .\START_JARVIS_AI.ps1 -Command "help"
+  .\START_JARVIS_AI.ps1 -Command "open chrome"
+  .\START_JARVIS_AI.ps1 -Command "take a screenshot"
+
+STEP 4: Try Natural Language
+────────────────────────────
+
+  These now all work (AI understands intent!):
+
+  .\START_JARVIS_AI.ps1 -Command "can you open the chrome browser?"
+  .\START_JARVIS_AI.ps1 -Command "please take a screenshot for me"
+  .\START_JARVIS_AI.ps1 -Command "search for thai language resources"
+
+STEP 5: Try Thai (with Claude)
+──────────────────────────────
+
+  .\START_JARVIS_AI.ps1 -Command "ถ่ายภาพหน้าจอ" -IntentProvider claude
+  .\START_JARVIS_AI.ps1 -Command "เปิด notepad" -IntentProvider claude
+  .\START_JARVIS_AI.ps1 -Command "ค้นหาข้อมูล" -IntentProvider claude
+
+FILES CREATED
+════════════════════════════════════════════════════════════════════════
+
+  NEW MODULES:
+  ✓ jarvis-intent-ai.ps1
+    - AI intent parser (Claude, Grok, Gemini)
+    - Handles natural language
+    - Returns action, target, parameters, confidence
+
+  ✓ jarvis-core-ai-integrated.ps1
+    - Updated core with AI support
+    - Fallback to regex if API fails
+    - Same risk gate and execution pipeline
+
+  ✓ START_JARVIS_AI.ps1
+    - New entry point with AI support
+    - Interactive mode
+    - Multiple provider support
+
+  DOCUMENTATION:
+  ✓ AI_UPGRADE_GUIDE.md (detailed guide)
+  ✓ JARVIS_V0.2_AI_QUICKSTART.txt (this file)
+
+FEATURES
+════════════════════════════════════════════════════════════════════════
+
+BEFORE (v0.1 - Regex):
+  Input: "open chrome"      → ✓ Works
+  Input: "open the chrome"  → ✗ Doesn't match regex
+  Input: "ถ่ายภาพ"          → ✗ Thai not supported
+
+AFTER (v0.2 - AI):
+  Input: "open chrome"      → ✓ Works (action=open, target=chrome)
+  Input: "open the chrome"  → ✓ Works (AI understands!)
+  Input: "ถ่ายภาพ"          → ✓ Works (Thai support)
+
+CONFIDENCE SCORING:
+  High (0.95):  "take a screenshot"
+  Medium (0.75): "can you please take a screenshot?"
+  Low (0.50):   "maybe i need a screenshot but not sure"
+
+INTELLIGENT FALLBACK:
+  ✓ API fails → Auto-fallback to regex
+  ✓ No API key → Use regex
+  ✓ Network error → Use regex
+  ✓ Rate limited → Use regex
+
+COST
+════════════════════════════════════════════════════════════════════════
+
+VERY AFFORDABLE for personal use:
+
+  100 commands/day:
+    Claude:  ~$0.09/month
+    Grok:    ~$0.06/month
+    Gemini:  FREE
+
+  1000 commands/day:
+    Claude:  ~$0.90/month
+    Grok:    ~$0.60/month
+    Gemini:  FREE
+
+SWITCHING PROVIDERS
+════════════════════════════════════════════════════════════════════════
+
+  # Use Claude (default, best Thai)
+  .\START_JARVIS_AI.ps1 -Command "help" -IntentProvider claude
+
+  # Use Grok (fastest)
+  .\START_JARVIS_AI.ps1 -Command "help" -IntentProvider grok
+
+  # Use Gemini (free tier)
+  .\START_JARVIS_AI.ps1 -Command "help" -IntentProvider gemini
+
+  # Disable AI, use regex only
+  .\START_JARVIS_AI.ps1 -Command "help" -UseAI:$false
+
+TROUBLESHOOTING
+════════════════════════════════════════════════════════════════════════
+
+ERROR: API Key not found
+  FIX: $env:ANTHROPIC_API_KEY = "your-key"
+
+ERROR: AI parser fails, falling back to regex
+  EXPECTED: This is normal if API is down or rate-limited
+  Try: Use different provider or retry later
+
+ERROR: Thai command not understood
+  FIX: Use Claude (best Thai support)
+  .\START_JARVIS_AI.ps1 -Command "..." -IntentProvider claude
+
+SLOW RESPONSES
+  TRY: Switch to faster provider
+  .\START_JARVIS_AI.ps1 -Command "..." -IntentProvider grok
+
+DOCUMENTATION
+════════════════════════════════════════════════════════════════════════
+
+  Full Guide:        AI_UPGRADE_GUIDE.md
+  Code Reference:    jarvis-intent-ai.ps1 (comments)
+  Prompt Design:     jarvis-intent-ai.ps1:$AIConfig.SystemPrompt
+
+NEXT STEPS
+════════════════════════════════════════════════════════════════════════
+
+  1. Get an API key (5 min) - Pick Claude, Grok, or Gemini
+  2. Set environment variable (1 min)
+  3. Run first command (1 min)
+  4. Try natural language (5 min)
+  5. Try Thai language (optional)
+
+THAT'S IT! 🚀
+
+You now have an AI-powered assistant that understands context, handles
+natural language, and works with Thai commands.
+
+═══════════════════════════════════════════════════════════════════════
+
+Questions? Check: AI_UPGRADE_GUIDE.md
