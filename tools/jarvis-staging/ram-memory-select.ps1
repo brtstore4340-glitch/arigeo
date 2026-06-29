@@ -89,21 +89,46 @@ function Write-Log {
 function Parse-DateWithThaiYear {
     param([string]$DateString)
 
-    try {
-        # Handle Thai Buddhist year (25xx) → Gregorian (20xx)
-        # Pattern: "06/30/2569" or "2569-06-30T05:50:28"
-        if ($DateString -match '25\d{2}') {
-            $thaiYear = $DateString -replace '.*?(25\d{2}).*', '$1'
-            $gregorianYear = [int]$thaiYear - 543
-            $correctedDate = $DateString -replace "25\d{2}", $gregorianYear
-            return [datetime]::Parse($correctedDate)
-        } else {
-            return [datetime]::Parse($DateString)
+    # Default fallback
+    $fallbackDate = (Get-Date).AddDays(-1)
+
+    # Handle empty/null
+    if ([string]::IsNullOrWhiteSpace($DateString)) {
+        return $fallbackDate
+    }
+
+    # Convert Thai Buddhist year (25xx) to Gregorian (20xx)
+    # Patterns: "06/30/2569", "06/30/2569 06:17:36", "2569-06-30T..."
+    $correctedDate = $DateString
+
+    if ($DateString -match '25\d{2}') {
+        $thaiYear = [int]($DateString -replace '.*?(25\d{2}).*', '$1')
+        $gregorianYear = $thaiYear - 543
+        $correctedDate = $DateString -replace '25\d{2}', $gregorianYear
+    }
+
+    # Try multiple parsing strategies
+    $parseResult = $null
+    $parseFormats = @(
+        'M/d/yyyy H:mm:ss',      # 6/30/2026 06:17:36
+        'MM/dd/yyyy HH:mm:ss',   # 06/30/2026 06:17:36
+        'M/d/yyyy',              # 6/30/2026
+        'MM/dd/yyyy',            # 06/30/2026
+        'yyyy-MM-ddTHH:mm:ss',   # 2026-06-30T05:50:28
+        'yyyy-MM-ddTHH:mm:ss.fffZ' # 2026-06-30T05:50:28.123Z
+    )
+
+    foreach ($format in $parseFormats) {
+        if ([datetime]::TryParseExact($correctedDate, $format, [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$parseResult)) {
+            return $parseResult
         }
+    }
+
+    # Final fallback: try generic parse
+    try {
+        return [datetime]::Parse($correctedDate)
     } catch {
-        # Fallback: return current date - 1 day if parse fails
-        Write-Log "⚠️  Could not parse date: $DateString" "WARNING"
-        return (Get-Date).AddDays(-1)
+        return $fallbackDate
     }
 }
 
