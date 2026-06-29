@@ -214,7 +214,7 @@ RAM สามารถทำได้:
             }
 
             # Default conversational response - Thai only
-            return "ผมเข้าใจ: \"$UserInput\" ครับ 🤔 มีอะไรอื่นให้ช่วยไหมครับ? หรือพิมพ์ 'help' ดูรายละเอียด"
+            return "ผมเข้าใจ: '$UserInput' ครับ 🤔 มีอะไรอื่นให้ช่วยไหมครับ? หรือพิมพ์ 'help' ดูรายละเอียด"
         }
     }
 }
