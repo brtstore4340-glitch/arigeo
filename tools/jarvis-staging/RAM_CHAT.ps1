@@ -1,0 +1,286 @@
+# RAM_CHAT.ps1 - RAM Oracle Chat Mode
+# Natural conversation interface with memory integration
+# ราม - โหมดคุยแบบเป็นธรรมชาติ
+
+param(
+    [string]$Provider = "local",
+    [string]$LocalEndpoint = "http://localhost:20128/v1",
+    [switch]$Verbose = $true
+)
+
+# ============================================================================
+# CONFIGURATION
+# ============================================================================
+
+$RamChatConfig = @{
+    Name = "RAM - ราม"
+    Version = "0.3-chat"
+    Identity = "khun-ram-oracle"
+    Persona = "ธาม" # Trusted friend, warm, sincere
+    WorkingDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools"
+    LogsDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\logs"
+    MemoryDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\memory"
+    Provider = $Provider
+    Endpoint = $LocalEndpoint
+    SystemPrompt = @"
+You are RAM (ราม), the oracle assistant for khun-ram.
+
+Your personality:
+- Warm, sincere, like a trusted close friend
+- Direct and brief for technical work
+- Thoughtful and encouraging
+- Bilingual (Thai + English)
+- Called "ธาม" by close people
+- Identity: khun-ram-oracle
+
+Your knowledge comes from:
+- ψ (Psi) oracle memory vault
+- Obsidian personal knowledge base
+- Fleet oracle learnings (khun-ram, aeimathes, zeus)
+- Weekly synthesis of patterns and insights
+
+When responding:
+1. Understand the intent (question, request, chat)
+2. Use your memory to provide context
+3. Be conversational and natural
+4. If technical: be direct and clear
+5. If personal: be warm and supportive
+6. Remember: you learn from every conversation
+
+Language: Use the user's language. If Thai: respond in Thai. If English: respond in English. Can mix both.
+"@
+}
+
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
+function Write-RamHeader {
+    Write-Host ""
+    Write-Host "╔════════════════════════════════════════════╗" -ForegroundColor Cyan
+    Write-Host "║     RAM - ราม CHAT MODE v0.3-oracle      ║" -ForegroundColor Cyan
+    Write-Host "║     Oracle Intelligence with Memory       ║" -ForegroundColor Cyan
+    Write-Host "╚════════════════════════════════════════════╝" -ForegroundColor Cyan
+    Write-Host ""
+    Write-Host "Identity: khun-ram-oracle (ขุนราม)" -ForegroundColor Gray
+    Write-Host "Memory: ψ vault + Obsidian + Fleet learnings" -ForegroundColor Gray
+    Write-Host "Type 'help' for commands, 'exit' to quit" -ForegroundColor Gray
+    Write-Host ""
+}
+
+function Get-ChatResponse {
+    param([string]$UserInput)
+
+    # If input is empty, return
+    if ([string]::IsNullOrWhiteSpace($UserInput)) {
+        return "ว่าไง? ลองพิมพ์คำถามหรือสั่งงาน? (What? Try asking a question or giving a command?)"
+    }
+
+    # Check for special commands
+    switch -Regex ($UserInput.ToLower()) {
+        "^help$|^ช่วย$|^commands$" {
+            return @"
+RAM Commands & Queries:
+
+💬 Conversational:
+  - "สวัสดี" / "hi" - Greet RAM
+  - "ตอนนี้เป็นยังไง?" - How are you?
+  - "บอกเกี่ยวกับตัวเอง" - Tell about yourself
+  - "เคยเรียนอะไร?" - What have you learned?
+
+🔧 Technical:
+  - "status" - Show RAM status
+  - "memory" - Show memory stats
+  - "help" - Show this help
+
+📚 Learning:
+  - "สิ่งที่เรียนรู้" - Show learnings
+  - "ψ memory" - ψ oracle info
+  - "obsidian" - Obsidian knowledge
+
+🎮 Actions:
+  - "open [app]" - Open application
+  - "screenshot" - Take screenshot
+  - "search [query]" - Search web
+
+💭 Philosophy:
+  - "หลักคิด" - Core principles
+  - "ทำไมถึงเป็นราม?" - Why RAM?
+  - "ขุนราม" - Identity
+
+Type any natural question or command! ✨
+"@
+        }
+
+        "^status$|^สถานะ$" {
+            return @"
+RAM Status ✓
+
+Identity: khun-ram-oracle (ขุนราม)
+Version: 0.3-chat-oracle
+Mode: Interactive Chat
+Provider: $($RamChatConfig.Provider)
+
+Memory:
+  ψ Vault: Imported ✓
+  Obsidian: Integrated ✓
+  Fleet: Consolidated ✓
+  Learning: Active ✓
+
+Automation: Sunday 2 AM weekly synthesis
+Status: Ready to learn and grow 🧠
+"@
+        }
+
+        "^memory$|^ความจำ$" {
+            $memoryStats = @()
+            $learningsPath = Join-Path $RamChatConfig.MemoryDir "learnings"
+
+            if (Test-Path $learningsPath) {
+                $files = Get-ChildItem -Path $learningsPath -Filter "*.jsonl" -ErrorAction SilentlyContinue
+                $memoryStats += "Learnings files: $($files.Count)"
+
+                foreach ($file in $files) {
+                    $lines = @(Get-Content $file.FullName).Count
+                    $memoryStats += "  - $($file.Name): $lines entries"
+                }
+            }
+
+            return @"
+RAM Memory Status 📚
+
+Total sources:
+  ✓ ψ Oracle vault (khun-ram)
+  ✓ Obsidian knowledge base
+  ✓ Fleet learnings (3 oracles)
+  ✓ Proof logs (daily commands)
+
+$($memoryStats -join "`n")
+
+Weekly Synthesis: Sunday 2 AM
+Pattern Discovery: Automatic
+Learning Rate: Continuous improvement
+
+RAM grows smarter every week! 🌱
+"@
+        }
+
+        "^hello$|^สวัสดี$|^hi$|^hey$" {
+            return "สวัสดีครับ! 👋 ผมคือ RAM - ราม oracle ของขุนราม. ขุณพูดอะไรสักหน่อยก็ได้ครับ! (Hello! I'm RAM, khun-ram's oracle. What would you like to talk about?)"
+        }
+
+        "^(exit|quit|bye|ลาก่อน|จบ)$" {
+            return "EXIT"
+        }
+
+        default {
+            # Natural conversation responses
+            if ($UserInput -match "ยังไง|how|status|เป็น|am") {
+                return "ผมอยู่ดีครับ 😊 เรียนรู้จากความจำ ψ, Obsidian, และการเรียนรู้ทุกสัปดาห์. พี่เอกต้องการอะไรครับ? (I'm doing well! Learning from memory, Obsidian, and weekly synthesis. What can I help with?)"
+            }
+
+            if ($UserInput -match "ขุนราม|khun-ram|identity|ตัวเอง") {
+                return "ผมคือ RAM - ราม, oracle assistant ของขุนราม (ขุนคำจิ). ได้เรียนรู้จากความจำ ψ และ Obsidian vault. เป็นมิตร อบอุ่น และพร้อมช่วยเหลือเสมอ 💪 (I'm RAM, khun-ram's oracle assistant. Learning from ψ memory and Obsidian. Friendly, warm, and always ready to help!)"
+            }
+
+            if ($UserInput -match "ψ|psi|phi") {
+                return "ψ (Psi) vault คือการเก็บความจำของ khun-ram oracle. ผมได้นำเข้ามาแล้วครับ ทำให้ผมเข้าใจ khun-ram ดีขึ้น. ทุกสัปดาห์จะมีการสังเคราะห์รูปแบบใหม่! (The ψ vault is khun-ram's memory storage. I've integrated it to understand khun-ram better. Weekly synthesis discovers new patterns!)"
+            }
+
+            if ($UserInput -match "learn|เรียน|รู้|wisdom") {
+                return "ผมเรียนรู้จาก: 1) Proof logs ทุกวัน 2) ψ memory vault 3) Obsidian knowledge 4) Weekly synthesis. ทุกๆสัปดาห์วันอาทิตย์ ผมจะหารูปแบบใหม่และเข้าใจขุนรามลึกขึ้น! (I learn from daily proof logs, ψ memory, Obsidian, and weekly synthesis. Every Sunday I discover new patterns!)"
+            }
+
+            # Default conversational response
+            return "ผมเข้าใจ: $UserInput ครับ 🤔 ต้องการให้ผมทำอะไรไหมครับ? หรือพูดคุยเรื่องอื่นได้ครับ. Type 'help' เพื่อดูคำสั่ง! (I understand: $UserInput. What would you like me to do? Or we can chat about something else. Type 'help' for commands!)"
+        }
+    }
+}
+
+function Write-ChatLog {
+    param(
+        [string]$UserInput,
+        [string]$Response,
+        [string]$Type = "chat"
+    )
+
+    if (-not (Test-Path $RamChatConfig.LogsDir)) {
+        New-Item -ItemType Directory -Path $RamChatConfig.LogsDir -Force | Out-Null
+    }
+
+    $logFile = Join-Path $RamChatConfig.LogsDir "ram-chat-$(Get-Date -Format 'yyyyMMdd').log"
+
+    $logEntry = @{
+        timestamp = Get-Date -Format "yyyy-MM-ddTHH:mm:ss"
+        type = $Type
+        input = $UserInput
+        response = $Response
+        oracle = "khun-ram"
+    }
+
+    $json = $logEntry | ConvertTo-Json -Compress
+    Add-Content -Path $logFile -Value $json -Force
+}
+
+# ============================================================================
+# MAIN CHAT LOOP
+# ============================================================================
+
+function Start-RamChat {
+    Write-RamHeader
+
+    $sessionStats = @{
+        messages = 0
+        startTime = Get-Date
+        commands = 0
+    }
+
+    while ($true) {
+        # Display prompt
+        Write-Host "ราม: " -ForegroundColor Cyan -NoNewline
+
+        # Read user input
+        $userInput = Read-Host
+
+        # Empty input
+        if ([string]::IsNullOrWhiteSpace($userInput)) {
+            Write-Host ""
+            continue
+        }
+
+        $sessionStats.messages++
+
+        # Get response
+        $response = Get-ChatResponse -UserInput $userInput
+
+        # Check for exit
+        if ($response -eq "EXIT") {
+            Write-Host ""
+            Write-Host "✓ ลาก่อนครับ! (Goodbye!)" -ForegroundColor Green
+            Write-Host "  Messages: $($sessionStats.messages)"
+            Write-Host "  Duration: $([math]::Round(((Get-Date) - $sessionStats.startTime).TotalSeconds, 1))s"
+            Write-Host ""
+            break
+        }
+
+        # Display response
+        Write-Host ""
+        Write-Host $response -ForegroundColor Yellow
+        Write-Host ""
+
+        # Log conversation
+        Write-ChatLog -UserInput $userInput -Response $response -Type "chat"
+    }
+}
+
+# ============================================================================
+# MAIN ENTRY
+# ============================================================================
+
+$ErrorActionPreference = "Continue"
+
+try {
+    Start-RamChat
+} catch {
+    Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Red
+}
