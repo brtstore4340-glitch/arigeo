@@ -85,6 +85,7 @@
 !/tools/.gitkeep
 !/tools/JARVIS*
 !/tools/RAM*
+!/tools/START_RAM_LEARNING_PHASE.ps1
 !/tools/consolidate-*.ps1
 !/tools/ingest-*.ps1
 !/tools/ai-models-*.json
