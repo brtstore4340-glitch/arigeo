@@ -43,6 +43,12 @@ function Parse-SimpleIntent {
     param([string]$Input)
 
     $input = $Input.Trim().ToLower()
+
+    # Strip "jarvis>" prefix if user accidentally types it
+    if ($input.StartsWith("jarvis>")) {
+        $input = $input.Substring(7).Trim()
+    }
+
     $parts = $input -split ' ', 2
 
     # Check known commands
