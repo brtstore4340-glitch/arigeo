@@ -1,0 +1,7 @@
+{
+  "day": 2,
+  "date": "2026-07-01",
+  "theme": "Specialist Testing",
+  "tasks": ["[ ] Use Supabase Specialist (if DB task)", "[ ] Use Git Specialist (if git task)", "[ ] Use Vercel Specialist (if deployment task)", "[ ] Log specialist responses", "[ ] Compare specialist vs core performance"],
+  "focus": "Test specialist agents, measure accuracy"
+}

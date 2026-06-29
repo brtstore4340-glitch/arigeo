@@ -1,0 +1,13 @@
+{
+  "daily_ingest": true,
+  "track_proof_logs": true,
+  "monitor_memory_growth": true,
+  "synthesis_schedule": "Sunday 2:00 AM",
+  "learning_objectives": [
+    "Discover command patterns",
+    "Optimize specialist routing",
+    "Identify performance bottlenecks",
+    "Learn user preferences",
+    "Build confidence in recommendations"
+  ]
+}
