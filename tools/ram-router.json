@@ -1,0 +1,261 @@
+{
+  "version": "1.0",
+  "description": "RAM Deterministic Command Router - Layer 1 (No LLM needed)",
+  "metadata": {
+    "created": "2026-06-30",
+    "author": "Tham (ธาม) Blueprint",
+    "philosophy": "Rule first, local first, proof first",
+    "principle": "0 token for known commands, <1k token for intent parse"
+  },
+  "commands": {
+    "status": {
+      "intent": "system.status",
+      "description": "Show RAM status",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Show-RamStatus",
+      "executor_args": {},
+      "requires_llm": false,
+      "aliases": ["สถานะ", "stat"]
+    },
+    "help": {
+      "intent": "system.help",
+      "description": "Show help",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Show-RamHelp",
+      "executor_args": {},
+      "requires_llm": false,
+      "aliases": ["ช่วย", "?"]
+    },
+    "last": {
+      "intent": "system.last",
+      "description": "Show last execution",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Show-RamLast",
+      "executor_args": {},
+      "requires_llm": false,
+      "aliases": ["ล่าสุด", "last result"]
+    },
+    "diagnose": {
+      "intent": "system.diagnose",
+      "description": "Diagnose last error",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Summarize-LastError",
+      "executor_args": {},
+      "requires_llm": false,
+      "aliases": ["แก้ไข", "error", "ผิด"]
+    },
+    "open_notepad": {
+      "patterns": ["open notepad", "เปิด notepad", "notepad"],
+      "intent": "app.open",
+      "description": "Open Notepad",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Open-App",
+      "executor_args": { "app_name": "notepad" },
+      "requires_llm": false
+    },
+    "open_vscode": {
+      "patterns": ["open code", "open vscode", "เปิด vscode", "vscode"],
+      "intent": "app.open",
+      "description": "Open VS Code",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Open-App",
+      "executor_args": { "app_name": "code" },
+      "requires_llm": false
+    },
+    "open_explorer": {
+      "patterns": ["open explorer", "เปิด explorer", "open folder"],
+      "intent": "app.open",
+      "description": "Open File Explorer",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Open-App",
+      "executor_args": { "app_name": "explorer" },
+      "requires_llm": false
+    },
+    "screenshot": {
+      "patterns": ["screenshot", "take screenshot", "ถ่ายหน้าจอ"],
+      "intent": "system.screenshot",
+      "description": "Take screenshot",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Take-Screenshot",
+      "executor_args": {},
+      "requires_llm": false
+    },
+    "check_localhost": {
+      "patterns": ["check localhost", "localhost", "check localhost 3005", "check port"],
+      "intent": "web.localhost.check",
+      "description": "Check localhost port",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Check-LocalhostPort",
+      "executor_args": { "default_port": 3005 },
+      "requires_llm": false
+    },
+    "git_status": {
+      "patterns": ["git status", "git check", "check git"],
+      "intent": "git.status",
+      "description": "Show git status",
+      "risk": "safe",
+      "tokens": 0,
+      "executor": "Run-GitStatus",
+      "executor_args": {},
+      "requires_llm": false
+    },
+    "git_diagnose": {
+      "patterns": ["git diagnose", "git error", "git fix", "แก้ git"],
+      "intent": "git.diagnose",
+      "description": "Diagnose git issues",
+      "risk": "medium",
+      "tokens": 500,
+      "executor": "Diagnose-GitIssue",
+      "executor_args": {},
+      "requires_llm": true,
+      "llm_model": "cheap"
+    },
+    "backup_run": {
+      "patterns": ["run backup", "backup now", "ทำ backup"],
+      "intent": "system.backup",
+      "description": "Run backup",
+      "risk": "medium",
+      "tokens": 0,
+      "executor": "Run-Backup",
+      "executor_args": {},
+      "requires_llm": false
+    },
+    "pdf_convert": {
+      "patterns": ["convert pdf", "pdf to", "แปลง pdf"],
+      "intent": "file.pdf.convert",
+      "description": "Convert PDF",
+      "risk": "medium",
+      "tokens": 200,
+      "executor": "Convert-PDF",
+      "executor_args": {},
+      "requires_llm": false
+    },
+    "check_salary_certificate": {
+      "patterns": ["check salary", "salary certificate", "salary-cert", "เช็ค salary"],
+      "intent": "project.salary-certificate.status",
+      "description": "Check salary certificate project",
+      "risk": "safe",
+      "tokens": 300,
+      "executor": "Check-SalaryCertificate",
+      "executor_args": { "project_path": "D:\\01 Main Work\\Boots\\Agentic AI\\salary-certificate-request" },
+      "requires_llm": false
+    },
+    "check_pharmacy": {
+      "patterns": ["check pharmacy", "pharmacy expiry", "pems", "ระบบเภสัช"],
+      "intent": "project.pharmacy-expiry.status",
+      "description": "Check pharmacy expiry project",
+      "risk": "safe",
+      "tokens": 300,
+      "executor": "Check-PharmacyProject",
+      "executor_args": { "project_path": "D:\\01 Main Work\\Boots\\Agentic AI\\pharmacy-expiry-system" },
+      "requires_llm": false
+    },
+    "check_oos": {
+      "patterns": ["check oos", "oos converter", "pdf converter"],
+      "intent": "project.oos-converter.status",
+      "description": "Check OOS PDF converter",
+      "risk": "safe",
+      "tokens": 300,
+      "executor": "Check-OOSConverter",
+      "executor_args": {},
+      "requires_llm": false
+    },
+    "ask_simple": {
+      "patterns": ["ask", "ถาม", "help me", "ช่วยด้วย"],
+      "intent": "chat.question",
+      "description": "Ask a question",
+      "risk": "safe",
+      "tokens": 2000,
+      "executor": "Ask-Intent",
+      "executor_args": {},
+      "requires_llm": true,
+      "llm_model": "balanced"
+    },
+    "unknown": {
+      "intent": "unknown",
+      "description": "Unknown command - route to intent parser",
+      "risk": "safe",
+      "tokens": 500,
+      "executor": "Parse-Intent",
+      "executor_args": {},
+      "requires_llm": true,
+      "llm_model": "cheap"
+    }
+  },
+  "model_selection": {
+    "cheap": {
+      "models": ["Qwen 2.5 1.5B", "DeepSeek-Coder", "Claude 3.5 Haiku"],
+      "use_case": ["intent parsing", "simple classification", "short summary"],
+      "max_tokens": 1000,
+      "priority": ["local", "openrouter/cheap"]
+    },
+    "balanced": {
+      "models": ["Mistral 7B", "Claude 3.5 Sonnet", "GPT-4 mini"],
+      "use_case": ["conversation", "debugging", "script review"],
+      "max_tokens": 4000,
+      "priority": ["openrouter/balanced", "claude-sonnet"]
+    },
+    "reasoning": {
+      "models": ["Claude 3.7 Opus", "GPT-4o", "Gemini 2.0"],
+      "use_case": ["architecture", "complex analysis", "deep reasoning"],
+      "max_tokens": 12000,
+      "priority": ["claude-opus", "gpt-4o"]
+    },
+    "coding": {
+      "models": ["Claude 3.5 Sonnet", "Copilot", "DeepSeek-Coder-7B"],
+      "use_case": ["script generation", "code review", "debugging"],
+      "max_tokens": 6000,
+      "priority": ["claude-sonnet", "openrouter/coding"]
+    }
+  },
+  "token_budget": {
+    "known_command": 0,
+    "status_check": 200,
+    "intent_parse": 500,
+    "short_summary": 800,
+    "debug_short_log": 2000,
+    "script_generation": 4000,
+    "architecture_planning": 8000,
+    "full_repo_audit": 12000
+  },
+  "risk_levels": {
+    "safe": {
+      "approve_threshold": "auto",
+      "requires_proof": true,
+      "backup_first": false
+    },
+    "medium": {
+      "approve_threshold": "auto_or_user_confirm",
+      "requires_proof": true,
+      "backup_first": true
+    },
+    "high": {
+      "approve_threshold": "user_confirm_explicit",
+      "requires_proof": true,
+      "backup_first": true
+    }
+  },
+  "executor_contract": {
+    "required_fields": [
+      "timestamp",
+      "intent",
+      "executor",
+      "risk",
+      "status",
+      "result_summary",
+      "error_log",
+      "backup_dir",
+      "proof_path",
+      "next_action"
+    ]
+  }
+}
