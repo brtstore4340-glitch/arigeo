@@ -106,15 +106,12 @@ function Start-JarvisLoop {
 
         # Execute core logic with AI
         try {
-            # Use splatting to avoid parameter binding issues
-            $params = @{
-                Command = $userInput
-                Mode = $Mode
-                IntentProvider = $IntentProvider
-                DryRun = $DryRun
-                UseAI = $UseAI
-            }
-            & $coreScript @params
+            # Pass command as positional argument (most reliable in PowerShell)
+            & $coreScript $userInput `
+                -Mode $Mode `
+                -IntentProvider $IntentProvider `
+                -DryRun:$DryRun `
+                -UseAI:$UseAI
         } catch {
             Write-Error "Execution error: $($_.Exception.Message)"
         }

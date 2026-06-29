@@ -2,8 +2,7 @@
 # Upgrade: Replace regex patterns with LLM intent understanding
 
 param(
-    [string]$Command,
-    [string]$Input = "",
+    [string]$Command = $args[0],  # Accept as first positional argument
     [string]$Mode = "safe",
     [string]$IntentProvider = "claude",  # claude, grok, gemini
     [switch]$DryRun = $false,
