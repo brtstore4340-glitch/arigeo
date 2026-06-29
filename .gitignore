@@ -83,9 +83,8 @@
 !/tools/jarvis/
 !/tools/jarvis-staging/
 !/tools/.gitkeep
-!/tools/JARVIS_SIMPLE.ps1
-!/tools/JARVIS_VOICE.ps1
-!/tools/JARVIS_DEBUG.ps1
+!/tools/JARVIS*.ps1
+!/tools/consolidate-*.ps1
 !/tools/RUN_JARVIS_GUARD.cmd
 !/tools/jarvis-config.json
 !/tools/logs/
