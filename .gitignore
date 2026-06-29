@@ -85,6 +85,7 @@
 !/tools/.gitkeep
 !/tools/JARVIS*
 !/tools/consolidate-*.ps1
+!/tools/ingest-*.ps1
 !/tools/RUN_JARVIS_GUARD.cmd
 !/tools/jarvis-config.json
 !/tools/logs/
