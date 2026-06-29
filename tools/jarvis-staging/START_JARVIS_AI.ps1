@@ -1,4 +1,4 @@
-# START_JARVIS_AI.ps1 - Start Jarvis with AI Intent Parser (v0.2.0-ai)
+﻿# START_JARVIS_AI.ps1 - Start Jarvis with AI Intent Parser (v0.2.0-ai)
 # AI-Powered Windows Assistant with Claude, Grok, or Gemini
 
 param(
@@ -11,6 +11,14 @@ param(
     [switch]$SkipWatchdog = $false
 )
 
+
+# SFSR_COMMAND_BINDING_GUARD
+# Keeps command text from being collapsed into Boolean True before intent parsing.
+if ($PSBoundParameters.ContainsKey('Command')) {
+    if ($null -ne $Command -and $Command -isnot [string]) {
+        $Command = [string]$Command
+    }
+}
 $ErrorActionPreference = "Continue"
 
 # ============================================================================
@@ -57,7 +65,15 @@ function Start-JarvisLoop {
         [string]$IntentProvider = "claude"
     )
 
-    $config = Load-JarvisConfig
+    
+# SFSR_COMMAND_BINDING_GUARD
+# Keeps command text from being collapsed into Boolean True before intent parsing.
+if ($PSBoundParameters.ContainsKey('Command')) {
+    if ($null -ne $Command -and $Command -isnot [string]) {
+        $Command = [string]$Command
+    }
+}
+$config = Load-JarvisConfig
 
     Write-Host "╔════════════════════════════════════════════╗" -ForegroundColor Cyan
     Write-Host "║    JARVIS LOCAL v0.2.0-ai - RUNNING       ║" -ForegroundColor Cyan
@@ -251,3 +267,4 @@ if ($Command) {
 } elseif ($Interactive) {
     Start-JarvisLoop -Mode $Mode -IntentProvider $IntentProvider
 }
+
