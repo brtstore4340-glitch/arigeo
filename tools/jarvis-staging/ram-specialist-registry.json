@@ -210,6 +210,46 @@
         "specialist": "IoT",
         "context": ["sensor_model", "data_frequency", "alert_thresholds"]
       }
+    },
+
+    "consultant": {
+      "name": "Consultant Specialist",
+      "description": "Research-driven strategic advisor using Gemini for optimization",
+      "domain": "research-strategy-optimization",
+      "ai_provider": "gemini-pro",
+      "scope": [
+        "Architecture decisions",
+        "Performance optimization",
+        "Cost reduction strategies",
+        "Best practices research",
+        "Technology selection & trade-offs",
+        "Scaling strategies",
+        "Resource optimization",
+        "Innovation recommendations",
+        "Competitive analysis"
+      ],
+      "context_rules": {
+        "required": ["current_state", "goals", "constraints"],
+        "optional": ["performance_data", "cost_data", "historical_metrics"],
+        "exclude": ["implementation_code", "unrelated_projects"]
+      },
+      "prompt_size": "2000-2500 tokens",
+      "token_budget": 5000,
+      "used_for": [
+        "Architecture decisions (Supabase vs Firebase?)",
+        "Performance optimization strategies",
+        "Cost reduction recommendations",
+        "Best practices benchmarking",
+        "Technology trade-off analysis",
+        "Scaling strategy planning",
+        "Resource allocation optimization"
+      ],
+      "example_call": {
+        "user": "should we use Supabase or Firebase for salary-cert?",
+        "specialist": "Consultant",
+        "context": ["scale_target", "budget", "security_requirements"],
+        "returns": ["evidence-based analysis", "best practice recommendation", "implementation timeline"]
+      }
     }
   },
 
@@ -239,6 +279,7 @@
     "figma": 2000,
     "uiux-pro": 3000,
     "cloudflare": 2500,
-    "iot": 3000
+    "iot": 3000,
+    "consultant": 5000
   }
 }
