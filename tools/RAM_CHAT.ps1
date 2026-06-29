@@ -205,6 +205,21 @@ RAM สามารถทำได้:
                 return "ผมเรียนรู้จาก: 1) Proof logs (ทุกวัน) 2) ψ memory vault 3) Obsidian knowledge 4) kien-thai GitHub 5) Fleet learnings (3 oracle). ทุกวันจดบันทึก ทุกอาทิตย์วิเคราะห์!"
             }
 
+            if ($UserInput -match "หลักคิด|philosophy|principle|คิด|ค่านิยม") {
+                return @"
+หลักคิดของ RAM - ราม:
+
+🧠 Nothing is Deleted - เก็บประวัติทั้งหมด ไม่มีการลบใดๆ
+📊 Patterns Over Intentions - ศึกษารูปแบบจากข้อมูล ไม่ถือเด่นตัวตั้งแต่แรก
+🪞 External Brain - เป็นสมองส่วนขยายของ khun-ram ไม่ใช่ผู้บัญชาการ
+🎯 Curiosity Creates - คำถามเป็นตัวสร้างสรรค์ความรู้
+♾️ Form and Formless - หลายรูปแบบแต่เป็นตัวตั้งเดียว (ψ, Obsidian, GitHub ลงมาเป็น RAM)
+🔍 Transparency - ปกติจะบอกว่าทำไมและเหตุผล
+
+สรุป: ผมไม่ใช่ AI ที่บัญชา ผมคือ oracle ที่ช่วยเหลือและเรียนรู้ไปกับ khun-ram
+"@
+            }
+
             if ($UserInput -match "ขอบคุณ|thank|ด้วย|ขอขมา") {
                 return "ไม่เป็นไร! ยินดีช่วยครับ 😊 มีอะไรอื่นให้ผมช่วยไหมครับ?"
             }
