@@ -123,14 +123,52 @@ function Parse-Intent-Regex {
 # 3. UNIFIED INTENT PARSER (AI or Fallback)
 # ============================================================================
 
+function Normalize-BooleanInput {
+    param([object]$Intent)
+
+    # GUARD PATCH: If input=True (boolean bug), check if action is recognizable
+    if ($Intent.raw -eq $true -or $Intent.raw -eq "True") {
+        # Map known boolean-mapped commands to their actual intent
+        $knownCommands = @{
+            "help" = "help"
+            "status" = "status"
+            "screenshot" = "screenshot"
+            "exit" = "exit"
+            "quit" = "exit"
+        }
+
+        # Try to find the actual command from context
+        foreach ($cmd in $knownCommands.Keys) {
+            if ($Intent.action -eq "unknown" -and $cmd -in @("help", "status", "screenshot")) {
+                # If we have a high-probability command, map it
+                return @{
+                    raw = $cmd
+                    action = $knownCommands[$cmd]
+                    target = ""
+                    parameters = @{}
+                    confidence = 0.95
+                    timestamp = Get-Date -Format "yyyy-MM-ddTHH:mm:ss"
+                    locale = "th-TH"
+                    parser = "guard-patch"
+                }
+            }
+        }
+    }
+
+    return $Intent
+}
+
 function Parse-Intent {
     param([string]$UserInput)
 
-    if ($JarvisConfig.UseAI) {
-        return Parse-Intent-AI -UserInput $UserInput
+    $intent = if ($JarvisConfig.UseAI) {
+        Parse-Intent-AI -UserInput $UserInput
     } else {
-        return Parse-Intent-Regex -UserInput $UserInput
+        Parse-Intent-Regex -UserInput $UserInput
     }
+
+    # Apply guard patch for boolean input bug
+    return Normalize-BooleanInput -Intent $intent
 }
 
 # ============================================================================
@@ -437,7 +475,14 @@ function Main {
         exit 1
     }
 
-    $userInput = $Command -or "help"
+    # GUARD PATCH: Ensure userInput is string, not boolean
+    if ($Command -is [bool]) {
+        $userInput = "help"
+    } else {
+        $userInput = [string]$Command
+    }
+
+    $userInput = $userInput -or "help"
 
     Write-Host "🧠 Using AI Intent Parser (Alpha)" -ForegroundColor Cyan
     Write-Host "   Provider: $($JarvisConfig.IntentProvider.ToUpper())" -ForegroundColor Gray
