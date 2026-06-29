@@ -1,0 +1,332 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║            JARVIS LOCAL v0.3 DEPLOYMENT CHECKLIST                       ║
+║                                                                          ║
+║              Memory Layer Deployment for Windows                        ║
+║                                                                          ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+🎯 DEPLOYMENT GOAL
+════════════════════════════════════════════════════════════════════════
+
+Set up JARVIS v0.3 memory system on Windows and start the learning cycle:
+- Initialize memory directories
+- Build knowledge base wiki
+- Create identity resonance file
+- Prepare for 7-day learning phase
+
+
+⏱️  ESTIMATED TIME: 15 minutes
+
+
+📋 PRE-DEPLOYMENT CHECKLIST
+════════════════════════════════════════════════════════════════════════
+
+Before starting, verify:
+
+□ Windows PowerShell 7.6+ installed
+  Command: $PSVersionTable.PSVersion
+  Expected: 7.6.x or higher
+
+□ JARVIS v0.2 running successfully
+  Command: .\START_JARVIS_AI.ps1 -Command "help" -UseAI:$false
+  Expected: Shows help text, no errors
+
+□ Disk space available (at least 1 GB)
+  Command: Get-Volume C: | Select SizeRemaining
+  Expected: Shows available space
+
+□ Git repository up to date
+  Command: git status
+  Expected: Shows "nothing to commit"
+
+
+🚀 DEPLOYMENT STEPS
+════════════════════════════════════════════════════════════════════════
+
+STEP 1: Navigate to Installation Directory
+─────────────────────────────────────────
+
+Open PowerShell and run:
+
+  cd "D:\01 Main Work\Boots\Agentic AI\mission-control\tools"
+
+Verify you're in the right place:
+
+  ls jarvis\memory\
+
+Expected output: Lists memory module files
+
+
+STEP 2: Verify Memory Files Copied
+──────────────────────────────────
+
+Check that all v0.3 modules are present:
+
+  ls jarvis\memory\jarvis-memory-*.ps1
+
+Expected: Shows 5 files
+  - jarvis-memory-core.ps1
+  - jarvis-memory-ingest.ps1
+  - jarvis-memory-synthesize.ps1
+  - jarvis-memory-wiki.ps1
+  - (plus setup and sync scripts)
+
+
+STEP 3: Run Memory Setup
+───────────────────────
+
+Initialize the memory system (creates directories + wiki):
+
+  .\jarvis\memory\setup-memory-v0.3.ps1 -Verbose
+
+Expected output:
+  ✓ Creating directory structure...
+  ✓ Initializing wiki database...
+  ✓ Creating resonance (identity) file...
+  ✓ SETUP COMPLETE
+
+
+STEP 4: Verify Memory Structure
+───────────────────────────────
+
+Check that directories were created:
+
+  ls .\memory\
+
+Expected directories:
+  ✓ proof-logs/
+  ✓ learnings/
+  ✓ wiki/
+  ✓ resonance/
+  ✓ archive/
+  ✓ temp/
+
+
+STEP 5: Verify Wiki Built
+─────────────────────────
+
+Check that wiki was populated:
+
+  ls .\memory\wiki\*.jsonl | Measure-Object
+
+Expected: Shows 3+ files
+  - commands.jsonl
+  - providers.jsonl
+  - risk_levels.jsonl
+
+
+STEP 6: Check Identity File
+───────────────────────────
+
+Verify JARVIS identity was created:
+
+  Get-Content .\memory\resonance\jarvis-v0.3-identity.json | ConvertFrom-Json
+
+Expected: Shows JARVIS v0.3 identity with 5 principles
+
+
+STEP 7: Test Memory Operations
+──────────────────────────────
+
+Read statistics to verify memory is working:
+
+  PowerShell -File ".\jarvis\memory\jarvis-memory-core.ps1" `
+    -Operation stats -MemoryType wiki
+
+Expected: Shows wiki statistics
+
+
+✅ DEPLOYMENT VERIFICATION
+════════════════════════════════════════════════════════════════════════
+
+Run this command to verify full deployment:
+
+  $checks = @{
+    'Memory dir exists' = Test-Path .\memory\
+    'Proof logs dir' = Test-Path .\memory\proof-logs\
+    'Learnings dir' = Test-Path .\memory\learnings\
+    'Wiki dir' = Test-Path .\memory\wiki\
+    'Resonance file' = Test-Path .\memory\resonance\jarvis-v0.3-identity.json
+    'Core module' = Test-Path .\jarvis\memory\jarvis-memory-core.ps1
+  }
+
+  $checks | Format-Table
+
+Expected: All $true values
+
+
+📊 DEPLOYMENT STATISTICS
+════════════════════════════════════════════════════════════════════════
+
+After setup, check memory health:
+
+  PowerShell -File ".\jarvis\memory\jarvis-memory-core.ps1" `
+    -Operation stats -MemoryType wiki
+
+
+🔄 NOW ENTER 7-DAY LEARNING PHASE
+════════════════════════════════════════════════════════════════════════
+
+GOAL: Populate proof logs with 7 days of command execution
+
+Week 1 (Days 1-7): Run daily commands
+─────────────────────────────────────
+
+Each day, run 5-10 commands:
+
+  .\START_JARVIS_AI.ps1 -Command "help" -UseAI:$false
+  .\START_JARVIS_AI.ps1 -Command "take a screenshot" -UseAI:$false
+  .\START_JARVIS_AI.ps1 -Command "open chrome" -UseAI:$false
+
+Each command automatically adds to proof logs (.\logs\proof-log.jsonl)
+
+
+Week 1 (Day 7): Run First Synthesis
+────────────────────────────────────
+
+After 7 days of commands, run synthesis to discover patterns:
+
+  .\jarvis\memory\sync-memory.ps1 -Mode full -Verbose
+
+This will:
+  ✓ Read 7 days of proof logs
+  ✓ Extract intent patterns
+  ✓ Discover risk trends
+  ✓ Generate insights
+  ✓ Archive old data
+
+Output: Check .\memory\learnings\ for discovered patterns
+
+
+🎓 WHAT JARVIS LEARNS (Example)
+════════════════════════════════════════════════════════════════════════
+
+After 7 days of "help" and "screenshot" commands:
+
+Proof Logs Collected:
+  command "help" → 15 executions
+  command "screenshot" → 15 executions
+  ✓ All succeeded
+
+Pattern Discovered (Week 1 Synthesis):
+  {
+    "type": "intent-pattern",
+    "action": "help",
+    "success_rate": 100,
+    "samples": 15,
+    "recommendation": "RELIABLE: Safe to use"
+  }
+
+JARVIS Memory Updated:
+  - learnings/intent_patterns_20260706.jsonl → Created
+  - insights/ → Recommendations generated
+  - wiki/ → Links updated
+
+
+📈 TRACKING PROGRESS
+════════════════════════════════════════════════════════════════════════
+
+Monitor learning progress:
+
+Daily:
+  Get-ChildItem .\logs\proof-log.jsonl | Select Length
+
+Weekly:
+  .\jarvis\memory\sync-memory.ps1 -Mode full -Verbose
+
+After first synthesis:
+  ls .\memory\learnings\*_20260707.jsonl
+
+  (Should show intent_patterns, risk_patterns, user_preferences)
+
+
+🎯 DEPLOYMENT SUCCESS CRITERIA
+════════════════════════════════════════════════════════════════════════
+
+Deployment is successful when:
+
+✅ All 6 memory directories exist
+✅ Wiki is populated (3+ sections)
+✅ Identity file created
+✅ Proof logs being written on each command
+✅ First weekly sync completes without errors
+✅ Learnings discovered and saved
+
+
+⚠️  TROUBLESHOOTING
+════════════════════════════════════════════════════════════════════════
+
+Issue: "Path not found" errors
+
+Fix: Verify you're in correct directory
+  pwd
+  Should show: D:\01 Main Work\Boots\Agentic AI\mission-control\tools
+
+Issue: Setup script fails
+
+Fix: Check PowerShell version
+  $PSVersionTable.PSVersion
+  Should be 5.1+ or 7.0+
+
+Issue: Wiki not populating
+
+Fix: Run wiki build manually
+  .\jarvis\memory\jarvis-memory-wiki.ps1 -Operation build -Verbose
+
+Issue: Sync fails on day 7
+
+Fix: Ensure proof logs exist
+  ls .\logs\proof-log.jsonl
+  Should show recent file
+
+
+📚 DOCUMENTATION
+════════════════════════════════════════════════════════════════════════
+
+Full memory guide:
+  JARVIS_V0.3_MEMORY_GUIDE.md
+
+Module documentation:
+  jarvis-memory-core.ps1 (comments at top)
+  jarvis-memory-ingest.ps1
+  jarvis-memory-synthesize.ps1
+  jarvis-memory-wiki.ps1
+
+
+🎉 WHAT'S NEXT
+════════════════════════════════════════════════════════════════════════
+
+Week 1-2: Learning phase (execute daily, sync weekly)
+Week 3+: JARVIS uses learnings for smarter decisions
+
+Optional: Schedule weekly sync as Windows Task
+  Task Scheduler → Create Task
+  Trigger: Weekly, Sunday 2 AM
+  Action: powershell .\jarvis\memory\sync-memory.ps1
+
+
+🚀 READY TO DEPLOY?
+════════════════════════════════════════════════════════════════════════
+
+Run these 3 PowerShell commands in sequence:
+
+1. Navigate:
+   cd "D:\01 Main Work\Boots\Agentic AI\mission-control\tools"
+
+2. Setup:
+   .\jarvis\memory\setup-memory-v0.3.ps1 -Verbose
+
+3. Verify:
+   ls .\memory\ | Select Name
+
+Expected: 6 directories created
+
+
+═══════════════════════════════════════════════════════════════════════
+
+Status: Ready to Deploy ✓
+Version: v0.3.0
+Date: 2026-06-30
+
+═══════════════════════════════════════════════════════════════════════
