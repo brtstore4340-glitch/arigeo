@@ -11,15 +11,15 @@ param(
 # ============================================================================
 
 $BridgeConfig = @{
-    Name = "RAM API Bridge - 9router"
-    Version = "3.0"
-    Provider = "9router"
-    Endpoint = "http://localhost:20128/v1/chat/completions"
-    Model = "gpt-4o-mini"  # 9router routes to best model
+    Name = "RAM API Bridge - Ollama"
+    Version = "4.0"
+    Provider = "ollama"
+    Endpoint = "http://localhost:11434/api/chat"
+    Model = "neural-chat"  # or "mistral"
 }
 
 # ============================================================================
-# CALL 9ROUTER API
+# CALL OLLAMA API
 # ============================================================================
 
 function Get-RAMResponse {
@@ -49,43 +49,43 @@ Keep responses concise but meaningful.
                     content = $UserMessage
                 }
             )
-            temperature = 0.7
-            max_tokens = 500
+            stream = $false
         } | ConvertTo-Json -Depth 10
 
         $headers = @{
             "Content-Type" = "application/json"
         }
 
-        Write-Host "[9router] Connecting to: $($BridgeConfig.Endpoint)" -ForegroundColor Cyan
+        Write-Host "[Ollama] Connecting to: $($BridgeConfig.Endpoint)" -ForegroundColor Cyan
+        Write-Host "[Ollama] Model: $($BridgeConfig.Model)" -ForegroundColor Gray
 
         $response = Invoke-RestMethod `
             -Uri $BridgeConfig.Endpoint `
             -Method Post `
             -Headers $headers `
             -Body $body `
-            -TimeoutSec 30 `
+            -TimeoutSec 60 `
             -ErrorAction Stop
 
-        if ($response.choices -and $response.choices[0].message) {
-            Write-Host "[9router] Response received from 9router" -ForegroundColor Green
-            return $response.choices[0].message.content
+        if ($response.message -and $response.message.content) {
+            Write-Host "[Ollama] Response received!" -ForegroundColor Green
+            return $response.message.content
         } else {
-            throw "Invalid response from 9router"
+            throw "Invalid response from Ollama"
         }
     } catch {
-        throw "9router Error: $($_.Exception.Message)"
+        throw "Ollama Error: $($_.Exception.Message)"
     }
 }
 
 
 # ============================================================================
-# MAIN - Call 9router and return response
+# MAIN - Call Ollama and return response
 # ============================================================================
 
 try {
-    Write-Host "[RAM Bridge] Calling 9router..." -ForegroundColor Cyan
-    Write-Host "[9router] Endpoint: $($BridgeConfig.Endpoint)" -ForegroundColor Gray
+    Write-Host "[RAM Bridge] Calling Ollama..." -ForegroundColor Cyan
+    Write-Host "[Ollama] Endpoint: $($BridgeConfig.Endpoint)" -ForegroundColor Gray
 
     $ramResponse = Get-RAMResponse $Message
 
@@ -103,7 +103,8 @@ try {
     exit 0
 } catch {
     Write-Host "[RAM Bridge ERROR] $($_.Exception.Message)" -ForegroundColor Red
-    Write-Host "[9router] Status: Check if 9router is running at $($BridgeConfig.Endpoint)" -ForegroundColor Yellow
+    Write-Host "[Ollama] Status: Check if Ollama is running at $($BridgeConfig.Endpoint)" -ForegroundColor Yellow
+    Write-Host "[Ollama] Tip: Run 'ollama serve' in another terminal" -ForegroundColor Yellow
 
     $error = @{
         message = "Error: $($_.Exception.Message)"
