@@ -13,8 +13,34 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Path to RAM_API_BRIDGE.ps1 (wrapper for API calls)
 const RAM_BRIDGE_PATH = path.resolve(
   __dirname,
-  '../../../tools/RAM_API_BRIDGE.ps1'
+  '../../tools/RAM_API_BRIDGE.ps1'
 );
+
+function toWindowsPowerShellPath(filePath) {
+  const normalized = path.resolve(filePath);
+  const mntMatch = normalized.match(/^\/mnt\/([a-zA-Z])\/(.*)$/);
+  if (mntMatch) {
+    const drive = mntMatch[1].toUpperCase();
+    const tail = mntMatch[2].replace(/\//g, '\\');
+    return `${drive}:\\${tail}`;
+  }
+  return normalized.replace(/\//g, '\\');
+}
+
+const RAM_BRIDGE_POWERSHELL_PATH = toWindowsPowerShellPath(RAM_BRIDGE_PATH);
+
+function assertBridgePathExists() {
+  if (!fs.existsSync(RAM_BRIDGE_PATH)) {
+    throw new Error(
+      [
+        'RAM_API_BRIDGE.ps1 not found.',
+        `Resolved path: ${RAM_BRIDGE_PATH}`,
+        `Backend dir: ${__dirname}`,
+        'Expected relative path from backend/: ../../tools/RAM_API_BRIDGE.ps1',
+      ].join(' ')
+    );
+  }
+}
 
 // Check if RAM_API_BRIDGE.ps1 exists
 if (!fs.existsSync(RAM_BRIDGE_PATH)) {
@@ -22,6 +48,7 @@ if (!fs.existsSync(RAM_BRIDGE_PATH)) {
   console.error(`Please ensure the file exists before running.`);
 } else {
   console.log(`✓ RAM_API_BRIDGE.ps1 found at: ${RAM_BRIDGE_PATH}`);
+  console.log(`✓ PowerShell bridge path: ${RAM_BRIDGE_POWERSHELL_PATH}`);
 }
 
 /**
@@ -33,6 +60,8 @@ if (!fs.existsSync(RAM_BRIDGE_PATH)) {
 export async function callRAM(userMessage, options = {}) {
   return new Promise((resolve, reject) => {
     try {
+      assertBridgePathExists();
+
       // Escape special characters for PowerShell
       const escapedMessage = userMessage
         .replace(/\\/g, '\\\\')  // Backslash
@@ -40,8 +69,12 @@ export async function callRAM(userMessage, options = {}) {
         .replace(/\$/g, '`$')     // Dollar sign
         .replace(/`/g, '``');     // Backtick
 
-      // PowerShell command - call API bridge with message parameter
-      const psCommand = `& "${RAM_BRIDGE_PATH}" -Message "${escapedMessage}"`;
+      // PowerShell command - use single quotes to handle spaces in path
+      const psCommand = `& '${RAM_BRIDGE_POWERSHELL_PATH}' -Message "${escapedMessage}"`;
+
+      // Debug logging
+      console.log(`[Bridge] Executing: ${psCommand.substring(0, 80)}...`);
+      console.log(`[Bridge] Path: ${RAM_BRIDGE_POWERSHELL_PATH}`);
 
       // Spawn PowerShell process
       const ps = spawn('powershell.exe', ['-NoProfile', '-Command', psCommand], {
