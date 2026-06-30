@@ -1,5 +1,5 @@
-# RAM_API_BRIDGE.ps1 - OpenAI-powered API bridge
-# Thai-fluent chat with gpt-4o-mini
+# RAM_API_BRIDGE.ps1 - 9router Local Bridge
+# Thai-fluent chat via local 9router orchestrator
 
 param(
     [Parameter(Mandatory = $true)]
@@ -11,27 +11,15 @@ param(
 # ============================================================================
 
 $BridgeConfig = @{
-    Name = "RAM API Bridge - OpenAI"
-    Version = "2.0"
-    Provider = "openai"
-    Model = "gpt-4o-mini"
-    ApiKey = $env:OPENAI_API_KEY
-    Endpoint = "https://api.openai.com/v1/chat/completions"
-}
-
-if (-not $BridgeConfig.ApiKey) {
-    $errorOutput = @{
-        success = $false
-        error = "OPENAI_API_KEY not set in environment"
-        message = "ตั้งค่า OPENAI_API_KEY ในไฟล์ .env ของ backend"
-        timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffZ")
-    } | ConvertTo-Json
-    Write-Output $errorOutput
-    exit 1
+    Name = "RAM API Bridge - 9router"
+    Version = "3.0"
+    Provider = "9router"
+    Endpoint = "http://localhost:20128/v1/chat/completions"
+    Model = "gpt-4o-mini"  # 9router routes to best model
 }
 
 # ============================================================================
-# CALL OPENAI API
+# CALL 9ROUTER API
 # ============================================================================
 
 function Get-RAMResponse {
@@ -66,35 +54,38 @@ Keep responses concise but meaningful.
         } | ConvertTo-Json -Depth 10
 
         $headers = @{
-            "Authorization" = "Bearer $($BridgeConfig.ApiKey)"
             "Content-Type" = "application/json"
         }
+
+        Write-Host "[9router] Connecting to: $($BridgeConfig.Endpoint)" -ForegroundColor Cyan
 
         $response = Invoke-RestMethod `
             -Uri $BridgeConfig.Endpoint `
             -Method Post `
             -Headers $headers `
             -Body $body `
-            -TimeoutSec 15 `
+            -TimeoutSec 30 `
             -ErrorAction Stop
 
         if ($response.choices -and $response.choices[0].message) {
+            Write-Host "[9router] Response received from 9router" -ForegroundColor Green
             return $response.choices[0].message.content
         } else {
-            throw "Invalid response from OpenAI API"
+            throw "Invalid response from 9router"
         }
     } catch {
-        throw "OpenAI API Error: $($_.Exception.Message)"
+        throw "9router Error: $($_.Exception.Message)"
     }
 }
 
 
 # ============================================================================
-# MAIN - Call OpenAI and return response
+# MAIN - Call 9router and return response
 # ============================================================================
 
 try {
-    Write-Host "[RAM Bridge] Processing message from user..." -ForegroundColor Cyan
+    Write-Host "[RAM Bridge] Calling 9router..." -ForegroundColor Cyan
+    Write-Host "[9router] Endpoint: $($BridgeConfig.Endpoint)" -ForegroundColor Gray
 
     $ramResponse = Get-RAMResponse $Message
 
@@ -104,6 +95,7 @@ try {
         language = if ($Message -match '[฀-๿]') { "Thai" } else { "English" }
         timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffZ")
         success = $true
+        provider = $BridgeConfig.Provider
         model = $BridgeConfig.Model
     } | ConvertTo-Json -Depth 10
 
@@ -111,12 +103,14 @@ try {
     exit 0
 } catch {
     Write-Host "[RAM Bridge ERROR] $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "[9router] Status: Check if 9router is running at $($BridgeConfig.Endpoint)" -ForegroundColor Yellow
 
     $error = @{
         message = "Error: $($_.Exception.Message)"
         success = $false
         timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffZ")
         provider = $BridgeConfig.Provider
+        endpoint = $BridgeConfig.Endpoint
     } | ConvertTo-Json
 
     Write-Output $error
