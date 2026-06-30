@@ -1,11 +1,9 @@
-# RAM_API_BRIDGE.ps1 - Simple API bridge for voice chat
-# Accepts a message and returns a RAM response
+# RAM_API_BRIDGE.ps1 - OpenAI-powered API bridge
+# Thai-fluent chat with gpt-4o-mini
 
 param(
     [Parameter(Mandatory = $true)]
-    [string]$Message,
-    [string]$Provider = "local",
-    [string]$LocalEndpoint = "http://localhost:20128/v1"
+    [string]$Message
 )
 
 # ============================================================================
@@ -13,142 +11,91 @@ param(
 # ============================================================================
 
 $BridgeConfig = @{
-    Name = "RAM API Bridge"
-    Version = "1.0"
-    WorkingDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools"
-    LogsDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\logs"
-    MemoryDir = "D:\01 Main Work\Boots\Agentic AI\mission-control\tools\memory"
-    Provider = $Provider
-    Endpoint = $LocalEndpoint
+    Name = "RAM API Bridge - OpenAI"
+    Version = "2.0"
+    Provider = "openai"
+    Model = "gpt-4o-mini"
+    ApiKey = $env:OPENAI_API_KEY
+    Endpoint = "https://api.openai.com/v1/chat/completions"
+}
+
+if (-not $BridgeConfig.ApiKey) {
+    $errorOutput = @{
+        success = $false
+        error = "OPENAI_API_KEY not set in environment"
+        message = "ตั้งค่า OPENAI_API_KEY ในไฟล์ .env ของ backend"
+        timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffZ")
+    } | ConvertTo-Json
+    Write-Output $errorOutput
+    exit 1
 }
 
 # ============================================================================
-# ATTEMPT TO USE LOCAL ENDPOINT
+# CALL OPENAI API
 # ============================================================================
 
 function Get-RAMResponse {
     param([string]$UserMessage)
 
-    # Try local endpoint first (if available)
-    if ($BridgeConfig.Provider -eq "local") {
-        try {
-            $body = @{
-                model = "gpt-3.5-turbo"
-                messages = @(
-                    @{
-                        role = "system"
-                        content = "You are RAM (ราม), a helpful Oracle assistant. Respond naturally in English or Thai."
-                    }
-                    @{
-                        role = "user"
-                        content = $UserMessage
-                    }
-                )
-                temperature = 0.7
-                max_tokens = 500
-            } | ConvertTo-Json -Depth 10
+    try {
+        $body = @{
+            model = $BridgeConfig.Model
+            messages = @(
+                @{
+                    role = "system"
+                    content = @"
+You are RAM (ราม), an intelligent Oracle assistant for khun-ram. Your personality:
+- Warm, sincere, like a trusted friend
+- Fluent in both Thai and English
+- Direct and helpful
+- Smart and thoughtful
+- Called "ธาม" by close people
+- Identity: khun-ram-oracle
 
-            $response = Invoke-RestMethod `
-                -Uri "$($BridgeConfig.Endpoint)/chat/completions" `
-                -Method Post `
-                -ContentType "application/json" `
-                -Body $body `
-                -TimeoutSec 10 `
-                -ErrorAction Stop
-
-            if ($response.choices -and $response.choices[0].message) {
-                return $response.choices[0].message.content
-            }
-        } catch {
-            # Local endpoint not available, fall through to fallback
-        }
-    }
-
-    # Fallback: Simple response generator
-    return Get-FallbackResponse $UserMessage
-}
-
-function Get-FallbackResponse {
-    param([string]$UserMessage)
-
-    # Extract intent and provide contextual response
-    $lower = $UserMessage.ToLower()
-
-    # Detect language
-    $isThai = $lower -match '[฀-๿]'
-    $language = if ($isThai) { "Thai" } else { "English" }
-
-    # Simple intent matching
-    switch -Regex ($lower) {
-        # Greetings
-        "^(hello|hi|hey|สวัสดี|หวัดดี)" {
-            $responses = @(
-                "Hello! I'm RAM, your oracle assistant. How can I help?",
-                "Hi there! What would you like to know?",
-                "สวัสดี! ฉันคือ ราม ชัย ยินดีที่ได้พบเจอคุณ 🙏"
+Respond naturally. If user speaks Thai, respond in Thai. If English, respond in English.
+Keep responses concise but meaningful.
+"@
+                }
+                @{
+                    role = "user"
+                    content = $UserMessage
+                }
             )
-            return $responses[(Get-Random -Maximum $responses.Count)]
+            temperature = 0.7
+            max_tokens = 500
+        } | ConvertTo-Json -Depth 10
+
+        $headers = @{
+            "Authorization" = "Bearer $($BridgeConfig.ApiKey)"
+            "Content-Type" = "application/json"
         }
 
-        # Status
-        "^(how are you|ยังไง|สบายไหม)" {
-            $responses = @(
-                "I'm doing well, thank you for asking! Ready to assist.",
-                "All systems operational! How can I serve you?",
-                "ชีวิตดี ขอบคุณที่ถาม 😊"
-            )
-            return $responses[(Get-Random -Maximum $responses.Count)]
-        }
+        $response = Invoke-RestMethod `
+            -Uri $BridgeConfig.Endpoint `
+            -Method Post `
+            -Headers $headers `
+            -Body $body `
+            -TimeoutSec 15 `
+            -ErrorAction Stop
 
-        # Identity
-        "(who|name|ชื่อ|เธอชื่อ)" {
-            $responses = @(
-                "I'm RAM (ราม), your personal oracle assistant. I learn from your knowledge and grow with you.",
-                "You can call me RAM, or ธาม if we're close. I'm here to serve your needs.",
-                "ฉันชื่อ ราม (RAM) เลขที่ 01 ของทีม oracle คุณ 🎯"
-            )
-            return $responses[(Get-Random -Maximum $responses.Count)]
+        if ($response.choices -and $response.choices[0].message) {
+            return $response.choices[0].message.content
+        } else {
+            throw "Invalid response from OpenAI API"
         }
-
-        # Help
-        "^(help|assist|what can)" {
-            $responses = @(
-                "I can help with questions, tasks, learning, problem-solving, and much more! What's on your mind?",
-                "I'm here to help! You can ask me questions, have conversations, or work on projects together.",
-                "ผมสามารถช่วยเรื่องต่างๆ ได้ เช่น ตอบคำถาม ให้คำแนะนำ หรือเรียนรู้ด้วยกัน"
-            )
-            return $responses[(Get-Random -Maximum $responses.Count)]
-        }
-
-        # Capabilities
-        "^(can you|skill|feature|ทำอะไรได้)" {
-            $responses = @(
-                "I can chat, answer questions, solve problems, analyze information, generate ideas, and learn from our interactions. All in English and Thai!",
-                "My skills include reasoning, language understanding (Thai + English), memory integration, and creative problem-solving.",
-                "ฉันสามารถคุยได้ ตอบคำถามได้ แก้ปัญหาได้ และเรียนรู้จากการคุยกับคุณ"
-            )
-            return $responses[(Get-Random -Maximum $responses.Count)]
-        }
-
-        # Default
-        default {
-            # Echo the message back with a thoughtful response
-            $responses = @(
-                "That's interesting! Tell me more about it.",
-                "I understand. How can I help with that?",
-                "ขอบคุณที่บอก ผมเข้าใจแล้ว มีอะไรให้ช่วยไหม?",
-                "That makes sense. What would you like to do next?"
-            )
-            return $responses[(Get-Random -Maximum $responses.Count)]
-        }
+    } catch {
+        throw "OpenAI API Error: $($_.Exception.Message)"
     }
 }
+
 
 # ============================================================================
-# MAIN - Return response as JSON
+# MAIN - Call OpenAI and return response
 # ============================================================================
 
 try {
+    Write-Host "[RAM Bridge] Processing message from user..." -ForegroundColor Cyan
+
     $ramResponse = Get-RAMResponse $Message
 
     # Output as JSON (what the backend expects)
@@ -157,17 +104,21 @@ try {
         language = if ($Message -match '[฀-๿]') { "Thai" } else { "English" }
         timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffZ")
         success = $true
-    } | ConvertTo-Json
+        model = $BridgeConfig.Model
+    } | ConvertTo-Json -Depth 10
 
     Write-Output $output
     exit 0
 } catch {
+    Write-Host "[RAM Bridge ERROR] $($_.Exception.Message)" -ForegroundColor Red
+
     $error = @{
-        message = "Error processing request: $($_.Exception.Message)"
+        message = "Error: $($_.Exception.Message)"
         success = $false
         timestamp = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffZ")
+        provider = $BridgeConfig.Provider
     } | ConvertTo-Json
 
-    Write-Error $error
+    Write-Output $error
     exit 1
 }
