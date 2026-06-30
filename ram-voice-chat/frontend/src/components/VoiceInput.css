@@ -123,9 +123,37 @@
   }
 }
 
+@keyframes badge-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
 .mic-label {
   font-size: 11px;
   font-weight: 700;
+  flex: 1;
+}
+
+.mode-badge {
+  font-size: 12px;
+  margin-left: 6px;
+  display: inline-block;
+}
+
+.mic-button.auto-mode {
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.mic-button.auto-mode .mode-badge {
+  animation: badge-pulse 1.5s ease-in-out infinite;
 }
 
 /* Responsive */

@@ -37,7 +37,12 @@ function App() {
   };
 
   const handleVoiceInput = async (transcript) => {
-    if (!transcript.trim()) return;
+    if (!transcript || !transcript.trim()) {
+      console.log('Empty transcript, skipping');
+      return;
+    }
+
+    console.log('🎯 Processing voice input:', transcript);
 
     // Add user message
     const userMsg = {
@@ -163,8 +168,9 @@ function App() {
             <div className="empty-state">
               <div className="empty-icon">🎤</div>
               <h2>Welcome to RAM Oracle</h2>
-              <p>Speak or type to begin conversation</p>
-              <p className="hint">Thai language supported ✨</p>
+              <p className="hint">🔄 Auto-listening active...</p>
+              <p>Just speak naturally in Thai or English</p>
+              <p className="sub-hint">Responds after 3.5 seconds or sentence end</p>
             </div>
           ) : (
             messages.map((msg) => (
