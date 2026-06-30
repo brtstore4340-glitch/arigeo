@@ -6,7 +6,11 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { callRAM, textToSpeech, healthCheck } from './ram-bridge.js';
+import {
+  callRAM,
+  textToSpeech,
+  healthCheckDetailed,
+} from './ram-bridge.js';
 
 dotenv.config();
 
@@ -33,11 +37,13 @@ app.use((req, res, next) => {
  */
 app.get('/api/health', async (req, res) => {
   try {
-    const isHealthy = await healthCheck();
+    const result = await healthCheckDetailed();
     res.json({
-      status: isHealthy ? 'healthy' : 'unhealthy',
-      ram: isHealthy ? 'connected' : 'disconnected',
+      status: result.healthy ? 'healthy' : 'unhealthy',
+      ram: result.healthy ? 'connected' : 'disconnected',
       timestamp: new Date().toISOString(),
+      diagnostics: result.diagnostics,
+      error: result.error,
     });
   } catch (error) {
     res.status(500).json({

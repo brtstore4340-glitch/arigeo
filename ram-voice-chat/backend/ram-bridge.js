@@ -29,6 +29,15 @@ function toWindowsPowerShellPath(filePath) {
 
 const RAM_BRIDGE_POWERSHELL_PATH = toWindowsPowerShellPath(RAM_BRIDGE_PATH);
 
+export function getBridgeDiagnostics() {
+  return {
+    bridge_path_wsl: RAM_BRIDGE_PATH,
+    bridge_path_windows: RAM_BRIDGE_POWERSHELL_PATH,
+    bridge_exists: fs.existsSync(RAM_BRIDGE_PATH),
+    backend_dir: __dirname,
+  };
+}
+
 function assertBridgePathExists() {
   if (!fs.existsSync(RAM_BRIDGE_PATH)) {
     throw new Error(
@@ -197,8 +206,29 @@ export async function healthCheck() {
   }
 }
 
+export async function healthCheckDetailed() {
+  const diagnostics = getBridgeDiagnostics();
+  try {
+    const response = await callRAM('health check', { maxWait: 5000 });
+    return {
+      healthy: Boolean(response && response.length > 0),
+      diagnostics,
+      error: null,
+    };
+  } catch (error) {
+    console.error('Health check failed:', error.message);
+    return {
+      healthy: false,
+      diagnostics,
+      error: error.message,
+    };
+  }
+}
+
 export default {
   callRAM,
+  getBridgeDiagnostics,
   textToSpeech,
   healthCheck,
+  healthCheckDetailed,
 };
