@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # fleet-health.sh — Zeus fleet health check
-# Detects oracle dirs missing git, ψ/, or not in INDEX
+# Detects oracle dirs missing git, ψ/, or CLAUDE.md
+# Note: tham-oracle merged into zeus-oracle (Lean Mode) — checked as part of Zeus identity
 # Run: bash zeus-oracle/scripts/fleet-health.sh
 
 MC="/mnt/d/01 Main Work/Boots/Agentic AI/mission-control"
 INDEX="$MC/zeus-oracle/ψ/fleet/INDEX.md"
 
 ORACLES=(
-  tham-oracle luxi-oracle teleos-oracle aris-oracle
+  luxi-oracle teleos-oracle aris-oracle
   lens-oracle stratum-oracle verity-oracle warden-oracle
   all-oracle aeimathes-oracle
 )
@@ -30,7 +31,6 @@ for dir in "${ORACLES[@]}"; do
 
   # Thai name aliases for INDEX lookup
   alias_name="$name"
-  [ "$dir" = "tham-oracle" ] && alias_name="ธาม"
   [ "$dir" = "all-oracle" ]  && alias_name="all"
   grep -qi "$alias_name\|$dir" "$INDEX" 2>/dev/null || issues+=("NOT IN INDEX")
 
