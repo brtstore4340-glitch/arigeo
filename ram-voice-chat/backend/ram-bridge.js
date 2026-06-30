@@ -6,14 +6,23 @@
 import { spawn } from 'child_process';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Path to RAM_CHAT.ps1
-const RAM_CHAT_PATH = path.resolve(
+// Path to RAM_API_BRIDGE.ps1 (wrapper for API calls)
+const RAM_BRIDGE_PATH = path.resolve(
   __dirname,
-  '../../../tools/RAM_CHAT.ps1'
+  '../../../tools/RAM_API_BRIDGE.ps1'
 );
+
+// Check if RAM_API_BRIDGE.ps1 exists
+if (!fs.existsSync(RAM_BRIDGE_PATH)) {
+  console.error(`⚠️  WARNING: RAM_API_BRIDGE.ps1 not found at: ${RAM_BRIDGE_PATH}`);
+  console.error(`Please ensure the file exists before running.`);
+} else {
+  console.log(`✓ RAM_API_BRIDGE.ps1 found at: ${RAM_BRIDGE_PATH}`);
+}
 
 /**
  * Call RAM with user message via PowerShell subprocess
@@ -24,17 +33,20 @@ const RAM_CHAT_PATH = path.resolve(
 export async function callRAM(userMessage, options = {}) {
   return new Promise((resolve, reject) => {
     try {
-      // PowerShell command to run RAM_CHAT.ps1
-      const psCommand = `
-        $ErrorActionPreference = 'Stop'
-        & "${RAM_CHAT_PATH}" -Message "${userMessage.replace(/"/g, '`"')}"
-      `;
+      // Escape special characters for PowerShell
+      const escapedMessage = userMessage
+        .replace(/\\/g, '\\\\')  // Backslash
+        .replace(/"/g, '\\"')     // Double quote (for PowerShell)
+        .replace(/\$/g, '`$')     // Dollar sign
+        .replace(/`/g, '``');     // Backtick
+
+      // PowerShell command - call API bridge with message parameter
+      const psCommand = `& "${RAM_BRIDGE_PATH}" -Message "${escapedMessage}"`;
 
       // Spawn PowerShell process
       const ps = spawn('powershell.exe', ['-NoProfile', '-Command', psCommand], {
         stdio: ['pipe', 'pipe', 'pipe'],
-        windowsHide: true,
-        shell: true,
+        windowsHide: false,
       });
 
       let stdout = '';
@@ -59,12 +71,13 @@ export async function callRAM(userMessage, options = {}) {
         clearTimeout(timeout);
 
         if (code !== 0) {
-          reject(new Error(`PowerShell exited with code ${code}: ${stderr}`));
+          const errorMsg = stderr ? stderr.trim() : `Exit code ${code}`;
+          reject(new Error(`PowerShell failed: ${errorMsg}`));
           return;
         }
 
         if (!stdout.trim()) {
-          reject(new Error('No response from RAM'));
+          reject(new Error('No response from RAM - check if RAM_CHAT.ps1 exists and is executable'));
           return;
         }
 
@@ -81,7 +94,7 @@ export async function callRAM(userMessage, options = {}) {
 
       ps.on('error', (err) => {
         clearTimeout(timeout);
-        reject(new Error(`Failed to spawn RAM process: ${err.message}`));
+        reject(new Error(`Failed to spawn PowerShell: ${err.message}`));
       });
     } catch (error) {
       reject(error);
