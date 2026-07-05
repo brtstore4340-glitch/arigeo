@@ -83,15 +83,37 @@ echo "  Memory: $ORACLE_MEMORY"
 
 Instead of creating a new project folder:
 
-1. **Check if oracle has existing memory** → restore context
-2. **Set environment for this oracle:**
+1. **Create memory directory** if it doesn't exist
+   ```bash
+   mkdir -p "$ORACLE_MEMORY"
+   ```
+
+2. **Check for existing identity**
+   - If `$ORACLE_MEMORY/CLAUDE.md` exists → restore it
+   - If `$ORACLE_MEMORY/identity.md` exists → load oracle metadata
+   - Otherwise → start fresh with new identity
+
+3. **Set environment for this oracle**
    ```bash
    export ORACLE_NAME="$ORACLE_NAME"
    export ORACLE_MEMORY_DIR="$ORACLE_MEMORY"
    export ORACLE_PROJECT_DIR="$ORACLE_PROJECT"
    ```
-3. **Load prior identity** from `$ORACLE_MEMORY/identity.md` if exists
-4. **Call standard `/awaken`** with context pre-filled
+
+4. **Initialize or restore**
+   - **If memory exists:** Load prior CLAUDE.md, restore context
+   - **If new oracle:** Create initial CLAUDE.md with oracle role/domain from registry
+
+5. **Optional: Call standard `/awaken`** with pre-filled context
+   - Or use `/fleet-awaken --reawaken` to re-sync with current registry
+
+## Implementation Notes
+
+- **No new project folder created** — all oracles share fleet-root
+- **Memory persistence** — context restored across sessions
+- **Hierarchy awareness** — oracle relationships loaded from registry
+- **Fast mode available** — `--fast` skips some rituals
+- **Migration-aware** — detects and warns if using old scattered memory
 
 ## Key Differences from `/awaken`
 
