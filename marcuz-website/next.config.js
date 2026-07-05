@@ -7,7 +7,9 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp']
   },
-  staticPageGenerationTimeout: 0
+  turbopack: {
+    root: __dirname
+  }
 }
 
 module.exports = nextConfig
