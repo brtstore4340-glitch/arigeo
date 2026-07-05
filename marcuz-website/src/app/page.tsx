@@ -3,7 +3,7 @@ import { getContent } from '@/lib/content';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-const content = getContent();
+const content = { hero: {}, trustedRelationships: {}, businessReality: {}, beliefs: {} };
 
 export const metadata = {
   title: 'MARCUZ - Digital Transformation Partner',
