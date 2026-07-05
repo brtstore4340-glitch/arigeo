@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "project": "Marcuz Digital Transformation Partner",
+    "version": "1.0.0",
+    "date": "2026-07-04",
+    "status": "production-ready",
+    "tone": "Consultative, business-focused, trusted advisor"
+  },
+  "hero": {
+    "headline": "Technology should make work effortless.",
+    "headlineAlternatives": [
+      "Every growing business eventually outgrows its tools.",
+      "When organizations grow, systems either evolve or break.",
+      "Better systems. Better decisions. Better results."
+    ],
+    "subheading": "Marcuz helps organizations redesign the way they work through digital transformation, intelligent systems, and AI-enabled automation. We don't begin with technology—we begin with your business goals.",
+    "body": "From healthcare to hospitality, retail to professional services, growing organizations face the same challenge: systems that no longer fit. Manual workflows. Disconnected information. Slow decisions.\n\nWe partner with you to imagine what's possible, design new workflows, and build systems that scale with your business.",
+    "cta": {
+      "primary": "Book a Discovery Session",
+      "secondary": "View Our Work"
+    },
+    "socialProof": "Trusted by ORRY Thailand, Arigeo, and Cation Maid"
+  },
+  "trustedRelationships": {
+    "headline": "We partner with growing organizations.",
+    "intro": "From concept to execution, we work alongside leaders who are rethinking how their organizations operate.",
+    "clients": [
+      {
+        "name": "ORRY Thailand",
+        "role": "Premium lip care brand transforming e-commerce operations",
+        "status": "Active partner"
+      },
+      {
+        "name": "Arigeo",
+        "role": "Client context pending",
+        "status": "Active partner"
+      },
+      {
+        "name": "Cation Maid",
+        "role": "Client context pending",
+        "status": "Active partner"
+      }
+    ]
+  },
+  "businessReality": {
+    "headline": "The challenge every growing organization faces.",
+    "intro": "As businesses scale, the tools and processes that got you here begin to hold you back. These challenges are predictable. They're also solvable.",
+    "problems": [
+      {
+        "headline": "Teams drowning in manual tasks",
+        "description": "Spreadsheets, emails, repetitive data entry—resources spent on busywork instead of strategy.",
+        "impact": "Teams spend 30-40% of their time on work that could be automated."
+      },
+      {
+        "headline": "Information scattered across tools",
+        "description": "CRM, accounting software, project management, HR systems. No unified view. No single source of truth.",
+        "impact": "Decision-makers lack the information they need when they need it."
+      },
+      {
+        "headline": "Bottlenecks in decision-making",
+        "description": "Approvals require multiple emails, meetings, manual steps. Simple decisions take days.",
+        "impact": "Business moves at the speed of your approval process."
+      },
+      {
+        "headline": "Institutional knowledge walks out the door",
+        "description": "When people leave, critical information leaves with them. Processes exist in people's heads, not systems.",
+        "impact": "Each departure creates a knowledge gap and operational risk."
+      },
+      {
+        "headline": "Leaders lack real-time visibility",
+        "description": "Reports are outdated by the time you read them. You're making decisions based on yesterday's data.",
+        "impact": "You're always working with incomplete information."
+      },
+      {
+        "headline": "Growth brings chaos, not progress",
+        "description": "Adding people, adding locations, adding products. But your systems don't scale with you.",
+        "impact": "Growth becomes harder, not easier."
+      }
+    ]
+  },
+  "beliefs": {
+    "headline": "Our philosophy.",
+    "intro": "Everything we do is guided by how we think about business, technology, and the relationship between them.",
+    "beliefs": [
+      {
+        "headline": "Technology should simplify work, not complicate it.",
+        "description": "If your software requires training, documentation, and workarounds, it's adding complexity instead of removing it. Good systems disappear into the background and let people do their jobs."
+      },
+      {
+        "headline": "Better decisions start with better information.",
+        "description": "You can't improve what you can't measure. Systems should give you real-time visibility into what matters—and filter out what doesn't."
+      },
+      {
+        "headline": "AI should amplify people, not replace them.",
+        "description": "Artificial intelligence is most powerful when it handles repetitive work, uncovers patterns, and augments human judgment. It should make your team smarter and faster, not obsolete."
+      },
+      {
+        "headline": "Business goals come before technology choices.",
+        "description": "We never start with tools. We start with understanding your business, your challenges, and your opportunities. Technology is the solution, not the strategy."
+      },
+      {
+        "headline": "Every business deserves systems that evolve with it.",
+        "description": "Your organization changes. Your systems should change with you. Rigid software becomes a liability. The best systems adapt as you grow."
+      },
+      {
+        "headline": "Process matters as much as technology.",
+        "description": "Software alone doesn't fix broken processes. The best outcomes come from rethinking how work flows through your organization, then building technology to support it."
+      },
+      {
+        "headline": "Trust is the foundation of partnership.",
+        "description": "We're only successful if you're successful. That means being honest about what's possible, transparent about trade-offs, and committed to your long-term growth—not our next invoice."
+      }
+    ]
+  },
+  "transformation": {
+    "headline": "From scattered to seamless.",
+    "intro": "Digital transformation isn't about new technology for its own sake. It's about fundamentally changing how your organization operates.",
+    "beforeState": {
+      "headline": "Disconnected",
+      "elements": [
+        "Manual work consuming time",
+        "Information in multiple places",
+        "Slow, error-prone processes",
+        "Limited visibility",
+        "People doing repetitive tasks",
+        "Growth creating more chaos"
+      ]
+    },
+    "transitionText": "Through thoughtful design, intelligent systems, and strategic automation",
+    "afterState": {
+      "headline": "Connected",
+      "elements": [
+        "Automated repetitive work",
+        "Unified information systems",
+        "Fast, accurate processes",
+        "Real-time visibility",
+        "AI handling routine decisions",
+        "Growth enabling new possibilities"
+      ]
+    },
+    "examples": [
+      {
+        "industry": "Healthcare",
+        "before": "Manual appointment scheduling, scattered patient records, email-based coordination",
+        "after": "Automated scheduling, unified patient information, automated appointment reminders"
+      },
+      {
+        "industry": "Retail",
+        "before": "Spreadsheet inventory, disconnected store systems, manual stock counts",
+        "after": "Real-time inventory visibility, automated replenishment, data-driven decisions"
+      },
+      {
+        "industry": "Hospitality",
+        "before": "Email coordination, manual guest requests, paper-based operations",
+        "after": "Unified guest communications, automated request handling, operational dashboards"
+      }
+    ]
+  },
+  "outcomes": {
+    "headline": "What transformation looks like.",
+    "intro": "We organize outcomes by business value, not technology categories. Here's what becomes possible.",
+    "outcomes": [
+      {
+        "headline": "Streamline operations, reduce errors, move faster",
+        "description": "From manual processes to automated workflows. From error-prone to reliable. From slow to fast. When your operations are efficient, everything else becomes easier.",
+        "examples": [
+          "Reduce approval cycles from days to hours",
+          "Eliminate manual data entry (and the errors that come with it)",
+          "Standardize processes across locations",
+          "Reduce operational overhead by 20-30%"
+        ]
+      },
+      {
+        "headline": "Faster response, better visibility, proactive service",
+        "description": "When your operations are efficient, you can focus on your customers. Better information means better service. Faster processes mean faster response.",
+        "examples": [
+          "Respond to customer requests in hours, not days",
+          "Provide consistent service across teams and locations",
+          "Anticipate customer needs before they ask",
+          "Build customer loyalty through reliability"
+        ]
+      },
+      {
+        "headline": "Real-time data, unified information, intelligent insights",
+        "description": "Every decision is only as good as the information you have. Leaders deserve access to accurate, current data. AI can help you see patterns and opportunities you'd otherwise miss.",
+        "examples": [
+          "Make decisions based on real-time data, not yesterday's reports",
+          "See relationships across your business you couldn't see before",
+          "Identify trends and opportunities earlier",
+          "Reduce decision cycle time by 50%+"
+        ]
+      },
+      {
+        "headline": "Let AI handle routine decisions and tasks",
+        "description": "People should spend time on work that requires judgment, creativity, and strategic thinking. Let systems handle the routine work.",
+        "examples": [
+          "Automate data entry and routine reporting",
+          "Let AI triage customer inquiries to the right team",
+          "Automatically route approvals based on business rules",
+          "Eliminate busywork so teams can focus on high-value work"
+        ]
+      },
+      {
+        "headline": "Prepare your organization for intelligent systems",
+        "description": "AI is no longer a future technology. It's available now. The question isn't whether you should use AI—it's how and where you can gain the most value.",
+        "examples": [
+          "Implement AI for forecasting and demand planning",
+          "Use natural language processing to extract insights from customer feedback",
+          "Build predictive models for risk management",
+          "Augment human decision-making with AI recommendations"
+        ]
+      },
+      {
+        "headline": "Grow without chaos, expand without rebuilding",
+        "description": "The best systems enable growth. When your operations are designed to scale, adding people, locations, or complexity doesn't mean starting over.",
+        "examples": [
+          "Add new locations with plug-and-play systems",
+          "Scale teams without proportional overhead",
+          "Maintain quality and consistency as you grow",
+          "Build infrastructure that supports 10x growth"
+        ]
+      }
+    ]
+  },
+  "caseStudies": {
+    "intro": "How transformation works in practice.",
+    "featured": {
+      "client": "ORRY Thailand",
+      "clientType": "E-commerce (Premium lip care)",
+      "headline": "Building a platform that scales with a brand.",
+      "sections": {
+        "challenge": {
+          "headline": "The Opportunity",
+          "copy": "ORRY Thailand had outgrown their initial e-commerce setup. As they scaled from local to regional, their systems couldn't keep up. Inventory was manual. Customer data was fragmented. Analytics were incomplete. Growth was creating operational chaos."
+        },
+        "thinking": {
+          "headline": "Our Approach",
+          "copy": "We started by understanding ORRY's business: their customers, their growth plans, their operational constraints. Not by looking at their current tech stack.\n\nWe identified three priorities:\n1. Unified customer and inventory data\n2. Automated order-to-fulfillment workflow\n3. Real-time visibility into business performance\n\nEach decision was driven by business strategy, not technical convenience."
+        },
+        "solution": {
+          "headline": "What We Built",
+          "copy": "- Redesigned e-commerce platform with unified data architecture\n- Automated inventory management connected to fulfillment\n- Customer analytics dashboard with real-time insights\n- Integration with existing accounting and logistics systems\n- Phased rollout to minimize disruption"
+        },
+        "outcome": {
+          "headline": "The Results",
+          "copy": "- 40% reduction in order processing time\n- 99% inventory accuracy (previously 87%)\n- Real-time visibility into customer behavior\n- Ability to analyze campaign performance instantly\n- Foundation for future growth and automation\n\nMost importantly: ORRY could focus on their brand and customers, not managing their technology."
+        }
+      },
+      "cta": "Want to see what transformation looks like? Book a Discovery Session"
+    },
+    "secondary": [
+      {
+        "client": "Arigeo",
+        "headline": "Case study details pending",
+        "status": "In development"
+      },
+      {
+        "client": "Cation Maid",
+        "headline": "Case study details pending",
+        "status": "In development"
+      }
+    ]
+  },
+  "methodology": {
+    "headline": "Our methodology. Proven. Transparent. Human.",
+    "intro": "We follow a clear five-stage process. Every stage builds toward one goal: creating systems that work for your business.",
+    "stages": [
+      {
+        "number": 1,
+        "name": "Discover",
+        "headline": "Understand your business first",
+        "duration": "2-4 weeks",
+        "purpose": "Clarity",
+        "whatHappens": [
+          "We immerse ourselves in your business",
+          "Map current workflows and pain points",
+          "Interview key stakeholders",
+          "Understand your growth plans and constraints",
+          "Identify the highest-impact opportunities"
+        ],
+        "deliverable": "Clear understanding of your business, priorities, and path forward. The foundation for everything that follows.",
+        "humanCenteredApproach": "We ask questions because listening matters. We observe how people actually work, not how org charts say they should work."
+      },
+      {
+        "number": 2,
+        "name": "Design",
+        "headline": "Imagine new possibilities",
+        "duration": "3-6 weeks",
+        "purpose": "Strategy",
+        "whatHappens": [
+          "We design workflows that make sense",
+          "Create system architecture that fits your needs",
+          "Identify technology solutions that support your strategy",
+          "Plan the implementation approach",
+          "Get your team's feedback and buy-in"
+        ],
+        "deliverable": "Clear design that your team understands and supports. A roadmap everyone can follow.",
+        "humanCenteredApproach": "We involve your team in design decisions. Systems fail when people aren't part of creating them. Success requires buy-in before we build."
+      },
+      {
+        "number": 3,
+        "name": "Build",
+        "headline": "Execute with precision",
+        "duration": "4-12 weeks",
+        "purpose": "Delivery",
+        "whatHappens": [
+          "We build according to the design",
+          "Integrate with existing systems",
+          "Test in real-world scenarios",
+          "Train your team",
+          "Prepare for launch"
+        ],
+        "deliverable": "A working system that your team knows how to use. Ready for production.",
+        "humanCenteredApproach": "We build in phases so you can see progress. Training happens during development, not after. Questions get answered early."
+      },
+      {
+        "number": 4,
+        "name": "Validate",
+        "headline": "Prove it works",
+        "duration": "2-4 weeks",
+        "purpose": "Verification",
+        "whatHappens": [
+          "Monitor real-world usage",
+          "Gather feedback from your team",
+          "Measure against success metrics",
+          "Identify any adjustments needed",
+          "Optimize performance"
+        ],
+        "deliverable": "Confidence that the system works. Data showing the impact. Clear understanding of what's working and what needs adjustment.",
+        "humanCenteredApproach": "We ask your team what's working and what isn't. Data matters, but so does how people feel about the change."
+      },
+      {
+        "number": 5,
+        "name": "Improve",
+        "headline": "Systems that evolve",
+        "duration": "Ongoing",
+        "purpose": "Optimization",
+        "whatHappens": [
+          "Continuous monitoring and optimization",
+          "Regular check-ins with your team",
+          "Adjust based on changing business needs",
+          "Explore new opportunities as they emerge",
+          "Build on your foundation for future growth"
+        ],
+        "deliverable": "A system that improves over time. New capabilities as your business needs them. A true partnership.",
+        "humanCenteredApproach": "We stay in partnership after launch. Your business changes. Your systems should change with you."
+      }
+    ]
+  },
+  "insights": {
+    "headline": "Learn how organizations transform.",
+    "intro": "We share what we learn through every project. Strategic insights about AI, automation, digital transformation, and building systems that actually work.",
+    "categories": [
+      {
+        "name": "AI & Automation",
+        "articles": [
+          "Why AI Projects Fail (And How to Succeed)",
+          "Automation ROI: What Leaders Actually Need to Know",
+          "7 Patterns in Organizations Ready for AI"
+        ]
+      },
+      {
+        "name": "Digital Transformation",
+        "articles": [
+          "Transformation Isn't About Technology",
+          "How to Build Buy-In for Organizational Change",
+          "The Hidden Costs of Legacy Systems"
+        ]
+      },
+      {
+        "name": "Workflow Design",
+        "articles": [
+          "Why Documenting Workflows Actually Matters",
+          "3 Signals Your Processes Need Redesign",
+          "From Manual to Automated: A Case Study"
+        ]
+      },
+      {
+        "name": "Business Strategy",
+        "articles": [
+          "Scaling Operations Without Chaos",
+          "How Systems Enable Growth",
+          "Preparing Your Organization for What's Next"
+        ]
+      },
+      {
+        "name": "Industry Insights",
+        "articles": [
+          "Healthcare Automation: Challenges and Opportunities",
+          "Retail Operations in the Age of Real-Time Data",
+          "Professional Services: From Billable Hours to Impact"
+        ]
+      }
+    ],
+    "cta": {
+      "primary": "Read our latest thinking",
+      "secondary": "Subscribe to insights"
+    }
+  },
+  "discovery": {
+    "headline": "Ready to rethink how your business works?",
+    "subheading": "Let's start with a conversation. No pitch. No pressure. Just a thoughtful discussion about your challenges and opportunities.",
+    "formIntro": "Tell us about yourself and your organization. We'll review and reach out within 24 hours.",
+    "formFields": [
+      {
+        "name": "fullName",
+        "label": "Your name",
+        "placeholder": "John Smith",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "company",
+        "label": "Company or organization",
+        "placeholder": "Acme Inc.",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "placeholder": "you@company.com",
+        "type": "email",
+        "required": true
+      },
+      {
+        "name": "phone",
+        "label": "Phone (optional)",
+        "placeholder": "+66 (81) 456-7890",
+        "type": "tel",
+        "required": false
+      },
+      {
+        "name": "challenge",
+        "label": "What's your biggest operational challenge right now?",
+        "placeholder": "We're struggling with...",
+        "type": "textarea",
+        "required": true
+      },
+      {
+        "name": "preferredTime",
+        "label": "When would you prefer to connect?",
+        "type": "select",
+        "options": [
+          "This week",
+          "Next week",
+          "Next 2 weeks",
+          "Flexible"
+        ],
+        "required": true
+      }
+    ],
+    "submitButton": "Book a Discovery Session",
+    "postSubmitMessage": {
+      "headline": "Thank you.",
+      "copy": "We've received your request. We'll review it and reach out within 24 hours to find a time that works.\n\nLooking forward to the conversation."
+    },
+    "privacyFooter": "We take privacy seriously. Your information is only used to schedule your discovery session."
+  },
+  "navigation": {
+    "brand": "Marcuz",
+    "items": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Work",
+        "href": "/work",
+        "description": "Case studies"
+      },
+      {
+        "label": "Insights",
+        "href": "/insights",
+        "description": "Knowledge hub"
+      },
+      {
+        "label": "Discovery",
+        "href": "/discovery",
+        "description": "Book session"
+      }
+    ],
+    "cta": {
+      "label": "Book Session",
+      "href": "/discovery"
+    }
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Marcuz",
+        "copy": "Digital Transformation Partner helping organizations rethink how work gets done."
+      },
+      {
+        "title": "What We Do",
+        "links": [
+          { "label": "Digital Transformation", "href": "#" },
+          { "label": "Workflow Design", "href": "#" },
+          { "label": "AI & Automation", "href": "#" },
+          { "label": "Systems Integration", "href": "#" },
+          { "label": "Case Studies", "href": "#" }
+        ]
+      },
+      {
+        "title": "Insights",
+        "links": [
+          { "label": "Blog", "href": "/insights" },
+          { "label": "AI & Automation", "href": "/insights?category=ai-automation" },
+          { "label": "Digital Transformation", "href": "/insights?category=transformation" },
+          { "label": "Industry Insights", "href": "/insights?category=industry" },
+          { "label": "Subscribe", "href": "#" }
+        ]
+      },
+      {
+        "title": "Get in Touch",
+        "copy": "Let's talk about your business.",
+        "contact": {
+          "email": "hello@marcuz.com",
+          "phone": "+66 (2) 123-4567"
+        }
+      }
+    ],
+    "copyright": "© 2026 Marcuz. All rights reserved.",
+    "links": [
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms", "href": "/terms" }
+    ]
+  }
+}
