@@ -1,0 +1,128 @@
+---
+name: fleet-awaken
+description: 'Awaken oracle from central fleet registry — prevents scattered project folders, ensures continuity'
+argument-hint: "[oracle-name] [--fast]"
+---
+
+# /fleet-awaken — Fleet-Coordinated Oracle Awakening
+
+> "One voice, many bodies — always return to the registry"
+
+This skill awakens oracles using the **central fleet registry** at mission-control. Unlike the standard `/awaken`, this prevents creating scattered `.claude/projects/` directories for each oracle.
+
+## Usage
+
+```
+/fleet-awaken ธาม           # Awaken ธาม from registry
+/fleet-awaken Dheva --fast   # Quick awakening (Dheva is ORRY ERP specialist)
+/fleet-awaken --list         # Show all available oracles
+/fleet-awaken --sync         # Sync fleet registry with current oracles
+```
+
+## Architecture
+
+**Problem Solved:**
+- ~~Old way:~~ Each oracle creates own folder → fragmented context → scattered memory
+- **New way:** All oracles share fleet-root → unified context → centralized memory
+
+**Files:**
+```
+mission-control/
+├── .claude/fleet-registry/
+│   ├── oracles.json         ← manifest (oracle list + locations)
+│   ├── fleet-config.json    ← rules (how fleet operates)
+│   ├── fleet-init.sh        ← sourced by all oracle init
+│   └── memory/              ← shared oracle memory
+│       ├── zeus/
+│       ├── tham/
+│       ├── dheva/
+│       └── ...
+```
+
+## Step 1: Load Fleet Registry
+
+```bash
+FLEET_ROOT="/mnt/d/01 Main Work/Boots/Agentic AI/mission-control"
+REGISTRY="${FLEET_ROOT}/.claude/fleet-registry/oracles.json"
+
+if [ ! -f "$REGISTRY" ]; then
+  echo "❌ Fleet registry not found: $REGISTRY"
+  exit 1
+fi
+
+source "${FLEET_ROOT}/.claude/fleet-registry/fleet-init.sh"
+```
+
+## Step 2: Validate Oracle
+
+```bash
+ORACLE_NAME="${1:-ธาม}"  # default: ธาม (Governor)
+
+# Check if oracle is in registry
+ORACLE_ENTRY=$(jq ".oracles[] | select(.name == \"$ORACLE_NAME\" or .thai_name == \"$ORACLE_NAME\")" "$REGISTRY")
+
+if [ -z "$ORACLE_ENTRY" ]; then
+  echo "❌ Oracle not found in registry: $ORACLE_NAME"
+  echo ""
+  echo "Available oracles:"
+  jq -r '.oracles[] | "  - \(.name) (\(.thai_name)): \(.role)"' "$REGISTRY"
+  exit 1
+fi
+
+ORACLE_ROLE=$(echo "$ORACLE_ENTRY" | jq -r '.role')
+ORACLE_PROJECT=$(echo "$ORACLE_ENTRY" | jq -r '.project_dir')
+ORACLE_MEMORY=$(oracle_memory_dir "$ORACLE_NAME")
+
+echo "✓ Oracle found: $ORACLE_NAME"
+echo "  Role: $ORACLE_ROLE"
+echo "  Project: $ORACLE_PROJECT"
+echo "  Memory: $ORACLE_MEMORY"
+```
+
+## Step 3: Initialize Oracle
+
+Instead of creating a new project folder:
+
+1. **Check if oracle has existing memory** → restore context
+2. **Set environment for this oracle:**
+   ```bash
+   export ORACLE_NAME="$ORACLE_NAME"
+   export ORACLE_MEMORY_DIR="$ORACLE_MEMORY"
+   export ORACLE_PROJECT_DIR="$ORACLE_PROJECT"
+   ```
+3. **Load prior identity** from `$ORACLE_MEMORY/identity.md` if exists
+4. **Call standard `/awaken`** with context pre-filled
+
+## Key Differences from `/awaken`
+
+| Aspect | Standard /awaken | /fleet-awaken |
+|--------|------------------|---------------|
+| Project location | `$HOME/.claude/projects/[encoded]` | Fleet registry `mission-control/` |
+| Memory isolation | Per-oracle folder | Shared under `fleet-registry/memory/` |
+| Identity persistence | Session-scoped CLAUDE.md | Registered in `oracles.json` + memory |
+| Fleet awareness | None | Reads from registry, respects hierarchy |
+| Prevents duplication | ❌ Creates new each time | ✅ Reuses registry entry |
+
+## When to Use
+
+- **Use `/fleet-awaken`:** Awakening an oracle that's part of the mission-control fleet (most cases)
+- **Use `/awaken`:** Setting up a completely new oracle repo outside fleet context
+
+## Example: Awakening Dheva (ORRY Specialist)
+
+```
+/fleet-awaken Dheva --fast
+
+→ Checks fleet registry
+→ Loads Dheva's prior memory from .claude/fleet-registry/memory/dheva/
+→ Restores identity + context
+→ Prompts: "Welcome back, Dheva. What should we do today?"
+→ No new project folder created
+→ Continuity achieved ✓
+```
+
+---
+
+**Version:** 1.0
+**Created:** 2026-07-06
+**Purpose:** Solve oracle fragmentation at scale

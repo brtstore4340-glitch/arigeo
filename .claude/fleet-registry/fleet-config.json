@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "created": "2026-07-06T05:21:00Z",
+  "description": "Central fleet configuration - prevents scattered project folders",
+  "config": {
+    "fleet_root": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+    "use_central_registry": true,
+    "prevent_isolated_projects": true,
+    "fleet_memory_root": ".claude/fleet-registry/memory",
+    "sync_lock_file": ".claude/fleet-registry/.sync-lock",
+    "registry_file": ".claude/fleet-registry/oracles.json"
+  },
+  "rules": {
+    "oracle_awakening": "Always check fleet_registry before creating new project directory",
+    "memory_location": "Store each oracle's memory under fleet_memory_root/{oracle_name}/",
+    "project_isolation": "Use fleet_root for all oracle contexts; never create $HOME/.claude/projects/{oracle-name}/",
+    "env_variable": "Export ORACLE_FLEET_REGISTRY with path to fleet-registry directory"
+  }
+}
