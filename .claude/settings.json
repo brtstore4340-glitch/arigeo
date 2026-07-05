@@ -17,5 +17,18 @@
       "Bash(git config *)",
       "Bash(jq *)"
     ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/skills/zeus-wake.sh"
+          }
+        ]
+      }
+    ]
   }
 }
