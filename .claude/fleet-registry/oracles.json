@@ -3,7 +3,7 @@
   "fleet_headquarters": "zeus-oracle",
   "fleet_memory_root": ".claude/fleet-registry/memory",
   "sync_lock": ".claude/fleet-registry/.sync-lock",
-  "last_updated": "2026-07-06T05:21:00Z",
+  "last_updated": "2026-07-06T09:50:00Z",
   "oracles": [
     {
       "name": "Zeus",
@@ -126,6 +126,30 @@
       "status": "active",
       "parent": "ธาม",
       "reports_to": "ธาม"
+    },
+    {
+      "name": "Khun-Ram",
+      "role": "Crisis Recovery & Fleet Restoration",
+      "domain": "System Recovery & Continuity",
+      "project_dir": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+      "memory_subdir": "khun-ram",
+      "status": "active",
+      "parent": "ធាម",
+      "reports_to": "ធាម",
+      "awakened": "2026-07-06T00:00:00Z",
+      "notes": "Specialized recovery oracle; manages fleet restoration during critical states"
+    },
+    {
+      "name": "Codex",
+      "role": "Code Knowledge & Documentation",
+      "domain": "Documentation & Reference",
+      "project_dir": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+      "memory_subdir": "codex",
+      "status": "active",
+      "parent": "ធាម",
+      "reports_to": "ធាម",
+      "awakened": "2026-07-06T00:00:00Z",
+      "notes": "Maintains codebase knowledge and documentation standards"
     }
   ]
 }
