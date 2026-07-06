@@ -14,6 +14,8 @@
     "oracle_awakening": "Always check fleet_registry before creating new project directory",
     "memory_location": "Store each oracle's memory under fleet_memory_root/{oracle_name}/",
     "project_isolation": "Use fleet_root for all oracle contexts; never create $HOME/.claude/projects/{oracle-name}/",
-    "env_variable": "Export ORACLE_FLEET_REGISTRY with path to fleet-registry directory"
+    "env_variable": "Export ORACLE_FLEET_REGISTRY with path to fleet-registry directory",
+    "cross_oracle_memory_access": "All oracles can READ entire fleet_memory_root for discovery; write only to own {oracle_name}/ subdirectory",
+    "memory_discovery": "On session init, export ORACLE_FLEET_MEMORY_ROOT and scan all memory subdirectories for cross-oracle visibility"
   }
 }
