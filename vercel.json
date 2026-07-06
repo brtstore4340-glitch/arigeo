@@ -1,0 +1,8 @@
+{
+  "root": "captain-maid",
+  "buildCommand": "next build",
+  "github": {
+    "enabled": true,
+    "autoAlias": false
+  }
+}
