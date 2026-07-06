@@ -58,7 +58,7 @@
 ### 2.6 Deployment ⏳
 
 - [ ] Test on Zeus oracle awakening
-- [ ] Test on ធាម oracle awakening
+- [ ] Test on ธาม oracle awakening
 - [ ] Test on Dheva (ORRY) oracle awakening
 - [ ] Test fast-mode awakening
 - [ ] Verify backward compatibility
