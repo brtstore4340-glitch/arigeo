@@ -1,0 +1,3 @@
+Retrieving project…
+Deploying e0XXXXXXXXXs-projects/workshop-01-maw-plugin
+Error: EACCES: permission denied, lstat 'D:\01 Main Work\Boots\Agentic AI\mission-control\ψ\learn\the-oracle-keeps-the-human-human\workshop-01-maw-plugin\origin'

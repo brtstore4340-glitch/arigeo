@@ -1,0 +1,56 @@
+{
+  "navigation": {
+    "shop": "ร้านค้า",
+    "essentials": "สินค้าจำเป็น",
+    "bestSellers": "ขายดีที่สุด",
+    "aboutUs": "เกี่ยวกับเรา",
+    "blog": "บล็อก",
+    "contact": "ติดต่อเรา"
+  },
+  "global": {
+    "moreDetail": "ดูรายละเอียดเพิ่มเติม",
+    "inStock": "มีสินค้า",
+    "outOfStock": "หมดสต็อก"
+  },
+  "productDetail": {
+    "price": "ราคา",
+    "stock": "สต็อก",
+    "description": "คำอธิบายสินค้า",
+    "keyBenefits": "ประโยชน์หลัก",
+    "usage": "การใช้งาน",
+    "directions": "วิธีใช้",
+    "precautions": "ข้อควรระวัง",
+    "specifications": "ข้อมูลจำเพาะ",
+    "size": "ขนาด",
+    "weight": "น้ำหนัก",
+    "height": "ความสูง",
+    "width": "ความกว้าง",
+    "depth": "ความลึก",
+    "backToProducts": "กลับไปที่สินค้า"
+  },
+  "shop": {
+    "title": "พร้อมที่จะทำความสะอาดอย่างฉลาดแล้วหรือยัง",
+    "freeShipping": "ส่งฟรี",
+    "secureCheckout": "ชำระเงินอย่างปลอดภัย",
+    "moneyBackGuarantee": "รับประกันเงินคืน",
+    "easyReturns": "คืนสินค้าได้ง่าย",
+    "alsoAvailableAt": "ยังมีให้บริการที่"
+  },
+  "blog": {
+    "title": "บล็อก Captain Maid",
+    "subtitle": "เคล็ดลับและข้อมูลเชิงลึกเกี่ยวกับการทำความสะอาด",
+    "readMore": "อ่านเพิ่มเติม"
+  },
+  "footer": {
+    "brand": "ผลิตภัณฑ์ทำความสะอาดพรีเมียมสำหรับบ้านสมัยใหม่",
+    "aboutUs": "เกี่ยวกับเรา",
+    "blog": "บล็อก",
+    "faq": "คำถามที่พบบ่อย",
+    "contactUs": "ติดต่อเรา",
+    "shippingInfo": "ข้อมูลการจัดส่ง",
+    "returnsRefunds": "การคืนสินค้าและเงินคืน",
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "termsOfService": "เงื่อนไขการใช้บริการ",
+    "copyright": "© 2026 Captain Maid สงวนลิขสิทธิ์"
+  }
+}

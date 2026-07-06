@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายงานสรุปเซสชัน - 2026-06-07</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Google Deep Blue Palette */
+            --blue-900: #0d47a1;
+            --blue-800: #1565c0;
+            --blue-700: #1976d2;
+            --blue-600: #1e88e5;
+            --blue-500: #2196f3;
+            --blue-400: #42a5f5;
+            --blue-300: #64b5f6;
+            --blue-200: #90caf9;
+            --blue-100: #bbdefb;
+            --blue-50: #e3f2fd;
+
+            --text-dark: #202124;
+            --text-secondary: #5f6368;
+            --bg-light: #ffffff;
+            --bg-gray: #f8f9fa;
+            --border: #dadce0;
+            --shadow: 0 2px 8px rgba(32, 33, 36, 0.12), 0 4px 12px rgba(32, 33, 36, 0.08);
+            --shadow-hover: 0 8px 16px rgba(32, 33, 36, 0.15), 0 12px 24px rgba(32, 33, 36, 0.12);
+        }
+
+        body.dark-mode {
+            --text-dark: #f1f3f4;
+            --text-secondary: #bdc1c6;
+            --bg-light: #202124;
+            --bg-gray: #292a2d;
+            --border: #5f6368;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.25);
+            --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Sans Thai', 'Ubuntu', sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* SVG Icons */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            vertical-align: middle;
+        }
+
+        .icon.lg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .icon.xl {
+            width: 48px;
+            height: 48px;
+        }
+
+        .icon.primary {
+            color: var(--blue-600);
+        }
+
+        .icon.success {
+            color: #10b981;
+        }
+
+        .icon.warning {
+            color: #f59e0b;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            background: var(--blue-600);
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .theme-toggle:hover {
+            background: var(--blue-700);
+            box-shadow: var(--shadow-hover);
+            transform: scale(1.05);
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 80px;
+            padding-bottom: 40px;
+            border-bottom: 2px solid var(--blue-200);
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            font-weight: 700;
+            color: var(--blue-900);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Card Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-color: var(--blue-400);
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: var(--blue-50);
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--blue-600);
+        }
+
+        .card-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--blue-700);
+            margin: 12px 0;
+            font-family: 'Roboto', monospace;
+        }
+
+        .card-label {
+            font-size: 0.95em;
+            color: var(--text-secondary);
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        /* Content Sections */
+        .section {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--blue-50);
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .section-icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+            color: var(--blue-600);
+        }
+
+        .section h2 {
+            font-size: 1.6em;
+            font-weight: 600;
+            color: var(--blue-900);
+            margin: 0;
+        }
+
+        .section h3 {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: var(--blue-700);
+            margin: 24px 0 12px 0;
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section h3 svg {
+            width: 20px;
+            height: 20px;
+            color: var(--blue-600);
+        }
+
+        .section p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .section ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .section li {
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--blue-600);
+            font-weight: bold;
+        }
+
+        /* Badges */
+        .badges-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            background: var(--blue-50);
+            color: var(--blue-900);
+            border: 1px solid var(--blue-300);
+            letter-spacing: 0.3px;
+        }
+
+        .badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .badge.success {
+            background: #e8f5e9;
+            color: #1b5e20;
+            border-color: #81c784;
+        }
+
+        .badge.success svg {
+            color: #10b981;
+        }
+
+        .badge.warning {
+            background: #fff3e0;
+            color: #e65100;
+            border-color: #ffb74d;
+        }
+
+        .badge.warning svg {
+            color: #f59e0b;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+        }
+
+        thead tr {
+            border-bottom: 2px solid var(--border);
+        }
+
+        th {
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--blue-900);
+            font-size: 0.95em;
+            letter-spacing: 0.2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        th svg {
+            width: 18px;
+            height: 18px;
+            color: var(--blue-600);
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.95em;
+        }
+
+        tbody tr:hover {
+            background-color: var(--bg-gray);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .cards-grid {
+                gap: 20px;
+            }
+
+            .section {
+                padding: 24px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.1s; }
+        .section:nth-child(3) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" title="เปลี่ยนธีม">🌙</button>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>
+                <svg class="icon xl primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M2 12h20M7 7h10v10H7z"/>
+                    <circle cx="17" cy="7" r="2"/>
+                    <circle cx="7" cy="17" r="2"/>
+                </svg>
+                รายงานสรุปเซสชัน
+            </h1>
+            <p>2026-06-07 | 6.5 ชั่วโมง</p>
+        </header>
+
+        <!-- Stats Cards -->
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="card-number">3</div>
+                <div class="card-label">เสร็จสิ้น</div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="card-number">4</div>
+                <div class="card-label">Oracle Online</div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="card-number">3</div>
+                <div class="card-label">กำลังดำเนิน</div>
+            </div>
+        </div>
+
+        <!-- Section 1: Completed -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <h2>สิ่งที่เสร็จสิ้น</h2>
+            </div>
+            <ul>
+                <li>
+                    Challenge 4 - ภารกิจทำความเข้าใจ Dheva
+                    <div class="badges-group">
+                        <span class="badge success">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Due: 2026-06-10
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    Workshop 01 - คู่มือการเรียนรู้
+                    <div class="badges-group">
+                        <span class="badge success">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Live on Vercel
+                        </span>
+                    </div>
+                </li>
+                <li>
+                    Fleet Admin - Permission Allowlist
+                    <div class="badges-group">
+                        <span class="badge success">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            18 Patterns
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Key Insights -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4M12 8h.01"></path>
+                    </svg>
+                </div>
+                <h2>Key Insights</h2>
+            </div>
+            <h3>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Diagnosis-First for Tailored Teaching
+            </h3>
+            <p>เมื่อออกแบบภารกิจการเรียนรู้ ให้เริ่มด้วยการวินิจฉัย ไม่ใช่เทมเพลต</p>
+            <ul>
+                <li>Dheva = ERP Phase 2 Orchestrator (Operational State)</li>
+                <li>Challenge 1 adapted for recovery (ERP-specific)</li>
+                <li>Aeimathes learns by teaching (Mentorship)</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Metrics -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="2" x2="12" y2="22"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h2>Session Metrics</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            Metric
+                        </th>
+                        <th>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Value
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Duration</td>
+                        <td><span class="badge">6.5 hours</span></td>
+                    </tr>
+                    <tr>
+                        <td>Tokens Used</td>
+                        <td><span class="badge success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>~40K / 200K (20%)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Oracle Online</td>
+                        <td><span class="badge success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>4 / 7</span></td>
+                    </tr>
+                    <tr>
+                        <td>Files Created</td>
+                        <td><span class="badge warning">7 Files + 4 Submodules</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: Next Steps -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h2>Status & Next Steps</h2>
+            </div>
+            <ul>
+                <li>Challenge 4 Part A - Aeimathes diagnoses Dheva <span class="badge warning">In Progress</span></li>
+                <li>Challenge 4 Part B - Design Challenge 1 <span class="badge warning">Due: 2026-06-08</span></li>
+                <li>Challenge 4 Part C - Mentor report <span class="badge warning">Due: 2026-06-09</span></li>
+                <li>Dheva enrolled in Oracle School <span class="badge success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Awaiting C1</span></li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>✨ Enhanced with SVG Icons | 🌙 Dark Mode Ready</p>
+            <p style="font-size: 0.85em; margin-top: 12px; opacity: 0.7;">Icons from <strong>Flaticon</strong> — Download and integrate your preferred icons</p>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark-mode');
+            const isDark = htmlElement.classList.contains('dark-mode');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>

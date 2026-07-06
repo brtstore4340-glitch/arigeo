@@ -1,0 +1,31 @@
+Loading scopes…
+Searching for existing projects…
+> No framework detected. Default Project Settings:
+
+- Build Command: `npm run vercel-build` or `npm run build`
+- Development Command: None
+- Install Command: `yarn install`, `pnpm install`, `npm install`, or `bun install`
+- Output Directory: `public` if it exists, or `.`
+Linked to e0XXXXXXXXXs-projects/public (created .vercel and added it to .gitignore)
+Deploying e0XXXXXXXXXs-projects/public
+Uploading [--------------------] (0.0B/18.1KB)
+Uploading [=============-------] (12.3KB/18.1KB)
+Uploading [====================] (18.1KB/18.1KB)
+https://public-hfdctpvnz-e0XXXXXXXXXs-projects.vercel.appInspect: https://vercel.com/e0XXXXXXXXXs-projects/public/DMbfuSoxv5QxSKpp5GRV3XK5efP2 [6s]
+Production: https://public-hfdctpvnz-e0XXXXXXXXXs-projects.vercel.app [6s]
+Building...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Error: No Output Directory named "public" found after the Build completed. Configure the Output Directory in your Project Settings. Alternatively, configure vercel.json#outputDirectory.
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                     Update available! v50.37.3 ≫ v54.9.1                     │
+│   Changelog: https://github.com/vercel/vercel/releases/tag/vercel%4054.9.1   │
+│                     Run `npm i vercel@latest` to update.                     │
+│                                                                              │
+│             The latest update may fix any errors that occurred.              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
