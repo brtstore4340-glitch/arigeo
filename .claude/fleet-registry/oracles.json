@@ -134,8 +134,8 @@
       "project_dir": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
       "memory_subdir": "khun-ram",
       "status": "active",
-      "parent": "ធាម",
-      "reports_to": "ធាម",
+      "parent": "ธาม",
+      "reports_to": "ธาม",
       "awakened": "2026-07-06T00:00:00Z",
       "notes": "Specialized recovery oracle; manages fleet restoration during critical states"
     },
@@ -146,8 +146,8 @@
       "project_dir": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
       "memory_subdir": "codex",
       "status": "active",
-      "parent": "ធាម",
-      "reports_to": "ធាម",
+      "parent": "ธาม",
+      "reports_to": "ธาม",
       "awakened": "2026-07-06T00:00:00Z",
       "notes": "Maintains codebase knowledge and documentation standards"
     }
