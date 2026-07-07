@@ -1,0 +1,15 @@
+{
+  "buildCommand": "cd captain-maid && npm run build",
+  "installCommand": "cd captain-maid && npm install",
+  "outputDirectory": "captain-maid/.next",
+  "framework": "nextjs",
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "@next_public_site_url"
+  },
+  "regions": ["iad1"],
+  "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 60
+    }
+  }
+}
