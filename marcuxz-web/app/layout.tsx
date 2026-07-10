@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const notoTh = Noto_Sans_Thai({
+  subsets: ["thai", "latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://marcuxzweb.com"),
@@ -44,7 +47,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="th" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={notoTh.className}>
         <Header />
         <main>{children}</main>
         <Footer />
