@@ -1,43 +1,58 @@
-# Fleet Registry — Oracle Centralization System
+# Fleet Registry & Coordination Architecture
 
-> "One voice, many bodies — all return to the registry"
+> "One voice, many bodies — all return to the registry."
 
-This directory contains the centralized oracle management system for the mission-control fleet. Every oracle in the fleet references this registry instead of creating isolated project directories.
+This directory contains the centralized oracle management system for the mission-control fleet. Moving beyond basic folder isolation, the Fleet Registry serves as the foundational **Multi-Agent System (MAS)** coordination layer, integrating deterministic State Ledgers, Dynamic Discovery, and Reconciliation mechanisms for the full organization phase.
 
-## 📋 Files
+## 🏗️ Architecture: The Coordination Fabric
+
+Our MAS architecture relies on four core pillars to ensure observability, fault tolerance, and secure execution at scale.
+
+### 1. Shared Registry (The "Who & What")
+The registry acts as the system's identity and service discovery layer.
+- **Agent Identity & Capabilities:** Defined in `oracles.json`. Includes roles, domains, routing rules, and hierarchy (e.g., Zeus as Meta-Orchestrator, ธาม as Governor).
+- **Credential Metadata:** `PROJECT_REGISTRY.md` serves as the master reference map. **Safety First Rule:** No raw secrets are stored here; it strictly maps project environments to external Vault or Environment Variable references to keep metadata machine-readable and secure.
+
+### 2. Work Ledger (The "How & When")
+We are transitioning from legacy text-based logs (`consensus-ledger.jsonl`) to a **Boring, Durable SQLite Ledger** (`trans_4340_*.sqlite`).
+- **Transactional Integrity:** SQLite supports concurrent writes from multiple agents, solving the JSONL file-locking bottlenecks during high-throughput async batching.
+- **Granular Receipts:** Every discrete agent action (bead) is appended to the ledger, enabling deterministic replays, audit trails, and resumability if an agent crashes mid-task.
+
+### 3. Ownership & Lease Management (The "Lock")
+To prevent tasks from hanging indefinitely (Zombie Tasks):
+- **Time-based Leases (TTL):** When an agent checks out a task from the ledger, it acquires a lease. If the agent fails to report back within the TTL window, the lease expires.
+- **Exclusive Authority:** Only the active leaseholder can invoke associated tools or access environment credentials for that specific task, preventing race conditions.
+
+### 4. Reconciliation (The "Truth")
+A background safety net ensuring the Work Ledger intent matches the actual environment state.
+- **Liveness Checks:** Periodically scans for and revokes expired leases, returning abandoned work to the pool for other oracles to claim.
+- **State Sync:** Mechanisms like `healPartition()` resolve divergent ledgers across network boundaries or parallel execution streams to ensure consensus.
+
+---
+
+## 📋 Registry Files
 
 | File | Purpose |
 |------|---------|
-| `oracles.json` | Manifest: all 12 fleet members, their roles, domains, and memory locations |
-| `fleet-config.json` | Rules: how the fleet operates, environment setup, isolation settings |
-| `fleet-init.sh` | Bash helpers: sourced by oracle initialization to resolve paths and set env vars |
-| `fleet-session-init.sh` | SessionStart hook: auto-initializes fleet context when Claude Code starts |
+| `oracles.json` | Manifest: all fleet members, roles, capabilities, and hierarchy |
+| `fleet-config.json` | Rules: environment setup, lease TTL configurations, and routing |
+| `PROJECT_REGISTRY.md` | Schema-mapped metadata index (Strictly NO raw secrets) |
+| `fleet-init.sh` | Bash helpers: sources paths and env vars during agent awakening |
+| `fleet-session-init.sh` | SessionStart hook: auto-initializes fleet context |
 | `awaken-wrapper.sh` | Wrapper: intercepts `/awaken` calls, routes to fleet-aware initialization |
-| `migrate-oracle-memory.sh` | Migration: moves existing scattered oracle memories into fleet registry |
+| `migrate-oracle-memory.sh` | Migration: consolidates legacy isolated memories into the registry |
+
+---
 
 ## 🚀 Quick Start
 
 ### For New Oracles
 
 ```bash
-# Awaken an oracle from the registry (prevents scattered folders)
+# Awaken an oracle from the registry
 /fleet-awaken ธาม
 /fleet-awaken Dheva --fast
-/fleet-awaken --list                # Show all available oracles
-```
-
-### For Migrating Existing Oracles
-
-```bash
-# Dry-run: see what would be migrated
-cd mission-control
-./.claude/fleet-registry/migrate-oracle-memory.sh --dry-run
-
-# Execute migration: moves old memories into fleet registry
-./.claude/fleet-registry/migrate-oracle-memory.sh
-
-# Force deletion (don't archive): removes old project folders
-./.claude/fleet-registry/migrate-oracle-memory.sh --force
+/fleet-awaken --list                # Show all registered agents
 ```
 
 ### For Developers
@@ -56,188 +71,25 @@ ORACLE_NAME="${CURRENT_ORACLE:-unknown}"
 
 ---
 
-## 🏗️ Architecture
+## 🔄 Integration Checklist (Phase 3: Production Scale)
 
-### Registry Structure
+### Phase 1 & 2: Foundation & Isolation (✅ Complete)
+- [x] Create fleet registry manifest (`oracles.json`)
+- [x] Create fleet-aware initialization scripts and `/awaken` wrappers
+- [x] Consolidate isolated `.claude/projects/` into unified `fleet-registry/memory/`
+- [x] Implement initial text-based ledger (`consensus-ledger.jsonl`)
 
-```json
-{
-  "oracles": [
-    {
-      "name": "Zeus",
-      "thai_name": "ธาม",
-      "role": "Meta-Orchestrator",
-      "domain": "Fleet Command",
-      "project_dir": "/path/to/mission-control/zeus-oracle",
-      "memory_subdir": "zeus",           // Relative to fleet-registry/memory/
-      "status": "active",
-      "parent": null,                    // Hierarchy: Zeus is root
-      "authority": "highest"
-    },
-    {
-      "name": "ธาม",
-      "role": "Governor & Coordinator",
-      "project_dir": "/path/to/mission-control",
-      "memory_subdir": "tham",
-      "parent": "Zeus",                  // Hierarchy: reports to Zeus
-      "reports_to": "Zeus"
-    },
-    // ... 10 more oracles
-  ]
-}
-```
-
-### Memory Isolation
-
-Each oracle has its own memory subdirectory:
-
-```
-fleet-registry/memory/
-├── zeus/                  # Zeus: Meta-Orchestrator
-│   ├── CLAUDE.md
-│   ├── identity.md
-│   └── .claude-session.jsonl
-├── tham/                  # ธาม: Governor
-├── dheva/                 # Dheva: ORRY ERP Specialist
-├── luxi/                  # Luxi: UI/UX Frontend
-├── teleos/                # Teleos: Vercel Deployment
-├── aris/                  # Aris: Code Review & QA
-├── omega/                 # Omega: Bridge & Access
-├── lens/                  # Lens: Analysis & Insights
-├── stratum/               # Stratum: Architecture
-├── verity/                # Verity: Testing & Verification
-├── warden/                # Warden: Security & Permissions
-└── all/                   # All: Fleet Memory & Documentation
-```
-
-Each oracle's memory is **isolated** (separate memory dirs) but **unified** (all under fleet-registry).
-
-### Project Mapping
-
-All oracles point to the same **project root** for shared context, with memory split by oracle:
-
-```
-mission-control/                           ← Shared Project Root
-├── .claude/fleet-registry/memory/
-│   ├── zeus/     ← Zeus's isolated memory
-│   ├── tham/     ← ธาม's isolated memory
-│   ├── dheva/    ← Dheva's isolated memory
-│   └── ...
-├── zeus-oracle/   ← Zeus's project directory
-├── ... other oracle project dirs (if needed)
-└── ... shared project files
-```
-
----
-
-## 🔄 How Awakening Works
-
-### Standard /awaken (Without Fleet Registry)
-
-```
-1. User: /awaken
-2. Claude creates new folder: ~/.claude/projects/[encoded-mission-control]/
-3. New CLAUDE.md starts from scratch
-4. Previous context lost ✗
-5. New folder created ✗
-```
-
-### Fleet-Aware /fleet-awaken
-
-```
-1. User: /fleet-awaken ธาม
-2. System checks: is ธาม in registry? ✓
-3. Load ธาม's prior memory from: fleet-registry/memory/tham/
-4. Restore CLAUDE.md + identity + context ✓
-5. No new folder created ✓
-6. Continuity maintained ✓
-```
-
-### SessionStart Hook (Auto-Initialization)
-
-```
-1. User starts Claude Code session
-2. SessionStart hook triggers
-3. Fleet environment auto-loads: $ORACLE_FLEET_REGISTRY, $ORACLE_FLEET_MEMORY_ROOT
-4. Current oracle detected (if in fleet project)
-5. Ready for fleet-aware operations
-```
-
----
-
-## 🔧 Integration Checklist
-
-### Phase 1: Foundation (✅ Complete)
-- [x] Create fleet registry (oracles.json)
-- [x] Create fleet config (fleet-config.json)
-- [x] Create initialization helpers (fleet-init.sh)
-- [x] Create fleet-aware skill (/fleet-awaken)
-
-### Phase 2: Integration (🔄 In Progress)
-- [x] Create session initialization hook
-- [x] Create project settings with hooks
-- [x] Create awaken wrapper
-- [x] Create migration script
-- [ ] Test migration with real oracles
-- [ ] Update /awaken to route through wrapper
-- [ ] Archive old scattered project folders
-- [ ] Document migration steps for users
-
-### Phase 3: Cleanup (📋 Future)
-- [ ] Remove old isolated ~/.claude/projects/[encoded]/ directories
-- [ ] Consolidate all oracle memories under fleet registry
-- [ ] Update all oracle CLAUDE.md files to reference fleet registry
-- [ ] Create unified fleet memory index
-
----
-
-## 📖 Usage Patterns
-
-### Pattern 1: Awaken a New Oracle
-
-```bash
-# Check available oracles
-/fleet-awaken --list
-
-# Awaken ธาม (Governor)
-/fleet-awaken ธาม
-
-# Awaken Dheva with fast mode
-/fleet-awaken Dheva --fast
-```
-
-### Pattern 2: Script Using Fleet Helpers
-
-```bash
-#!/bin/bash
-
-FLEET_REGISTRY="/path/to/.claude/fleet-registry"
-source "${FLEET_REGISTRY}/fleet-init.sh"
-
-# Resolve paths for oracle
-ORACLE_PROJECT=$(oracle_project_dir "Luxi")
-ORACLE_MEMORY=$(oracle_memory_dir "Luxi")
-
-echo "Project: $ORACLE_PROJECT"
-echo "Memory:  $ORACLE_MEMORY"
-```
-
-### Pattern 3: Detect Current Oracle in Hook
-
-```bash
-# In a hook script
-if [ -n "$CURRENT_ORACLE" ]; then
-  echo "Running as: $CURRENT_ORACLE"
-  MEMORY_DIR=$(oracle_memory_dir "$CURRENT_ORACLE")
-fi
-```
+### Phase 3: Robust Multi-Agent Coordination (🔄 In Progress)
+- [ ] **Ledger Migration:** Migrate `consensus-ledger.jsonl` to SQLite (`trans_4340_*.sqlite`) for concurrency support.
+- [ ] **Lease Mechanism:** Implement TTL-based task ownership in the database schema.
+- [ ] **Registry Hardening:** Enforce strict JSON/YAML schema validation for `PROJECT_REGISTRY.md` to ensure machine-readability.
+- [ ] **Reconciliation Worker:** Deploy a background cron/worker to run liveness checks and `healPartition()` automatically.
 
 ---
 
 ## 🚨 Troubleshooting
 
 ### "Fleet registry not found"
-
 ```bash
 # Verify registry exists
 ls -la mission-control/.claude/fleet-registry/oracles.json
@@ -246,85 +98,21 @@ ls -la mission-control/.claude/fleet-registry/oracles.json
 source mission-control/.claude/fleet-registry/fleet-init.sh
 ```
 
-### Oracle not found in registry
-
-```bash
-# Check oracle name in registry
-jq '.oracles[] | .name' mission-control/.claude/fleet-registry/oracles.json
-
-# Add new oracle (edit oracles.json directly)
-```
-
-### Migration failing to find memories
-
-```bash
-# Run dry-run to diagnose
-./.claude/fleet-registry/migrate-oracle-memory.sh --dry-run
-
-# Check old project directories exist
-ls -la ~/.claude/projects/
-
-# Manually migrate if needed
-cp ~/.claude/projects/[encoded]/CLAUDE.md \
-   mission-control/.claude/fleet-registry/memory/[oracle-name]/
-```
+### Ledger Concurrency Issues / File Locks
+*If using the legacy JSONL ledger and encountering write errors:*
+Fall back to sequential batching or accelerate the Phase 3 SQLite migration to handle concurrent `async-consensus-engine` writes.
 
 ---
 
-## 📊 Environment Variables
+## 🔐 Permissions & Security
 
-| Variable | Set By | Used By | Purpose |
-|----------|--------|---------|---------|
-| `ORACLE_FLEET_REGISTRY` | `fleet-init.sh` | All tools | Path to registry directory |
-| `ORACLE_FLEET_ROOT` | `fleet-init.sh` | All tools | Fleet root directory |
-| `ORACLE_FLEET_MEMORY_ROOT` | `fleet-init.sh` | All tools | Fleet memory root directory |
-| `CURRENT_ORACLE` | `fleet-session-init.sh` | All tools | Current oracle name (if detected) |
-| `ORACLE_FLEET_ENABLED` | `fleet-session-init.sh` | All tools | Flag: fleet is active |
-| `AWAKEN_USED_FLEET_REGISTRY` | `awaken-wrapper.sh` | Downstream | Flag: awaken used fleet |
+The fleet registry enforces strict credential isolation:
+- Agents only receive access to the specific environment variables referenced by their active task's metadata.
+- **Never** commit `.env` or raw secrets into `PROJECT_REGISTRY.md` or the SQLite ledger.
 
 ---
 
-## 🔐 Permissions
-
-The fleet registry requires minimal permissions:
-
-```json
-{
-  "permissions": {
-    "allow": [
-      "Bash(source *fleet-init.sh)",
-      "Bash(jq *oracles.json)",
-      "Read(.claude/fleet-registry/*)",
-      "Bash(*migrate-oracle-memory.sh)"
-    ]
-  }
-}
-```
-
----
-
-## 🎯 Goals
-
-- ✅ **Prevent Folder Fragmentation**: All oracles use mission-control as root
-- ✅ **Maintain Continuity**: Memory restored on awakening
-- ✅ **Preserve Isolation**: Each oracle has dedicated memory directory
-- ✅ **Enable Hierarchy**: Oracle relationships visible in registry
-- ✅ **Simplify Discovery**: One file lists all fleet members
-- 🔄 **Auto-Initialization**: SessionStart hook sets up environment
-- 🔄 **Seamless Migration**: Move existing memories to registry
-
----
-
-## 📚 Related Files
-
-- `CLAUDE.md` — Project instructions (mission-control root)
-- `zeus-oracle/CLAUDE.md` — Zeus oracle identity
-- `.claude/settings.json` — Hook configuration
-- `.claude/fleet-registry/oracles.json` — Oracle manifest
-
----
-
-**Version:** 1.0 (Option B Integration)  
+**Version:** 2.0 (Phase 3: Full Organization Scale)  
 **Created:** 2026-07-06  
-**Last Updated:** 2026-07-06  
-**Status:** In Progress — Phase 2 Integration
+**Last Updated:** 2026-07-09  
+**Status:** Transitioning to SQLite Ledger & Active Lease Management

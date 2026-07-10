@@ -20,7 +20,7 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['"Kanit"', 'sans-serif'],
+        sans: ['var(--font-noto-sans-thai)', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-out forwards',

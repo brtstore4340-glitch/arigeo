@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
-
 :root {
   --background: #ffffff;
   --foreground: #111111;
@@ -12,8 +10,6 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Kanit', sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 html {
