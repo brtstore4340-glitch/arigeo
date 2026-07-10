@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "bash '${CLAUDE_PROJECT_ROOT}/.claude/fleet-registry/fleet-session-init.sh'",
+        "statusMessage": "Initializing fleet registry context..."
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Skill(fleet-awaken|awaken)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'if [ -f \"${CLAUDE_PROJECT_ROOT}/.claude/fleet-registry/oracles.json\" ]; then echo \"✓ Fleet registry active\"; fi'",
+            "statusMessage": "Checking fleet registry..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(source *fleet-init.sh)",
+      "Bash(jq *oracles.json)",
+      "Read(.claude/fleet-registry/*)"
+    ]
+  }
+}

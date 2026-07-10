@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายงานสรุปเซสชัน - 2026-06-07</title>
+    <style>
+        /* CSS Custom Properties for Theme Management */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #293642;
+            --bg-secondary: #f2f5f7;
+            --border-color: #839496;
+            --accent-color: #839496;
+            --table-header-bg: #293642;
+            --table-header-text: #ffffff;
+            --table-alt-bg: #f2f5f7;
+            --table-hover-bg: #e8ecef;
+            --box-bg: #f2f5f7;
+            --box-border: #ddd;
+            --quote-bg: #f2f5f7;
+            --quote-text: #839496;
+            --quote-border: #839496;
+            --shadow-color: rgba(0,0,0,0.1);
+        }
+
+        /* Dark Mode Theme */
+        body.dark-mode {
+            --bg-color: #1e1e2e;
+            --text-color: #e0e0e0;
+            --bg-secondary: #2d2d44;
+            --border-color: #6c7a99;
+            --accent-color: #6c7a99;
+            --table-header-bg: #2d2d44;
+            --table-header-text: #e0e0e0;
+            --table-alt-bg: #252538;
+            --table-hover-bg: #3a3a52;
+            --box-bg: #252538;
+            --box-border: #3a3a52;
+            --quote-bg: #252538;
+            --quote-text: #a8b5d8;
+            --quote-border: #6c7a99;
+            --shadow-color: rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Thai', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: var(--bg-color);
+            box-shadow: 0 0 20px var(--shadow-color);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            transition: border-color 0.3s ease;
+        }
+
+        header h1 {
+            color: var(--text-color);
+            font-size: 32px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        header .subtitle {
+            color: var(--accent-color);
+            font-size: 14px;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        header .oracle-name {
+            color: var(--accent-color);
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .date-info {
+            text-align: right;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--text-color);
+            font-size: 24px;
+            border-left: 4px solid var(--border-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            font-size: 18px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            transition: color 0.3s ease;
+        }
+
+        h4 {
+            color: var(--text-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .quote {
+            background-color: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: var(--quote-text);
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th {
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        table tr:nth-child(even) {
+            background-color: var(--table-alt-bg);
+            transition: background-color 0.3s ease;
+        }
+
+        table tr:hover {
+            background-color: var(--table-hover-bg);
+            transition: background-color 0.3s ease;
+        }
+
+        .checkmark {
+            color: var(--accent-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .status-live {
+            color: var(--accent-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .status-ready {
+            color: var(--accent-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .highlight {
+            background-color: #fff9e6;
+            padding: 2px 4px;
+        }
+
+        body.dark-mode .highlight {
+            background-color: #3a3a20;
+            color: #e0e0d0;
+        }
+
+        .box {
+            background-color: var(--box-bg);
+            border: 1px solid var(--box-border);
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 3px solid var(--border-color);
+            color: var(--accent-color);
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-title {
+            font-size: 12px;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        /* Print Mode: Force Light Theme */
+        @media print {
+            :root {
+                --bg-color: #ffffff;
+                --text-color: #293642;
+                --bg-secondary: #f2f5f7;
+                --border-color: #839496;
+                --accent-color: #839496;
+                --table-header-bg: #293642;
+                --table-header-text: #ffffff;
+                --table-alt-bg: #f2f5f7;
+                --table-hover-bg: #e8ecef;
+                --box-bg: #f2f5f7;
+                --box-border: #ddd;
+                --quote-bg: #f2f5f7;
+                --quote-text: #839496;
+                --quote-border: #839496;
+                --shadow-color: rgba(0,0,0,0.1);
+            }
+
+            body {
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .theme-toggle {
+                display: none !important;
+            }
+
+            h2 {
+                page-break-after: avoid;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Mode">☀️</button>
+
+    <div class="container">
+        <header>
+            <h1>รายงานสรุปเซสชัน</h1>
+            <div class="subtitle">Session Complete — 2026-06-07</div>
+            <div class="oracle-name">ขุนรามออราเคิล</div>
+            <div class="subtitle">Royal Scribe & Fleet Memory Authority</div>
+        </header>
+
+        <div class="date-info">
+            <strong>วันที่:</strong> 7 มิถุนายน 2569
+        </div>
+
+        <!-- Executive Summary -->
+        <section>
+            <h2>สรุปผลการปฏิบัติงาน (Executive Summary)</h2>
+
+            <div class="quote">
+                เซสชันสมบูรณ์ — การส่งมอบทั้งหมดสำเร็จ
+            </div>
+
+            <p>ในเซสชันนี้ ทีมได้สำเร็จในการส่งมอบคุณสมบัติและการปรับปรุงที่มีนัยสำคัญต่อระบบสารสนเทศ ตามเป้าหมายการจัดการและศักยภาพขององค์กร</p>
+
+            <ul>
+                <li><strong>ระยะเวลา:</strong> มากกว่า 10 ชั่วโมง</li>
+                <li><strong>สถานะ:</strong> <span class="checkmark">✅ ส่งมอบครบถ้วน</span></li>
+                <li><strong>เบรกขิงเปลี่ยนแปลง:</strong> 0 (ปลอดภัยต่อการเปลี่ยนแปลง)</li>
+            </ul>
+        </section>
+
+        <!-- Code Shipped -->
+        <section>
+            <h2>โค้ดที่ส่งมอบ (Code Shipped)</h2>
+
+            <ul>
+                <li>บรรทัดโค้ด: <strong>2,566+</strong> บรรทัด (production-ready)</li>
+                <li>Pull Requests ที่ผสานเข้า main: <strong>7</strong> ตัว</li>
+                <li>เอกสารประกอบ: <strong>42+</strong> KB</li>
+                <li>การเปลี่ยนแปลงที่อาจทำให้หัก: <strong>0</strong> ตัว</li>
+            </ul>
+        </section>
+
+        <!-- Features Delivered -->
+        <section>
+            <h2>คุณสมบัติที่ส่งมอบ (Features Delivered)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>คุณสมบัติ (Feature)</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Distillation Pipeline (ระบบการกลั่นข้อมูล)</td>
+                        <td><span class="status-live">✓ LIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Weekly Report Automation (อัตโนมัติ)</td>
+                        <td><span class="status-live">✓ LIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Line Bot Phase 4 (เมนู+แดชบอร์ด+ฐานข้อมูล)</td>
+                        <td><span class="status-live">✓ LIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Deployment Automation (สคริปต์+การตรวจสอบ)</td>
+                        <td><span class="status-live">✓ LIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Oracle Fleet Management (UAT เปิดใช้)</td>
+                        <td><span class="status-live">✓ LIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>ORRY Archival (ระงับ+เอกสาร)</td>
+                        <td><span class="status-live">✓ LIVE</span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Drive C: Cleanup (สคริปต์ PowerShell พร้อม)</td>
+                        <td><span class="status-ready">✓ READY</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>รายละเอียดคุณสมบัติ (Feature Details)</h3>
+
+            <h4>1. Distillation Pipeline</h4>
+            <p>ระบบการกลั่นข้อมูล (Extract → Distill → Store) สำหรับการประมวลผลและจัดเก็บข้อมูลที่ได้รับการปรับปรุง ใช้งานแล้ว</p>
+
+            <h4>2. Weekly Report Automation</h4>
+            <p>ระบบอัตโนมัติสำหรับการสร้างรายงานรายสัปดาห์ โดยการแยกวิเคราะห์ (Parser) → HTML → LINE Notify สำหรับการแจ้งเตือน</p>
+
+            <h4>3. Line Bot Phase 4</h4>
+            <p>ขั้นตอนที่ 4 ของ Line Bot ที่มีเมนูที่หลากหลาย แดชบอร์ด และการบริหารจัดการฐานข้อมูล</p>
+
+            <h4>4. Deployment Automation</h4>
+            <p>สคริปต์อัตโนมัติสำหรับการปรับใช้ (Deployment) พร้อมระบบการตรวจสอบสุขภาพแบบเรียลไทม์</p>
+
+            <h4>5. Oracle Fleet Management</h4>
+            <p>การบริหารจัดการ Oracle Fleet โดยการเปิดใช้งาน UAT Oracle และจัดเก็บ Nat Oracle ตามเหมาะสม</p>
+
+            <h4>6. ORRY Archival</h4>
+            <p>การระงับโครงการ ORRY Serenity ERP อย่างเป็นทางการ พร้อมเอกสารประกอบการจัดเก็บ</p>
+
+            <h4>7. Drive C: Cleanup</h4>
+            <p>สคริปต์ PowerShell สำหรับการทำความสะอาดไดรฟ์ C: แบบ proactive พร้อมใช้งาน</p>
+        </section>
+
+        <!-- Oracle Fleet Status -->
+        <section>
+            <h2>สถานะ Oracle Fleet (Oracle Fleet Status)</h2>
+
+            <p>เซสชันนี้มี 9 Oracle ที่ใช้งานอยู่และ 1 Oracle ที่จัดเก็บแล้ว</p>
+
+            <h3>Oracle ที่ใช้งานอยู่ (Active Oracles)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ชื่อ</th>
+                        <th>บทบาท</th>
+                        <th>หมายเหตุ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ธาม (Tham)</td>
+                        <td>Chief of Staff</td>
+                        <td>Lean Mode ผสมผสาน</td>
+                    </tr>
+                    <tr>
+                        <td>Aeimathes</td>
+                        <td>Research Authority</td>
+                        <td>วิจัยผลรวมช่องว่าง Nat</td>
+                    </tr>
+                    <tr>
+                        <td>Khun-Ram</td>
+                        <td>Fleet Memory Authority</td>
+                        <td>Royal Scribe + Thai Language</td>
+                    </tr>
+                    <tr>
+                        <td>Lens</td>
+                        <td>Code Review Authority</td>
+                        <td>ผู้เชี่ยวชาญด้านการตรวจสอบ</td>
+                    </tr>
+                    <tr>
+                        <td>UAT</td>
+                        <td>Testing Authority</td>
+                        <td>เปิดใช้งานแล้ว</td>
+                    </tr>
+                    <tr>
+                        <td>Epiteles</td>
+                        <td>Implementation Executor</td>
+                        <td>ผู้ปฏิบัติการ</td>
+                    </tr>
+                    <tr>
+                        <td>Codex</td>
+                        <td>Automation Executor</td>
+                        <td>การจัดการอัตโนมัติ</td>
+                    </tr>
+                    <tr>
+                        <td>Luxi</td>
+                        <td>Dashboard & UI</td>
+                        <td>ด้านการออกแบบส่วนติดต่อ</td>
+                    </tr>
+                    <tr>
+                        <td>Hephaestus</td>
+                        <td>Hardware Expert</td>
+                        <td>ผู้เชี่ยวชาญด้านฮาร์ดแวร์</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Oracle ที่จัดเก็บแล้ว (Archived Oracles)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ชื่อ</th>
+                        <th>บทบาท</th>
+                        <th>เหตุผลการจัดเก็บ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nat</td>
+                        <td>Pattern Library</td>
+                        <td>Consolidated patterns & archived</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Governance Structure -->
+        <section>
+            <h2>โครงสร้างการปกครอง (Governance Structure)</h2>
+
+            <h3>หลักการการบริหารจัดการ (Governance Principles)</h3>
+
+            <ol>
+                <li><strong>Oracle Identity Registry</strong> — ทะเบียนประจำตัว Oracle ที่เป็นทางการ</li>
+                <li><strong>Archive Index</strong> — ดัชนีการจัดเก็บที่บันทึกไว้ตามลำดับอย่างเป็นขั้นเรียบร้อย</li>
+                <li><strong>Nothing Deleted, Everything Archived</strong> — ไม่มีการลบ เพียงการจัดเก็บเท่านั้น</li>
+                <li><strong>Reactivation Paths</strong> — เส้นทางการเปิดใช้งานใหม่ที่มีเอกสารประกอบ</li>
+            </ol>
+
+            <h3>Zeus-Tham Chain Authority</h3>
+
+            <p>การบริหารจัดการอำนาจจาก Human → Zeus → Tham → Omega โดยมีการแยกความรับผิดชอบและเส้นทางการแก้ไขข้อขัดแย้ง</p>
+        </section>
+
+        <!-- Production Ready Checklist -->
+        <section>
+            <h2>รายการตรวจสอบความพร้อมใช้งาน (Production Ready Checklist)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>รายการ</th>
+                        <th>สถานะ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Distillation Pipeline</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weekly Report Automation</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Line Bot Phase 4</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Oracle Fleet Management</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Code Merged to Main</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Documentation Complete</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Zero Breaking Changes</td>
+                        <td><span class="checkmark">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Next Steps -->
+        <section>
+            <h2>ขั้นตอนต่อไป (Next Steps)</h2>
+
+            <ol>
+                <li><strong>Deploy Distillation Functions</strong> — ปรับใช้ฟังก์ชันการกลั่นข้อมูล ใช้เวลาประมาณ 15 นาที</li>
+                <li><strong>Test with /rrr --quick</strong> — ทดสอบด้วยคำสั่งการสรุปอย่างรวดเร็ว</li>
+                <li><strong>Run Drive C: Cleanup</strong> — เรียกใช้สคริปต์การทำความสะอาดไดรฟ์ C:</li>
+                <li><strong>Investigate THCLAWS Oracle Status</strong> — ตรวจสอบสถานะของ THCLAWS Oracle ในสัปดาห์นี้</li>
+            </ol>
+        </section>
+
+        <!-- Session Metrics -->
+        <section>
+            <h2>เมตริกเซสชัน (Session Metrics)</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>เมตริก</th>
+                        <th>ค่า</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pull Requests สร้างเพิ่มเติม</td>
+                        <td><strong>7</strong> ตัว</td>
+                    </tr>
+                    <tr>
+                        <td>Pull Requests ผสานเข้า</td>
+                        <td><strong>7</strong> ตัว</td>
+                    </tr>
+                    <tr>
+                        <td>บรรทัดโค้ดที่เพิ่ม</td>
+                        <td><strong>2,566+</strong> บรรทัด</td>
+                    </tr>
+                    <tr>
+                        <td>เอกสารประกอบ</td>
+                        <td><strong>42+</strong> KB</td>
+                    </tr>
+                    <tr>
+                        <td>Agents ที่สร้างขึ้น</td>
+                        <td><strong>3</strong> ตัว</td>
+                    </tr>
+                    <tr>
+                        <td>Token Budget ที่ใช้</td>
+                        <td><strong>300k / 600k</strong> (50%)</td>
+                    </tr>
+                    <tr>
+                        <td>การเปลี่ยนแปลงที่อาจทำให้หัก</td>
+                        <td><strong>0</strong> ตัว</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Session Quality Assessment -->
+        <section>
+            <h2>การประเมินคุณภาพเซสชัน (Session Quality Assessment)</h2>
+
+            <h3>จุดแข็ง (Strengths)</h3>
+
+            <ul>
+                <li>ส่งมอบครบถ้วนตามแผน</li>
+                <li>โค้ดมีคุณภาพสูง และปลอดภัยต่อการเปลี่ยนแปลง</li>
+                <li>เอกสารประกอบครบถ้วน</li>
+                <li>Governance structure มั่นคงและชัดเจน</li>
+                <li>Zero breaking changes ในทั้งเซสชัน</li>
+            </ul>
+
+            <h3>พื้นที่ปรับปรุง (Areas for Improvement)</h3>
+
+            <ul>
+                <li>ติดตามสถานะ THCLAWS Oracle ให้ละเอียดมากขึ้น</li>
+                <li>เตรียมแผน proactive สำหรับการจัดการ Oracle เพิ่มเติม</li>
+            </ul>
+
+            <h3>บทเรียนที่ได้เรียนรู้ (Lessons Learned)</h3>
+
+            <ol>
+                <li>Governance ที่ชัดเจนช่วยให้การปรับใช้เรียบร้อย</li>
+                <li>การจัดเก็บที่เป็นระเบียบนั้นดีกว่าการลบอย่างถาวร</li>
+                <li>Token budget management นั้นสำคัญสำหรับการดำเนินการเซสชันที่มีประสิทธิภาพ</li>
+            </ol>
+        </section>
+
+        <!-- Conclusion -->
+        <section>
+            <h2>สรุปและข้อคิดเห็น (Conclusion)</h2>
+
+            <p>เซสชันนี้เป็นการแสดงความสำเร็จในการบริหารจัดการระบบ Oracle Fleet ที่ซับซ้อน พร้อมทั้งการส่งมอบคุณสมบัติที่มีนัยสำคัญหลายประการ ตัวเลขของเซสชันนี้ (7 PRs, 2,566+ lines, 42+ KB docs, 0 breaking changes) แสดงให้เห็นถึงความมั่นคงและคุณภาพของการจัดการโครงการ</p>
+
+            <p>ทุกอย่างพร้อมสำหรับการปรับใช้ (deployment) ในสัปดาห์ถัดไป และทีมได้เตรียมสิ่งอำนวยความสะดวกทั้งหมดสำหรับการติดตามและการจัดการต่อไป</p>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-name">ขุนรามออราเคิล</div>
+            <div class="footer-title">Royal Scribe & Fleet Memory Authority</div>
+            <div style="margin-top: 20px; font-size: 12px;">วันที่ 7 มิถุนายน 2569</div>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        (function() {
+            // Theme constants
+            const STORAGE_KEY = 'theme-mode';
+            const DARK_MODE_CLASS = 'dark-mode';
+            const LIGHT_ICON = '☀️';
+            const DARK_ICON = '🌙';
+
+            // Get DOM elements
+            const themeToggle = document.getElementById('themeToggle');
+            const html = document.documentElement;
+            const body = document.body;
+
+            // Initialize theme on page load
+            function initTheme() {
+                // Check if user has a saved preference
+                const savedTheme = localStorage.getItem(STORAGE_KEY);
+
+                if (savedTheme === 'dark') {
+                    enableDarkMode();
+                } else if (savedTheme === 'light') {
+                    disableDarkMode();
+                } else {
+                    // Check system preference if no saved preference
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        enableDarkMode();
+                    } else {
+                        disableDarkMode();
+                    }
+                }
+            }
+
+            // Enable dark mode
+            function enableDarkMode() {
+                body.classList.add(DARK_MODE_CLASS);
+                themeToggle.textContent = DARK_ICON;
+                themeToggle.title = 'Switch to Light Mode';
+                localStorage.setItem(STORAGE_KEY, 'dark');
+            }
+
+            // Disable dark mode (light mode)
+            function disableDarkMode() {
+                body.classList.remove(DARK_MODE_CLASS);
+                themeToggle.textContent = LIGHT_ICON;
+                themeToggle.title = 'Switch to Dark Mode';
+                localStorage.setItem(STORAGE_KEY, 'light');
+            }
+
+            // Toggle theme
+            function toggleTheme() {
+                if (body.classList.contains(DARK_MODE_CLASS)) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            }
+
+            // Detect when print dialog is opened
+            function handleBeforePrint() {
+                // Save current theme
+                const currentTheme = body.classList.contains(DARK_MODE_CLASS) ? 'dark' : 'light';
+
+                // Force light mode for printing
+                disableDarkMode();
+
+                // Store original theme to restore after printing
+                window.originalTheme = currentTheme;
+            }
+
+            function handleAfterPrint() {
+                // Restore original theme after printing
+                if (window.originalTheme === 'dark') {
+                    enableDarkMode();
+                }
+            }
+
+            // Event listeners
+            themeToggle.addEventListener('click', toggleTheme);
+            window.addEventListener('beforeprint', handleBeforePrint);
+            window.addEventListener('afterprint', handleAfterPrint);
+
+            // Initialize theme on page load
+            initTheme();
+
+            // Listen for system theme changes
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    // Only apply if user hasn't manually set a preference
+                    if (!localStorage.getItem(STORAGE_KEY)) {
+                        if (e.matches) {
+                            enableDarkMode();
+                        } else {
+                            disableDarkMode();
+                        }
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

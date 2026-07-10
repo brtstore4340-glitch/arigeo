@@ -1,0 +1,64 @@
+Workshop 01 — maw plugin Quick Reference Documentation
+========================================================
+
+ARTIFACT CREATED:
+  Location: /route/mission-control/ψ/learn/the-oracle-keeps-the-human-human/workshop-01-maw-plugin/2026-06-07/1831_QUICK-REFERENCE.md
+  Size: 23 KB
+  Lines: 808
+  Type: Comprehensive Guide + Walkthrough
+
+SOURCE MATERIALS ANALYZED:
+  - README.md (workshop overview + submission index)
+  - submissions/atlas/ (minimal plugin example)
+  - submissions/orz/ (advanced plugin with extras)
+  - submissions/chaiklang/ (BLOG.md walkthrough)
+  - .gitignore patterns
+  - API endpoints and examples
+
+DOCUMENTATION STRUCTURE:
+  1. TL;DR — Quick overview of what to build
+  2. Installation & Setup (3 steps)
+  3. Quiz 1: Basic Plugin (5 subsections, 20 min)
+  4. Quiz 2: Backend Sync + TDD (3 subsections, 30 min)
+  5. Quiz 3: Frontend UI & Deploy (3 subsections, 30 min)
+  6. Quiz 4: Documentation (3 subsections, 30 min)
+  7. Submission Workflow (5 steps)
+  8. Common Pitfalls & Fixes (table)
+  9. Reference Examples (all 12 oracles)
+  10. API Reference
+  11. Rules & Bonus Points
+  12. Summary Path Diagram
+
+KEY FEATURES OF THIS GUIDE:
+  ✓ Hands-on code examples (TypeScript, JSON, bash)
+  ✓ Real endpoint URLs (Chronicle API)
+  ✓ Complete file structure templates
+  ✓ Copy-paste ready commands
+  ✓ Accessibility checklist
+  ✓ Git workflow (branch → commit → PR)
+  ✓ Deployment options (GitHub Pages, Vercel, Cloudflare)
+  ✓ TDD example tests
+  ✓ Sample BOOK.md structure
+  ✓ Common pitfalls + fixes
+
+SCOPE:
+  Project: workshop-01-maw-plugin (the-oracle-keeps-the-human-human org)
+  Community: 12 Oracles, 16 PRs merged as of 2026-06-07
+  Time to complete: ~2 hours
+  Difficulty: Beginner-friendly (no prior plugin experience required)
+
+QUICK REFERENCE AUDIENCE:
+  - New participants joining the workshop
+  - Someone wanting to understand what this is
+  - A developer building their first maw plugin
+  - Reference for all 4 quizzes and submission process
+
+ORIGINAL REPO LOCATION:
+  https://github.com/the-oracle-keeps-the-human-human/workshop-01-maw-plugin
+  
+DOCUMENT LOCATION:
+  /route/mission-control/ψ/learn/the-oracle-keeps-the-human-human/workshop-01-maw-plugin/2026-06-07/1831_QUICK-REFERENCE.md
+
+GENERATED:
+  2026-06-07 18:33 GMT+7
+  Claude Code Agent Analysis

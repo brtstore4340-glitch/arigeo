@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "last_updated_utc": "2026-07-09T14:09:57Z",
+  "projects": [
+    {
+      "project_id": "captain-maid-phase3-thai",
+      "name": "Captain Maid Thai Phase 3",
+      "status": "archived",
+      "phase": "phase_3",
+      "owner": "Luxi",
+      "backup_owner": "Khun-Ram",
+      "contributors": ["Luxi", "Khun-Ram", "Agis"],
+      "workspace_path": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control/captain-maid",
+      "board_slug": "codex-local",
+      "risk_level": "low",
+      "last_updated_utc": "2026-07-09T14:09:57Z"
+    },
+    {
+      "project_id": "checkpoint-verification-reports",
+      "name": "Checkpoint Verification Reports",
+      "status": "in_progress",
+      "phase": "verification",
+      "owner": "Verity",
+      "backup_owner": "Hermes",
+      "contributors": ["Verity", "Hermes", "Agis"],
+      "workspace_path": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+      "board_slug": "codex-local",
+      "risk_level": "medium",
+      "next_checkpoint": "2026-07-06T18:00:00Z",
+      "last_updated_utc": "2026-07-09T14:09:57Z"
+    },
+    {
+      "project_id": "dashboard-phase2-unblock",
+      "name": "Dashboard Phase 2 Unblock",
+      "status": "in_progress",
+      "phase": "phase_2_scope_planning",
+      "owner": "Khun-Ram",
+      "backup_owner": "Teleos",
+      "contributors": ["Khun-Ram", "Teleos", "Agis"],
+      "workspace_path": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control/orry-serenity",
+      "board_slug": "codex-local",
+      "risk_level": "medium",
+      "next_checkpoint": "2026-07-07T09:00:00Z",
+      "last_updated_utc": "2026-07-09T14:09:57Z"
+    },
+    {
+      "project_id": "salary-certificate-request",
+      "name": "Salary Certificate Request Portal",
+      "status": "archived",
+      "phase": "production_fixes",
+      "owner": "Khun-Ram",
+      "backup_owner": "Teleos",
+      "contributors": ["Khun-Ram", "Teleos", "Agis"],
+      "workspace_path": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+      "board_slug": "codex-local",
+      "risk_level": "low",
+      "last_updated_utc": "2026-07-09T14:09:57Z"
+    }
+  ]
+}
