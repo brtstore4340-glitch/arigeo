@@ -1,0 +1,130 @@
+{
+  "site": {
+    "title": "Marcuz | Digital Transformation Partner",
+    "description": "Helping organizations redesign how work gets done through digital transformation, intelligent systems, and AI-enabled automation.",
+    "url": "https://marcuz.co"
+  },
+  "nav": {
+    "home": "Home",
+    "work": "Our Work",
+    "insights": "Insights",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Technology should make work effortless.",
+    "subheading": "Marcuz helps organizations redesign the way they work through digital transformation, intelligent systems, and AI-enabled automation. We don't begin with technology—we begin with your business goals.",
+    "primaryCta": "Book a Discovery Session",
+    "secondaryCta": "View Our Work",
+    "socialProof": "Trusted by ORRY Thailand, Arigeo, and Cation Maid"
+  },
+  "trustedRelationships": {
+    "headline": "We partner with growing organizations.",
+    "intro": "From concept to execution, we work alongside leaders who are rethinking how their organizations operate.",
+    "clients": [
+      {
+        "name": "ORRY Thailand",
+        "description": "Premium natural lip care brand transforming e-commerce operations",
+        "link": "/case-studies/orry-thailand"
+      },
+      {
+        "name": "Arigeo",
+        "description": "Geographic data platform optimizing business intelligence",
+        "link": "/case-studies/arigeo"
+      },
+      {
+        "name": "Cation Maid",
+        "description": "Sustainable cleaning services scaling operations nationwide",
+        "link": "/case-studies/cation-maid"
+      }
+    ]
+  },
+  "businessReality": {
+    "headline": "The challenge every growing organization faces.",
+    "intro": "As businesses scale, the tools and processes that got you here begin to hold you back. These challenges are predictable. They're also solvable.",
+    "problems": [
+      {
+        "headline": "Teams drowning in manual tasks",
+        "description": "Spreadsheets, emails, repetitive data entry—resources spent on busywork instead of strategy.",
+        "impact": "Teams spend 30-40% of their time on work that could be automated."
+      },
+      {
+        "headline": "Information scattered across tools",
+        "description": "CRM, accounting software, project management, HR systems. No unified view. No single source of truth.",
+        "impact": "Decision-makers lack the information they need when they need it."
+      },
+      {
+        "headline": "Bottlenecks in decision-making",
+        "description": "Approvals require multiple emails, meetings, manual steps. Simple decisions take days.",
+        "impact": "Business moves at the speed of your approval process."
+      },
+      {
+        "headline": "Institutional knowledge walks out the door",
+        "description": "When people leave, critical information leaves with them. Processes exist in people's heads, not systems.",
+        "impact": "Each departure creates a knowledge gap and operational risk."
+      },
+      {
+        "headline": "Leaders lack real-time visibility",
+        "description": "Reports are outdated by the time you read them. You're making decisions based on yesterday's data.",
+        "impact": "You're always working with incomplete information."
+      },
+      {
+        "headline": "Growth brings chaos, not progress",
+        "description": "Adding people, adding locations, adding products. But your systems don't scale with you.",
+        "impact": "Growth becomes harder, not easier."
+      }
+    ]
+  },
+  "beliefs": {
+    "headline": "Our philosophy.",
+    "intro": "Everything we do is guided by how we think about business, technology, and the relationship between them.",
+    "beliefs": [
+      {
+        "headline": "Technology should simplify work, not complicate it.",
+        "description": "If your software requires training, documentation, and workarounds, it's adding complexity instead of removing it. Good systems disappear into the background and let people do their jobs."
+      },
+      {
+        "headline": "Better decisions start with better information.",
+        "description": "You can't improve what you can't measure. Systems should give you real-time visibility into what matters—and filter out what doesn't."
+      },
+      {
+        "headline": "AI should amplify people, not replace them.",
+        "description": "Artificial intelligence is most powerful when it handles repetitive work, uncovers patterns, and augments human judgment. It should make your team smarter and faster, not obsolete."
+      },
+      {
+        "headline": "Business goals come before technology choices.",
+        "description": "We never start with tools. We start with understanding your business, your challenges, and your opportunities. Technology is the solution, not the strategy."
+      }
+    ]
+  },
+  "discovery": {
+    "headline": "Ready to rethink how your business works?",
+    "subheading": "Let's explore what's possible with a tailored discovery session.",
+    "formTitle": "Book Your Discovery Session",
+    "formFields": [
+      { "name": "fullName", "label": "Full Name", "type": "text", "required": true },
+      { "name": "email", "label": "Email Address", "type": "email", "required": true },
+      { "name": "company", "label": "Company Name", "type": "text", "required": true },
+      { "name": "industry", "label": "Industry", "type": "select", "required": true },
+      { "name": "challenge", "label": "What's your biggest challenge?", "type": "textarea", "required": true }
+    ],
+    "submitButton": "Schedule Discovery"
+  },
+  "footer": {
+    "tagline": "Helping organizations redesign how work gets done.",
+    "quickLinks": [
+      { "label": "Home", "href": "/" },
+      { "label": "Work", "href": "/work" },
+      { "label": "Insights", "href": "/insights" }
+    ],
+    "legal": [
+      { "label": "Privacy Policy", "href": "/privacy" },
+      { "label": "Terms of Service", "href": "/terms" }
+    ],
+    "contact": {
+      "email": "hello@marcuz.co",
+      "phone": "+1 (555) 000-0000"
+    },
+    "copyright": "© 2026 Marcuz. All rights reserved."
+  }
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Marcuz Insights - Marcuz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        .header {
+            background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+        }
+        .content {
+            padding: 40px 24px;
+        }
+        .content h2 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+        .content p {
+            margin-bottom: 16px;
+            color: #4a4a4a;
+            font-size: 16px;
+        }
+        .section {
+            margin: 32px 0;
+        }
+        .section h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .article-list {
+            list-style: none;
+        }
+        .article-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .article-item:last-child {
+            border-bottom: none;
+        }
+        .article-item a {
+            color: #2563EB;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .article-item a:hover {
+            text-decoration: underline;
+        }
+        .article-item p {
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            color: #4a4a4a;
+        }
+        .cta-section {
+            background-color: #eff6ff;
+            border: 1px solid #dbeafe;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 24px 0;
+        }
+        .cta-section h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        .cta-section p {
+            margin: 0 0 16px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #2563EB;
+            color: #ffffff;
+            padding: 12px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .what-to-expect {
+            background-color: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+        }
+        .what-to-expect h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .what-to-expect ul {
+            margin-left: 20px;
+        }
+        .what-to-expect li {
+            margin-bottom: 8px;
+            color: #4a4a4a;
+            font-size: 14px;
+        }
+        .preferences-note {
+            background-color: #eff6ff;
+            border-left: 4px solid #2563EB;
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 4px;
+        }
+        .preferences-note a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+        .preferences-note a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            background-color: #f5f5f5;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+        .footer p {
+            font-size: 12px;
+            color: #4a4a4a;
+            margin: 4px 0;
+        }
+        .footer a {
+            color: #2563EB;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .brand {
+            font-weight: 600;
+            color: #2563EB;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Welcome to Insights</h1>
+            <p>Strategic thinking on digital transformation</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <h2>Hello {firstName},</h2>
+            
+            <p>Thank you for subscribing to <span class="brand">Marcuz</span> Insights. We're excited to share our thinking on digital transformation, AI, automation, and building systems that work.</p>
+
+            <div class="what-to-expect">
+                <h3>What to Expect</h3>
+                <ul>
+                    <li><strong>Monthly insights</strong> — Strategic perspectives on trends shaping how organizations work</li>
+                    <li><strong>Case studies</strong> — Real transformations and what we learned</li>
+                    <li><strong>Practical guides</strong> — Actionable frameworks for workflow design and automation</li>
+                    <li><strong>Industry analysis</strong> — Deep dives into vertical-specific challenges and opportunities</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <h3>Start Exploring</h3>
+                <p>Check out our latest articles and join the conversation.</p>
+                <a href="{insightsUrl}" class="cta-button">Read Latest Insights</a>
+            </div>
+
+            <div class="section">
+                <h3>Featured Categories</h3>
+                <ul class="article-list">
+                    <li class="article-item">
+                        <a href="{insightsUrl}?category=ai-automation">AI & Automation</a>
+                        <p>Strategic AI integration, automation ROI, and patterns in organizations ready for intelligent systems.</p>
+                    </li>
+                    <li class="article-item">
+                        <a href="{insightsUrl}?category=transformation">Digital Transformation</a>
+                        <p>Organization-wide change, building buy-in, and the costs of staying with legacy systems.</p>
+                    </li>
+                    <li class="article-item">
+                        <a href="{insightsUrl}?category=workflow">Workflow Design</a>
+                        <p>Better ways of working, redesign signals, and moving from manual to automated processes.</p>
+                    </li>
+                    <li class="article-item">
+                        <a href="{insightsUrl}?category=strategy">Business Strategy</a>
+                        <p>Scaling operations, enabling growth, and preparing your organization for what's next.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <p>We write for leaders who are rethinking how their organizations work. No fluff. Just thinking that matters.</p>
+
+            <div class="preferences-note">
+                <p>Want to update your subscription preferences? <a href="{preferencesUrl}">Manage your settings here</a>.</p>
+            </div>
+
+            <p>
+                Thanks for joining us.<br>
+                <strong>The <span class="brand">Marcuz</span> Team</strong>
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>You're receiving this because you subscribed to <span class="brand">Marcuz</span> Insights.</p>
+            <p><a href="{preferencesUrl}">Update preferences</a> | <a href="{unsubscribeUrl}">Unsubscribe</a></p>
+            <p>&copy; 2026 <span class="brand">Marcuz</span>. All rights reserved. | <a href="{privacyUrl}">Privacy Policy</a></p>
+        </div>
+    </div>
+</body>
+</html>
