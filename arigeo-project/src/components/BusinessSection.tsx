@@ -42,11 +42,11 @@ const BusinessSection = () => {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 animate-fade-up hover-lift opacity-0">
           <div className="max-w-2xl">
-            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Business Fields</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground">กลุ่มธุรกิจของเรา</h3>
+            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">กลุ่มธุรกิจ</h2>
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground">ธุรกิจที่เราดูแล</h3>
           </div>
-          <p className="text-arigeo-gray max-w-md">
-            ครอบคลุมทุกความต้องการด้านสุขภาพ อุตสาหกรรม และการเกษตร ด้วยผลิตภัณฑ์ที่ได้มาตรฐานและบริการระดับมืออาชีพ
+          <p className="text-arigeo-gray max-w-md leading-relaxed">
+            ครอบคลุมความต้องการด้านสุขภาพ อุตสาหกรรม และการเกษตร ด้วยผลิตภัณฑ์ที่ได้มาตรฐานและบริการระดับมืออาชีพ
           </p>
         </div>
 
@@ -56,7 +56,7 @@ const BusinessSection = () => {
               key={business.id}
               className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col sm:flex-row animate-fade-up hover-lift opacity-0 stagger-${index + 1}`}
             >
-              <div className="relative sm:w-1/3 overflow-hidden">
+              <div className="relative sm:w-1/3 min-h-56 sm:min-h-0 overflow-hidden">
                 <img src={business.image} alt={business.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
               <div className="p-8 sm:w-2/3 flex flex-col justify-center bg-white">

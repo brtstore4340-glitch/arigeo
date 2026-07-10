@@ -39,7 +39,7 @@ const QualitySection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           <div className="animate-fade-up hover-lift opacity-0">
-            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Quality & Standards</h2>
+            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">คุณภาพและมาตรฐาน</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">คุณภาพและมาตรฐานคือหัวใจของเรา</h3>
             <p className="text-lg text-arigeo-gray mb-8 leading-relaxed">
               ARIGEO ให้ความสำคัญกับการคัดเลือกผลิตภัณฑ์ การตรวจสอบแหล่งที่มา การจัดเก็บ การขนส่ง และการให้ข้อมูลที่ถูกต้อง เพื่อให้ลูกค้าได้รับผลิตภัณฑ์ที่เหมาะสม ปลอดภัย และเชื่อถือได้

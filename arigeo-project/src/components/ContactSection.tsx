@@ -12,7 +12,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           
           <div className="animate-fade-up hover-lift opacity-0">
-            <h2 className="text-sm font-bold text-white/80 tracking-wider uppercase mb-3">Partner With Us</h2>
+            <h2 className="text-sm font-bold text-white/80 tracking-wider uppercase mb-3">ติดต่อเรา</h2>
             <h3 className="text-3xl md:text-5xl font-bold mb-6">มองหาพันธมิตรด้านสุขภาพ เคมีภัณฑ์ หรือการเกษตร?</h3>
             <p className="text-lg text-white/90 mb-10 leading-relaxed max-w-lg">
               ทีมงาน ARIGEO พร้อมให้คำแนะนำและนำเสนอผลิตภัณฑ์ที่เหมาะสมกับความต้องการขององค์กรคุณ เพื่อสร้างความสำเร็จร่วมกันอย่างยั่งยืน
@@ -53,9 +53,9 @@ const ContactSection = () => {
             <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl text-foreground">
               <h4 className="text-2xl font-bold mb-6">ส่งข้อความถึงเรา</h4>
               <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-sm font-medium text-arigeo-gray">ชื่อ - นามสกุล *</label>
+                    <label className="text-sm font-medium text-arigeo-gray">ชื่อ-นามสกุล *</label>
                     <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-arigeo-red focus:ring-1 focus:ring-arigeo-red transition-all" placeholder="John Doe" />
                   </div>
                   <div className="space-y-1.5">

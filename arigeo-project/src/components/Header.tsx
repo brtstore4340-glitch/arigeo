@@ -28,9 +28,7 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-3' : 'bg-white py-5'}`}>
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         <div className="flex items-center gap-2">
-          {/* Logo Placeholder */}
-          <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain" />
-          
+          <img src="/images/logos/arigeo.png" alt="ARIGEO Logo" className="h-10 w-auto object-contain" />
         </div>
 
         {/* Desktop Navigation */}

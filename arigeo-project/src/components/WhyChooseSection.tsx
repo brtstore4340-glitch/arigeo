@@ -17,7 +17,7 @@ const WhyChooseSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           <div className="animate-fade-up hover-lift opacity-0">
-            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Why Arigeo</h2>
+            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">ทำไมต้องเลือกเรา</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8">ทำไมองค์กรชั้นนำจึงเลือก ARIGEO</h3>
             
             <div className="grid sm:grid-cols-2 gap-6">
@@ -26,7 +26,7 @@ const WhyChooseSection = () => {
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-arigeo-red/10 flex items-center justify-center mt-1">
                     <Check className="w-4 h-4 text-arigeo-red" />
                   </div>
-                  <p className="text-arigeo-gray font-medium">{reason}</p>
+                  <p className="text-arigeo-gray font-medium leading-relaxed">{reason}</p>
                 </div>
               ))}
             </div>

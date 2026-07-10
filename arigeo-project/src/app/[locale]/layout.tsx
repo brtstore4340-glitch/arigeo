@@ -11,7 +11,7 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export const metadata: Metadata = {
-  title: 'Arigeo Company Limited',
+  title: 'ARIGEO COMPANY LIMITED',
   description: 'บริษัท อะริเกโอ จำกัด (ARIGEO) จัดจำหน่ายยา เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตรแบบครบวงจร',
 };
 

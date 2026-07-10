@@ -29,7 +29,7 @@ const SustainabilitySection = () => {
       
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up hover-lift opacity-0">
-          <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Sustainability</h2>
+          <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">ความยั่งยืน</h2>
           <h3 className="text-3xl md:text-4xl font-bold mb-6">เติบโตอย่างรับผิดชอบ เพื่ออนาคตที่ยั่งยืน</h3>
           <p className="text-lg text-gray-200">
             ARIGEO เชื่อว่าการเติบโตทางธุรกิจต้องเดินไปพร้อมกับความรับผิดชอบต่อผู้ใช้ สังคม และสิ่งแวดล้อม เราสนับสนุนการใช้ผลิตภัณฑ์อย่างเหมาะสม ลดความเสี่ยงจากการใช้งานผิดวิธี และส่งเสริมแนวทางที่ปลอดภัยต่อคนและธรรมชาติ

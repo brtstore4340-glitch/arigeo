@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
 import AnimatedGallery from '@/components/AnimatedGallery';
 import PurposeSection from '@/components/PurposeSection';
 import BusinessSection from '@/components/BusinessSection';
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <main className="min-h-screen font-sans">
       <Header />
+      <HeroSection />
       <div className="pt-24 bg-arigeo-light">
         <AnimatedGallery />
       </div>

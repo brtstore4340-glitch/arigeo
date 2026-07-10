@@ -5,21 +5,21 @@ const NewsSection = () => {
   const articles = [
     {
       date: '12 ก.ค. 2569',
-      category: 'Healthcare',
+      category: 'สุขภาพ',
       title: 'แนวทางการเลือกเวชภัณฑ์สำหรับองค์กรและสถานพยาบาล',
       desc: 'เกณฑ์การตัดสินใจและข้อควรระวังในการจัดซื้อเวชภัณฑ์ เพื่อคุณภาพและความปลอดภัยสูงสุดของผู้รับบริการ',
       image: '/images/domo/img-3.png',
     },
     {
       date: '05 ก.ค. 2569',
-      category: 'Industry',
+      category: 'อุตสาหกรรม',
       title: 'ความสำคัญของการจัดเก็บเคมีภัณฑ์อย่างปลอดภัย',
       desc: 'อัปเดตมาตรฐานการจัดเก็บและขนส่งเคมีภัณฑ์อุตสาหกรรม เพื่อลดความเสี่ยงและเพิ่มประสิทธิภาพในการทำงาน',
       image: '/images/domo/img-4.png',
     },
     {
       date: '28 มิ.ย. 2569',
-      category: 'Agriculture',
+      category: 'เกษตร',
       title: 'เกษตรสมัยใหม่กับการใช้ผลิตภัณฑ์อย่างยั่งยืน',
       desc: 'แนวโน้มการทำเกษตรกรรมที่ควบคู่ไปกับการรักษาสิ่งแวดล้อม และโซลูชันที่ช่วยสนับสนุนเกษตรกรไทย',
       image: '/images/domo/img-5.png',
@@ -31,7 +31,7 @@ const NewsSection = () => {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6 animate-fade-up hover-lift opacity-0">
           <div>
-            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Insights & News</h2>
+            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">ข่าวสารและบทความ</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-foreground">ความรู้และข่าวสาร</h3>
           </div>
           <button className="text-arigeo-red font-medium flex items-center gap-2 hover:gap-3 transition-all">

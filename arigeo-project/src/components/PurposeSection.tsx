@@ -24,10 +24,10 @@ const PurposeSection = () => {
     <section id="about" className="py-24 bg-white relative">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up hover-lift opacity-0">
-          <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Our Purpose</h2>
+          <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">จุดมุ่งหมายของเรา</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6">ARIGEO เพื่อคุณภาพชีวิตที่ดีกว่า</h3>
-          <p className="text-lg text-arigeo-gray">
-            อธิบายว่า ARIGEO ไม่ใช่เพียงผู้จัดจำหน่ายสินค้า แต่เป็นพันธมิตรที่ช่วยคัดสรรผลิตภัณฑ์ที่มีคุณภาพ เหมาะสมกับการใช้งานจริง และตอบโจทย์ทั้งภาคสุขภาพ ภาคอุตสาหกรรม และภาคการเกษตร
+          <p className="text-lg text-arigeo-gray leading-relaxed">
+            ARIGEO ไม่ใช่แค่ผู้จัดจำหน่ายสินค้า แต่เป็นพันธมิตรที่คัดสรรผลิตภัณฑ์คุณภาพ ใช้งานได้จริง และตอบโจทย์ทั้งภาคสุขภาพ ภาคอุตสาหกรรม และภาคการเกษตร
           </p>
         </div>
 

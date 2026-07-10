@@ -3,21 +3,21 @@ import { ArrowUpRight } from 'lucide-react';
 
 const ProductSection = () => {
   const categories = [
-    { title: 'Pharmaceuticals', desc: 'ยาและเวชภัณฑ์คุณภาพสูง', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-1.jpg' },
-    { title: 'Medical Supplies', desc: 'วัสดุสิ้นเปลืองทางการแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-2.jpg' },
-    { title: 'Medical Devices', desc: 'อุปกรณ์และเครื่องมือแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-3.jpg' },
-    { title: 'Laboratory Chemicals', desc: 'เคมีภัณฑ์สำหรับห้องปฏิบัติการ', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-4.jpg' },
-    { title: 'Industrial Chemicals', desc: 'เคมีภัณฑ์สำหรับอุตสาหกรรม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-5.jpg' },
-    { title: 'Agricultural Products', desc: 'ผลิตภัณฑ์เพื่อการเกษตร', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-6.jpg' },
-    { title: 'Farm Solutions', desc: 'โซลูชันการจัดการฟาร์ม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-7.jpg' },
-    { title: 'Health & Wellness Products', desc: 'ผลิตภัณฑ์เพื่อสุขภาพองค์รวม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-8.jpg' },
+    { title: 'ยาและเวชภัณฑ์', desc: 'ยาและเวชภัณฑ์คุณภาพสูง', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-1.jpg' },
+    { title: 'วัสดุสิ้นเปลืองทางการแพทย์', desc: 'วัสดุสิ้นเปลืองทางการแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-2.jpg' },
+    { title: 'อุปกรณ์และเครื่องมือแพทย์', desc: 'อุปกรณ์และเครื่องมือแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-3.jpg' },
+    { title: 'เคมีภัณฑ์สำหรับห้องปฏิบัติการ', desc: 'เคมีภัณฑ์สำหรับห้องปฏิบัติการ', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-4.jpg' },
+    { title: 'เคมีภัณฑ์สำหรับอุตสาหกรรม', desc: 'เคมีภัณฑ์สำหรับอุตสาหกรรม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-5.jpg' },
+    { title: 'ผลิตภัณฑ์เพื่อการเกษตร', desc: 'ผลิตภัณฑ์เพื่อการเกษตร', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-6.jpg' },
+    { title: 'โซลูชันการจัดการฟาร์ม', desc: 'โซลูชันการจัดการฟาร์ม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-7.jpg' },
+    { title: 'ผลิตภัณฑ์เพื่อสุขภาพองค์รวม', desc: 'ผลิตภัณฑ์เพื่อสุขภาพองค์รวม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-8.jpg' },
   ];
 
   return (
     <section className="py-24 bg-arigeo-light relative">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up hover-lift opacity-0">
-          <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">Our Categories</h2>
+          <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">หมวดสินค้า</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground">ผลิตภัณฑ์และโซลูชัน</h3>
         </div>
 

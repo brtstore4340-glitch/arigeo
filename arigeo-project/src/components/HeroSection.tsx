@@ -16,15 +16,17 @@ const HeroSection = () => {
           <div className="max-w-2xl animate-fade-in opacity-0">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow-sm border border-gray-100 mb-6">
               <span className="w-2 h-2 rounded-full bg-arigeo-red"></span>
-              <span className="text-xs font-medium text-arigeo-gray uppercase tracking-wider">Arigeo Company Limited</span>
+              <span className="text-xs font-medium text-arigeo-gray uppercase tracking-wider">ARIGEO COMPANY LIMITED</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6">
-              ยกระดับคุณภาพชีวิต ด้วยเวชภัณฑ์และผลิตภัณฑ์เกษตรที่<span className="text-arigeo-red">ได้มาตรฐานสากล</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground mb-6 max-w-3xl">
+              ยกระดับคุณภาพชีวิต<br />
+              ด้วยยา เวชภัณฑ์ และผลิตภัณฑ์ทางการเกษตร<br />
+              ที่<span className="text-arigeo-red">ได้มาตรฐานสากล</span>
             </h1>
             
             <p className="text-lg text-arigeo-gray leading-relaxed mb-8 max-w-xl">
-              บริษัท อะริเกโอ จำกัด (ARIGEO) คือพันธมิตรที่เชื่อถือได้ในการจัดจำหน่ายยา เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตรแบบครบวงจร เรามุ่งมั่นส่งมอบสินค้าคุณภาพสูง เพื่อสุขอนามัยที่ดี การดำเนินธุรกิจที่ปลอดภัย และการเติบโตอย่างยั่งยืน
+              บริษัท อะริเกโอ จำกัด (ARIGEO) จัดจำหน่ายยา เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตรครบวงจร มุ่งส่งมอบสินค้าคุณภาพ เพื่อสุขอนามัยที่ดี การดูแลที่ปลอดภัย และการเติบโตอย่างยั่งยืน
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">

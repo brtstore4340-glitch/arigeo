@@ -8,10 +8,9 @@ const Footer = () => {
           
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain brightness-0 invert" />
-              
+              <img src="/images/logos/leftbottom.png" alt="ARIGEO Logo" className="h-10 w-auto object-contain" />
             </div>
-            <p className="text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6 max-w-sm">
               ผู้จัดจำหน่ายยา เวชภัณฑ์ เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตร มุ่งเน้นคุณภาพ มาตรฐาน ความปลอดภัย และการเติบโตอย่างยั่งยืน
             </p>
           </div>
