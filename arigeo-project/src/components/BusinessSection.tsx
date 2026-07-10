@@ -8,28 +8,32 @@ const BusinessSection = () => {
       title: 'ยาและเวชภัณฑ์',
       description: 'จัดจำหน่ายยา เวชภัณฑ์ และผลิตภัณฑ์ด้านสุขภาพ สำหรับร้านยา คลินิก โรงพยาบาล และหน่วยงานที่เกี่ยวข้อง',
       icon: <Pill className="w-10 h-10 text-white" />,
-      color: 'bg-arigeo-red', // arigeo-red
+      color: 'bg-arigeo-red',
+      image: '/images/domo/business-pharmacy.jpg',
     },
     {
       id: 2,
       title: 'เครื่องมือแพทย์',
       description: 'อุปกรณ์และเครื่องมือแพทย์ที่ช่วยสนับสนุนการดูแลผู้ป่วย การตรวจประเมิน และการปฏิบัติงานของบุคลากรทางการแพทย์',
       icon: <Stethoscope className="w-10 h-10 text-white" />,
-      color: 'bg-arigeo-darkred', // arigeo-darkred
+      color: 'bg-arigeo-darkred',
+      image: '/images/domo/business-medical.jpg',
     },
     {
       id: 3,
       title: 'เคมีภัณฑ์',
       description: 'เคมีภัณฑ์คุณภาพสำหรับงานอุตสาหกรรม ห้องปฏิบัติการ การผลิต และการใช้งานเฉพาะทาง โดยให้ความสำคัญกับความปลอดภัย',
       icon: <FlaskConical className="w-10 h-10 text-white" />,
-      color: 'bg-arigeo-black', // arigeo-gray
+      color: 'bg-arigeo-black',
+      image: '/images/domo/business-chemicals.jpg',
     },
     {
       id: 4,
       title: 'ผลิตภัณฑ์เพื่อการเกษตร',
       description: 'โซลูชันเพื่อภาคการเกษตรที่ช่วยเพิ่มประสิทธิภาพการผลิต สนับสนุนการเติบโตของพืช และส่งเสริมการจัดการฟาร์มอย่างยั่งยืน',
       icon: <Tractor className="w-10 h-10 text-white" />,
-      color: 'bg-arigeo-red', // arigeo-red
+      color: 'bg-arigeo-red',
+      image: '/images/domo/business-agriculture.jpg',
     },
   ];
 
@@ -52,11 +56,8 @@ const BusinessSection = () => {
               key={business.id}
               className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col sm:flex-row animate-fade-up hover-lift opacity-0 stagger-${index + 1}`}
             >
-              <div className={`relative sm:w-1/3 flex items-center justify-center overflow-hidden ${business.color}`}>
-                <img src={`/images/domo/asset-${index + 9}.png`} alt={business.title} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 group-hover:scale-110 transition-transform duration-700" />
-                <div className="relative z-10 transform group-hover:scale-110 transition-transform duration-500">
-                  {business.icon}
-                </div>
+              <div className="relative sm:w-1/3 overflow-hidden">
+                <img src={business.image} alt={business.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
               <div className="p-8 sm:w-2/3 flex flex-col justify-center bg-white">
                 <h4 className="text-2xl font-bold text-foreground mb-4 group-hover:text-arigeo-red transition-colors">{business.title}</h4>

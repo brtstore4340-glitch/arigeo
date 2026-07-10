@@ -67,7 +67,7 @@ const QualitySection = () => {
 
           <div className="relative animate-fade-in opacity-0 stagger-2">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-arigeo-black h-[600px] flex items-center justify-center">
-              <img src="/images/domo/asset-7.png" alt="Certified Excellence" className="absolute inset-0 w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-1000" />
+              <img src="/images/domo/quality-standard.jpg" alt="Certified Excellence" className="absolute inset-0 w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-1000" />
               <div className="absolute inset-0 bg-gradient-to-t from-arigeo-black/90 via-arigeo-black/40 to-transparent"></div>
               
               <div className="relative text-center z-10 p-8 animate-float">

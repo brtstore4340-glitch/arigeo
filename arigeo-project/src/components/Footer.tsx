@@ -43,7 +43,7 @@ const Footer = () => {
               <li>บริษัท อะริเกโอ จำกัด</li>
               <li>123 อาคารออฟฟิศ ชั้น 10</li>
               <li>ถนนสุขุมวิท กรุงเทพมหานคร 10110</li>
-              <li className="pt-2 text-arigeo-red font-medium">โทร: 02-XXX-XXXX</li>
+              <li className="pt-2 text-arigeo-red font-medium">โทร: 02-888-8888</li>
               <li className="text-arigeo-red font-medium">อีเมล: contact@arigeo.co.th</li>
             </ul>
           </div>

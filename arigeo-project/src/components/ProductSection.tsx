@@ -3,14 +3,14 @@ import { ArrowUpRight } from 'lucide-react';
 
 const ProductSection = () => {
   const categories = [
-    { title: 'Pharmaceuticals', desc: 'ยาและเวชภัณฑ์คุณภาพสูง', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Medical Supplies', desc: 'วัสดุสิ้นเปลืองทางการแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Medical Devices', desc: 'อุปกรณ์และเครื่องมือแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Laboratory Chemicals', desc: 'เคมีภัณฑ์สำหรับห้องปฏิบัติการ', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Industrial Chemicals', desc: 'เคมีภัณฑ์สำหรับอุตสาหกรรม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Agricultural Products', desc: 'ผลิตภัณฑ์เพื่อการเกษตร', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Farm Solutions', desc: 'โซลูชันการจัดการฟาร์ม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
-    { title: 'Health & Wellness Products', desc: 'ผลิตภัณฑ์เพื่อสุขภาพองค์รวม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300' },
+    { title: 'Pharmaceuticals', desc: 'ยาและเวชภัณฑ์คุณภาพสูง', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-1.jpg' },
+    { title: 'Medical Supplies', desc: 'วัสดุสิ้นเปลืองทางการแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-2.jpg' },
+    { title: 'Medical Devices', desc: 'อุปกรณ์และเครื่องมือแพทย์', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-3.jpg' },
+    { title: 'Laboratory Chemicals', desc: 'เคมีภัณฑ์สำหรับห้องปฏิบัติการ', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-4.jpg' },
+    { title: 'Industrial Chemicals', desc: 'เคมีภัณฑ์สำหรับอุตสาหกรรม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-5.jpg' },
+    { title: 'Agricultural Products', desc: 'ผลิตภัณฑ์เพื่อการเกษตร', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-6.jpg' },
+    { title: 'Farm Solutions', desc: 'โซลูชันการจัดการฟาร์ม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-7.jpg' },
+    { title: 'Health & Wellness Products', desc: 'ผลิตภัณฑ์เพื่อสุขภาพองค์รวม', color: 'bg-arigeo-light text-arigeo-black group-hover:bg-arigeo-red group-hover:text-white transition-colors duration-300', image: '/images/domo/cat-8.jpg' },
   ];
 
   return (
@@ -28,8 +28,8 @@ const ProductSection = () => {
               className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 group cursor-pointer animate-fade-up hover-lift opacity-0"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center ${cat.color}`}>
-                <div className="w-2 h-2 rounded-full bg-current"></div>
+              <div className="w-full h-40 mb-4 overflow-hidden rounded-xl">
+                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h4 className="font-bold text-lg text-foreground mb-2 group-hover:text-arigeo-red transition-colors">{cat.title}</h4>
               <p className="text-sm text-arigeo-gray mb-4">{cat.desc}</p>

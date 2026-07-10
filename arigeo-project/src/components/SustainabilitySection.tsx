@@ -23,7 +23,7 @@ const SustainabilitySection = () => {
   return (
     <section id="sustainability" className="py-24 relative text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src="/images/domo/asset-8.png" alt="Sustainability Background" className="w-full h-full object-cover opacity-30" />
+        <img src="/images/domo/sustainability.jpg" alt="Sustainability Background" className="w-full h-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-br from-arigeo-black/90 via-arigeo-darkred/80 to-arigeo-black/90"></div>
       </div>
       
