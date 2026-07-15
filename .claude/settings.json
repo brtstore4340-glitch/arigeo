@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash '${CLAUDE_PROJECT_ROOT}/.claude/fleet-registry/fleet-session-init.sh'",
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/fleet-session-init.sh\"",
             "statusMessage": "Initializing fleet registry context..."
           }
         ]
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'if [ -f \"${CLAUDE_PROJECT_ROOT}/.claude/fleet-registry/oracles.json\" ]; then echo \"✓ Fleet registry active\"; fi'",
+            "command": "bash -c 'if [ -f \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/oracles.json\" ]; then echo \"✓ Fleet registry active\"; fi'",
             "statusMessage": "Checking fleet registry..."
           }
         ]
