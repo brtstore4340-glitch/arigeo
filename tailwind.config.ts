@@ -12,11 +12,13 @@ const config: Config = {
         background: "#ffffff",
         foreground: "#111111", // black
         arigeo: {
-          red: "#d32f2f",      // strong red for identity
-          darkred: "#b71c1c",
-          black: "#111111",    // pure black
-          gray: "#424242",     // gray for secondary text
-          light: "#fafafa",    // off-white
+          red: "#D50306",      // Brick Ember — primary brand red
+          darkred: "#C50C15",  // Brick Ember 2 — hover / pressed
+          redtint: "#FBE6E7",  // 5% tint — badge/tag backgrounds
+          black: "#010101",    // brand black — footer, headings
+          gray: "#424242",     // secondary text (คงเดิม — palette ไม่มี mid-gray)
+          light: "#FDFDFD",    // White — base surface
+          surface: "#F3F3F4",  // Platinum — alternating sections, newsletter band
         }
       },
       fontFamily: {
@@ -51,3 +53,4 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+

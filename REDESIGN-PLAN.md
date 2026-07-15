@@ -1,4 +1,4 @@
-﻿# ARIGEO Redesign Plan — Handoff Document
+# ARIGEO Redesign Plan — Handoff Document
 Target: ปรับ landing page ให้ตรง reference image (`picture/` หรือ arigeo_draft_web_01.png)
 Repo: D:\01 Main Work\Boots\Agentic AI\mission-control\arigeo-project
 Stack: Next.js 14.2.35 (App Router) + next-intl 4.13.1 + Tailwind 3.4 + lucide-react
@@ -105,5 +105,6 @@ Component เก่าที่เลิกใช้ (เช่น HeroSection.t
 - 15/7/2026: Content = full brief (household & skincare FMCG). เนื้อหายา/เกษตรเดิม
   ย้ายเข้า _legacy ทั้ง messages และ components ที่ไม่ได้ใช้ต่อ
 - 15/7/2026: Vercel token ที่ใช้กู้ไฟล์ถูก revoke แล้ว
-- ค้างตัดสิน: สีแดงหลัก — คง #d32f2f หรือปรับเป็นโทนสดตาม ref (~#E60013)
-  → agent เสนอเทียบ 2 ตัวเลือกบน Hero จริงให้ Ekkarat เลือกก่อน apply ทั้งเว็บ
+- 15/7/2026: Palette FINAL — Brick Ember #D50306 (primary), #C50C15 (hover),
+  Black #010101, Platinum #F3F3F4 (surface), White #FDFDFD (base)
+  → apply แล้วใน tailwind.config.ts เป็น arigeo.* tokens ห้ามใช้ hex ตรงใน component
