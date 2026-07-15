@@ -2,7 +2,7 @@
 
 > **Index of all persistent memories** — fast lookup, one-line hooks, organized by type. < 200 lines.
 
-**Last Updated**: 2026-07-16 · **Total Entries**: 9 · **Index Size**: ~400 tokens
+**Last Updated**: 2026-07-16 06:37 · **Total Entries**: 11 · **Index Size**: ~450 tokens
 
 ---
 
@@ -10,6 +10,7 @@
 - [Zeus execution boundary — RESOLVED](learnings/zeus-execution-boundary-question.md) — Zeus decides execute-vs-delegate per-task on token-optimization grounds (∞)
 
 ## Feedback & Operating Rules
+- [Design-for-all before implement](learnings/2026-07-16_design-for-all-before-implement.md) — Read all contexts, design once for all variants, implement once (don't iterate-then-adapt) (∞)
 - [RTK protocol scope: all agent types](learnings/rtk-protocol-scope-all-agents.md) — RTK mandated for true/fallback/background agents (∞)
 - [Recommend reversible option first](learnings/2026-07-16_recommend-reversible-option-first.md) — When large blast-radius choice, default reversible as first option (∞)
 - [Verify via real invocation, not simulation](learnings/2026-07-16_verify-hook-firing-not-just-script-logic.md) — Use real execution paths (claude -p, live logs) not standalone simulations (∞)
@@ -24,6 +25,7 @@
 - [Gemini Learning: 2026-07-07](learnings/2026-07-07_gemini-learned.md) — Knowledge from Gemini's /learn execution (∞)
 
 ## Recent Retrospectives (Latest 3)
+- [2026-07-16 Token optimization complete](retrospectives/2026-07/16/05.45_token-optimization-complete.md) — 3 oracles live, 6 commits, cache server + memory system deployed (∞)
 - [2026-07-16 RTK mandate & boundary resolution](retrospectives/2026-07/16/04.26_rtk-mandate-and-boundary-resolution.md) — Soft mandate chosen; execution boundary clarified (∞)
 - [2026-07-16 Hook fixes & claude-mem PR](retrospectives/2026-07/16/03.13_hook-fixes-and-claude-mem-upstream-pr.md) — SessionStart/PreToolUse fixed; claude-mem backfill complete (∞)
 
