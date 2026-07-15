@@ -14,11 +14,11 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Skill(fleet-awaken|awaken)",
+        "matcher": "Skill",
         "hooks": [
           {
             "type": "command",
-            "command": "bash -c 'if [ -f \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/oracles.json\" ]; then echo \"✓ Fleet registry active\"; fi'",
+            "command": "bash -c 'skill=$(cat | grep -oE \"\\\"skill\\\"[[:space:]]*:[[:space:]]*\\\"[^\\\"]*\\\"\" | sed -E \"s/.*:[[:space:]]*\\\"([^\\\"]*)\\\"/\\1/\"); if [[ \"$skill\" =~ ^(fleet-awaken|awaken)$ ]] && [ -f \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/oracles.json\" ]; then echo \"✓ Fleet registry active\"; fi'",
             "statusMessage": "Checking fleet registry..."
           }
         ]
