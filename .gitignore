@@ -1,0 +1,8 @@
+node_modules/
+.next/
+.vercel/
+recovery/
+_claude-draft-components/
+arigeo-web-draft/
+*.tsbuildinfo
+*.ps1
