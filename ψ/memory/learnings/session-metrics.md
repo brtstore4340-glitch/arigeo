@@ -11,6 +11,8 @@ Rule: same friction 3 sessions → fix root cause, not another workaround.
 | 2026-07-06 11:35 | unknown | Audit P1-P3 committed, fleet registry created, learning docs saved, session metrics appended | n/a | Critical path finalization: ensured audit completion committed before attempting optimization (P4) | Session ID detection failed in background; bg job isolation requires worktree path access | n/a |
 | 2026-07-06 11:38 | de19627 | workspace cleanup, 8 dirs removed, git recovery | n/a | Stable branch-registry-phase2 state after typechange fix | Large dir timeouts, broken worktrees, nested repos unplanned | Assumed 'untrack' meant delete instead of confirming intent |
 | 2026-07-07 19:06 | unknown | 7 shipped (i18n fixes, blog/news section, color tokens); plan file drafted | plan not executed (delegated elsewhere); bare "3" msg unresolved | full Blog/News/"Brand Stories" homepage section in one pass, clean refactor | git clean -fd timeout on vendored node_modules in ψ tree; cwd drift to nonexistent subdir | misdiagnosed vercel build failure as config problem 3 times when branch name was in log the whole time |
+| 2026-07-16 03:13 | 24276afd | SessionStart hook fixed (717c669, 28f24a6), PreToolUse hook fixed (5099af0), claude-mem missing-module bug fixed + verified live + PR #3273 opened upstream | n/a | claude-mem Chroma sync went from failing on every project to clean backfill across ~19 projects | jq not installed forcing rewrite; /tmp tmpfs filled by unrelated pre-existing bunx caches; dubious git ownership requiring su-as-user for plugin repo | reported SessionStart hook "confirmed working" after only manually running its script with a hand-exported, non-existent env var (CLAUDE_PROJECT_ROOT) — not the real hook-execution path; corrected only after user asked to verify with a real session |
+| 2026-07-16 04:26 | 24276afd | tmux 3-pane fleet layout, RTK checklist run, RTK-for-all-agents mandate committed (9b54bd5), execution-boundary question resolved + memory updated, claude-mem backfill confirmed complete | hard-block hook approach started then explicitly cancelled by user mid-build | RTK mandate + execution-boundary policy both now durably recorded, not just discussed | /tmp filled to 100% a second time from the same unaddressed root cause | recommended the harder-to-reverse hard-block-via-hook option as "(Recommended)" for a fleet-wide mechanism instead of defaulting to the reversible written-mandate option first |
 
 ---
 
@@ -32,3 +34,21 @@ Rule: same friction 3 sessions → fix root cause, not another workaround.
 1. Before acting on a recognized pattern: explicitly verify at least one assumption
 2. When copying a pattern from one context to another: confirm execution context matches
 3. When re-evaluating a decision: start from first principles, not from "we decided before"
+
+---
+
+## 🔁 Recurring Pattern Detected (re-checked 2026-07-16)
+
+**"Verification gap"** appears in the **error** column of 5 of the last 7 sessions (Jun 19, Jul 6 09:49, Jul 6 11:38, Jul 7, Jul 16):
+
+| Session | Error |
+|---------|-------|
+| 2026-06-19 | Overconfidence in proximity; copied pattern without checking execution context |
+| 2026-07-06 09:49 | Jumped to solve submodule issue without verifying data safety first |
+| 2026-07-06 11:38 | Assumed 'untrack' meant delete instead of confirming intent |
+| 2026-07-07 19:06 | Misdiagnosed Vercel build failure as config problem 3× when branch name was in the log the whole time |
+| 2026-07-16 03:13 | Reported a hook "confirmed working" from a manual script run with a hand-set, non-existent env var — not the real execution path |
+
+Per parent CLAUDE.md §"Self-Evaluation Loop" — this is the same root cause flagged in the block above (2026-06/06-20 check), still recurring five sessions later across a different repo and a different kind of task. The specific mistake changes each time; the shape doesn't: declaring something verified based on a proxy (a manual run, a plausible assumption, a repeated diagnosis) instead of the real target behavior.
+
+**Suggested action**: This has now persisted across at least two separate pattern-checks a month apart — worth raising with Boss directly rather than re-flagging a third time, since flagging alone hasn't broken the cycle.
