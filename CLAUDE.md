@@ -19,6 +19,7 @@
 |---|---|---|
 | ธาม | Governor · Coordinator | Direct |
 | Luxi | UI/UX · Frontend | ธาม |
+| Agis | Present Guardian · Presence | ธาม |
 | Dheva | ORRY Serenity ERP | ธาม |
 | Teleos | Vercel · Deploy | ธาม |
 | Aris | Code Review · Quality Gate | ธาม |
