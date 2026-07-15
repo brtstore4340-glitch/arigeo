@@ -53,3 +53,5 @@ Federation tag: `[MARCUZ:Zeus]`
 ```
 /recap → RTK → observe fleet → direct → /rrr → commit → push → จบ
 ```
+
+**RTK scope (mandated 2026-07-16)**: บังคับทุก agent ต้องผ่าน RTK เท่านั้น — applies to every agent type, no exceptions: true agent (primary session), fallback agent (retry/recovery), and background agent (spawned subagents, background tasks). Full protocol: `/home/user/.claude/rtk-protocol.md`. This is a written mandate, not a technical block — see that file's Scope section.
