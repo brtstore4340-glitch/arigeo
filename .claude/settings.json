@@ -2,9 +2,14 @@
   "hooks": {
     "SessionStart": [
       {
-        "type": "command",
-        "command": "bash '${CLAUDE_PROJECT_ROOT}/.claude/fleet-registry/fleet-session-init.sh'",
-        "statusMessage": "Initializing fleet registry context..."
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '${CLAUDE_PROJECT_ROOT}/.claude/fleet-registry/fleet-session-init.sh'",
+            "statusMessage": "Initializing fleet registry context..."
+          }
+        ]
       }
     ],
     "PreToolUse": [
