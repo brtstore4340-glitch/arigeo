@@ -57,6 +57,7 @@
 /zeus-oracle/
 /ψ/
 # Exception: Track Oracle memory (persistent learnings + retrospectives)
+!/ψ/
 !/ψ/memory/
 !/ψ/memory/**
 
