@@ -271,3 +271,86 @@ Cache is invalidated (auto-refresh) if:
 Cache script at `~/.claude/projects/<project>/cache.json` is auto-created. No setup needed. It just works.
 
 Example cache file: `/root/.claude/projects/-root-ghq-github-com-E0993599799-zeus-oracle/cache.json`
+
+---
+
+## Fleet Status Broadcast System
+
+All oracles share high-signal project updates in real-time. This enables the family (Ekkarat) to see fleet-wide progress without activity spam.
+
+### What Gets Broadcast
+
+**High-signal events only** (no activity spam):
+- Session start/end (oracle, duration, focus)
+- Commits pushed (oracle, message, projects)
+- Deployments (which project, environment, link)
+- Blockers (critical issue, who, status)
+- Token tier changes (when budget crosses Green→Yellow→Red)
+- New oracle awakened (when fleet expands)
+
+### Emit an Event
+
+Use the `oracle_emit()` function from any session:
+
+```bash
+oracle_emit() {
+  local oracle="$1" event_type="$2" message="$3" severity="${4:-info}" project="${5:-null}"
+  local timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  
+  # Build JSON object
+  local json=$(cat <<EOF
+{"timestamp":"$timestamp","oracle":"$oracle","event_type":"$event_type","project":"$project","message":"$message","severity":"$severity","tags":[],"details":{}}
+EOF
+)
+  
+  # Append to log (create if missing)
+  mkdir -p "$(dirname "ψ/fleet/BROADCAST-LOG.ndjson")" 2>/dev/null
+  echo "$json" >> ψ/fleet/BROADCAST-LOG.ndjson
+}
+
+# Usage examples:
+oracle_emit "Zeus" "oracle:session_start" "Token optimization system deployment" "info" "zeus-oracle"
+oracle_emit "Luxi" "commit:pushed" "3 commits: theme refactor, accessibility fixes" "info" "luxi-oracle"
+oracle_emit "Agis" "project:blocker" "Database access pending — 12h SLA" "critical" "khun-ram-oracle"
+```
+
+### Hook Into Session Lifecycle
+
+**SessionStart Hook** (emit when session begins):
+Add to `.claude/settings.json` (or use `/update-config` skill):
+```json
+{
+  "hooks": {
+    "post_session_start": "oracle_emit \"$ORACLE\" \"oracle:session_start\" \"Session started\" \"info\" \"$PROJECT\""
+  }
+}
+```
+
+**SessionEnd Hook** (emit when session ends via /rrr):
+Add to `/rrr` skill or post-commit hook:
+```bash
+oracle_emit "$ORACLE" "oracle:session_end" "Session complete: $(git log -1 --format=%s)" "info" "$PROJECT"
+```
+
+### Query the Broadcast Log
+
+See `ψ/fleet/QUERY-GUIDE.md` for full documentation.
+
+**Quick queries**:
+```bash
+# What did Luxi do today?
+jq 'select(.oracle == "Luxi") | select(.timestamp | startswith("2026-07-16"))' ψ/fleet/BROADCAST-LOG.ndjson
+
+# Any active blockers?
+jq 'select(.severity == "critical")' ψ/fleet/BROADCAST-LOG.ndjson
+
+# Which projects deployed this week?
+jq 'select(.event_type == "project:deployed")' ψ/fleet/BROADCAST-LOG.ndjson | jq -r '.project' | sort | uniq
+```
+
+### Log Location & Format
+
+- **File**: `ψ/fleet/BROADCAST-LOG.ndjson` (append-only, one JSON event per line)
+- **Schema**: See `ψ/fleet/schema.json`
+- **Retention**: Rolling 30-day window (auto-archive older entries monthly)
+- **Git-tracked**: Yes (auditable, offline-safe, no external infra needed)

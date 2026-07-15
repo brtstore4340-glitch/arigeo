@@ -60,6 +60,8 @@
 !/ψ/
 !/ψ/memory/
 !/ψ/memory/**
+!/ψ/fleet/
+!/ψ/fleet/**
 
 # Root-level files (non-JARVIS)
 /*.bak
