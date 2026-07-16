@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Globe, Search, Menu, X } from "lucide-react";
 
 export default function Header() {

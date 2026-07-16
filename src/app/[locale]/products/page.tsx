@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useState } from 'react';
-import { products, Product } from '@/data/products';
+import { products } from '@/data/products';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';

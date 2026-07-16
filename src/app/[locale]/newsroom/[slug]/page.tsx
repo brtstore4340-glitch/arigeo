@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -132,11 +133,13 @@ export default function NewsArticlePage({
 
           {/* Featured Image Placeholder */}
           {article.imageUrl && (
-            <div className="mt-8 overflow-hidden rounded-lg bg-slate-100">
-              <img
+            <div className="mt-8 overflow-hidden rounded-lg bg-slate-100 relative h-96">
+              <Image
                 src={article.imageUrl}
                 alt={title}
-                className="h-96 w-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
               />
             </div>
           )}

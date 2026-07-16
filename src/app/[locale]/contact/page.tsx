@@ -110,7 +110,7 @@ export default function ContactPage() {
       } else {
         setStatus('error');
       }
-    } catch (err) {
+    } catch {
       setStatus('error');
     } finally {
       setIsSubmitting(false);

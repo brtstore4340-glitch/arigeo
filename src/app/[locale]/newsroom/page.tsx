@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -86,10 +87,12 @@ export default function NewsroomPage() {
                   {/* Image Placeholder */}
                   <div className="relative h-48 w-full overflow-hidden rounded-lg bg-slate-100 md:col-span-1">
                     {article.imageUrl ? (
-                      <img
+                      <Image
                         src={article.imageUrl}
                         alt={isEnglish ? article.titleEn : article.titleTh}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center">

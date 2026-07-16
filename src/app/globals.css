@@ -144,3 +144,63 @@ img { display: block; max-width: 100%; }
   .footer-main { grid-template-columns: 1fr; }
   .newsletter form { grid-template-columns: 1fr; }
 }
+
+/* ==========================================
+   Thai Typography Polish & Readability Styles
+   (Derived from marcuz-skills guidelines)
+   ========================================== */
+
+html[lang="th"] body {
+  line-height: 1.7;
+}
+
+/* Headings: Optimal line-height and letter-spacing for complex Thai vowels */
+html[lang="th"] h1,
+html[lang="th"] h2,
+html[lang="th"] h3,
+html[lang="th"] h4,
+html[lang="th"] h5,
+html[lang="th"] h6,
+html[lang="th"] .hero h1,
+html[lang="th"] .category-copy h2,
+html[lang="th"] .section-heading h2 {
+  letter-spacing: normal !important; /* Disables negative tracking/letter-spacing to prevent vowel collisions */
+  line-height: 1.35 !important;      /* Breathing room for vertical stacks and tone marks */
+  word-break: keep-all;              /* Clean word wrapping without splitting single words */
+  overflow-wrap: anywhere;
+}
+
+/* Body and UI text wrapping */
+html[lang="th"] p,
+html[lang="th"] span,
+html[lang="th"] a,
+html[lang="th"] .hero-lead,
+html[lang="th"] .category-copy p,
+html[lang="th"] .feature-item p,
+html[lang="th"] .news-body p,
+html[lang="th"] .newsletter p,
+html[lang="th"] .footer-brand p {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* Navigation Readability Scale-up */
+html[lang="th"] .desktop-nav {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+/* Trust pillars readability */
+html[lang="th"] .feature-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* Footer readability scale-up */
+html[lang="th"] .footer-brand p,
+html[lang="th"] .footer-column a,
+html[lang="th"] .footer-bottom p,
+html[lang="th"] .footer-bottom a {
+  font-size: 14px;
+  line-height: 1.6;
+}
