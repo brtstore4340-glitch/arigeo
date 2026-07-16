@@ -27,6 +27,7 @@
 | Stratum | Architecture · Structure | ธาม |
 | Verity | Truth · Verification · Proof | ธาม |
 | Warden | Guardian · Access Control | ธาม |
+| Khun-Ram | Documentation · Thai Language Authority | ธาม |
 | All | Fleet Scribe · Collective Memory | ธาม |
 
 ## Zeus Never
