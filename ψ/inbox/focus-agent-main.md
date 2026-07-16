@@ -1,3 +1,10 @@
+---
+pattern: Focus tracking — daily context and primary work direction
+date: 2026-06-02
+source: zeus-oracle focus-management
+concepts: ["focus-tracking", "fleet-ops", "oracle-management", "daily-context"]
+---
+
 # Focus
 
 **Date**: 2026-06-02

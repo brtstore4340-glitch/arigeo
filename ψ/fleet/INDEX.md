@@ -1,3 +1,10 @@
+---
+pattern: Fleet registry — oracle directory, status tracking, execution rules
+date: 2026-06-02
+source: zeus-oracle fleet-registry
+concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-rules"]
+---
+
 # Fleet Index
 
 *Maintained by Zeus — last updated 2026-06-02*
