@@ -456,9 +456,9 @@ Implementation rules:
 
 ## Phase 4 — Our Brands
 
-**Status: READY AFTER DESIGN SYSTEM CONTRACT**
+**Status: STRUCTURE COMPLETE — pending responsive proof and content approval**
 
-Required routes:
+Required routes (all implemented, dynamic rendering; unknown slug → 404):
 
 ```text
 /[locale]/brands
@@ -469,52 +469,52 @@ Required routes:
 
 Portfolio page:
 
-- [ ] Household foundation
-- [ ] Skincare foundation
-- [ ] Clear brand entry points
-- [ ] Brand overview cards
-- [ ] Category-first browsing
-- [ ] Links to brand and product pages
+- [x] Household foundation (Proof: /[locale]/brands household section)
+- [x] Skincare foundation (Proof: /[locale]/brands skincare section)
+- [x] Clear brand entry points (Proof: BrandCard → /brands/[slug])
+- [x] Brand overview cards (Proof: BrandCard with positioning + category tags)
+- [x] Category-first browsing (Proof: category tags on cards)
+- [x] Links to brand and product pages (Proof: exploreBrand + viewProducts links; /products route itself is Phase 5)
 
 Each brand page must support:
 
-- [ ] Brand story
-- [ ] Benefit focus
-- [ ] Product categories
-- [ ] Hero products
-- [ ] Distinct visual identity within ARIGEO system
-- [ ] Link to product listing
-- [ ] TH/EN
-- [ ] SEO metadata
-- [ ] Breadcrumbs
+- [x] Brand story (Proof: Brands.*.story in messages, storyTitle section)
+- [x] Benefit focus (Proof: positioning line in hero)
+- [x] Product categories (Proof: numbered category grid from messages)
+- [ ] Hero products (blocked: no approved brand-specific product imagery; CeraTory renders brand mark instead — no ARIGEO-branded photos reused to avoid misrepresentation)
+- [x] Distinct visual identity within ARIGEO system (Proof: per-brand image/brand-mark hero within shared tokens)
+- [x] Link to product listing (Proof: viewProducts → /products; route lands in Phase 5)
+- [x] TH/EN (Proof: Brands namespace parity verified in both message files)
+- [x] SEO metadata (Proof: generateMetadata per slug with localized name + positioning)
+- [x] Breadcrumbs (Proof: Home / Our Brands / [Brand] nav)
 - [ ] Responsive proof
 
 Captain Maid:
 
-- [ ] Household positioning
-- [ ] Floor Cleaner
-- [ ] Bathroom Cleaner
-- [ ] Kitchen Cleaner
-- [ ] Glass Cleaner
-- [ ] Multi-purpose Disinfectant
-- [ ] Dishwashing
+- [x] Household positioning (Proof: Brands.captainMaid.positioning)
+- [x] Floor Cleaner (Proof: categories[0])
+- [x] Bathroom Cleaner (Proof: categories[1])
+- [x] Kitchen Cleaner (Proof: categories[2])
+- [x] Glass Cleaner (Proof: categories[3])
+- [x] Multi-purpose Disinfectant (Proof: categories[4])
+- [x] Dishwashing (Proof: categories[5])
 - [ ] Additional approved categories
 
 GenuLeaf:
 
-- [ ] Soothing
-- [ ] Brightening
-- [ ] Barrier repair
-- [ ] Cleansing
-- [ ] Replace placeholder products with approved data
+- [x] Soothing (Proof: categories[0])
+- [x] Brightening (Proof: categories[3])
+- [x] Barrier repair (Proof: categories[2])
+- [x] Cleansing (Proof: categories[1])
+- [ ] Replace placeholder products with approved data (CONTENT REQUIRED gate rendered on page)
 
 CeraTory:
 
-- [ ] Derma-skincare positioning
-- [ ] Acne care
-- [ ] Barrier care
-- [ ] Replace placeholder products with approved data
-- [ ] Do not claim dermatologist approval unless verified
+- [x] Derma-skincare positioning (Proof: Brands.ceraTory.positioning)
+- [x] Acne care (Proof: categories[1])
+- [x] Barrier care (Proof: categories[0])
+- [ ] Replace placeholder products with approved data (CONTENT REQUIRED gate rendered on page)
+- [x] Do not claim dermatologist approval unless verified (Proof: no such claim in copy)
 
 **Exit gate:** all three pages use approved content or explicit content-required markers.
 
