@@ -1,13 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-
-function BrandMark() {
-  return (
-    <Link className="brand" href="/" aria-label="ARIGEO home">
-      <span>ARIGE</span><i />
-    </Link>
-  );
-}
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -25,7 +18,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="shell footer-main">
         <div className="footer-brand">
-          <BrandMark />
+          <Link className="brand" href="/" aria-label="ARIGEO home">
+            <Logo className="h-9 w-auto sm:h-10" />
+          </Link>
           <p>{t("description")}</p>
           <div className="socials">
             {['in', '◎', '▶', 'f'].map((item) => (

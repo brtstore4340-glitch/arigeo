@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroCarousel from '@/components/HeroCarousel';
+import PurposeSection from '@/components/PurposeSection';
 import CategorySection from '@/components/CategorySection';
 import ValuesSection from '@/components/ValuesSection';
 import NewsSection from '@/components/NewsSection';
@@ -17,6 +18,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Header />
       <HeroCarousel />
+      <PurposeSection />
       <CategorySection />
       <ValuesSection />
       <NewsSection />

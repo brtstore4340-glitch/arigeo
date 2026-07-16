@@ -15,7 +15,7 @@ export default function HeroCarousel() {
   const isThai = locale === "th";
 
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <div className="shell hero-grid">
         <div className="hero-copy">
           <h1>
