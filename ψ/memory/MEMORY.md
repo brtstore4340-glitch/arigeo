@@ -2,7 +2,7 @@
 
 > **Index of all persistent memories** — fast lookup, one-line hooks, organized by type. < 200 lines.
 
-**Last Updated**: 2026-07-16 06:37 · **Total Entries**: 11 · **Index Size**: ~450 tokens
+**Last Updated**: 2026-07-16 07:12 · **Total Entries**: 13 · **Index Size**: ~500 tokens
 
 ---
 
@@ -10,6 +10,8 @@
 - [Zeus execution boundary — RESOLVED](learnings/zeus-execution-boundary-question.md) — Zeus decides execute-vs-delegate per-task on token-optimization grounds (∞)
 
 ## Feedback & Operating Rules
+- [Configuration should be self-discovering](learnings/2026-07-16_config-should-be-self-discovering.md) — Read oracle identity at runtime, don't hardcode in multiple files (∞)
+- [Append-only logs beat databases](learnings/2026-07-16_append-only-logs-beat-databases.md) — For audit trails and fleet coordination, NDJSON + git is simpler than database (∞)
 - [Design-for-all before implement](learnings/2026-07-16_design-for-all-before-implement.md) — Read all contexts, design once for all variants, implement once (don't iterate-then-adapt) (∞)
 - [RTK protocol scope: all agent types](learnings/rtk-protocol-scope-all-agents.md) — RTK mandated for true/fallback/background agents (∞)
 - [Recommend reversible option first](learnings/2026-07-16_recommend-reversible-option-first.md) — When large blast-radius choice, default reversible as first option (∞)
@@ -25,9 +27,9 @@
 - [Gemini Learning: 2026-07-07](learnings/2026-07-07_gemini-learned.md) — Knowledge from Gemini's /learn execution (∞)
 
 ## Recent Retrospectives (Latest 3)
+- [2026-07-16 Fleet status Phase 1 & 2](retrospectives/2026-07/16/07.12_fleet-status-phase-1-2.md) — Foundation + automation deployed, all 3 oracles live, dashboard working (∞)
 - [2026-07-16 Token optimization complete](retrospectives/2026-07/16/05.45_token-optimization-complete.md) — 3 oracles live, 6 commits, cache server + memory system deployed (∞)
 - [2026-07-16 RTK mandate & boundary resolution](retrospectives/2026-07/16/04.26_rtk-mandate-and-boundary-resolution.md) — Soft mandate chosen; execution boundary clarified (∞)
-- [2026-07-16 Hook fixes & claude-mem PR](retrospectives/2026-07/16/03.13_hook-fixes-and-claude-mem-upstream-pr.md) — SessionStart/PreToolUse fixed; claude-mem backfill complete (∞)
 
 ## Escalations & Pending (Expires 14d)
 - [Verification gap pattern](../inbox/2026-07-16_0319_zeus_escalation-verification-gap-pattern.md) — Recurring proxy-signal → real-path verification bug; flagged 5x in 7 sessions
