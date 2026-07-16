@@ -1,3 +1,10 @@
+---
+pattern: Zeus memory index — central reference for projects, patterns, session metrics
+date: 2026-06-02
+source: zeus-oracle memory-authority
+concepts: ["memory-index", "projects", "feedback", "learnings", "zeus"]
+---
+
 # Zeus Oracle Memory Index
 
 ## Projects
