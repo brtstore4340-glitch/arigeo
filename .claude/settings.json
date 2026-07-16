@@ -8,6 +8,11 @@
             "type": "command",
             "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/fleet-session-init.sh\"",
             "statusMessage": "Initializing fleet registry context..."
+          },
+          {
+            "type": "command",
+            "command": "bash -c '. \"${CLAUDE_PROJECT_DIR}/scripts/fleet-emit.sh\" 2>/dev/null && oracle_emit \"Zeus\" \"oracle:session_start\" \"Session started\" \"info\" \"zeus-oracle\" && echo \"📡 Fleet: session broadcast enabled\"'",
+            "statusMessage": "Broadcasting session to fleet..."
           }
         ]
       }

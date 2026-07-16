@@ -35,6 +35,7 @@
 /ppt-master/
 /projects/
 /scraped/
+!/scripts/fleet-*.sh  # Fleet status broadcast utilities (tracked)
 /scripts/
 /shared/
 /skills/
