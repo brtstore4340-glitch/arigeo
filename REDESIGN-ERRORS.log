@@ -1,0 +1,8 @@
+[WEBPACK ERROR] Module not found: Can't resolve './messages'
+[RESOLUTION] Fixed import path in `src/i18n/request.ts` from `./messages` to `../messages`.
+
+[TYPESCRIPT ERROR] Cannot find module '@/components/layout/Header' or its corresponding type declarations.
+[RESOLUTION] Excluded `_claude-draft-components` and `arigeo-web-draft` from `tsconfig.json` parsing.
+
+[RUNTIME ERROR] Error: Failed to call `useTranslations` because the context from `NextIntlClientProvider` was not found.
+[RESOLUTION] Refactored `src/app/[locale]/layout.tsx` to retrieve messages asynchronously using `getMessages()` and wrap the root children in `<NextIntlClientProvider messages={messages}>`.

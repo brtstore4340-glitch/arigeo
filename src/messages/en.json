@@ -1,58 +1,220 @@
 {
   "Navigation": {
-    "home": "Home",
     "about": "About Us",
-    "products": "Products & Services",
-    "customers": "Customer Segments",
-    "standards": "Standards",
-    "news": "News & Articles",
+    "brands": "Our Brands",
+    "products": "Products",
+    "innovation": "Innovation",
+    "sustainability": "Sustainability",
+    "news": "Newsroom",
+    "careers": "Careers",
     "contact": "Contact Us",
-    "requestQuote": "Request Quotation",
-    "contactSales": "Contact Sales",
     "language": "TH"
   },
   "Hero": {
-    "headline": "Elevating Quality of Life with International Standard Medical and Agricultural Products",
-    "description": "Arigeo Co., Ltd. (ARIGEO) is your trusted partner in the comprehensive distribution of pharmaceuticals, medical equipment, chemicals, and agricultural products. We are committed to delivering high-quality goods for better hygiene, safe healthcare, and the sustainable growth of businesses and agriculture.",
-    "ctaPrimary": "Explore Our Products",
-    "ctaSecondary": "Contact Sales"
+    "slide1": {
+      "headline0": "Elevating",
+      "headline1": "Everyday Life",
+      "accent0": "Through Innovation",
+      "accent1": "People Understand",
+      "subline": "Innovation you can feel at home.",
+      "body": "ARIGEO develops trusted household and skincare products that combine advanced innovation with safety and care—bringing quality to everyday life for everyone.",
+      "primary": "Discover More",
+      "secondary": "About ARIGEO"
+    },
+    "slide2": {
+      "headline0": "Care for",
+      "headline1": "Every Home",
+      "subline": "Smart household solutions.",
+      "body": "Cleaning and living essentials designed for a safe, comfortable home for everyone.",
+      "primary": "Explore Household",
+      "secondary": "Our Approach"
+    },
+    "slide3": {
+      "headline0": "Skin First,",
+      "headline1": "Every Day",
+      "subline": "Thoughtfully formulated skincare.",
+      "body": "Gentle, effective formulas for healthy, beautiful skin — developed with high standards of safety and quality.",
+      "primary": "Explore Skincare",
+      "secondary": "Quality Promise"
+    }
+  },
+  "Categories": {
+    "household": {
+      "tone": "household",
+      "title": "Household",
+      "description": "Smart solutions for a clean, safe and comfortable home for everyone.",
+      "cta": "Explore Products"
+    },
+    "skincare": {
+      "tone": "skincare",
+      "title": "Skincare",
+      "description": "Thoughtfully formulated skincare for healthy, beautiful skin every day.",
+      "cta": "Explore Products"
+    }
+  },
+  "Values": {
+    "innovation": {
+      "title": "Innovation for Better Living",
+      "description": "We continuously create and improve products that deliver better performance and elevate everyday life.",
+      "cta": "Learn more →"
+    },
+    "sustainability": {
+      "title": "Sustainability for the Future",
+      "description": "We are committed to reducing our environmental impact and building a better world for future generations.",
+      "cta": "Learn more →"
+    },
+    "safety": {
+      "title": "Safety & Quality You Can Trust",
+      "description": "Every product is developed and tested with high standards to ensure safety, quality and reliability.",
+      "cta": "Learn more →"
+    }
   },
   "News": {
-    "latest": "Latest News",
-    "viewAll": "View All News →",
-    "headline1": "ARIGEO announces the expansion of its pharmaceutical and chemical product lines to support the hospital and laboratory market."
-  },
-  "WhyChoose": {
-    "title": "Why Choose ARIGEO",
-    "description": "We carefully select products and services considering quality, safety, compliance with standards, and suitability for the practical use of each customer group.",
-    "items": [
-      {
-        "title": "International Standards",
-        "desc": "All product groups pass a selection process from reliable manufacturers and distributors, complete with supporting documentation."
+    "eyebrow": "Newsroom",
+    "title": "News & Stories",
+    "viewAll": "View all news →",
+    "articles": {
+      "1": {
+        "category": "Corporate",
+        "date": "May 12, 2024",
+        "title": "ARIGEO Unveils New Vision for Innovation-Driven Everyday Living"
       },
-      {
-        "title": "Covering Multiple Industries",
-        "desc": "Providing services for pharmaceuticals, medical supplies, medical equipment, chemicals, agriculture, and livestock."
+      "2": {
+        "category": "Product",
+        "date": "May 08, 2024",
+        "title": "New Skincare Line Launched for Sensitive and Healthy Skin"
       },
-      {
-        "title": "Expert Service",
-        "desc": "Our team is ready to provide product information, compare options, and recommend products suitable for your application."
+      "3": {
+        "category": "Sustainability",
+        "date": "May 01, 2024",
+        "title": "ARIGEO Pledges to Achieve Carbon Neutrality by 2050"
       },
-      {
-        "title": "Procurement on Demand",
-        "desc": "Supporting general orders, corporate purchasing, specific item sourcing, and quotation requests."
+      "4": {
+        "category": "Lifestyle",
+        "date": "Apr 28, 2024",
+        "title": "Skincare Tips for Everyday Life You Can Start Today"
       }
-    ]
+    }
+  },
+  "Newsletter": {
+    "title": "Stay updated with ARIGEO",
+    "description": "Get the latest on innovation, products and everyday living.",
+    "placeholder": "Your email address",
+    "button": "Subscribe",
+    "subscribing": "Subscribing…",
+    "success": "Subscribed — check your inbox to confirm.",
+    "error": "Enter a valid email address and try again."
   },
   "Footer": {
-    "company": "ARIGEO COMPANY LIMITED",
-    "description": "Distributor of pharmaceuticals, medical supplies, medical equipment, scientific instruments, chemicals, and agricultural products with a commitment to quality, standards, and reliable service.",
-    "quickLinks": "Quick Links",
-    "productLinks": "Product Categories",
-    "connect": "Contact Us",
-    "address": "89/8 Soi Song Sa-at, Chom Phon, Chatuchak, Bangkok 10900",
-    "rights": "© 2026 ARIGEO COMPANY LIMITED. All rights reserved.",
+    "description": "Trusted household and skincare products that combine advanced innovation with safety and care.",
+    "columns": {
+      "about": "About Us",
+      "brands": "Our Brands",
+      "innovation": "Innovation",
+      "sustainability": "Sustainability",
+      "careers": "Careers",
+      "contact": "Contact Us"
+    },
+    "links": {
+      "about": ["Our Company", "Our Philosophy", "Leadership", "Milestones", "Locations"],
+      "brands": ["Household", "Skincare", "Brand Portfolio"],
+      "innovation": ["R&D", "Technology", "Quality Assurance"],
+      "sustainability": ["Our Approach", "Environment", "Social", "Governance"],
+      "careers": ["Why ARIGEO", "Open Positions", "Life at ARIGEO"],
+      "contact": ["Get in Touch", "Media Inquiries", "Partners"]
+    },
+    "rights": "ARIGEO Co., Ltd. All rights reserved.",
+    "terms": "Terms of Use",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Use"
+    "sitemap": "Sitemap"
+  },
+  "About": {
+    "title": "About ARIGEO",
+    "description": "ARIGEO is committed to delivering quality health, science, and household solutions that elevate everyday life.",
+    "storyTitle": "Our Story",
+    "storyText": "ARIGEO Co., Ltd. was established with a clear determination to distribute essential products that improve the quality of everyday life — blending advanced safety, rigorous standards, and professional care across household and skincare solutions.",
+    "companyInfoTitle": "Company Profile",
+    "companyName": "ARIGEO Co., Ltd.",
+    "registration": "Registration No.: 0105568127050",
+    "capital": "Registered Capital: 5,000,000 THB",
+    "address": "89/8 Soi Song Sa-at, Chom Phon, Chatuchak, Bangkok 10900",
+    "visionTitle": "Our Vision",
+    "visionText": "To be a leading gateway of innovative household and skincare solutions, elevating health, safety, and sustainable living for everyone.",
+    "missionTitle": "Our Mission",
+    "missionItems": [
+      "Source and distribute premium-quality products certified by high standards.",
+      "Deliver rapid, accurate, and professional support to our partners.",
+      "Promote environmental and social sustainability across all operations.",
+      "Cultivate long-term relationships with customers based on absolute integrity.",
+      "Establish traceable, efficient, and reliable operational workflows."
+    ],
+    "valuesTitle": "Core Values (ARIGEO)",
+    "values": {
+      "A": { "label": "Accountability", "desc": "Take responsibility for product safety and operational excellence." },
+      "R": { "label": "Reliability", "desc": "Be transparent, transparent, and provide steadfast partner support." },
+      "I": { "label": "Innovation", "desc": "Constantly discover and implement progressive, user-centric solutions." },
+      "G": { "label": "Growth", "desc": "Foster shared sustainable progress with our team, clients, and society." },
+      "E": { "label": "Excellence", "desc": "Uphold world-class standards of execution and continuous improvement." },
+      "O": { "label": "Opportunity", "desc": "Enable businesses and individuals to access reliable, verified quality." }
+    },
+    "principlesTitle": "Our Principles",
+    "principles": [
+      { "title": "We Make Safety and Quality Non-Negotiable", "desc": "Every formula is tested and proven before ever reaching a shelf." },
+      { "title": "We Improve Every Day", "desc": "We adapt and innovate constantly to serve evolving household needs." },
+      { "title": "We Grow Responsibly", "desc": "Our operations are designed with strict care for human skin and the planet." },
+      { "title": "We Succeed Together", "desc": "We build deep, trustworthy connections with consumers, distributors, and partners." }
+    ],
+    "leadershipTitle": "Leadership",
+    "leadershipPending": "CONTENT REQUIRED — Certified leadership biographies are undergoing final corporate verification.",
+    "milestonesTitle": "Milestones & Journey",
+    "milestonesPending": "CONTENT REQUIRED — Historical milestones and corporate history mapping is under review.",
+    "locationsTitle": "Our Locations",
+    "locationsText": "Headquartered in Chatuchak, Bangkok, ARIGEO coordinates nationwide distribution and premium logistics to bring trusted care directly to your doorstep."
+  },
+  "Brands": {
+    "title": "Our Brands",
+    "description": "Discover ARIGEO’s premium portfolio of household care and advanced skincare brands developed with science and care.",
+    "householdTitle": "Household Care Solutions",
+    "skincareTitle": "Advanced Skincare Solutions",
+    "viewProducts": "View Products",
+    "exploreBrand": "Explore Brand",
+    "brandFactualWarning": "CONTENT REQUIRED — Final verified product catalogs and brand claims are undergoing review.",
+    "captainMaid": {
+      "name": "Captain Maid",
+      "positioning": "Smart, safe, and effective household care essentials.",
+      "story": "Captain Maid was developed with the clear goal of providing highly effective cleaning solutions that never compromise on household safety. Every formula is carefully designed to keep your living spaces spotlessly clean while keeping the environment safe and comfortable for your loved ones.",
+      "categoriesTitle": "Product Categories",
+      "categories": [
+        "Floor Cleaners",
+        "Bathroom Cleaners",
+        "Kitchen Cleaners",
+        "Glass Cleaners",
+        "Multi-purpose Disinfectants",
+        "Dishwashing Liquids"
+      ]
+    },
+    "genuLeaf": {
+      "name": "GenuLeaf",
+      "positioning": "Thoughtfully formulated, nature-inspired soothing skincare.",
+      "story": "GenuLeaf brings the power of natural botanicals and active soothing ingredients together to nurture and hydrate your skin every day. Our gentle formulas focus on barrier health, brightening, and mild cleansing suitable for daily protection.",
+      "categoriesTitle": "Skincare Categories",
+      "categories": [
+        "Soothing & Calming Toners",
+        "Gentle Hydrating Cleansers",
+        "Barrier Repair Moisturizers",
+        "Brightening Serums"
+      ]
+    },
+    "ceraTory": {
+      "name": "CeraTory",
+      "positioning": "Derma-skincare targeting specialized barrier and acne care.",
+      "story": "CeraTory is engineered for specialized skincare needs. By utilizing advanced ceramide complexes and targeted clinical compounds, CeraTory delivers deep skin barrier reinforcement and gentle acne care solutions.",
+      "categoriesTitle": "Clinical Focus",
+      "categories": [
+        "Specialized Barrier Care creams",
+        "Acne Defense serums & lotions",
+        "Hypoallergenic Cleansers"
+      ]
+    }
   }
 }

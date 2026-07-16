@@ -1,86 +1,77 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
 
-const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/routing";
+import { useState, useEffect } from "react";
+import { Globe, Search, Menu, X } from "lucide-react";
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+export default function Header() {
+  const t = useTranslations("Navigation");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-  const menuItems = [
-    { label: 'หน้าแรก', href: '#home' },
-    { label: 'เกี่ยวกับเรา', href: '#about' },
-    { label: 'กลุ่มธุรกิจ', href: '#business' },
-    { label: 'คุณภาพและมาตรฐาน', href: '#quality' },
-    { label: 'ความยั่งยืน', href: '#sustainability' },
-    { label: 'บทความ / ข่าวสาร', href: '#news' },
-    { label: 'ติดต่อเรา', href: '#contact' },
-  ];
+  const navKeys = ["about", "brands", "products", "innovation", "sustainability", "news", "careers", "contact"] as const;
+
+  const toggleLanguage = () => {
+    const nextLocale = locale === "en" ? "th" : "en";
+    router.replace(pathname, { locale: nextLocale });
+  };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-sm py-3' : 'bg-white py-5'}`}>
-      <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          {/* Logo Placeholder */}
-          <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain" />
-          
-        </div>
+    <header className="site-header">
+      <div className="shell header-inner">
+        {/* Brand Logo */}
+        <Link className="brand" href="/" aria-label="ARIGEO home">
+          <span>ARIGE</span><i />
+        </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {menuItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href} 
-              className="text-arigeo-gray hover:text-arigeo-red font-medium text-sm transition-colors"
-            >
-              {item.label}
-            </a>
+        {/* Desktop Nav */}
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          {navKeys.map((key) => (
+            <Link key={key} href={`/${key === 'contact' ? 'contact' : '#'}`}>
+              {t(key)}
+            </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <a href="#contact" className="bg-arigeo-red hover:bg-arigeo-darkred text-white px-6 py-2.5 rounded-full font-medium text-sm transition-all shadow-sm hover:shadow-md">
-            ติดต่อทีมขาย
-          </a>
+        {/* Right actions */}
+        <div className="header-actions">
+          <button onClick={toggleLanguage} className="ghost-btn language">
+            <Globe size={18} /> {t("language")} <span>⌄</span>
+          </button>
+          <button className="icon-btn" aria-label="Search">
+            <Search size={20} />
+          </button>
+          <button
+            className="lg:hidden icon-btn"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="lg:hidden text-arigeo-gray"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-100 py-4 px-6 flex flex-col gap-4">
-          {menuItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href} 
-              className="text-arigeo-gray hover:text-arigeo-red font-medium text-base py-2 border-b border-gray-50"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
-          <a href="#contact" className="bg-arigeo-red text-center text-white px-6 py-3 rounded-full font-medium mt-2">
-            ติดต่อทีมขาย
-          </a>
-        </div>
+      {/* Mobile nav */}
+      {open && (
+        <nav className="lg:hidden border-t border-[#e9e9e9] bg-white px-6 py-4 shadow-lg absolute top-full left-0 right-0 z-50">
+          <ul className="flex flex-col gap-2 m-0 p-0 list-none">
+            {navKeys.map((key) => (
+              <li key={key}>
+                <Link
+                  href={`/${key === 'contact' ? 'contact' : '#'}`}
+                  onClick={() => setOpen(false)}
+                  className="block py-2 text-sm font-medium text-[#111] hover:text-[var(--red)] transition-colors"
+                >
+                  {t(key)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       )}
     </header>
   );
-};
-
-export default Header;
+}

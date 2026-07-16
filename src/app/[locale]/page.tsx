@@ -1,36 +1,26 @@
 import Header from '@/components/Header';
-import AnimatedGallery from '@/components/AnimatedGallery';
-import PurposeSection from '@/components/PurposeSection';
-import BusinessSection from '@/components/BusinessSection';
-import QualitySection from '@/components/QualitySection';
-import SustainabilitySection from '@/components/SustainabilitySection';
-import ProductSection from '@/components/ProductSection';
-import WhyChooseSection from '@/components/WhyChooseSection';
-import NewsSection from '@/components/NewsSection';
-import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import HeroCarousel from '@/components/HeroCarousel';
+import CategorySection from '@/components/CategorySection';
+import ValuesSection from '@/components/ValuesSection';
+import NewsSection from '@/components/NewsSection';
+import NewsletterSection from '@/components/NewsletterSection';
 
 export const metadata = {
-  title: 'ARIGEO COMPANY LIMITED | ยา เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตร',
-  description: 'บริษัท อะริเกโอ จำกัด ผู้จัดจำหน่ายยา เวชภัณฑ์ เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตร มุ่งเน้นคุณภาพ มาตรฐาน ความปลอดภัย และการเติบโตอย่างยั่งยืน',
-  keywords: 'ARIGEO, อะริเกโอ, ยา, เวชภัณฑ์, เครื่องมือแพทย์, เคมีภัณฑ์, ผลิตภัณฑ์เกษตร, medical devices, pharmaceuticals, chemicals, agriculture products'
+  title: 'ARIGEO — Elevating Everyday Life',
+  description: 'ARIGEO develops trusted household and skincare products that combine advanced innovation with safety and care—bringing quality to everyday life for everyone.',
+  keywords: 'ARIGEO, household, skincare, innovation, everyday life, quality, safety'
 };
 
 export default function Home() {
   return (
-    <main className="min-h-screen font-sans">
+    <main className="min-h-screen bg-white">
       <Header />
-      <div className="pt-24 bg-arigeo-light">
-        <AnimatedGallery />
-      </div>
-      <PurposeSection />
-      <BusinessSection />
-      <QualitySection />
-      <SustainabilitySection />
-      <ProductSection />
-      <WhyChooseSection />
+      <HeroCarousel />
+      <CategorySection />
+      <ValuesSection />
       <NewsSection />
-      <ContactSection />
+      <NewsletterSection />
       <Footer />
     </main>
   );

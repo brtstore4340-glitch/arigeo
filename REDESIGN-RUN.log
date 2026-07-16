@@ -1,0 +1,14 @@
+1. Explored `arigeo-web-draft` and `arigeo-web-draft/baseonme`.
+2. Extracted design specifications and component mappings.
+3. Authored `REDESIGN-AUDIT.md`.
+4. Authored `REDESIGN-CONTRACT.md`.
+5. Updated `tailwind.config.ts`.
+6. Migrated legacy `messages/*.json` and `components/*.tsx` to `_legacy/`.
+7. Wrote `en.json` and `th.json` with the new narrative.
+8. Created UI primitives (`Button.tsx`, `Tag.tsx`, `DotAccent.tsx`, `SectionHeading.tsx`).
+9. Implemented responsive layout components (`Header.tsx`, `HeroCarousel.tsx`, `CategorySection.tsx`, `ValuesSection.tsx`, `NewsSection.tsx`, `NewsletterSection.tsx`, `Footer.tsx`).
+10. Composed `src/app/[locale]/page.tsx`.
+11. Repaired `src/i18n/request.ts` import path.
+12. Updated `tsconfig.json` exclude rules.
+13. Verified Next.js build (`npm run build`).
+14. Wrote final reports.

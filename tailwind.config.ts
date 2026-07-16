@@ -19,6 +19,14 @@ const config: Config = {
           gray: "#424242",     // secondary text (คงเดิม — palette ไม่มี mid-gray)
           light: "#FDFDFD",    // White — base surface
           surface: "#F3F3F4",  // Platinum — alternating sections, newsletter band
+          household: {
+            DEFAULT: "#F5EFE6",
+            accent: "#B08D57"
+          },
+          skincare: {
+            DEFAULT: "#EEF3F4",
+            accent: "#6E9A9E"
+          }
         }
       },
       fontFamily: {
