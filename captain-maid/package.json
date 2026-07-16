@@ -1,0 +1,36 @@
+{
+  "name": "captain-maid",
+  "version": "1.0.0",
+  "description": "Captain Maid — Premium household cleaning products for Thai families",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "^15.0.0",
+    "tailwindcss": "^3.4.0",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-slot": "^2.0.2",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.3.0",
+    "lucide-react": "^0.368.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/node": "^20.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^15.0.0"
+  }
+}
