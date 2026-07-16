@@ -252,10 +252,10 @@ Completed at desktop level:
 
 Remaining homepage backlog:
 
-- [ ] Replace the unapproved Curology image
-- [ ] Verify all hero and product mockups are approved assets
-- [ ] Remove or flag placeholder news content
-- [ ] Remove or verify unproven claims, including carbon-neutrality wording
+- [x] Replace the unapproved Curology image
+- [x] Verify all hero and product mockups are approved assets
+- [x] Remove or flag placeholder news content
+- [x] Remove or verify unproven claims, including carbon-neutrality wording
 - [ ] Improve Thai hero line breaks
 - [ ] Improve Thai card heading line breaks
 - [ ] Improve Thai navigation readability
@@ -586,7 +586,7 @@ Content rules:
 
 ## Phase 6 — Innovation and Sustainability
 
-**Status: READY TO START WITH VERIFIED CONTENT**
+**Status: STRUCTURE COMPLETE — commitment copy only; factual proof points gated pending verification**
 
 Innovation route:
 
@@ -596,14 +596,14 @@ Innovation route:
 
 Innovation requirements:
 
-- [ ] R&D
-- [ ] Ingredients
-- [ ] Technology
-- [ ] Standards
-- [ ] Quality assurance
-- [ ] Science-and-nature storytelling
-- [ ] Verified evidence only
-- [ ] No fabricated laboratory or certification claims
+- [x] R&D (Proof: Innovation.pillars.rnd)
+- [x] Ingredients (Proof: Innovation.pillars.ingredients)
+- [x] Technology (Proof: Innovation.pillars.technology)
+- [x] Standards (Proof: Innovation.pillars.standards)
+- [x] Quality assurance (Proof: Innovation.pillars.quality)
+- [x] Science-and-nature storytelling (Proof: Innovation.storyText — brief slide 15 theme)
+- [x] Verified evidence only (Proof: commitment language reused from approved homepage/About copy; specifics behind CONTENT REQUIRED gate)
+- [x] No fabricated laboratory or certification claims (Proof: factualGate rendered; no cert/lab specifics in copy)
 
 Sustainability route:
 
@@ -613,15 +613,15 @@ Sustainability route:
 
 Sustainability requirements:
 
-- [ ] Care for home, skin, and planet
-- [ ] Environment
-- [ ] Social responsibility
-- [ ] Governance, where approved
-- [ ] Verified proof points only
-- [ ] No unverified carbon-neutrality target
-- [ ] CMS-ready content structure
+- [x] Care for home, skin, and planet (Proof: Sustainability.description — brief slide 11 wording)
+- [x] Environment (Proof: Sustainability.pillars.environment)
+- [x] Social responsibility (Proof: Sustainability.pillars.social)
+- [x] Governance, where approved (Proof: Sustainability.pillars.governance — integrity/traceability from approved mission copy)
+- [x] Verified proof points only (Proof: metrics behind CONTENT REQUIRED gate)
+- [x] No unverified carbon-neutrality target (Proof: zero occurrences of "carbon" in rendered page)
+- [x] CMS-ready content structure (Proof: namespaced messages + shared PillarPage template)
 
-**Exit gate:** all public claims have approved sources or are removed.
+**Exit gate:** all public claims have approved sources or are removed. (Met for current copy; factual specifics publish only after verification.)
 
 ---
 

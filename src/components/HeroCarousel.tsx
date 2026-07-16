@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const ArrowIcon = ({ size = 18 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" className="inline-block ml-1">
@@ -11,21 +11,35 @@ const ArrowIcon = ({ size = 18 }) => (
 
 export default function HeroCarousel() {
   const t = useTranslations("Hero");
+  const locale = useLocale();
+  const isThai = locale === "th";
 
   return (
     <section className="hero">
       <div className="shell hero-grid">
         <div className="hero-copy">
           <h1>
-            {t("slide1.headline0")}
-            <br />
-            {t("slide1.headline1")}
-            <br />
-            <span className="text-[var(--red)]">
-              {t("slide1.accent0")}
-              <br />
-              {t("slide1.accent1")}
-            </span>
+            {isThai ? (
+              <>
+                <span className="block" style={{ color: "inherit" }}>{t("slide1.headline0")}</span>
+                <span className="block" style={{ color: "inherit" }}>{t("slide1.headline1")}</span>
+                <span className="block text-[var(--red)]">
+                  {t("slide1.accent0")}{t("slide1.accent1")}
+                </span>
+              </>
+            ) : (
+              <>
+                {t("slide1.headline0")}
+                <br />
+                {t("slide1.headline1")}
+                <br />
+                <span className="text-[var(--red)]">
+                  {t("slide1.accent0")}
+                  <br />
+                  {t("slide1.accent1")}
+                </span>
+              </>
+            )}
           </h1>
           <p className="hero-lead">
             {t("slide1.body")}

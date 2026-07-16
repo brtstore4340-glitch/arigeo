@@ -31,5 +31,5 @@ Used temporarily during frontend prototyping:
 
 ## 3. Flagged/Unapproved Placeholders
 As dictated by `TODO.md` Section 3.1:
-- **`Curology` image**: Any third-party skincare brand references must be removed. Unsplash placeholder `https://images.unsplash.com/photo-1556228720-195a672e8a03` is utilized for GenuLeaf, which is free of external proprietary brands.
-- **Unverified News Photos**: Unsplash placeholders utilized in `NewsSection.tsx` are temporary and must be replaced with certified corporate news coverage prior to production.
+- **Curology image**: Replaced with approved local asset /images/home/skincare-marble.png for GenuLeaf; no third-party skincare brand reference remains in the active draft.
+- **Unverified News Photos**: Replaced with approved local assets under /images/home/news-*.png in the active homepage draft; no external placeholder remains in the shipped news grid.

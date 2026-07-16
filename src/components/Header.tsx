@@ -30,7 +30,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navKeys.map((key) => (
-            <Link key={key} href={key === 'about' ? '/about' : key === 'brands' ? '/brands' : key === 'contact' ? '/contact' : '#'}>
+            <Link key={key} href={key === 'about' ? '/about' : key === 'brands' ? '/brands' : key === 'innovation' ? '/innovation' : key === 'sustainability' ? '/sustainability' : key === 'contact' ? '/contact' : '#'}>
               {t(key)}
             </Link>
           ))}
@@ -61,7 +61,7 @@ export default function Header() {
             {navKeys.map((key) => (
               <li key={key}>
                 <Link
-                  href={key === 'about' ? '/about' : key === 'brands' ? '/brands' : key === 'contact' ? '/contact' : '#'}
+                  href={key === 'about' ? '/about' : key === 'brands' ? '/brands' : key === 'innovation' ? '/innovation' : key === 'sustainability' ? '/sustainability' : key === 'contact' ? '/contact' : '#'}
                   onClick={() => setOpen(false)}
                   className="block py-2 text-sm font-medium text-[#111] hover:text-[var(--red)] transition-colors"
                 >

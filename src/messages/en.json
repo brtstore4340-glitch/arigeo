@@ -76,23 +76,23 @@
     "articles": {
       "1": {
         "category": "Corporate",
-        "date": "May 12, 2024",
-        "title": "ARIGEO Unveils New Vision for Innovation-Driven Everyday Living"
+        "date": "CONTENT REQUIRED",
+        "title": "CONTENT REQUIRED — News article pending approval"
       },
       "2": {
         "category": "Product",
-        "date": "May 08, 2024",
-        "title": "New Skincare Line Launched for Sensitive and Healthy Skin"
+        "date": "CONTENT REQUIRED",
+        "title": "CONTENT REQUIRED — News article pending approval"
       },
       "3": {
         "category": "Sustainability",
-        "date": "May 01, 2024",
-        "title": "ARIGEO Pledges to Achieve Carbon Neutrality by 2050"
+        "date": "CONTENT REQUIRED",
+        "title": "CONTENT REQUIRED — News article pending approval"
       },
       "4": {
         "category": "Lifestyle",
-        "date": "Apr 28, 2024",
-        "title": "Skincare Tips for Everyday Life You Can Start Today"
+        "date": "CONTENT REQUIRED",
+        "title": "CONTENT REQUIRED — News article pending approval"
       }
     }
   },
@@ -127,6 +127,58 @@
     "terms": "Terms of Use",
     "privacy": "Privacy Policy",
     "sitemap": "Sitemap"
+  },
+  "Innovation": {
+    "title": "Innovation",
+    "description": "Innovation that understands people. We continuously create and improve products that deliver better performance and elevate everyday life — grounded in science, guided by nature.",
+    "storyTitle": "Science and Nature, Together",
+    "storyText": "ARIGEO develops household and skincare products that combine advanced innovation with safety and care. Our approach pairs scientific rigor with respect for natural ingredients, so every formula serves real, everyday needs.",
+    "pillarsTitle": "How We Innovate",
+    "pillars": {
+      "rnd": {
+        "title": "Research & Development",
+        "desc": "We improve every day. Product development at ARIGEO is a continuous cycle of research, formulation, and refinement driven by how people actually live."
+      },
+      "ingredients": {
+        "title": "Ingredients",
+        "desc": "We select ingredients with safety and effectiveness in mind — balancing performance for the home with gentleness for skin and family."
+      },
+      "technology": {
+        "title": "Technology",
+        "desc": "We apply modern formulation technology to deliver better performance across our household and skincare lines."
+      },
+      "standards": {
+        "title": "Standards",
+        "desc": "We make safety and quality non-negotiable. Every formula is tested and proven before ever reaching a shelf."
+      },
+      "quality": {
+        "title": "Quality Assurance",
+        "desc": "Every product is developed and tested with high standards to ensure safety, quality and reliability."
+      }
+    },
+    "factualGate": "CONTENT REQUIRED — Specific laboratory, certification, and standards documentation is undergoing corporate verification and will be published once approved."
+  },
+  "Sustainability": {
+    "title": "Sustainability",
+    "description": "Care for home, skin and planet. We are committed to reducing our environmental impact and building a better world for future generations.",
+    "storyTitle": "We Grow Responsibly",
+    "storyText": "Our operations are designed with strict care for human skin and the planet. Responsibility at ARIGEO spans how we formulate, how we operate, and how we work with the communities around us.",
+    "pillarsTitle": "Our Responsibility",
+    "pillars": {
+      "environment": {
+        "title": "Environment",
+        "desc": "We are committed to reducing our environmental impact across our products and operations, and to promoting environmental sustainability in everything we distribute."
+      },
+      "social": {
+        "title": "Social Responsibility",
+        "desc": "We succeed together. We build deep, trustworthy connections with consumers, distributors, partners and the communities we serve."
+      },
+      "governance": {
+        "title": "Governance",
+        "desc": "We cultivate long-term relationships based on absolute integrity, with traceable, efficient and reliable operational workflows."
+      }
+    },
+    "factualGate": "CONTENT REQUIRED — Verified environmental metrics, social-program details, and governance policies are undergoing corporate verification. No specific targets are published until approved."
   },
   "About": {
     "title": "About ARIGEO",
