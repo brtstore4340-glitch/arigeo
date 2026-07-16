@@ -3,6 +3,7 @@
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { use } from 'react';
 
 // Article database - PLACEHOLDER: Connect to CMS when ready
 const articles: Record<
@@ -50,10 +51,10 @@ const articles: Record<
 };
 
 interface NewsArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string;
     locale: 'en' | 'th';
-  };
+  }>;
 }
 
 const copy = {
@@ -76,8 +77,9 @@ const copy = {
 export default function NewsArticlePage({
   params,
 }: NewsArticlePageProps) {
+  const resolvedParams = use(params);
   const locale = useLocale() as 'en' | 'th';
-  const article = articles[params.slug];
+  const article = articles[resolvedParams.slug];
   const t = copy[locale];
 
   if (!article) {

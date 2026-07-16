@@ -66,9 +66,7 @@ export default function NewsroomPage() {
       {/* Header */}
       <div className="border-b border-slate-200 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <SectionHeading level="h1" locale={locale}>
-            {t.title}
-          </SectionHeading>
+          <SectionHeading title={t.title} />
           <p className="mt-4 text-base text-slate-600 sm:text-lg">
             {t.description}
           </p>

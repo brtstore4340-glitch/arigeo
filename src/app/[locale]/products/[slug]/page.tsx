@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
+import { use } from 'react';
 
 const copy = {
   en: {
@@ -47,17 +48,18 @@ const copy = {
 };
 
 interface ProductDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
     locale: 'en' | 'th';
-  };
+  }>;
 }
 
 export default function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
+  const resolvedParams = use(params);
   const locale = useLocale() as 'en' | 'th';
-  const product = getProduct(params.slug);
+  const product = getProduct(resolvedParams.slug);
 
   if (!product) {
     notFound();

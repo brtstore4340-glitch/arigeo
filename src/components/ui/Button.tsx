@@ -7,12 +7,15 @@ type ButtonProps = {
   children: ReactNode;
   onClick?: () => void;
   className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 const base =
   "inline-flex items-center gap-2 rounded-full px-7 py-3 text-base font-semibold " +
   "transition-colors duration-250 " +
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-arigeo-red";
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-arigeo-red " +
+  "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none";
 
 const variants = {
   primary:
@@ -29,18 +32,26 @@ function Arrow() {
   );
 }
 
-export function Button({ href, variant = "primary", children, onClick, className = "" }: ButtonProps) {
+export function Button({
+  href,
+  variant = "primary",
+  children,
+  onClick,
+  className = "",
+  type = "button",
+  disabled,
+}: ButtonProps) {
   const cls = `${base} ${variants[variant]} ${className}`;
   if (href) {
     return (
-      <Link href={href} className={cls}>
+      <Link href={href} className={`${cls} ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""}`}>
         {children}
         <Arrow />
       </Link>
     );
   }
   return (
-    <button type="button" onClick={onClick} className={cls}>
+    <button type={type} onClick={onClick} disabled={disabled} className={cls}>
       {children}
       <Arrow />
     </button>
