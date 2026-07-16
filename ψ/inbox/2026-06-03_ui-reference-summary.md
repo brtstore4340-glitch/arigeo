@@ -1,3 +1,10 @@
+---
+pattern: UI/brand reference analysis — design system direction for fleet products
+date: 2026-06-03
+source: hermes-oracle (prepared for zeus-oracle)
+concepts: ["design-direction", "ui-reference", "branding", "typography", "color-system"]
+---
+
 # UI Reference Summary for Zeus
 
 Date: 2026-06-03 21:05:00 +07
