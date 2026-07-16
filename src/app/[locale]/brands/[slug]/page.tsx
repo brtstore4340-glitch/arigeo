@@ -46,7 +46,7 @@ function BrandDetail({ brand }: { brand: Brand }) {
             <span className="text-arigeo-black font-medium">{t(`${brand.messagesKey}.name`)}</span>
           </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-arigeo-black flex items-center gap-1 m-0">
                 {t(`${brand.messagesKey}.name`)}
@@ -62,7 +62,7 @@ function BrandDetail({ brand }: { brand: Brand }) {
               </div>
             </div>
 
-            <div className="relative h-72 lg:h-96 rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
+            <div className="relative h-64 sm:h-72 lg:h-96 rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
               {brand.image ? (
                 <Image
                   src={brand.image}

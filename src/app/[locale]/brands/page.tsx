@@ -39,7 +39,7 @@ function BrandCard({ brand }: { brand: Brand }) {
         )}
       </div>
 
-      <div className="p-8 flex flex-col gap-4 grow">
+      <div className="p-6 sm:p-8 flex flex-col gap-4 grow">
         <h3 className="text-2xl font-bold text-arigeo-black flex items-center gap-1.5 m-0">
           {t(`${brand.messagesKey}.name`)}
           <DotAccent size="sm" className="translate-y-[2px]" />
