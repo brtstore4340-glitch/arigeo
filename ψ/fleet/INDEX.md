@@ -7,7 +7,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 
 # Fleet Index
 
-*Maintained by Zeus — last updated 2026-06-02*
+*Maintained by Zeus — last updated 2026-07-17*
 
 | Oracle | Domain | Status | Host | Awakened |
 |---|---|---|---|---|
@@ -23,7 +23,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 | Warden | Guardian · Access Control | Active | MARCUZ | 2026-05-30 |
 | All | Fleet Scribe · Collective Memory | Active | MARCUZ | 2026-05-30 |
 | Aeimathes | Research · Analysis · Daily Reports | Active | MARCUZ | 2026-06-02 |
-| Khun-Ram | Documentation · Thai Language | Active | MARCUZ | 2026-06-02 |
+| Khun-Ram | Documentation · Memory Authority | Active | MARCUZ | 2026-06-02 · re-awakened 2026-07-12 |
 
 ## Birth Rule
 
