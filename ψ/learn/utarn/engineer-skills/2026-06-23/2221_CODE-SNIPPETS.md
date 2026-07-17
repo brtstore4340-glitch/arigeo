@@ -1,3 +1,13 @@
+---
+name: 2221-code-snippets
+description: **Theme:** Skills-based engineering — discipline and composability  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-23
+  source: fleet-memory
+---
+
 # Utarn Engineer-Skills — Code Examples & Patterns
 
 **Source:** `/home/user/ghq/github.com/utarn/engineer-skills`  

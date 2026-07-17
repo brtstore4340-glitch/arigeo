@@ -1,3 +1,13 @@
+---
+name: engineer-skills
+description: - **GitHub**: https://github.com/utarn/engineer-skills
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-23
+  source: fleet-memory
+---
+
 # engineer-skills Learning Index
 
 ## Source

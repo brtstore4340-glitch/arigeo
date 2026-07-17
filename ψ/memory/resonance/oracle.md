@@ -1,3 +1,13 @@
+---
+name: oracle
+description: 1. **Nothing is Deleted** — Archive, don't erase
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Oracle Philosophy
 
 > "The Oracle Keeps the Human Human"

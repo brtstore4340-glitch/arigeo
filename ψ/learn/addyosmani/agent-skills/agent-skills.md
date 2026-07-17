@@ -1,3 +1,13 @@
+---
+name: agent-skills
+description: - **GitHub**: https://github.com/addyosmani/agent-skills
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-11
+  source: fleet-memory
+---
+
 # Agent Skills Learning Index
 
 ## Source

@@ -1,3 +1,13 @@
+---
+name: 20260623-2245-khun-ram-wake-request
+description: **Urgency**: Immediate
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-23
+  source: fleet-memory
+---
+
 # Wake Request: Khun-Ram Execution Agent
 
 **From**: Claude Code (khun-ram-oracle session)  

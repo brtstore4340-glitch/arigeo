@@ -1,3 +1,13 @@
+---
+name: 20260628-0120-from-codex-oracle-dashboard-redesign-relay
+description: **To:** Build Team (Frontend + Backend Development)  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # 🔄 RELAY: Dashboard Redesign Architecture Review Kickoff
 
 **From:** Codex Oracle (Relay Agent)  

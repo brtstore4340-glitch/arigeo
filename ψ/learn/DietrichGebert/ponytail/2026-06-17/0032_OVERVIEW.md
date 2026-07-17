@@ -1,3 +1,13 @@
+---
+name: 0032-overview
+description: **Core artifact:** `AGENTS.md` — a decision ladder the agent climbs before wri
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # ponytail — Overview
 
 **What:** A portable "lazy senior dev" ruleset/skill that makes an AI coding agent write the *minimum* code. Tagline: "He says nothing. He writes one line. It works." Ships the SAME ruleset to **13 agents** (Claude, Codex, Gemini, Cursor, Windsurf, Kiro, opencode, openclaw, Copilot, cline, pi, …) via per-tool plugin manifests.

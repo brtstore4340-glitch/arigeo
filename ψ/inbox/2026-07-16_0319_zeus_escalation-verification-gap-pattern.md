@@ -1,3 +1,13 @@
+---
+name: escalation-verification-gap-pattern
+description: Recurring decision error — trusting proxy signals instead of real verification
+metadata:
+  type: escalation
+  ttl: 14d
+  date: 2026-07-16
+  source: session-metrics pattern-check
+---
+
 # Escalation: Recurring "Verification Gap" Pattern — 2026-07-16
 
 **Timestamp**: 🕐 03:19 +07 (Thursday 16 July 2026)

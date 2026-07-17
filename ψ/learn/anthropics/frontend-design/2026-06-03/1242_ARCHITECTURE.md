@@ -1,3 +1,13 @@
+---
+name: 1242-architecture
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # Architecture — frontend-design Plugin
 
 **Source**: anthropics/claude-plugins-official/plugins/frontend-design

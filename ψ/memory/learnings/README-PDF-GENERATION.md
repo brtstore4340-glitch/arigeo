@@ -1,3 +1,13 @@
+---
+name: readme-pdf-generation
+description: ## Available Files
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # PDF Generation Guide
 
 This directory contains three versions of the session summary:

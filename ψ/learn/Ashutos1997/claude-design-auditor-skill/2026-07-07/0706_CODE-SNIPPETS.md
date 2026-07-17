@@ -1,3 +1,13 @@
+---
+name: 0706-code-snippets
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-07-07
+  source: fleet-memory
+---
+
 # Claude Design Auditor Skill — Code Snippets & Implementation Patterns
 **Source:** https://github.com/Ashutos1997/claude-design-auditor-skill  
 **Version:** 1.2.13  

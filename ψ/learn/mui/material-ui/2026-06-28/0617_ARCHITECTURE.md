@@ -1,3 +1,13 @@
+---
+name: 0617-architecture
+description: **Current Version:** 9.1.2  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # Material-UI Codebase Architecture
 
 **Analysis Date:** 2026-06-28  

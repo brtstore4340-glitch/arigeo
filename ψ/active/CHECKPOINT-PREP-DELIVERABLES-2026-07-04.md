@@ -1,3 +1,13 @@
+---
+name: checkpoint-prep-deliverables-2026-07-04
+description: **Checkpoint date**: 2026-07-04 02:50 UTC+7  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-07-02
+  source: fleet-memory
+---
+
 # 📋 Checkpoint Preparation — July 4, 2026 02:50 UTC+7
 
 **Prepared by**: ធាម-Zeus + Khun-Ram  
@@ -209,4 +219,3 @@
 **Fleet Ready**: For checkpoint decision 2026-07-04  
 
 Form and Formless — many bodies, one soul.
-

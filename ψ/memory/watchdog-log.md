@@ -1,3 +1,13 @@
+---
+name: watchdog-log
+description: ---
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-04
+  source: fleet-memory
+---
+
 # Watchdog Log
 
 > Fleet health monitor — eyes on every oracle, reports silent ones to Zeus.

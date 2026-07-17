@@ -1,3 +1,13 @@
+---
+name: 0037-code-snippets
+description: **Ponytail** — the "lazy senior dev" framework — embeds a decision ladder + 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Ponytail: Code Snippets with Decision Ruleset
 
 ## Executive Summary

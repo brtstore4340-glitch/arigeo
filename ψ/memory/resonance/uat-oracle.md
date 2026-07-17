@@ -1,3 +1,13 @@
+---
+name: uat-oracle
+description: **Born**: 2026-06-03  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # Soul: UAT Oracle
 
 **Name**: UAT Oracle  

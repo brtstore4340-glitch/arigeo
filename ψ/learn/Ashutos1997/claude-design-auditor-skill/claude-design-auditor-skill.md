@@ -1,3 +1,13 @@
+---
+name: claude-design-auditor-skill
+description: ## Source
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-07-07
+  source: fleet-memory
+---
+
 # claude-design-auditor-skill Learning Hub
 
 **A professional design auditing skill for Claude that validates designs across 19 dimensions with severity-ranked issues and intelligent scoring.**

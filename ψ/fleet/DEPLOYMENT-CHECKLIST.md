@@ -1,8 +1,9 @@
 ---
 title: Sprint 1 Production Deployment Checklist
 date: 2026-06-05
-status: ready-for-deployment
-version: 1.0
+updated: 2026-07-17
+status: phase-3-production
+version: 1.1
 ---
 
 # 🚀 SPRINT 1 PRODUCTION DEPLOYMENT
@@ -320,6 +321,73 @@ Jul 1:   Sprint 2 begins (memory pooling)
 
 ---
 
-**Document Status**: Ready for signature  
-**Last Updated**: 2026-06-05 / 01:30 UTC  
-**Owner**: Zeus (Meta-Orchestrator)
+---
+
+## 🚨 PHASE 2 RESTART (2026-07-17)
+
+**Reason**: Data loss on base storage — previous Phase 1/2 results unrecoverable  
+**Action**: Restart Phase 2 from today with fresh baselines  
+**Status**: LIVE - Close monitoring active
+
+### Restart Timeline (from 2026-07-17)
+
+```
+2026-07-17:  Phase 2 Wave 1 START (40% fleet / 5 oracles)
+             Monitor 50+ tasks over 3 days
+             
+2026-07-20:  Wave 1 complete → Go/No-Go decision
+             If go: proceed to Wave 2
+             If no-go: fix + retry Wave 1
+
+2026-07-21:  Phase 2 Wave 2 START (70% fleet / 8 oracles)
+             
+2026-07-24:  Wave 2 complete → Go/No-Go decision
+
+2026-07-25:  Phase 2 Wave 3 START (100% fleet / 12 oracles)
+
+2026-07-28:  Phase 2 COMPLETE → Production stable check
+
+```
+
+### Wave 1 Oracles (40% fleet)
+- [x] Luxi (UI/UX)
+- [x] Lens (Analysis)
+- [x] Stratum (Architecture)
+- [x] Aris (Code Review)
+- [x] Teleos (Deploy)
+
+### Monitoring Protocol (ACTIVE)
+
+**Real-time Dashboard** (every 5 min):
+- [ ] Tasks processed (baseline: 50+ per day)
+- [ ] Routing accuracy >95%
+- [ ] Quality score >8.0/10
+- [ ] Token savings 25-35%
+- [ ] Pilot satisfaction >80%
+- [ ] Error rate <0.1%
+
+**Daily Report** (automated):
+- Metrics summary
+- Any threshold breaches → escalate immediately
+- Rollback decision readiness
+
+**Escalation Protocol**:
+- Quality <8.0 → Zeus alert
+- Accuracy <90% → immediate pause
+- Satisfaction <70% → escalate to ធាម
+- Any production incident → immediate rollback
+
+### Success Criteria (Wave 1)
+- [x] All 5 oracles responsive
+- [ ] Routing accuracy >95%
+- [ ] Quality degradation <1%
+- [ ] Token savings 25-35%
+- [ ] No critical incidents
+- [ ] Pilot feedback positive
+
+---
+
+**Document Status**: Phase 2 Restart - Active Monitoring  
+**Last Updated**: 2026-07-17 / 23:45 UTC  
+**Owner**: Zeus (Meta-Orchestrator)  
+**Monitoring Authority**: Khun-Ram (Memory Authority) + Watchdog

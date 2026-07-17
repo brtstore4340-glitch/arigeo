@@ -1,3 +1,13 @@
+---
+name: 2026-06-14-0420-phase-13b-hermes-launch
+description: **Context**: 95% (wrapping session)
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-14
+  source: fleet-memory
+---
+
 # Handoff: Phase 13b Launch + Hermes Async Alignment
 
 **Date**: 2026-06-14 04:20 UTC+7

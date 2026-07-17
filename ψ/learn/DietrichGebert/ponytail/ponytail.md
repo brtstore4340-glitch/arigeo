@@ -1,3 +1,13 @@
+---
+name: ponytail
+description: - **GitHub**: https://github.com/DietrichGebert/ponytail
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-17
+  source: fleet-memory
+---
+
 # Ponytail Learning Index
 
 ## Source
@@ -88,4 +98,3 @@ From Code Snippets Collector agent:
 2. Link to complete reports when available
 3. Run `/learn --deep` for 5-agent exploration if more detail needed
 4. Track learning via `/trace ponytail`
-

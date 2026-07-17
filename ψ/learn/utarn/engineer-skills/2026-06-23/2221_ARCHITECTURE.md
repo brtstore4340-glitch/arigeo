@@ -1,3 +1,13 @@
+---
+name: 2221-architecture
+description: **Source:** `/route/mission-control/ψ/learn/utarn/engineer-skills/origin`
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-23
+  source: fleet-memory
+---
+
 # Utarn Engineer-Skills: System Architecture
 
 **Analyzed:** 2026-06-23  

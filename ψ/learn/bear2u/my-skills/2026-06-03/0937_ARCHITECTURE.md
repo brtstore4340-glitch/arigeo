@@ -1,3 +1,13 @@
+---
+name: 0937-architecture
+description: **Skill ID:** `landing-page-guide-v2`
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # Architecture: Landing Page Guide V2 Skill
 
 **Date:** 2026-06-03  

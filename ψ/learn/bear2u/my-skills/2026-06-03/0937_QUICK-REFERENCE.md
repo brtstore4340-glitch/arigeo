@@ -1,3 +1,13 @@
+---
+name: 0937-quick-reference
+description: ---
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # Landing Page Guide V2 - Quick Reference
 
 **Generated:** 2026-06-03 09:37 | **Skill:** landing-page-guide-v2

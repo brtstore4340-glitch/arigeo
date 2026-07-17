@@ -1,3 +1,13 @@
+---
+name: 0937-code-snippets
+description: **Source:** `/route/mission-control/ψ/learn/bear2u/my-skills/origin/skills/land
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # Landing Page Guide V2 - Code Snippets & Patterns
 
 **Skill:** `landing-page-guide-v2`  

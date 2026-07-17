@@ -1,3 +1,13 @@
+---
+name: 2026-06-18-briefing-teleos-line-deployment
+description: **Priority**: 🔴 URGENT  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-09
+  source: fleet-memory
+---
+
 # 🚀 URGENT BRIEFING — Teleos (Deploy Oracle)
 
 **From**: Zeus (Meta-Orchestrator)  

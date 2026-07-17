@@ -1,3 +1,13 @@
+---
+name: 1419-code-snippets
+description: ## Project Overview
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Disk Cleaner v2.1 - Code Snippets Analysis
 
 A cross-platform disk space monitoring and cleaning toolkit written in Python. This document collects the key implementation patterns and architectural decisions.

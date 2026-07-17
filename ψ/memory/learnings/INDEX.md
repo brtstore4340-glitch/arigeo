@@ -1,3 +1,13 @@
+---
+name: index
+description: **Date:** วันที่ 7 มิถุนายน 2569 (June 7, 2026)  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # 2026-06-07 Session Summary Documentation Index
 
 **Location:** `/route/mission-control/ψ/memory/learnings/`  

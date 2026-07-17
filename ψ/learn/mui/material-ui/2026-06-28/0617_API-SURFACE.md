@@ -1,3 +1,13 @@
+---
+name: 0617-api-surface
+description: **Documentation**: Generated 2026-06-28 from source analysis
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # Material-UI Public API Surface
 
 **Version**: 9.1.2  

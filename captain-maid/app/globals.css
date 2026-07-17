@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-blue: #003DA5;
+    --color-blue-dark: #002770;
+    --color-blue-light: #0052CC;
+    --color-cream: #F5F2ED;
+    --color-cream-dark: #1F1D1A;
+    --color-yellow: #FFB81C;
+    --color-neutral: #7A6F69;
+    --color-success: #2D7A3E;
+    --color-warning: #D97706;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-captain-cream text-captain-text antialiased;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      @apply bg-captain-cream-dark text-white;
+    }
+  }
+
+  :root[data-theme='dark'] body {
+    @apply bg-captain-cream-dark text-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif font-bold leading-tight;
+    text-wrap: balance;
+  }
+
+  a {
+    @apply transition-all duration-200;
+  }
+
+  button {
+    @apply transition-all duration-200;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-safe {
+    @apply max-w-container mx-auto px-lg;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-xs px-md py-sm bg-captain-yellow text-captain-text rounded-sm font-semibold hover:bg-captain-blue hover:text-white;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-xs px-md py-sm bg-transparent border border-captain-blue text-captain-blue rounded-sm font-semibold hover:bg-captain-blue hover:text-white;
+  }
+
+  .section-spacing {
+    @apply py-2xl;
+  }
+
+  .max-prose {
+    @apply max-w-prose;
+  }
+
+  .prose-text {
+    @apply text-lg leading-relaxed text-captain-neutral;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+:root[data-theme='dark'] ::-webkit-scrollbar-track,
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream-dark);
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue);
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-captain-blue;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-captain-blue text-white;
+}

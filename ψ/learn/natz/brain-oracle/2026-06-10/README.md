@@ -1,3 +1,13 @@
+---
+name: readme
+description: **Collection Size:** 180KB, 5,135 lines across 7 documents  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # Oracle Brain System - Code Snippets & Architecture Analysis
 
 **Status:** Complete  

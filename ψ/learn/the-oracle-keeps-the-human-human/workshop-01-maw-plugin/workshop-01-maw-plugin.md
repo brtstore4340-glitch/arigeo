@@ -1,3 +1,13 @@
+---
+name: workshop-01-maw-plugin
+description: - **GitHub**: https://github.com/the-oracle-keeps-the-human-human/workshop-01-ma
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # workshop-01-maw-plugin Learning Index
 
 ## Source

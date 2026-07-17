@@ -1,3 +1,13 @@
+---
+name: tolaria-analysis
+description: Analysis of Tolaria knowledge base management system
+metadata:
+  type: reference
+  ttl: 14d
+  date: 2026-06-12
+  source: zeus-oracle analysis
+---
+
 # Tolaria Repository Analysis — Quick Assessment
 
 **Repo:** https://github.com/refactoringhq/tolaria  

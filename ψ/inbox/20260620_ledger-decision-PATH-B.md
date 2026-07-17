@@ -1,3 +1,13 @@
+---
+name: decision-ledger-path-b
+description: Path B decision for Phase 13b Ledger project (synthetic baseline)
+metadata:
+  type: decision
+  ttl: ∞
+  date: 2026-06-20
+  source: zeus-oracle decision-record
+---
+
 # ✅ DECISION: Path B (Synthetic) — Phase 13b Ledger
 
 **Decided by**: Zeus (Meta-Orchestrator)  

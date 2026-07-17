@@ -1,3 +1,13 @@
+---
+name: 0617-testing
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Material-UI Testing & Quality Practices
 
 **📖 Analysis Date**: June 28, 2026 | **Source**: Material-UI v9.1.2 | **Framework**: Vitest + jsdom/browser  

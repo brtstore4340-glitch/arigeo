@@ -1,3 +1,13 @@
+---
+name: arra-oracle-v3
+description: - **GitHub**: https://github.com/Soul-Brews-Studio/arra-oracle-v3
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # arra-oracle-v3 Learning Index
 
 ## Source

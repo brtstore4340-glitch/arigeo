@@ -1,3 +1,13 @@
+---
+name: 1133-quick-reference
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Ponytail — Lazy Senior Dev Mode for AI Agents
 **Quick Reference Guide**
 

@@ -1,3 +1,13 @@
+---
+name: 20260619-073705-urgent-ledger-decision
+description: **Subject**: Phase 13b Demand Signals Ledger — Choose Path A/B/C  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # 🔴 URGENT: ORACLE LEDGER DECISION REQUIRED — THAM-ZEUS
 
 **From**: Mission Control / Codex Initiative  

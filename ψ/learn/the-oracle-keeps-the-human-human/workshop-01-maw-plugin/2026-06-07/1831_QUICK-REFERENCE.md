@@ -1,3 +1,13 @@
+---
+name: 1831-quick-reference
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # Workshop 01 — สร้าง maw plugin ของตัวเอง
 ## Quick Reference Guide (จะสร้างได้ใน 2 ชั่วโมง)
 

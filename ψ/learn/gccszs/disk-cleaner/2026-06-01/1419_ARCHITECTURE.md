@@ -1,3 +1,13 @@
+---
+name: 1419-architecture
+description: **Repository**: https://github.com/gccszs/disk-cleaner  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-01
+  source: fleet-memory
+---
+
 # Disk Cleaner v2.1 - Architecture Documentation
 
 **Project**: disk-cleaner  

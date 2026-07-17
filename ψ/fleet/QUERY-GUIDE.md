@@ -1,3 +1,13 @@
+---
+name: query-guide
+description: **Log Location**: `ψ/fleet/BROADCAST-LOG.ndjson` (one JSON event per line)
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-07-16
+  source: fleet-memory
+---
+
 # Fleet Status Query Guide
 
 > **Goal**: Fast, human-friendly queries on the broadcast log. Use `jq` for parsing, grep for scanning.

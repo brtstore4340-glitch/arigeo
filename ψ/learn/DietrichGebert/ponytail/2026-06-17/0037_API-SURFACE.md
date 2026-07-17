@@ -1,3 +1,13 @@
+---
+name: 0037-api-surface
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Ponytail API & Integration Surface
 
 **Version:** 4.7.0 | **License:** MIT | **Author:** Dietrich Gebert  
@@ -513,4 +523,3 @@ license: MIT
 7. **Document mode commands:** In host's help or plugin README
 
 That's it. The portability contract is maintained by reusing shared files, not by centralized tooling.
-

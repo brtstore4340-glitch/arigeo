@@ -1,3 +1,13 @@
+---
+name: 1902-code-snippets
+description: **Purpose:** Key code patterns, data structures, and implementation examples
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-11
+  source: fleet-memory
+---
+
 # Agent Skills: Code Snippets & Patterns
 
 **Source:** `/home/user/ghq/github.com/addyosmani/agent-skills`  
@@ -807,4 +817,3 @@ This codebase embodies several key principles:
 6. **Progressive disclosure:** Full skill loaded only when relevant; metadata always available.
 7. **Persona boundaries:** Personas have a role and output format, not full process (that's for skills).
 8. **Parallel safety:** `/ship` demonstrates safe parallel fan-out: execute concurrently, merge in main context, no nested delegation.
-

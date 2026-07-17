@@ -1,3 +1,13 @@
+---
+name: 0544-quick-reference
+description: > 🤖 Created with Claude Haiku 4.5
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Thai DOCX — เอกสาร Word ภาษาไทยที่เต็มบรรทัด ฟอนต์ถูก จัดหน้าสวย 📄🇹🇭
 
 **Quick Reference Guide** — เครื่องมือสร้างไฟล์ Word ภาษาไทยด้วย Python

@@ -1,3 +1,13 @@
+---
+name: thai-docx-for-a-thai-civil-servant-eager-to-learn
+description: - **GitHub**: https://github.com/Netthip/thai-docx-for-a-thai-civil-servant-eage
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # thai-docx Learning Index
 
 ## Source

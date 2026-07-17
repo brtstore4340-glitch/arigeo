@@ -1,3 +1,13 @@
+---
+name: claude-to-im
+description: - **GitHub**: https://github.com/op7418/Claude-to-IM
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-05-31
+  source: fleet-memory
+---
+
 # Claude-to-IM Learning Index
 
 ## Source

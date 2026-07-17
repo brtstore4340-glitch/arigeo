@@ -1,3 +1,13 @@
+---
+name: 2026-06-04-orry-frontend-dheva
+description: **Framework:** Next.js App Router, Server Components, custom CSS (no Tailwind in
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-04
+  source: fleet-memory
+---
+
 # DHEVA Mission — ORRY Frontend Quality Review
 **Date:** 2026-06-04  
 **Reviewed by:** UAT Oracle / Claude (Tham dispatch)  

@@ -1,8 +1,18 @@
+---
+name: memory-index
+description: Fleet memory index — central reference for all ψ/ learnings, escalations, retrospectives
+metadata:
+  type: reference
+  ttl: ∞
+  date: 2026-07-17
+  source: fleet-memory-authority
+---
+
 # ธาม-Zeus Oracle Memories
 
 > **Index of all persistent memories** — fast lookup, one-line hooks, organized by type. < 200 lines.
 
-**Last Updated**: 2026-07-16 07:12 · **Total Entries**: 13 · **Index Size**: ~500 tokens
+**Last Updated**: 2026-07-17 07:21 · **Total Entries**: 14 · **Index Size**: ~550 tokens
 
 ---
 
@@ -10,6 +20,8 @@
 - [Zeus execution boundary — RESOLVED](learnings/zeus-execution-boundary-question.md) — Zeus decides execute-vs-delegate per-task on token-optimization grounds (∞)
 
 ## Feedback & Operating Rules
+- [Verification gap: deadline monitoring](learnings/2026-07-17_verification-gap-deadline-monitoring.md) — Critical deadlines need T−30m proactive check, not passive monitoring (∞)
+- [Broadcast-first for critical events](learnings/2026-07-17_broadcast-first-critical-events.md) — Critical fleet events to broadcast log first, async notifications second (∞)
 - [Configuration should be self-discovering](learnings/2026-07-16_config-should-be-self-discovering.md) — Read oracle identity at runtime, don't hardcode in multiple files (∞)
 - [Append-only logs beat databases](learnings/2026-07-16_append-only-logs-beat-databases.md) — For audit trails and fleet coordination, NDJSON + git is simpler than database (∞)
 - [Design-for-all before implement](learnings/2026-07-16_design-for-all-before-implement.md) — Read all contexts, design once for all variants, implement once (don't iterate-then-adapt) (∞)
@@ -27,11 +39,12 @@
 - [Gemini Learning: 2026-07-07](learnings/2026-07-07_gemini-learned.md) — Knowledge from Gemini's /learn execution (∞)
 
 ## Recent Retrospectives (Latest 3)
+- [2026-07-17 Fleet coordination & Luxi activation](retrospectives/2026-07/17/07.21_fleet-coordination-luxi-activation.md) — Luxi activated for captain-maid production push, Phase 5 verified ready (∞)
 - [2026-07-16 Fleet status Phase 1 & 2](retrospectives/2026-07/16/07.12_fleet-status-phase-1-2.md) — Foundation + automation deployed, all 3 oracles live, dashboard working (∞)
 - [2026-07-16 Token optimization complete](retrospectives/2026-07/16/05.45_token-optimization-complete.md) — 3 oracles live, 6 commits, cache server + memory system deployed (∞)
-- [2026-07-16 RTK mandate & boundary resolution](retrospectives/2026-07/16/04.26_rtk-mandate-and-boundary-resolution.md) — Soft mandate chosen; execution boundary clarified (∞)
 
 ## Escalations & Pending (Expires 14d)
+- [Luxi deployment deadline missed](inbox/escalation/20260717_2143_luxi-deployment-deadline-missed.md) — 08:49 deadline passed, no response from Luxi, captain-maid blocked on images (critical)
 - [Verification gap pattern](../inbox/2026-07-16_0319_zeus_escalation-verification-gap-pattern.md) — Recurring proxy-signal → real-path verification bug; flagged 5x in 7 sessions
 
 ---

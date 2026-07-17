@@ -1,3 +1,13 @@
+---
+name: rtk
+description: - **GitHub**: https://github.com/rtk-ai/rtk
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # RTK (Return To Knowledge) Learning Index
 
 ## Source

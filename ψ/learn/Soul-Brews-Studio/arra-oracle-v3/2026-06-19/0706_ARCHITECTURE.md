@@ -1,3 +1,13 @@
+---
+name: 0706-architecture
+description: **Arra Oracle v3** is a TypeScript-based MCP (Model Context Protocol) memory lay
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Arra Oracle v3 - Architecture Document
 
 ## Project Overview

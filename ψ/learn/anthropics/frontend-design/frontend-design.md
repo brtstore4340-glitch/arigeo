@@ -1,3 +1,13 @@
+---
+name: frontend-design
+description: - **GitHub**: https://github.com/anthropics/claude-plugins-official/tree/main/pl
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # frontend-design Learning Index
 
 ## Source

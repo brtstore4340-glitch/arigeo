@@ -1,3 +1,13 @@
+---
+name: 2026-06-07-delivery-manifest
+description: **วันที่ 7 มิถุนายน 2569**
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # 2026-06-07 Session Summary — Delivery Manifest
 
 **Mission Completion Report**  

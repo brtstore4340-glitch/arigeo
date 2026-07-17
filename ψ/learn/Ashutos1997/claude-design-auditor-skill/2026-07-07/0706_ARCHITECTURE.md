@@ -1,3 +1,13 @@
+---
+name: 0706-architecture
+description: **Repository:** https://github.com/Ashutos1997/claude-design-auditor-skill
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-07-07
+  source: fleet-memory
+---
+
 # Claude Design Auditor Skill — Architecture Documentation
 
 **Version:** 1.2.13  

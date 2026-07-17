@@ -1,3 +1,13 @@
+---
+name: 0706-quick-reference
+description: **Design Auditor** is a Claude skill that validates designs against 19 professio
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Design Auditor — Quick Reference Guide
 
 ## What It Does
@@ -288,4 +298,3 @@ references/
 **Last Updated:** v1.2.13 (2026-07-07)  
 **Language:** English & Korean  
 **For:** Developers, designers, product managers, founders, auditors
-

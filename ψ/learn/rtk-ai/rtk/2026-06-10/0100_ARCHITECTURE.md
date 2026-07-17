@@ -1,3 +1,13 @@
+---
+name: 0100-architecture
+description: **Purpose:** High-performance CLI proxy to minimize LLM token consumption  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # RTK (Rust Token Killer) — Architecture Documentation
 
 **Version:** 0.42.2  

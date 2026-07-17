@@ -1,3 +1,13 @@
+---
+name: 0617-quick-reference
+description: **Purpose:** Comprehensive quick reference for implementing Material Design in R
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # Material-UI (MUI) Quick Reference Guide
 
 **Version:** v5.x / v6.x  

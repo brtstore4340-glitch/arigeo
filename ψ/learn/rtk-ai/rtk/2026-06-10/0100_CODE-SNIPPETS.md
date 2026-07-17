@@ -1,3 +1,13 @@
+---
+name: 0100-code-snippets
+description: **Purpose:** High-performance CLI proxy to minimize LLM token consumption (saves
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # RTK: Code Snippets and Patterns
 
 **Source:** `/home/user/ghq/github.com/rtk-ai/rtk` (v0.42.2)  

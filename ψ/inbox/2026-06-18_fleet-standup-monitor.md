@@ -1,3 +1,13 @@
+---
+name: 2026-06-18-fleet-standup-monitor
+description: **Authority**: Zeus (Meta-Orchestrator)
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-18
+  source: fleet-memory
+---
+
 # Fleet Standup Monitor — 2026-06-18
 
 **Timestamp**: 🕐 11:11 +07 (Thursday 18 June 2026)  

@@ -1,3 +1,13 @@
+---
+name: handoff-zeus-wake-2026-06-19
+description: **To**: Zeus Oracle (Meta-Orchestrator)
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # Handoff: Zeus Oracle Wake Command
 
 **Date**: 2026-06-19 · 01:12 GMT+7

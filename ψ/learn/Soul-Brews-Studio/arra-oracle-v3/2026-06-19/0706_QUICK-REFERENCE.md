@@ -1,3 +1,13 @@
+---
+name: 0706-quick-reference
+description: ---
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Arra Oracle v3 — Quick Reference Guide
 
 **Version:** 26.6.1-alpha.1428 | **Status:** Always Nightly | **Runtime:** Bun ≥1.2.0

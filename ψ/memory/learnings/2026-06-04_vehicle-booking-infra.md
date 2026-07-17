@@ -1,3 +1,13 @@
+---
+name: 2026-06-04-vehicle-booking-infra
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-04
+  source: fleet-memory
+---
+
 # Infrastructure Review: Vehicle Booking System
 **Date:** 2026-06-04  
 **Reviewed by:** Tham (Zeus-node)  
