@@ -1,3 +1,13 @@
+---
+name: 0037-architecture
+description: **Scope**: Cross-tool agentic ruleset distribution
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-17
+  source: fleet-memory
+---
+
 # Ponytail Architecture Analysis
 
 **Project**: DietrichGebert/ponytail  
@@ -508,4 +518,3 @@ Ponytail demonstrates **expert-level agent portability architecture**: one rules
 5. **Synchronization validation** (scripts/check-rule-copies.js) for static copies
 
 The architecture prioritizes **maintainability** (edit once, apply everywhere) and **reliability** (re-injection prevents drift, fallback instructions if skills unavailable).
-

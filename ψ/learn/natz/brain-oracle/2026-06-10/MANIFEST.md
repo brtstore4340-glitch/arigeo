@@ -1,3 +1,13 @@
+---
+name: manifest
+description: **Location:** `/route/mission-control/ψ/learn/natz/brain-oracle/2026-06-10/`  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # Oracle Brain System - Code Snippets Collection
 ## Complete Manifest & Verification
 

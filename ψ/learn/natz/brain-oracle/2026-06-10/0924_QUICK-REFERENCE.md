@@ -1,3 +1,13 @@
+---
+name: 0924-quick-reference
+description: **Version**: 1.0  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # Oracle Brain System: Quick Reference Guide
 
 **Created**: 2026-06-10  

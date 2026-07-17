@@ -1,3 +1,13 @@
+---
+name: 0924-architecture
+description: **Source:** mission-control repository analysis  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # Oracle Brain Architecture System
 
 **Document:** Oracle Brain Architecture Overview  

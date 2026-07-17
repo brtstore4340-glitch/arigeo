@@ -1,3 +1,13 @@
+---
+name: 20260619-ledger-decision-escalation
+description: **To**: Tham-Zeus (Chief of Staff)  
+metadata:
+  type: announcement
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # 🔴 ESCALATION: ORACLE LEDGER DECISION PENDING
 
 **Status**: URGENT  
@@ -55,4 +65,3 @@ Full briefing delivered to Tham-Zeus inbox: `zeus-oracle/ψ/inbox/20260619_07370
 **Escalation owner**: Mission Control  
 **Risk level**: HIGH (blocks forecasting component)  
 **Mitigation**: Default Path B available if no decision
-

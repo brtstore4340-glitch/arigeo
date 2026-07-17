@@ -1,3 +1,13 @@
+---
+name: 20260628-0120-from-codex-to-buildteam-dashboard-kickoff
+description: **Original Sender:** tham-node:luxi  
+metadata:
+  type: announcement
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # 📢 BUILD TEAM NOTIFICATION: Dashboard Redesign Architecture Kickoff
 
 **Distribution:** Frontend Team + Backend Team  

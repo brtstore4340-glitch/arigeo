@@ -1,3 +1,13 @@
+---
+name: 0037-quick-reference
+description: **Ponytail** is a "lazy senior developer mode" plugin for AI agents that enforce
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Ponytail Quick Reference
 
 ## What It Does

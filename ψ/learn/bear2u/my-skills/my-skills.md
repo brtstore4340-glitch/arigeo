@@ -1,3 +1,13 @@
+---
+name: my-skills
+description: - **GitHub**: https://github.com/bear2u/my-skills
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # my-skills Learning Index
 
 ## Source

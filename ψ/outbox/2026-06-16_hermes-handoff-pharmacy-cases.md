@@ -1,3 +1,13 @@
+---
+name: 2026-06-16-hermes-handoff-pharmacy-cases
+description: ## TASK
+metadata:
+  type: announcement
+  ttl: ∞
+  date: 2026-06-16
+  source: fleet-memory
+---
+
 # Hermes Handoff — Boots Grand5 Pharmacy Cases → scale to 50 (2026-06-16, tham-node)
 
 Filed by ธาม-Zeus. Delegating to Hermes (fleet Claude-oracles rate-limited: khun-ram 75% weekly, Lens throttled — Hermes/9router to carry the heavy batch).

@@ -1,3 +1,13 @@
+---
+name: 0037-testing
+description: ## Testing Structure
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Ponytail Testing & Benchmarks Architecture
 
 **Repository:** DietrichGebert/ponytail — A prompt compression skill that achieves 80–94% code reduction, 47–77% cost savings, and 3–6x latency improvement versus baseline.

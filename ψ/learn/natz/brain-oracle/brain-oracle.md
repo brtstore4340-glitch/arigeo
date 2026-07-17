@@ -1,3 +1,13 @@
+---
+name: brain-oracle
+description: - **GitHub**: https://github.com/natz/brain-oracle (reference architecture)
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # Oracle Brain Learning Hub
 
 ## Source

@@ -1,3 +1,13 @@
+---
+name: disk-cleaner
+description: - **GitHub**: https://github.com/gccszs/disk-cleaner
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-01
+  source: fleet-memory
+---
+
 # disk-cleaner Learning Index
 
 ## Source

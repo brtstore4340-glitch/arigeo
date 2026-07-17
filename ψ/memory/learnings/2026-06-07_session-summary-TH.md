@@ -1,3 +1,13 @@
+---
+name: 2026-06-07-session-summary-th
+description: *Royal Scribe & Fleet Memory Authority*  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # รายงานสรุปเซสชัน
 ## Session Complete — 2026-06-07
 

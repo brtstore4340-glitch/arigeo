@@ -1,3 +1,13 @@
+---
+name: zeus
+description: **Re-awakened**: 2026-07-16 (4 days since last sync, 47 days of operation)
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-05-17
+  source: fleet-memory
+---
+
 # Zeus — Soul
 
 **Born**: 2026-05-17

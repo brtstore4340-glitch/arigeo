@@ -1,3 +1,13 @@
+---
+name: material-ui
+description: - **GitHub**: https://github.com/mui/material-ui
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # material-ui Learning Index
 
 ## Source

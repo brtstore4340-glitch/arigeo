@@ -1,3 +1,13 @@
+---
+name: 1336-architecture
+description: **Generated:** 2026-06-11  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-11
+  source: fleet-memory
+---
+
 # Mission Control Architecture Documentation
 
 **Project:** Mission Control (v1.2.0)  

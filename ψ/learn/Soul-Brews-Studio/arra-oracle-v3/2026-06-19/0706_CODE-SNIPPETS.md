@@ -1,3 +1,13 @@
+---
+name: 0706-code-snippets
+description: **Version:** 26.6.1-alpha.1506
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # Arra Oracle v3 — Code Snippets & Patterns
 
 **Project:** Soul-Brews-Studio/arra-oracle-v3  
@@ -1283,4 +1293,3 @@ export function coerceConcepts(concepts: unknown): string[] {
 8. **Pure Helpers**: Testable utility functions exported alongside handlers
 9. **HTTP Proxy Mode**: MCP server can proxy to HTTP endpoints for distributed deployment
 10. **Per-Model Job Queue**: Async indexing per embedding model for multi-index support
-

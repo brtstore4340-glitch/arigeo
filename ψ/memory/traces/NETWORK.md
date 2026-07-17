@@ -1,3 +1,13 @@
+---
+name: network
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-05
+  source: fleet-memory
+---
+
 # Fleet Network — zeus-oracle
 
 **Last updated**: 2026-06-05  

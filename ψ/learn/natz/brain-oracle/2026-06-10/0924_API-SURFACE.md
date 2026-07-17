@@ -1,3 +1,13 @@
+---
+name: 0924-api-surface
+description: **Audience:** Integrators, Plugin Developers, External System Architects
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-10
+  source: fleet-memory
+---
+
 # Oracle Brain Public API & Integration Surface
 
 **Document Date:** 2026-06-10  

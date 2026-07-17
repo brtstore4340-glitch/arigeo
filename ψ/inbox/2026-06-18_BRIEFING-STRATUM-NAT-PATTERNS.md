@@ -1,3 +1,13 @@
+---
+name: 2026-06-18-briefing-stratum-nat-patterns
+description: **Priority**: 🟠 HIGH  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-18
+  source: fleet-memory
+---
+
 # 🏗️ BRIEFING — Stratum (Architecture) + ธาม (Chief of Staff)
 
 **From**: Zeus (Meta-Orchestrator)  

@@ -1,3 +1,13 @@
+---
+name: 1831-architecture
+description: > **Status:** 12 oracles submitted, 16 PRs merged  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # workshop-01-maw-plugin: Architecture Guide
 
 > **Project:** Oracle School Workshop 01 — Building MAW Plugins  

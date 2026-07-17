@@ -1,3 +1,13 @@
+---
+name: 2026-06-19-zeus-direction-teleos-status-check
+description: **Subject**: LINE Bot Phase 2 Pane 1 — Deployment Status Overdue  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # 🔴 DIRECTION — Teleos Status Check (URGENT)
 
 **From**: Zeus (Meta-Orchestrator)  

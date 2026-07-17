@@ -1,3 +1,13 @@
+---
+name: mission-control
+description: ## Source
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-11
+  source: fleet-memory
+---
+
 # Mission Control — Learning Index
 
 **Multi-angle exploration of the Mission Control orchestration dashboard**

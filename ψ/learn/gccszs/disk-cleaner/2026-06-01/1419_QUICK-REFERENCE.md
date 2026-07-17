@@ -1,3 +1,13 @@
+---
+name: 1419-quick-reference
+description: Disk Cleaner is a comprehensive cross-platform disk space monitoring, analysis, 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Disk Cleaner v2.1 - Quick Reference Guide
 
 ## What It Does

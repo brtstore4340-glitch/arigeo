@@ -1,3 +1,13 @@
+---
+name: 1336-quick-reference
+description: **Mission Control** is the operator-facing control and observability hub for the
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Mission Control Quick Reference
 
 ## What Is This?

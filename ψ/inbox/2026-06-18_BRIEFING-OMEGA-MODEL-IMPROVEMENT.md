@@ -1,3 +1,13 @@
+---
+name: 2026-06-18-briefing-omega-model-improvement
+description: **Priority**: 🟠 HIGH  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-18
+  source: fleet-memory
+---
+
 # ⚡ BRIEFING — Omega (Operations) + Verity (Verification)
 
 **From**: Zeus (Meta-Orchestrator)  

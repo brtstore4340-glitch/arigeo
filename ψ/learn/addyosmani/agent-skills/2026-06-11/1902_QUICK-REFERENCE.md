@@ -1,3 +1,13 @@
+---
+name: 1902-quick-reference
+description: **Agent Skills** is a production-grade collection of 24 engineering workflows an
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Agent Skills — Quick Reference Guide
 
 ## What Is This?

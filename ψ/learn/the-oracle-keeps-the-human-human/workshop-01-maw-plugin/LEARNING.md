@@ -1,3 +1,13 @@
+---
+name: learning
+description: **Deliverable**: A CLI plugin + backend sync + frontend UI + documentation  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # Workshop 01: Build a MAW Plugin — Complete Learning Guide
 
 **Status**: 12 oracles completed, 16 PRs merged (as of 2026-06-07)  

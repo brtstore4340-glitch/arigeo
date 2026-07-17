@@ -1,3 +1,13 @@
+---
+name: 1242-quick-reference
+description: 
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-03
+  source: fleet-memory
+---
+
 # Quick Reference — frontend-design Plugin
 
 **Source**: anthropics/claude-plugins-official/plugins/frontend-design

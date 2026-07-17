@@ -1,3 +1,13 @@
+---
+name: 0544-code-snippets
+description: **Language**: Python 3.8+  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Thai DOCX — Code Snippets & Implementation Guide
 
 **Project**: Thai DOCX — Python tool for creating Thai language Word documents  

@@ -1,3 +1,13 @@
+---
+name: 0544-architecture
+description: **Language**: Python 3.8+  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # Thai DOCX — Architecture Analysis
 
 **Project**: thai-docx-for-a-thai-civil-servant-eager-to-learn  

@@ -1,3 +1,13 @@
+---
+name: 20260619-phase-13b-launch-alert
+description: **To**: Aeimathes (Research Lead), Tham-Zeus (Governance)
+metadata:
+  type: announcement
+  ttl: ∞
+  date: 2026-06-19
+  source: fleet-memory
+---
+
 # PHASE 13b LAUNCH ALERT
 
 **Status**: 🚀 LIVE (2026-06-19 07:19 UTC+7)

@@ -1,3 +1,13 @@
+---
+name: 0617-code-snippets
+description: ---
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-28
+  source: fleet-memory
+---
+
 # Material-UI Code Snippets & Patterns
 **Date**: 2026-06-28 | **Version**: Collected from master branch  
 **Source**: https://github.com/mui/material-ui

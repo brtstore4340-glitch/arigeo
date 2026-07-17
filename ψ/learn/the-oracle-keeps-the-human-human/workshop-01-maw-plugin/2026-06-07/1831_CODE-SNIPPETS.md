@@ -1,3 +1,13 @@
+---
+name: 1831-code-snippets
+description: This document captures the essential code patterns, entry points, and implementa
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-07
+  source: fleet-memory
+---
+
 # Workshop 01 — MAW Plugin Code Snippets
 
 **Date:** 2026-06-07 | **Analyzed:** 12 oracle submissions | **Framework:** maw-js plugin SDK

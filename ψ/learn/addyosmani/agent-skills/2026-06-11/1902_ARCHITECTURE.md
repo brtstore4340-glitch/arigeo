@@ -1,3 +1,13 @@
+---
+name: 1902-architecture
+description: **Type:** Skill and Agent Plugin for AI Coding Agents  
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-11
+  source: fleet-memory
+---
+
 # Agent Skills — Architecture Analysis
 
 **Project:** addyosmani/agent-skills  

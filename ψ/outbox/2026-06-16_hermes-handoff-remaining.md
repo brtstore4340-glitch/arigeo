@@ -1,3 +1,13 @@
+---
+name: 2026-06-16-hermes-handoff-remaining
+description: ## Open tasks
+metadata:
+  type: announcement
+  ttl: ∞
+  date: 2026-06-16
+  source: fleet-memory
+---
+
 # Hermes Handoff — Remaining Items (2026-06-16, tham-node, token-restrict)
 
 Filed by ธาม-Zeus on entering token-restrict mode. Delegating remaining open threads to Hermes.

@@ -1,3 +1,13 @@
+---
+name: 0913-code-snippets
+description: This document captures the most important code patterns from the Claude-to-IM re
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-15
+  source: fleet-memory
+---
+
 # Claude-to-IM: Telegram → tmux Bridge Code Snippets
 
 ## Overview
@@ -1434,4 +1444,3 @@ The architecture handles:
 - Streaming previews
 - Permission request forwarding
 - Full conversation history persistence
-

@@ -1,3 +1,13 @@
+---
+name: 1336-code-snippets
+description: **Focus:** Main entry point, core implementations, design patterns, configuratio
+metadata:
+  type: handoff
+  ttl: ∞
+  date: 2026-06-11
+  source: fleet-memory
+---
+
 # Mission Control — Code Snippets & Patterns
 
 **Date:** 2026-06-11  
