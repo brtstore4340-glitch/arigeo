@@ -8,11 +8,11 @@ type LogoProps = {
 export default function Logo({ className = "h-10 w-auto", priority = false }: LogoProps) {
   return (
     <Image
-      src="/images/logos/arigeo.png"
+      src="/images/logos/arigeo-transparent.png"
       alt="ARIGEO logo"
       width={2172}
       height={724}
-      className={className}
+      className={`${className} object-contain`}
       priority={priority}
     />
   );

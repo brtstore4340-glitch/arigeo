@@ -29,7 +29,10 @@ export default function NewsSection() {
   return (
     <section className="section shell" id="newsroom">
       <div className="section-heading">
-        <h2>{t("title")}</h2>
+        <div>
+          <p className="section-heading__eyebrow">{t("eyebrow")}</p>
+          <h2>{t("title")}</h2>
+        </div>
         <Link href={`/${locale}/newsroom`}>
           {t("viewAll")} <ArrowIcon size={16} />
         </Link>
@@ -43,8 +46,8 @@ export default function NewsSection() {
                 <span>{t(`articles.${key}.category`)}</span>
                 <time>{t(`articles.${key}.date`)}</time>
               </div>
-              <h3 className="line-clamp-3">{t(`articles.${key}.title`)}</h3>
-              <Link href={links[i]} aria-label={`Read: ${t(`articles.${key}.title`)}`}>
+              <h3 className="news-card__title line-clamp-3">{t(`articles.${key}.title`)}</h3>
+              <Link href={links[i]} aria-label={`Read: ${t(`articles.${key}.title`)}`} className="news-card__link">
                 <ArrowIcon />
               </Link>
             </div>
