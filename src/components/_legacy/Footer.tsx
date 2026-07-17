@@ -1,15 +1,15 @@
 import React from 'react';
+import Logo from '@/components/Logo';
 
 const Footer = () => {
   return (
     <footer className="bg-foreground text-gray-400 py-16 border-t border-gray-800">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
+
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain brightness-0 invert" />
-              
+              <Logo className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed mb-6">
               ผู้จัดจำหน่ายยา เวชภัณฑ์ เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตร มุ่งเน้นคุณภาพ มาตรฐาน ความปลอดภัย และการเติบโตอย่างยั่งยืน

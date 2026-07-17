@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -66,9 +67,7 @@ export default function NewsroomPage() {
       {/* Header */}
       <div className="border-b border-slate-200 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <SectionHeading level="h1" locale={locale}>
-            {t.title}
-          </SectionHeading>
+          <SectionHeading title={t.title} />
           <p className="mt-4 text-base text-slate-600 sm:text-lg">
             {t.description}
           </p>
@@ -88,10 +87,12 @@ export default function NewsroomPage() {
                   {/* Image Placeholder */}
                   <div className="relative h-48 w-full overflow-hidden rounded-lg bg-slate-100 md:col-span-1">
                     {article.imageUrl ? (
-                      <img
+                      <Image
                         src={article.imageUrl}
                         alt={isEnglish ? article.titleEn : article.titleTh}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center">

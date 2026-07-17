@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 const ArrowIcon = ({ size = 18 }) => (
@@ -9,6 +9,7 @@ const ArrowIcon = ({ size = 18 }) => (
 
 export default function NewsSection() {
   const t = useTranslations("News");
+  const locale = useLocale();
   const keys = ["1", "2", "3", "4"] as const;
 
   const images = [
@@ -18,11 +19,21 @@ export default function NewsSection() {
     "/images/home/news-lifestyle-couple.png",
   ];
 
+  const links = [
+    `/${locale}/newsroom/arigeo-launches-innovation-initiative`,
+    `/${locale}/newsroom/sustainability-milestone`,
+    `/${locale}/newsroom/captain-maid-expansion`,
+    `/${locale}/newsroom`,
+  ] as const;
+
   return (
     <section className="section shell" id="newsroom">
       <div className="section-heading">
-        <h2>{t("title")}</h2>
-        <Link href="/news">
+        <div>
+          <p className="section-heading__eyebrow">{t("eyebrow")}</p>
+          <h2>{t("title")}</h2>
+        </div>
+        <Link href={`/${locale}/newsroom`}>
           {t("viewAll")} <ArrowIcon size={16} />
         </Link>
       </div>
@@ -35,8 +46,8 @@ export default function NewsSection() {
                 <span>{t(`articles.${key}.category`)}</span>
                 <time>{t(`articles.${key}.date`)}</time>
               </div>
-              <h3 className="line-clamp-3">{t(`articles.${key}.title`)}</h3>
-              <Link href={`/news/${key}`} aria-label={`Read: ${t(`articles.${key}.title`)}`}>
+              <h3 className="news-card__title line-clamp-3">{t(`articles.${key}.title`)}</h3>
+              <Link href={links[i]} aria-label={`Read: ${t(`articles.${key}.title`)}`} className="news-card__link">
                 <ArrowIcon />
               </Link>
             </div>

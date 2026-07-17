@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,16 +30,15 @@ const Header = () => {
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         <div className="flex items-center gap-2">
           {/* Logo Placeholder */}
-          <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain" />
-          
+          <Logo className="h-10 w-auto" />
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           {menuItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href} 
+            <a
+              key={index}
+              href={item.href}
               className="text-arigeo-gray hover:text-arigeo-red font-medium text-sm transition-colors"
             >
               {item.label}
@@ -53,7 +53,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="lg:hidden text-arigeo-gray"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -65,9 +65,9 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-100 py-4 px-6 flex flex-col gap-4">
           {menuItems.map((item, index) => (
-            <a 
-              key={index} 
-              href={item.href} 
+            <a
+              key={index}
+              href={item.href}
               className="text-arigeo-gray hover:text-arigeo-red font-medium text-base py-2 border-b border-gray-50"
               onClick={() => setIsMobileMenuOpen(false)}
             >

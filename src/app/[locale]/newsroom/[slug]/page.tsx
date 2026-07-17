@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { use } from 'react';
 
 // Article database - PLACEHOLDER: Connect to CMS when ready
 const articles: Record<
@@ -50,10 +52,10 @@ const articles: Record<
 };
 
 interface NewsArticlePageProps {
-  params: {
+  params: Promise<{
     slug: string;
     locale: 'en' | 'th';
-  };
+  }>;
 }
 
 const copy = {
@@ -76,8 +78,9 @@ const copy = {
 export default function NewsArticlePage({
   params,
 }: NewsArticlePageProps) {
+  const resolvedParams = use(params);
   const locale = useLocale() as 'en' | 'th';
-  const article = articles[params.slug];
+  const article = articles[resolvedParams.slug];
   const t = copy[locale];
 
   if (!article) {
@@ -130,11 +133,13 @@ export default function NewsArticlePage({
 
           {/* Featured Image Placeholder */}
           {article.imageUrl && (
-            <div className="mt-8 overflow-hidden rounded-lg bg-slate-100">
-              <img
+            <div className="mt-8 overflow-hidden rounded-lg bg-slate-100 relative h-96">
+              <Image
                 src={article.imageUrl}
                 alt={title}
-                className="h-96 w-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
               />
             </div>
           )}
