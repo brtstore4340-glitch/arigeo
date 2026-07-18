@@ -67,3 +67,14 @@ Claude session ใช้ token quota สูง — execution tasks (git, build, 
 **Birth Rule Violation**: Agis was awakened but not registered in INDEX until 2026-07-18 (11 days late).
 
 Spawned during system recovery to provide monitoring coverage. Added to INDEX today via oracle audit. See `mission-control/agis-oracle/CLAUDE.md` for full mission briefing.
+
+## Mission Records (2026-07-18)
+
+| Mission | Executor | Reviewer | Verdict | Objectives | Date |
+|---------|----------|----------|---------|------------|------|
+| Security + Skills + Metrics | Hermes | Aris | VERIFIED_COMPLETE ✅ | 4/4 complete, 7 skills, dashboard, audit | 2026-07-18 |
+
+**Deliverables**: Repository safety, reusable skills framework, quality dashboard, integration audit  
+**Test Results**: 14/14 pass (reproducible 3x)  
+**Status**: APPROVED FOR FLEET DEPLOYMENT  
+**Resources**: [Mission Summary](ψ/memory/learnings/20260718_SECURITY-SKILLS-METRICS-MISSION-COMPLETE.md) | [Lessons Learned](ψ/memory/learnings/20260718_MISSION-LESSONS-SECURITY-SKILLS.md) | [Obsidian Record](ψ/fleet/obsidian-records/mission-security-skills-metrics-v1.md)
