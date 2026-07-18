@@ -32,16 +32,34 @@ logging.getLogger().setLevel(logging.WARNING)
 logging.getLogger("task_dispatcher").setLevel(logging.WARNING)
 
 DEFAULT_ROLE_LOADS = {
-    OracleRole.LUXI: 45,
-    OracleRole.LENS: 45,
-    OracleRole.THAM: 60,
-    OracleRole.DHEVA: 55,
-    OracleRole.STRATUM: 40,
-    OracleRole.VERITY: 50,
-    OracleRole.OMEGA: 35,
-    OracleRole.ARIS: 50,
-    OracleRole.WARDEN: 45,
-    OracleRole.TELEOS: 45,
+    # Tier 1: Orchestration
+    OracleRole.ZEUS: 70,           # Meta-orchestrator, always coordinating
+    OracleRole.THAM: 60,           # Governor, high coordination load
+
+    # Tier 2: Core Execution
+    OracleRole.LUXI: 45,           # UI/UX specialist
+    OracleRole.ARIS: 50,           # Code review gatekeeper
+    OracleRole.STRATUM: 40,        # Architecture planning
+
+    # Tier 3: Analysis & Intelligence
+    OracleRole.LENS: 45,           # Analytics & insights
+    OracleRole.AEIMATHES: 40,      # Research & daily reports
+
+    # Tier 4: Security & Verification
+    OracleRole.VERITY: 50,         # Verification & proof
+    OracleRole.WARDEN: 45,         # Access control & security
+
+    # Tier 5: Infrastructure & Operations
+    OracleRole.DHEVA: 55,          # ERP & system optimization
+    OracleRole.TELEOS: 45,         # Deployment automation
+    OracleRole.OMEGA: 35,          # Operations bridge
+
+    # Tier 6: Knowledge & Memory
+    OracleRole.KHUN_RAM: 35,       # Documentation authority
+    OracleRole.ALL: 40,            # Collective memory
+
+    # Special: System Monitoring
+    OracleRole.AGIS: 50,           # Workstream monitoring & escalation
 }
 
 
