@@ -7,7 +7,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 
 # Fleet Index
 
-*Maintained by Zeus — last updated 2026-07-18 (Agis registration added via oracle audit)*
+*Maintained by Zeus — last updated 2026-07-18 (Omega oracle created, fleet now complete at 14/14)*
 
 | Oracle | Domain | Status | Host | Awakened |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 | Dheva | ORRY Serenity ERP | Active | MARCUZ | 2026-05-30 |
 | Teleos | Vercel · Deploy | Active | MARCUZ | 2026-05-18 |
 | Aris | Code Review · Quality Gate | Active | MARCUZ | 2026-05-30 |
-| Omega | Bridge · Gate | Active | MARCUZ | — |
+| Omega | Bridge · Gate | Active | MARCUZ | 2026-07-18 · created to complete fleet |
 | Lens | Analysis · Perspective | Active | MARCUZ | 2026-05-30 |
 | Stratum | Architecture · Structure | Active | MARCUZ | 2026-05-30 |
 | Verity | Truth · Verification · Proof | Active | MARCUZ | 2026-05-30 |
