@@ -7,6 +7,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { use } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const copy = {
   en: {
@@ -78,7 +80,9 @@ export default function ProductDetailPage({
       : 'CeraTory';
 
   return (
-    <div className="w-full bg-white">
+    <>
+      <Header />
+      <div className="w-full bg-white pt-[84px] lg:pt-[92px]">
       {/* Breadcrumb */}
       <div className="border-b border-slate-200 px-4 py-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
@@ -337,6 +341,8 @@ export default function ProductDetailPage({
           )}
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
