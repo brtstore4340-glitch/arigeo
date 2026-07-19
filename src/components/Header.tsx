@@ -82,21 +82,6 @@ export default function Header() {
       href: "/brands",
       dropdownGroups: [
         {
-          heading: locale === "th" ? "ภาพรวม" : "Overview",
-          entries: [
-            {
-              href: "/brands",
-              label: t("brands"),
-              detail: locale === "th" ? "พอร์ตโฟลิโอแบรนด์ทั้งหมด" : "ARIGEO brand portfolio",
-            },
-            {
-              href: "/products",
-              label: t("products"),
-              detail: locale === "th" ? "ดูสินค้าตามแบรนด์" : "Browse products by brand",
-            },
-          ],
-        },
-        {
           heading: locale === "th" ? "แบรนด์" : "Brands",
           entries: brandEntries,
         },
