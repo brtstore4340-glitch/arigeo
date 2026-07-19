@@ -80,6 +80,8 @@ export type Product = {
 export const captainMaidFloorCleanerFloral: Product = {
   slug: "captain-maid-floor-cleaner-floral-passionate",
   messagesKey: "captainMaid.floorCleanerFloral",
+  name: "Captain Maid Floor Cleaner — Floral Passionate",
+  shortBenefit: "ผลิตภัณฑ์ทำความสะอาดพื้น กลิ่น Floral Passionate",
   brand: "captain-maid",
   category: "household-cleaning",
   image: "/images/products/captain-maid-floor-cleaner-floral.png",
@@ -106,6 +108,8 @@ export const captainMaidFloorCleanerFloral: Product = {
 export const captainMaidFloorCleanerLavender: Product = {
   slug: "captain-maid-floor-cleaner-lavender-kerry",
   messagesKey: "captainMaid.floorCleanerLavender",
+  name: "Captain Maid Floor Cleaner — Lavender Kerry",
+  shortBenefit: "ผลิตภัณฑ์ทำความสะอาดพื้น กลิ่น Lavender Kerry",
   brand: "captain-maid",
   category: "household-cleaning",
   image: "/images/products/captain-maid-floor-cleaner-lavender.png",
@@ -132,6 +136,8 @@ export const captainMaidFloorCleanerLavender: Product = {
 export const captainMaidFloorCleanerTeaTree: Product = {
   slug: "captain-maid-floor-cleaner-tea-tree-flash",
   messagesKey: "captainMaid.floorCleanerTeaTree",
+  name: "Captain Maid Floor Cleaner — Tea Tree Flash",
+  shortBenefit: "ผลิตภัณฑ์ทำความสะอาดพื้น กลิ่น Tea Tree Flash",
   brand: "captain-maid",
   category: "household-cleaning",
   image: "/images/products/captain-maid-floor-cleaner-tea-tree.png",
@@ -158,6 +164,8 @@ export const captainMaidFloorCleanerTeaTree: Product = {
 export const captainMaidBathroomCleaner: Product = {
   slug: "captain-maid-bathroom-cleaner-fresh-air",
   messagesKey: "captainMaid.bathroomCleaner",
+  name: "Captain Maid Bathroom Cleaner — Fresh Air",
+  shortBenefit: "ผลิตภัณฑ์ทำความสะอาดห้องน้ำ กลิ่น Fresh Air",
   brand: "captain-maid",
   category: "household-cleaning",
   image: "/images/products/captain-maid-bathroom-cleaner.png",
@@ -184,6 +192,8 @@ export const captainMaidBathroomCleaner: Product = {
 export const captainMaidKitchenCleaner: Product = {
   slug: "captain-maid-kitchen-cleaner-citrus-express",
   messagesKey: "captainMaid.kitchenCleaner",
+  name: "Captain Maid Kitchen Cleaner — Citrus Express",
+  shortBenefit: "ผลิตภัณฑ์ทำความสะอาดห้องครัว กลิ่น Citrus Express",
   brand: "captain-maid",
   category: "household-cleaning",
   image: "/images/products/captain-maid-kitchen-cleaner.png",
@@ -210,6 +220,8 @@ export const captainMaidKitchenCleaner: Product = {
 export const captainMaidGlassCleaner: Product = {
   slug: "captain-maid-glass-cleaner-fruity-fresh",
   messagesKey: "captainMaid.glassCleaner",
+  name: "Captain Maid Glass Cleaner — Fruity Fresh",
+  shortBenefit: "ผลิตภัณฑ์ทำความสะอาดกระจก กลิ่น Fruity Fresh",
   brand: "captain-maid",
   category: "household-cleaning",
   image: "/images/products/captain-maid-glass-cleaner.png",
