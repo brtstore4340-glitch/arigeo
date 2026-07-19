@@ -490,6 +490,57 @@ img { display: block; max-width: 100%; }
   .news-grid { grid-template-columns: 1fr; }
   .footer-main { grid-template-columns: 1fr; }
   .newsletter form { grid-template-columns: 1fr; }
+
+  /* Compact category cards for mobile */
+  .category-card {
+    min-height: 430px;
+    grid-template-columns: 50% 50%;
+    border-radius: 18px;
+  }
+  .category-copy {
+    min-width: 0;
+    padding: 24px 16px 22px;
+    background: linear-gradient(90deg,#f8f8f8 0%,rgba(248,248,248,.97) 90%,rgba(248,248,248,.25));
+  }
+  html[lang="th"] .category-copy h2,
+  .category-copy h2 {
+    max-width: 100%;
+    font-size: 25px;
+    line-height: 1.28 !important;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+  .accent-line {
+    width: 42px;
+    height: 3px;
+    margin: 12px 0 16px;
+  }
+  html[lang="th"] .category-copy p,
+  .category-copy p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+  .category-copy > a {
+    gap: 5px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .round-icon {
+    width: 58px;
+    height: 58px;
+    margin-top: 18px;
+  }
+  .round-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .category-image {
+    min-height: 430px;
+  }
 }
 
 /* ==========================================
