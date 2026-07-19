@@ -7,6 +7,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 type ProductBrand = 'captain-maid' | 'genuleaf' | 'ceratory';
 type ProductCategory = string;
@@ -16,7 +18,9 @@ export default function ProductsPage() {
   const [selectedBrand, setSelectedBrand] = useState<ProductBrand | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | null>(null);
 
-  const filtered = products.filter(p => {
+  const visibleProducts = products.filter(p => Boolean(p.image));
+
+  const filtered = visibleProducts.filter(p => {
     if (selectedBrand && p.brand !== selectedBrand) return false;
     if (selectedCategory && p.category !== selectedCategory) return false;
     return true;
@@ -48,11 +52,13 @@ export default function ProductsPage() {
   const t = copy[locale];
   const brands: ProductBrand[] = ['captain-maid', 'genuleaf', 'ceratory'];
   const categories = Array.from(
-    new Set(products.map(p => p.category))
+    new Set(visibleProducts.map(p => p.category))
   );
 
   return (
-    <div className="w-full bg-white">
+    <>
+      <Header />
+      <div className="w-full bg-white pt-[84px] lg:pt-[92px]">
       {/* Header */}
       <div className="border-b border-slate-200 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
@@ -201,6 +207,8 @@ export default function ProductsPage() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
