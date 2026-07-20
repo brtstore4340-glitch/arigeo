@@ -128,6 +128,18 @@ git diff origin/$(git rev-parse --abbrev-ref HEAD)..HEAD --name-only
 - **If changes appear**: Run `git pull --rebase` before proceeding
 - **If clean**: Safe to proceed with next steps
 
+✅ **Step 0.5: Design Context (FRONTEND/UX WORK ONLY — 2026-07-21)**
+- **Files**: `.ai/README.md` + project-specific files
+- **Time**: 10–15 minutes (first time) / 2 minutes (subsequent)
+- **What you'll learn**:
+  - 5-phase design process (understand → design system → UX review → implement)
+  - Design tokens (colors, typography, spacing, animations)
+  - Implementation quality rules
+  - Project brand identity and overrides
+  - Accessibility requirements (WCAG 2.2)
+- **When required**: Any frontend, UI/UX, design, or component work
+- **When skipped**: Backend, infrastructure, data science, DevOps work
+
 ✅ **Step 1: Read Project Registry System**
 - **File**: `PROJECT-REGISTRY-INDEX.md`
 - **Time**: 2 minutes
@@ -157,19 +169,28 @@ After reading all documents and running git safety check, you MUST verify you un
    - [ ] If changes appeared, I ran `git pull --rebase`
    - [ ] Git status is now clean (no divergence)
 
-2. **Registry Knowledge**:
+2. **Design Context** (Step 0.5 — Frontend/UX work only):
+   - [ ] I read `.ai/README.md` (design governance index)
+   - [ ] I read `.ai/MASTER-FRONTEND-PROMPT.md` (5-phase process)
+   - [ ] I read `.ai/IMPLEMENTATION-RULES.md` (code quality)
+   - [ ] I read `.ai/DESIGN_SYSTEM.md` (design tokens)
+   - [ ] I read project-specific files (PRODUCT.md, BRAND.md, UX_GUIDELINE.md)
+   - [ ] If project has overrides: I read `.ai/PROJECT_OVERRIDES/[project].md`
+   - [ ] I understand design process and brand identity
+
+3. **Registry Knowledge**:
    - [ ] I know the 8 projects and their types
    - [ ] I know where PROJECT.md is for my target project
    - [ ] I know how to find architecture.md and REQUIREMENTS.md
    - [ ] I can find project status in FLEET-DASHBOARD.md
 
-3. **Coordination Knowledge**:
+4. **Coordination Knowledge**:
    - [ ] I know to check `.work-locks/` before editing any file
    - [ ] I know that `git rebase origin/main` is MANDATORY before push
    - [ ] I know to add `Modified-by: my-agent-name` in commit messages
    - [ ] I know the recovery procedure if work gets overwritten
 
-4. **Ready to Work**:
+5. **Ready to Work**:
    - [ ] I have read all required documents
    - [ ] I have completed git safety sync
    - [ ] I understand the registry system
@@ -219,11 +240,14 @@ When starting work, confirm you have read by saying:
 
 Pre-work checks:
 - git fetch + git diff origin/branch..HEAD ✅ (clean)
+- .ai/README.md + .ai/MASTER-FRONTEND-PROMPT.md ✅ (if frontend work)
+- .ai/DESIGN_SYSTEM.md + project-specific files ✅ (if frontend work)
 - PROJECT-REGISTRY-INDEX.md ✅
 - AGENT-QUICK-REFERENCE.md ✅
 
 I understand:
 - Git safety sync (Step 0: hardcoded rule) ✅
+- Design process + tokens (Step 0.5: if frontend work) ✅
 - Registry system (8 projects, types, status) ✅
 - Coordination protocol (locks, rebase, attribution) ✅
 - Overwrite prevention measures ✅
