@@ -79,6 +79,37 @@
 - **pre-push hook**: Blocks pushes to main (PR required)
 - Hooks exit code 1 = commit/push BLOCKED (human must resolve)
 
+## 🚨 PRE-WORK GIT SAFETY CHECK (Hardcoded Rule — 2026-07-21)
+
+**BEFORE starting ANY task on ANY project, MANDATORY CHECK:**
+
+```bash
+git fetch origin
+git diff origin/$(git rev-parse --abbrev-ref HEAD)..HEAD --name-only
+```
+
+### Why This Matters
+- ❌ **Without check**: Agent may have stale local commits; pushing overwrites teammates' newer remote commits
+- ✅ **With check**: Agent sees what's changed remotely before starting; prevents file conflicts + accidental reversions
+
+### Example: Luxi Problem (2026-07-21)
+- Local: 1 commit (old work)
+- Remote: 7 newer commits (overwritten changes)
+- **If pushed without check**: 7 commits disappear, work lost
+
+### Implementation
+- **Non-negotiable rule**: ALL agents must run check before ANY task start
+- **Output shows**: Any files changed remotely since last local sync
+- **If output non-empty**: Must `git pull --rebase` or abort (notify ธาม)
+- **If output empty**: Safe to proceed
+
+### Enforcement
+- Agents who skip this rule: work may be lost to conflicts
+- This is a **hard rule**, not a suggestion
+- Part of **Pre-Work Checklist** (added to Initialization Protocol below)
+
+---
+
 ## 🚨 MANDATORY: Agent Initialization Protocol
 
 **ALL AGENTS MUST READ BEFORE STARTING ANY WORK**
@@ -86,6 +117,16 @@
 ### Pre-Work Checklist (REQUIRED)
 
 Before you execute ANY task (code, commits, pushes), you MUST:
+
+✅ **Step 0: Git Safety Sync (HARDCODED RULE — 2026-07-21)**
+```bash
+git fetch origin
+git diff origin/$(git rev-parse --abbrev-ref HEAD)..HEAD --name-only
+```
+- **Time**: 5 seconds
+- **Why**: Prevents pushing stale commits over teammates' remote work
+- **If changes appear**: Run `git pull --rebase` before proceeding
+- **If clean**: Safe to proceed with next steps
 
 ✅ **Step 1: Read Project Registry System**
 - **File**: `PROJECT-REGISTRY-INDEX.md`
@@ -108,22 +149,29 @@ Before you execute ANY task (code, commits, pushes), you MUST:
 
 ### Verification Steps
 
-After reading both documents, you MUST verify you understand:
+After reading all documents and running git safety check, you MUST verify you understand:
 
-1. **Registry Knowledge**:
+1. **Git Safety** (Step 0 — Hardcoded):
+   - [ ] I ran `git fetch origin` and checked result
+   - [ ] I ran `git diff origin/branch..HEAD` to see remote changes
+   - [ ] If changes appeared, I ran `git pull --rebase`
+   - [ ] Git status is now clean (no divergence)
+
+2. **Registry Knowledge**:
    - [ ] I know the 8 projects and their types
    - [ ] I know where PROJECT.md is for my target project
    - [ ] I know how to find architecture.md and REQUIREMENTS.md
    - [ ] I can find project status in FLEET-DASHBOARD.md
 
-2. **Coordination Knowledge**:
+3. **Coordination Knowledge**:
    - [ ] I know to check `.work-locks/` before editing any file
    - [ ] I know that `git rebase origin/main` is MANDATORY before push
    - [ ] I know to add `Modified-by: my-agent-name` in commit messages
    - [ ] I know the recovery procedure if work gets overwritten
 
-3. **Ready to Work**:
-   - [ ] I have read both required documents
+4. **Ready to Work**:
+   - [ ] I have read all required documents
+   - [ ] I have completed git safety sync
    - [ ] I understand the registry system
    - [ ] I understand the coordination protocol
    - [ ] I am ready to proceed with the assigned task
@@ -169,11 +217,13 @@ When starting work, confirm you have read by saying:
 ```
 ✅ Agent [NAME] Initialization Complete
 
-I have read:
+Pre-work checks:
+- git fetch + git diff origin/branch..HEAD ✅ (clean)
 - PROJECT-REGISTRY-INDEX.md ✅
 - AGENT-QUICK-REFERENCE.md ✅
 
 I understand:
+- Git safety sync (Step 0: hardcoded rule) ✅
 - Registry system (8 projects, types, status) ✅
 - Coordination protocol (locks, rebase, attribution) ✅
 - Overwrite prevention measures ✅
