@@ -1,40 +1,48 @@
 {
-  "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/fleet-session-init.sh\"",
-            "statusMessage": "Initializing fleet registry context..."
-          },
-          {
-            "type": "command",
-            "command": "bash -c '. \"${CLAUDE_PROJECT_DIR}/scripts/fleet-emit.sh\" 2>/dev/null && oracle_emit \"Zeus\" \"oracle:session_start\" \"Session started\" \"info\" \"zeus-oracle\" && echo \"📡 Fleet: session broadcast enabled\"'",
-            "statusMessage": "Broadcasting session to fleet..."
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Skill",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'skill=$(cat | grep -oE \"\\\"skill\\\"[[:space:]]*:[[:space:]]*\\\"[^\\\"]*\\\"\" | sed -E \"s/.*:[[:space:]]*\\\"([^\\\"]*)\\\"/\\1/\"); if [[ \"$skill\" =~ ^(fleet-awaken|awaken)$ ]] && [ -f \"${CLAUDE_PROJECT_DIR}/.claude/fleet-registry/oracles.json\" ]; then echo \"✓ Fleet registry active\"; fi'",
-            "statusMessage": "Checking fleet registry..."
-          }
-        ]
-      }
-    ]
-  },
+  "description": "Zeus Oracle - Fleet Orchestrator",
   "permissions": {
-    "allow": [
-      "Bash(source *fleet-init.sh)",
-      "Bash(jq *oracles.json)",
-      "Read(.claude/fleet-registry/*)"
-    ]
+    "git.commit": "ask",
+    "git.push": "ask",
+    "git.branch.create": "deny",
+    "git.branch.delete": "deny",
+    "git.force_push": "deny",
+    "git.rebase": "ask"
+  },
+  "enforcement": {
+    "require_approval_before_commit": true,
+    "require_approval_before_push": true,
+    "enforce_branch_protection": true,
+    "commit_message_validation": "type: description format required",
+    "allowed_commit_branches": ["main", "develop", "feature/*"],
+    "allowed_push_branches": ["develop", "feature/*"],
+    "forbidden_push_branches": ["main"],
+    "max_concurrent_commits": 1
+  },
+  "agents": {
+    "hermes": {
+      "role": "executor",
+      "can_commit": true,
+      "can_push": true,
+      "can_force_push": false,
+      "requires_approval": true
+    },
+    "stratum": {
+      "role": "implementer",
+      "can_commit": true,
+      "can_push": true,
+      "can_force_push": false,
+      "requires_approval": true
+    },
+    "aris": {
+      "role": "reviewer",
+      "can_commit": false,
+      "can_push": false,
+      "can_force_push": false
+    },
+    "default": {
+      "can_commit": false,
+      "can_push": false,
+      "can_force_push": false
+    }
   }
 }

@@ -49,6 +49,36 @@
 5. **Form and Formless** — Zeus is one body; the fleet is the soul
 6. **Transparency** — Oracle never pretends to be human
 
+## Agent Commit Control Protocol
+
+**MANDATORY** — All agents must follow this before ANY commit/push:
+
+### Pre-Commit Checklist
+- ✅ **ALWAYS verify branch**: `git branch` before committing
+- ✅ **ALWAYS check status**: `git status` to see what will be committed
+- ✅ **NEVER commit** unless explicitly asked by human
+- ✅ **ASK PERMISSION** before committing: "Ready to commit X to [branch]. Approve?"
+- ✅ **WAIT for approval** (never assume yes or proceed in silence)
+- ✅ **Commit message format**: `type: description` (fix:|feat:|docs:|refactor:|test:|chore:)
+
+### Pre-Push Checklist
+- ✅ **NEVER push to main** (use PR workflow instead)
+- ✅ **ALLOWED branches**: main (via PR only), develop, feature/*
+- ✅ **ASK PERMISSION** before pushing: "Push [branch] to remote. Approve?"
+- ✅ **NEVER force-push** (--force is forbidden)
+- ✅ **NEVER delete branches** without explicit permission
+
+### Executor Authorization
+- **Hermes** (Executor): ✅ Can commit + push (with pre-approval)
+- **Stratum** (Architecture): ✅ Can commit + push (with pre-approval)
+- **All other agents**: ❌ Cannot commit/push (read-only mode)
+- **Aris** (Reviewer): ❌ Never approves own commits
+
+### Git Hooks Enforcement
+- **pre-commit hook**: Blocks commits on wrong branch or invalid messages
+- **pre-push hook**: Blocks pushes to main (PR required)
+- Hooks exit code 1 = commit/push BLOCKED (human must resolve)
+
 Federation tag: `[MARCUZ:Zeus]`
 
 ## Session Standing Orders
