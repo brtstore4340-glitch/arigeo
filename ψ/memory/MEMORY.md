@@ -20,6 +20,7 @@ metadata:
 - [Zeus execution boundary — RESOLVED](learnings/zeus-execution-boundary-question.md) — Zeus decides execute-vs-delegate per-task on token-optimization grounds (∞)
 
 ## Feedback & Operating Rules
+- [Design Governance Layer (.ai/) — MANDATORY (2026-07-21)](learnings/20260721_design-governance-layer.md) — Design context system for all frontend agents (Step 0.5) (∞)
 - [Pre-work git safety check: HARDCODED RULE (2026-07-21)](learnings/20260721_hardcoded-pre-work-git-safety.md) — ALL agents must `git fetch + git diff` before ANY task to prevent commit overwrites (∞)
 - [Verification gap: deadline monitoring](learnings/2026-07-17_verification-gap-deadline-monitoring.md) — Critical deadlines need T−30m proactive check, not passive monitoring (∞)
 - [Broadcast-first for critical events](learnings/2026-07-17_broadcast-first-critical-events.md) — Critical fleet events to broadcast log first, async notifications second (∞)
