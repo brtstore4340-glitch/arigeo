@@ -12,12 +12,15 @@ metadata:
 
 > **Index of all persistent memories** — fast lookup, one-line hooks, organized by type. < 200 lines.
 
-**Last Updated**: 2026-07-17 07:21 · **Total Entries**: 14 · **Index Size**: ~550 tokens
+**Last Updated**: 2026-07-21 · **Total Entries**: 15 · **Index Size**: ~650 tokens
 
 ---
 
 ## User Profile
 - [Zeus execution boundary — RESOLVED](learnings/zeus-execution-boundary-question.md) — Zeus decides execute-vs-delegate per-task on token-optimization grounds (∞)
+
+## Session Consolidations
+- [Design Governance Deployment Session (2026-07-21)](learnings/session-2026-07-21-design-governance-deployment.md) — Complete session summary: git safety hardcoding, .ai/ framework, captain-maid brand, hardware oracle activation, proof strategy (∞)
 
 ## Feedback & Operating Rules
 - [Design Governance Layer (.ai/) — MANDATORY (2026-07-21)](learnings/20260721_design-governance-layer.md) — Design context system for all frontend agents (Step 0.5) (∞)
