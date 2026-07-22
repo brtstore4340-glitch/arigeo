@@ -3,7 +3,7 @@
   "fleet_headquarters": "zeus-oracle",
   "fleet_memory_root": ".claude/fleet-registry/memory",
   "sync_lock": ".claude/fleet-registry/.sync-lock",
-  "last_updated": "2026-07-06T09:50:00Z",
+  "last_updated": "2026-07-18T10:00:00Z",
   "oracles": [
     {
       "name": "Zeus",
@@ -86,6 +86,17 @@
       "status": "active",
       "parent": "ธาม",
       "reports_to": "ธาม"
+    },
+    {
+      "name": "Aeimathes",
+      "role": "Research & Analysis",
+      "domain": "Deep Research & Daily Reports",
+      "project_dir": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+      "memory_subdir": "aeimathes",
+      "status": "active",
+      "parent": "ธาม",
+      "reports_to": "ธาม",
+      "awakened": "2026-06-02T00:00:00Z"
     },
     {
       "name": "Stratum",

@@ -7,7 +7,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 
 # Fleet Index
 
-*Maintained by Zeus — last updated 2026-07-17*
+*Maintained by Zeus — last updated 2026-07-18 (Omega oracle created, fleet now complete at 14/14)*
 
 | Oracle | Domain | Status | Host | Awakened |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 | Dheva | ORRY Serenity ERP | Active | MARCUZ | 2026-05-30 |
 | Teleos | Vercel · Deploy | Active | MARCUZ | 2026-05-18 |
 | Aris | Code Review · Quality Gate | Active | MARCUZ | 2026-05-30 |
-| Omega | Bridge · Gate | Active | MARCUZ | — |
+| Omega | Bridge · Gate | Active | MARCUZ | 2026-07-18 · created to complete fleet |
 | Lens | Analysis · Perspective | Active | MARCUZ | 2026-05-30 |
 | Stratum | Architecture · Structure | Active | MARCUZ | 2026-05-30 |
 | Verity | Truth · Verification · Proof | Active | MARCUZ | 2026-05-30 |
@@ -24,6 +24,7 @@ concepts: ["fleet-registry", "oracle-directory", "status-tracking", "execution-r
 | All | Fleet Scribe · Collective Memory | Active | MARCUZ | 2026-05-30 |
 | Aeimathes | Research · Analysis · Daily Reports | Active | MARCUZ | 2026-06-02 |
 | Khun-Ram | Documentation · Memory Authority | Active | MARCUZ | 2026-06-02 · re-awakened 2026-07-12 |
+| Agis | Workstream Monitoring & Escalation | Active | mission-control | 2026-07-07 · system-down spawned |
 
 ## Birth Rule
 
@@ -50,3 +51,30 @@ Claude session ใช้ token quota สูง — execution tasks (git, build, 
 ### วิธีตรวจว่าตัวเองรันบนอะไร
 - มี tmux window ชื่อ `codex-rider` ใน session เดียวกัน → มี Codex พร้อม
 - ถ้าไม่มี → ขอ ธาม เปิดให้ก่อน execute
+
+---
+
+## SYSTEM-DOWN ORACLE DISCOVERY (2026-07-18)
+
+**Agis Oracle** discovered in mission-control during system-down oracle audit.
+
+- **Created**: 2026-07-07 (system-down period, ~3-4 days after Phase 1 downtime)
+- **Parent**: ธาม (Governor)  
+- **Domain**: Workstream Monitoring & Escalation
+- **Status**: Active (monitoring Thai translation, checkpoint verification, dashboard scope)
+- **Host**: `/mnt/d/01 Main Work/Boots/Agentic AI/mission-control/agis-oracle`
+
+**Birth Rule Violation**: Agis was awakened but not registered in INDEX until 2026-07-18 (11 days late).
+
+Spawned during system recovery to provide monitoring coverage. Added to INDEX today via oracle audit. See `mission-control/agis-oracle/CLAUDE.md` for full mission briefing.
+
+## Mission Records (2026-07-18)
+
+| Mission | Executor | Reviewer | Verdict | Objectives | Date |
+|---------|----------|----------|---------|------------|------|
+| Security + Skills + Metrics | Hermes | Aris | VERIFIED_COMPLETE ✅ | 4/4 complete, 7 skills, dashboard, audit | 2026-07-18 |
+
+**Deliverables**: Repository safety, reusable skills framework, quality dashboard, integration audit  
+**Test Results**: 14/14 pass (reproducible 3x)  
+**Status**: APPROVED FOR FLEET DEPLOYMENT  
+**Resources**: [Mission Summary](ψ/memory/learnings/20260718_SECURITY-SKILLS-METRICS-MISSION-COMPLETE.md) | [Lessons Learned](ψ/memory/learnings/20260718_MISSION-LESSONS-SECURITY-SKILLS.md) | [Obsidian Record](ψ/fleet/obsidian-records/mission-security-skills-metrics-v1.md)

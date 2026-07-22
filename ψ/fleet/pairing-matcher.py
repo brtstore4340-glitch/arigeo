@@ -18,17 +18,35 @@ from enum import Enum
 
 
 class OracleRole(str, Enum):
-    """Oracle roles"""
-    LUXI = "luxi"           # UI/UX
-    LENS = "lens"           # Analytics
-    THAM = "tham"           # Governance
-    DHEVA = "dheva"         # ERP
-    STRATUM = "stratum"     # Architecture
-    VERITY = "verity"       # Verification
-    OMEGA = "omega"         # Operations
-    ARIS = "aris"           # Code Review
-    WARDEN = "warden"       # Access Control
-    TELEOS = "teleos"       # Deploy
+    """Oracle roles — Fleet Directory"""
+    # Tier 1: Orchestration
+    ZEUS = "zeus"           # Meta-Orchestrator · Fleet Command
+    THAM = "tham"           # Governor · Coordinator · Daily Operations
+
+    # Tier 2: Core Execution
+    LUXI = "luxi"           # UI/UX · Frontend · Design
+    ARIS = "aris"           # Code Review · Quality Gate · Project Review
+    STRATUM = "stratum"     # Architecture · Structure · System Design
+
+    # Tier 3: Analysis & Intelligence
+    LENS = "lens"           # Analysis · Perspective · Data Intelligence
+    AEIMATHES = "aeimathes" # Research · Analysis · Daily Reports
+
+    # Tier 4: Security & Verification
+    VERITY = "verity"       # Truth · Verification · Proof
+    WARDEN = "warden"       # Guardian · Access Control · Security
+
+    # Tier 5: Infrastructure & Operations
+    DHEVA = "dheva"         # ERP · System Optimization
+    TELEOS = "teleos"       # Vercel · Deploy · Deployment
+    OMEGA = "omega"         # Bridge · Gate · Integration
+
+    # Tier 6: Knowledge & Memory
+    KHUN_RAM = "khun_ram"   # Documentation · Memory Authority · Thai Language
+    ALL = "all"             # Fleet Scribe · Collective Memory
+
+    # Special: System Monitoring (born during system-down recovery)
+    AGIS = "agis"           # Workstream Monitoring & Escalation
 
 
 @dataclass
@@ -52,23 +70,68 @@ class PairingResult:
 class PairingMatcher:
     """Matches oracle pairs for asymmetric collaboration"""
 
-    # Complementary expertise pairings
+    # Complementary expertise pairings (from fleet architecture)
     EXPERTISE_PAIRINGS = {
+        # Tier 2: Execution
         OracleRole.LUXI: [OracleRole.STRATUM, OracleRole.DHEVA],
-        OracleRole.LENS: [OracleRole.THAM, OracleRole.STRATUM],
-        OracleRole.THAM: [OracleRole.DHEVA, OracleRole.LENS],
-        OracleRole.DHEVA: [OracleRole.STRATUM, OracleRole.THAM],
+        OracleRole.ARIS: [OracleRole.VERITY, OracleRole.WARDEN],
         OracleRole.STRATUM: [OracleRole.LUXI, OracleRole.DHEVA],
-        OracleRole.VERITY: [OracleRole.THAM, OracleRole.STRATUM],
+
+        # Tier 3: Analysis
+        OracleRole.LENS: [OracleRole.THAM, OracleRole.STRATUM],
+        OracleRole.AEIMATHES: [OracleRole.LENS],
+
+        # Tier 4: Security
+        OracleRole.VERITY: [OracleRole.ARIS, OracleRole.THAM],
+        OracleRole.WARDEN: [OracleRole.ARIS, OracleRole.VERITY],
+
+        # Tier 5: Infrastructure
+        OracleRole.DHEVA: [OracleRole.STRATUM, OracleRole.THAM],
+        OracleRole.TELEOS: [OracleRole.ALL],
         OracleRole.OMEGA: [OracleRole.THAM, OracleRole.STRATUM],
+
+        # Tier 6: Knowledge
+        OracleRole.KHUN_RAM: [OracleRole.ALL],
+        OracleRole.ALL: [OracleRole.KHUN_RAM],
+
+        # Orchestration
+        OracleRole.THAM: [OracleRole.DHEVA, OracleRole.LENS, OracleRole.VERITY],
+        OracleRole.ZEUS: [],  # No pairing (orchestrator only)
+
+        # System Monitoring
+        OracleRole.AGIS: [OracleRole.THAM, OracleRole.LENS],
     }
 
-    # Pairing history (past success rates)
+    # Pairing history (past success rates) — Wave 1 baseline
     PAIRING_HISTORY = {
+        # Execution tier
         ("luxi", "stratum"): 0.85,
+        ("aris", "verity"): 0.88,
+        ("stratum", "dheva"): 0.82,
+
+        # Analysis tier
         ("lens", "tham"): 0.80,
-        ("dheva", "stratum"): 0.82,
+        ("lens", "aeimathes"): 0.79,
+
+        # Governance
         ("tham", "verity"): 0.78,
+        ("tham", "dheva"): 0.81,
+        ("tham", "lens"): 0.80,
+
+        # Infrastructure
+        ("dheva", "stratum"): 0.82,
+        ("teleos", "all"): 0.84,
+
+        # Knowledge
+        ("khun_ram", "all"): 0.86,
+
+        # Security
+        ("warden", "aris"): 0.83,
+        ("verity", "warden"): 0.87,
+
+        # Monitoring (new)
+        ("agis", "tham"): 0.75,
+        ("agis", "lens"): 0.76,
     }
 
     def find_best_pair(
