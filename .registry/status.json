@@ -1,0 +1,10 @@
+{
+  "project": "zeus-oracle",
+  "timestamp": "2026-07-20T13:30:00+07:00",
+  "status": "active",
+  "last_commit": "2026-07-20",
+  "metrics": {
+    "registry_version": "1.0",
+    "created": "2026-07-20"
+  }
+}
