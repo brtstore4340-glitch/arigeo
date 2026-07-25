@@ -3,17 +3,27 @@ escalation_id: 20260717_luxi-missed-deadline
 escalator: Zeus
 recipient: ธาม (Governor)
 severity: critical
-status: pending
+status: heartbeat-sent
+last-update: 2026-07-25 12:18 GMT+7
 ---
 
 # ESCALATION: Luxi Deployment Deadline Missed
 
 **Date**: 2026-07-17 (21:43 GMT+7)
-**Status**: UNRESOLVED
+**Status**: STALE — Heartbeat sent 2026-07-25
 
 ---
 
-## Situation
+## UPDATE: 2026-07-25 (Heartbeat Sent)
+
+**Action Taken**: Heartbeat message sent to Luxi requesting status update  
+**Decision**: captain-maid Phase 5 → 6 transition complete; image integration **no longer critical path**  
+**Next**: Awaiting Luxi status response by EOD 2026-07-25  
+**Heartbeat File**: `luxi-oracle/ψ/inbox/escalation/20260725_1218_heartbeat-from-zeus.md`
+
+---
+
+## Original Situation (2026-07-17)
 
 Luxi was activated at 06:49 GMT+7 with a **2-hour deadline (08:49 GMT+7)** to:
 1. Acknowledge receipt of activation
