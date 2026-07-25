@@ -1,0 +1,84 @@
+{
+  "version": "3.0",
+  "date": "2026-07-18",
+  "escalation_triggers": {
+    "ack_timeout": {
+      "description": "No ACK received for directive",
+      "timeout_minutes": 5,
+      "severity": "critical",
+      "action": "escalate_to_zeus",
+      "message_template": "Missing ACK from {{oracle}} for directive: {{directive_subject}}"
+    },
+    "report_timeout": {
+      "description": "No REPORT received within expected interval",
+      "timeout_minutes": 10,
+      "severity": "warn",
+      "action": "escalate_to_zeus",
+      "message_template": "Missing report from {{oracle}} for task: {{task_description}}"
+    },
+    "heartbeat_timeout": {
+      "description": "Oracle hasn't sent heartbeat signal",
+      "timeout_minutes": 15,
+      "severity": "critical",
+      "action": "escalate_to_zeus",
+      "message_template": "Missing heartbeat from {{oracle}} — potentially offline"
+    },
+    "message_failed": {
+      "description": "Message marked as failed or error",
+      "timeout_minutes": 0,
+      "severity": "critical",
+      "action": "escalate_immediately",
+      "message_template": "FAILED: {{oracle}} reported failure on task: {{error_message}}"
+    },
+    "deadline_approaching": {
+      "description": "Task deadline within 1 hour, no completion",
+      "timeout_minutes": 60,
+      "severity": "high",
+      "action": "alert_and_escalate",
+      "message_template": "DEADLINE APPROACHING: {{oracle}} on {{project}} — due in 1 hour"
+    },
+    "message_expired": {
+      "description": "Message past expiration time",
+      "timeout_minutes": 1440,
+      "severity": "info",
+      "action": "archive_message",
+      "message_template": "Archiving expired message: {{message_id}}"
+    }
+  },
+  "escalation_paths": {
+    "critical": [
+      {"recipient": "Zeus", "channel": "escalation:critical", "priority": 1},
+      {"recipient": "ธาม", "channel": "escalation:critical", "priority": 2}
+    ],
+    "warn": [
+      {"recipient": "Zeus", "channel": "escalation:warn", "priority": 1},
+      {"recipient": "ธาม", "channel": "escalation:warn", "priority": 2}
+    ],
+    "info": [
+      {"recipient": "ธาม", "channel": "escalation:info", "priority": 1},
+      {"recipient": "All", "channel": "broadcast", "priority": 2}
+    ]
+  },
+  "retry_logic": {
+    "max_retries": 3,
+    "retry_interval_minutes": 5,
+    "backoff_multiplier": 1.5,
+    "fail_after_minutes": 60
+  },
+  "archive_policy": {
+    "archive_after_days": 7,
+    "retention_days": 90,
+    "archive_location": "archive/YYYY-MM/archive.ndjson",
+    "cleanup_on_archive": true
+  },
+  "message_expiration": {
+    "directive": "24h",
+    "report": "7d",
+    "ack": "1h",
+    "heartbeat": "1h",
+    "event": "24h",
+    "escalation": "24h",
+    "query": "24h",
+    "response": "7d"
+  }
+}

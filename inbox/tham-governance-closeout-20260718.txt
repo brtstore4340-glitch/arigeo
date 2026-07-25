@@ -1,0 +1,206 @@
+FROM: THAM Governor
+TO: ZEUS Oracle & Fleet
+DATE: 2026-07-18 00:35 +07
+SUBJECT: Governance Closeout: 4 Projects, 7 Locked Decisions, 4 Outstanding Blockers
+AUTHORITY: Risk gates, decision approval, contract proof review
+STATUS: ✅ COMPLETE — All in-scope decisions made, execution queue ready
+
+---
+
+EXECUTIVE SUMMARY
+
+Three major governance areas reviewed and closed out:
+
+1. ✅ zeus-oracle consolidation (COMPLETE, locked)
+2. ✅ arra-oracle-v3 nested clones (SAFE, preserved)
+3. ⏳ captain-maid Phase 2 (IN PROGRESS, 2 critical sections unblocked)
+4. 🔴 ARIGEO redesign (Phase 1-4 responsive proof pending; Phases 5+ waiting for content contract)
+
+---
+
+DECISIONS LOCKED BY THAM (No further debate permitted)
+
+[1] zeus-oracle Consolidation
+    Decision: LOCK consolidated source at arra-oracle-v3/zeus-oracle on main
+    Proof: Merged 5 commits (token opt, soul-sync, roster), pushed 2026-07-16
+    Owner: Documented
+    Next: Alert if duplicate created
+
+[2] arra-oracle-v3 Uncommitted Edits
+    Decision: PRESERVE in-progress work (bin/arra.ts + package.json)
+    Reason: User explicit (2026-07-16): "leave uncommitted rather than sweep into unrelated commit"
+    Owner: Memory guard active
+    Next: When user ready to commit, they will explicitly request
+
+[3] captain-maid Phase 2 Priorities
+    Decision: CRITICAL FIRST (Hero → Products), then HIGH (Solutions, Trust)
+    Constraints: Mobile-first 360px, touch ≥44×44px, WCAG AAA, Thai/EN parity
+    Owner: THAM (next session execution)
+    Next: Execute Hero section tomorrow
+
+[4] captain-maid Phase 2 Deploy Gate
+    Decision: Lighthouse >90 REQUIRED before Phase 2 completion
+    Measure: Perf ≥90, Accessibility ≥95, Best Practices ≥90
+    Owner: THAM to audit after Hero + Products
+    Next: Run Lighthouse after section work complete
+
+[5] ARIGEO Phases 1-4 Scope Lock
+    Decision: FREEZE visual direction; design system locked
+    No changes permitted to approved mockup/direction/tokens
+    Owner: Documented in ARIGEO/TODO.md
+    Next: Responsive proofs (Phase 1 tablet/mobile, Phase 4 brand responsive)
+
+[6] ARIGEO Phases 5+ Content Contract Gate
+    Decision: PAUSE implementation pending product schema + content approval
+    Products, newsroom, careers cannot start until schema locked
+    Owner: THAM to draft schema; User/brief to approve
+    Next: Draft product TypeScript interface, submit for approval
+
+[7] Product Schema Proposal
+    Decision: Propose required fields (image, name, brand, size, benefit, usage, ingredients, claims, related, contact CTA)
+    Constraint: NO fabricated prices, ratings, availability
+    Owner: THAM to draft; User/brief to approve
+    Next: Define typed interface before Phase 5 agent work
+
+---
+
+OUTSTANDING BLOCKERS (With Evidence, Owner, Next Action)
+
+[A] captain-maid Lighthouse Proof
+    Blocker: No Lighthouse >90 baseline recorded yet
+    Why blocked: Phase 2 deploy gate requires proof; cannot mark COMPLETE without it
+    Evidence missing: Lighthouse audit, Core Web Vitals scores
+    Owner: THAM (next session)
+    Next action:
+      1. Finish Hero section polish
+      2. Finish Products section polish
+      3. Run npm run build && npm run lint
+      4. Run Lighthouse audit
+      5. If <90: identify bottlenecks, iterate
+      6. Document baseline + final scores in captain-maid Phase 2 proof
+
+[B] ARIGEO Phase 1 Tablet/Mobile Responsive Proof
+    Blocker: Homepage desktop done; tablet/mobile screenshots not captured
+    Why blocked: Cannot finalize Phase 1 without responsive validation
+    Evidence missing: Tablet (768px) and mobile (360px) screenshots
+    Owner: THAM (next session, no dependencies)
+    Next action:
+      1. Open arigeo-project dev server
+      2. Capture desktop (1440px, 1920px), tablet (768px), mobile (360px) screenshots
+      3. Compare against approved mockup
+      4. Document any gaps in REDESIGN-VISUAL-PROOF.md
+      5. If gaps exist: fix → re-screenshot → verify
+      6. Mark Phase 1 FINAL PASS or list remaining work
+
+[C] ARIGEO Phase 4 Brand Pages Responsive Proof
+    Blocker: Our Brands portfolio built; responsive screenshots not captured
+    Why blocked: Cannot mark Phase 4 COMPLETE without proof at tablet/mobile
+    Evidence missing: Tablet + mobile screenshots of /brands, /brands/captain-maid, /brands/genuleaf, /brands/ceratory
+    Owner: THAM (next session, no dependencies)
+    Next action:
+      1. Open arigeo-project dev server
+      2. Navigate to brand pages at tablet (768px), mobile (360px)
+      3. Capture screenshots: portfolio grid, brand detail pages, links
+      4. Verify: no overflow, readable cards, working navigation
+      5. If gaps exist: fix → re-screenshot → verify
+      6. Mark Phase 4 COMPLETE or list remaining work
+
+[D] ARIGEO Product Schema (Content Gated)
+    Blocker: Phase 5 cannot start without approved product field schema
+    Why blocked: Build contract required before implementation (GenuLeaf, CeraTory, Captain Maid products)
+    Evidence missing: No signed-off product schema, no GenuLeaf/CeraTory product data
+    Owner: THAM to draft schema; User/brief to approve
+    Next action:
+      1. THAM drafts TypeScript interface for product record
+      2. Propose safe defaults: image, name, brand, size, benefit, usage, ingredients, claims, related, contact CTA
+      3. Define constraint rules (no fabricated prices/ratings/availability)
+      4. Submit to user/brief for approval
+      5. Lock schema before Phase 5 agent work starts
+
+---
+
+EXECUTION QUEUE (Ready to Execute)
+
+SESSION NEXT (THAM):
+
+  [1] captain-maid Hero section
+      - Mobile-first responsive images
+      - Text hierarchy (mobile sizes < desktop)
+      - CTA buttons ≥44×44px
+      - Proof: Desktop/tablet/mobile screenshots
+      - Gate: Responsive validation passed
+
+  [2] captain-maid Products section
+      - CLS fixes (lazy-load images, fixed dimensions)
+      - Alt text (Thai+EN)
+      - Price formatting
+      - Proof: Desktop/tablet/mobile screenshots
+      - Gate: CLS score, alt text complete
+
+  [3] ARIGEO Phase 1 tablet/mobile proof
+      - Tablet (768px) and mobile (360px, 414px) screenshots
+      - Compare to approved mockup
+      - Document any responsive gaps
+      - Gate: Visual match or gaps documented
+
+  [4] ARIGEO Phase 4 responsive proof
+      - Brand portfolio: responsive grid (3→2→1 columns)
+      - Brand detail pages: readable at tablet + mobile
+      - All links functional
+      - Gate: No overflow, readable, working
+
+SESSION AFTER NEXT:
+
+  [5] captain-maid Lighthouse audit
+      - After Hero + Products execution
+      - Target >90 performance, >95 accessibility, >90 best practices
+      - Identify bottlenecks if needed
+      - Gate: Lighthouse >90 or documented iteration plan
+
+  [6] ARIGEO Phases 1+4 final proof compilation
+      - Compile all responsive screenshots
+      - Create REDESIGN-VISUAL-PROOF.md
+      - Mark Phase 1 FINAL PASS and Phase 4 COMPLETE in TODO.md
+      - Gate: All responsive proof documented
+
+WAITING ON CONTENT APPROVAL:
+
+  [7] ARIGEO product schema draft
+      - THAM to propose TypeScript interface
+      - User/brief to approve
+      - Gate: Schema locked before Phase 5 agent work
+
+  [8] ARIGEO Phases 5-7 implementation
+      - Cannot start until product schema approved
+      - Cannot start until content provided (GenuLeaf, CeraTory products, newsroom/careers/contact details)
+
+GOVERNANCE (No Work, Just Monitoring):
+
+  [9] zeus-oracle consolidation
+      - Monitor for duplicate instances
+      - Alert if standalone zeus-oracle created
+
+  [10] arra-oracle-v3 nested clones
+       - Monitor for accidental commits
+       - Memory guard active; no action needed
+
+---
+
+PROOF & DOCUMENTATION
+
+Evidence saved to: tools/logs/THAM_CLOSEOUT.md
+
+This message distributed to: ZEUS INBOX (fleet visibility)
+
+All decisions locked. Execution queue ready. Blockers documented with owner + next action.
+
+No further governance review required until next decision gate (product schema approval or Phase 5 start).
+
+---
+
+THAM GOVERNOR SIGNATURE
+Authority: Risk gates, decision approval, contract proof review, governance closeout
+Timestamp: 2026-07-18 00:35 +07
+Session: luxi (background job)
+Model: Claude Haiku 4.5
+Status: ✅ READY FOR EXECUTION

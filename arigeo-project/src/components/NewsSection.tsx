@@ -1,72 +1,105 @@
-import React from 'react';
-import { Calendar, ArrowRight } from 'lucide-react';
+"use client";
+import React, { useState } from 'react';
+
+function ArrowIcon({ size = 18, className = '' }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+// Real news copy/dates aren't approved yet — "CONTENT REQUIRED" mirrors the
+// design system's own gating convention rather than inventing plausible dates.
+const articles = [
+  { category: 'Corporate', date: 'CONTENT REQUIRED', title: 'CONTENT REQUIRED — News article pending approval', image: '/images/home/news-corporate-building.png' },
+  { category: 'Product', date: 'CONTENT REQUIRED', title: 'CONTENT REQUIRED — News article pending approval', image: '/images/home/news-product-handwash.png' },
+  { category: 'Sustainability', date: 'CONTENT REQUIRED', title: 'CONTENT REQUIRED — News article pending approval', image: '/images/home/news-sustainability-globe.png' },
+  { category: 'Lifestyle', date: 'CONTENT REQUIRED', title: 'CONTENT REQUIRED — News article pending approval', image: '/images/home/news-lifestyle-couple.png' },
+];
+
+const perView = 4;
 
 const NewsSection = () => {
-  const articles = [
-    {
-      date: '12 ก.ค. 2569',
-      category: 'สุขภาพ',
-      title: 'แนวทางการเลือกเวชภัณฑ์สำหรับองค์กรและสถานพยาบาล',
-      desc: 'เกณฑ์การตัดสินใจและข้อควรระวังในการจัดซื้อเวชภัณฑ์ เพื่อคุณภาพและความปลอดภัยสูงสุดของผู้รับบริการ',
-      image: '/images/domo/img-3.png',
-    },
-    {
-      date: '05 ก.ค. 2569',
-      category: 'อุตสาหกรรม',
-      title: 'ความสำคัญของการจัดเก็บเคมีภัณฑ์อย่างปลอดภัย',
-      desc: 'อัปเดตมาตรฐานการจัดเก็บและขนส่งเคมีภัณฑ์อุตสาหกรรม เพื่อลดความเสี่ยงและเพิ่มประสิทธิภาพในการทำงาน',
-      image: '/images/domo/img-4.png',
-    },
-    {
-      date: '28 มิ.ย. 2569',
-      category: 'เกษตร',
-      title: 'เกษตรสมัยใหม่กับการใช้ผลิตภัณฑ์อย่างยั่งยืน',
-      desc: 'แนวโน้มการทำเกษตรกรรมที่ควบคู่ไปกับการรักษาสิ่งแวดล้อม และโซลูชันที่ช่วยสนับสนุนเกษตรกรไทย',
-      image: '/images/domo/img-5.png',
-    },
-  ];
+  const [page, setPage] = useState(0);
+  const pages = Math.max(1, articles.length - perView + 1);
+  const go = (d: number) => setPage((p) => Math.max(0, Math.min(pages - 1, p + d)));
 
   return (
-    <section id="news" className="py-24 bg-arigeo-light">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col sm:flex-row justify-between items-end mb-12 gap-6 animate-fade-up hover-lift opacity-0">
-          <div>
-            <h2 className="text-sm font-bold text-arigeo-red tracking-wider uppercase mb-3">ข่าวสารและบทความ</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground">ความรู้และข่าวสาร</h3>
-          </div>
-          <button className="text-arigeo-red font-medium flex items-center gap-2 hover:gap-3 transition-all">
-            ดูบทความทั้งหมด <ArrowRight className="w-4 h-4" />
-          </button>
+    <section id="news" className="py-20 px-6 max-w-7xl mx-auto font-sans">
+      <div className="flex items-end justify-between gap-5 mb-[22px]">
+        <div>
+          <p className="m-0 mb-2 text-arigeo-red-ink text-xs font-bold tracking-[0.14em] uppercase">Newsroom</p>
+          <h2 className="m-0 text-[32px] tracking-[-0.02em] text-arigeo-black font-extrabold">News &amp; Stories</h2>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {articles.map((article, index) => (
-            <div 
-              key={index} 
-              className={`bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer animate-fade-up hover-lift opacity-0 stagger-${index + 1}`}
+        <div className="flex items-center gap-[18px]">
+          <a href="#" className="text-arigeo-red-ink inline-flex gap-2.5 items-center font-bold">
+            View all news <ArrowIcon size={16} />
+          </a>
+          <div className="inline-flex gap-2">
+            <button
+              type="button"
+              aria-label="Previous"
+              onClick={() => go(-1)}
+              disabled={page === 0}
+              className={`w-10 h-10 border border-[#e1e1e1] rounded-full bg-white inline-flex items-center justify-center ${page === 0 ? 'cursor-default opacity-35' : 'cursor-pointer opacity-100'}`}
             >
-              <div className="h-48 bg-gray-100 relative overflow-hidden">
-                <div className="absolute inset-0 bg-arigeo-gray/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
-                <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <div className="p-8">
-                <div className="flex items-center gap-4 mb-4 text-xs font-bold uppercase tracking-wider">
-                  <span className="text-arigeo-red">{article.category}</span>
-                  <span className="text-gray-300">|</span>
-                  <span className="text-gray-400 flex items-center gap-1">
-                    <Calendar className="w-3 h-3" /> {article.date}
-                  </span>
+              <ArrowIcon size={16} className="rotate-180" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              onClick={() => go(1)}
+              disabled={page === pages - 1}
+              className={`w-10 h-10 border border-[#e1e1e1] rounded-full bg-white inline-flex items-center justify-center ${page === pages - 1 ? 'cursor-default opacity-35' : 'cursor-pointer opacity-100'}`}
+            >
+              <ArrowIcon size={16} />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="overflow-hidden">
+        <div
+          className="flex gap-[18px] transition-transform duration-[450ms] ease-out"
+          style={{ transform: `translateX(calc(-${page} * (100% + 18px) / ${perView}))` }}
+        >
+          {articles.map((a, i) => (
+            <article
+              key={i}
+              className="overflow-hidden bg-white border border-[#e3e3e3] rounded-[20px] shadow-[0_5px_18px_rgba(0,0,0,.05)] min-w-0"
+              style={{ flex: `0 0 calc((100% - 18px * ${perView - 1}) / ${perView})` }}
+            >
+              <div className="aspect-[4/3] bg-cover bg-center" style={{ backgroundImage: `url(${a.image})` }} />
+              <div className="min-h-[190px] p-5 flex flex-col">
+                <div className="flex items-center justify-between gap-2.5 text-xs text-[#777]">
+                  <span className="text-arigeo-black border border-[#aaa] rounded-full px-[11px] py-1 bg-white">{a.category}</span>
+                  <time>{a.date}</time>
                 </div>
-                <h4 className="text-xl font-bold text-foreground mb-3 group-hover:text-arigeo-red transition-colors line-clamp-2">
-                  {article.title}
-                </h4>
-                <p className="text-arigeo-gray text-sm line-clamp-3">
-                  {article.desc}
-                </p>
+                <h3 className="my-4 text-base leading-[1.45] text-arigeo-black">{a.title}</h3>
+                <a
+                  href="#"
+                  aria-label={`Read: ${a.title}`}
+                  className="mt-auto self-end inline-flex items-center justify-center w-9 h-9 rounded-full text-arigeo-red-ink"
+                >
+                  <ArrowIcon />
+                </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
+      </div>
+
+      <div className="flex justify-center gap-2.5 mt-6">
+        {Array.from({ length: pages }).map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`Go to news slide ${i + 1}`}
+            onClick={() => setPage(i)}
+            className={`h-[9px] rounded-full border-0 cursor-pointer ${i === page ? 'w-7 bg-arigeo-red' : 'w-[9px] bg-[#d5d5d5]'}`}
+          />
+        ))}
       </div>
     </section>
   );

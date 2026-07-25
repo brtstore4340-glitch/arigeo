@@ -1,31 +1,39 @@
 import '../globals.css';
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
-import { Noto_Sans_Thai } from 'next/font/google';
+import { IBM_Plex_Sans_Thai } from 'next/font/google';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
-const notoSansThai = Noto_Sans_Thai({
+// IBM Plex Sans Thai is the sole --font-sans (interim stand-in for the
+// unlicensed DB Helvethaica) per the 2026-07-23 rebrand — Prompt/Noto dropped.
+const plexSansThai = IBM_Plex_Sans_Thai({
   subsets: ['thai', 'latin'],
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-noto-sans-thai',
+  variable: '--font-plex-thai',
 });
 
 export const metadata: Metadata = {
-  title: 'ARIGEO COMPANY LIMITED',
-  description: 'บริษัท อะริเกโอ จำกัด (ARIGEO) จัดจำหน่ายยา เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตรแบบครบวงจร',
+  title: 'ARIGEO | Captain Maid, GenuLeaf, CeraTory',
+  description: "We don't follow categories. We create them. ARIGEO brings together household care and skincare brands — Captain Maid, GenuLeaf, CeraTory — built on trust, safety and quality.",
 };
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params: { locale }
 }: {
   children: ReactNode;
   params: { locale: string };
 }) {
+  const messages = await getMessages();
+
   return (
-    <html lang={locale} className={notoSansThai.variable}>
+    <html lang={locale} className={plexSansThai.variable}>
       <body className="font-sans antialiased">
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
