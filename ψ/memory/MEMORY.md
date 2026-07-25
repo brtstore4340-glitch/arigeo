@@ -12,7 +12,7 @@ metadata:
 
 > **Index of all persistent memories** — fast lookup, one-line hooks, organized by type. < 200 lines.
 
-**Last Updated**: 2026-07-21 · **Total Entries**: 15 · **Index Size**: ~650 tokens
+**Last Updated**: 2026-07-25 · **Total Entries**: 16 · **Index Size**: ~700 tokens
 
 ---
 
@@ -43,10 +43,10 @@ metadata:
 ## External Learning
 - [Gemini Learning: 2026-07-07](learnings/2026-07-07_gemini-learned.md) — Knowledge from Gemini's /learn execution (∞)
 
-## Recent Retrospectives (Latest 3)
+## Recent Re-awakenings & Retrospectives
+- [2026-07-25 Re-awakening — Fleet Sync](resonance/awaken_2026-07-25_reawaken.md) — 69 days of operation; 8-day fleet sync; consolidation phase; Luxi escalation stale (∞)
 - [2026-07-17 Fleet coordination & Luxi activation](retrospectives/2026-07/17/07.21_fleet-coordination-luxi-activation.md) — Luxi activated for captain-maid production push, Phase 5 verified ready (∞)
 - [2026-07-16 Fleet status Phase 1 & 2](retrospectives/2026-07/16/07.12_fleet-status-phase-1-2.md) — Foundation + automation deployed, all 3 oracles live, dashboard working (∞)
-- [2026-07-16 Token optimization complete](retrospectives/2026-07/16/05.45_token-optimization-complete.md) — 3 oracles live, 6 commits, cache server + memory system deployed (∞)
 
 ## Escalations & Pending (Expires 14d)
 - [Luxi deployment deadline missed](inbox/escalation/20260717_2143_luxi-deployment-deadline-missed.md) — 08:49 deadline passed, no response from Luxi, captain-maid blocked on images (critical)
