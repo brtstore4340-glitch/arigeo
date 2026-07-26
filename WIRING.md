@@ -83,3 +83,32 @@ const products = await getProducts()
 
 Client components should fetch in a server parent (or a route handler) and pass
 the data down, since `getProducts` runs on the server.
+
+
+## Page builder (CMS-authored pages)
+
+Beyond products and brands, the frontend can render whole pages that editors
+assemble by drag and drop in the Payload admin. Two extra frontend variables
+control it (both optional, see `.env.example`):
+
+```
+NEXT_PUBLIC_CMS_SITE=arigeo
+NEXT_PUBLIC_CMS_REVALIDATE=60
+```
+
+On the CMS side the page builder needs a `pages` and a `sections` collection,
+both publicly readable. The full field-by-field contract, the list of supported
+blocks and copy-paste Payload configuration live in
+`docs/CMS-PAGE-BUILDER.md`.
+
+Quick check once the collections exist and both projects are redeployed:
+
+```js
+fetch('https://cms-arigeo.vercel.app/api/pages?limit=1')
+  .then(r => r.json())
+  .then(d => console.log('pages:', d.totalDocs))
+```
+
+Then open the slug of a published page, for example `/th/sandbox`. Hand-written
+routes always win over CMS pages, so this addition cannot change any existing
+URL.
