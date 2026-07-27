@@ -1,4 +1,5 @@
 import HeroBanner from "@/components/home/HeroBanner";
+import CoreValuesSection from "@/components/home/CoreValuesSection";
 import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import BrandedCardSection from "@/components/home/BrandedCardSection";
@@ -12,6 +13,9 @@ export default function Home() {
       {/* Hero Section with Zoom Animation */}
       <HeroBanner />
 
+      {/* Core Values Section with Team Photo + Category Cards */}
+      <CoreValuesSection />
+
       {/* Latest News Carousel with Staggered Animations */}
       <NewsSection />
 
@@ -23,11 +27,6 @@ export default function Home() {
 
       {/* News Release List with Image Zoom */}
       <NewsRelease />
-
-      {/* Footer */}
-      <footer style={{ textAlign: "center", padding: "2rem", color: "#666" }}>
-        <p>© 2026 ARIGEO by Kao. All rights reserved.</p>
-      </footer>
     </main>
   );
 }
