@@ -72,6 +72,22 @@ button {
   cursor: pointer;
 }
 
+/* Section Background Colors - Customer Feedback Palette */
+section:nth-of-type(3) {
+  /* About/Core Values - Light Green */
+  background: linear-gradient(135deg, #ffffff 0%, #E8F5E9 100%);
+}
+
+section:nth-of-type(5) {
+  /* Brands Section - Light Blue */
+  background: linear-gradient(135deg, #f0f8ff 0%, #f5f0ff 100%);
+}
+
+section:nth-of-type(2) {
+  /* Purpose Section - Light Pink */
+  background: linear-gradient(135deg, #ffffff 0%, #F5D5D5 100%);
+}
+
 /* Respect user motion preferences */
 @media (prefers-reduced-motion: reduce) {
   *,

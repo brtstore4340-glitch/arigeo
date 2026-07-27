@@ -18,6 +18,14 @@
   --color-skincare-bg: #EEF3F4;
   --color-skincare-accent: #6E9A9E;
 
+  /* Colors - Customer Feedback Palette */
+  --color-pink-light: #F5D5D5;
+  --color-pink-accent: #F5C9C9;
+  --color-green-light: #E8F5E9;
+  --color-green-accent: #A8D5A8;
+  --color-blue-light: #E3F2FD;
+  --color-blue-accent: #90CAF9;
+
   /* Colors - Semantic */
   --color-text-primary: #010101;
   --color-text-secondary: #424242;
