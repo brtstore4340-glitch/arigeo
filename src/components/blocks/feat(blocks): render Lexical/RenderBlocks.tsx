@@ -18,7 +18,7 @@
  */
 
 import Link from 'next/link'
-import type { ReactNode } from 'react'
+import { Fragment, type ReactNode } from 'react'
 
 import Animate, { AnimateNoScriptFallback } from '@/components/Animate'
 import {
@@ -67,42 +67,169 @@ function firstString(...values: unknown[]): string | undefined {
   return undefined
 }
 
-/** Flattens Lexical / Slate / plain-string rich text into paragraphs. */
-function richTextToParagraphs(value: unknown): string[] {
-  if (!value) return []
+/* ---------------------------------------------------------------- rich text */
+
+type RichNode = {
+  type?: string
+  tag?: string
+  text?: string
+  format?: number | string
+  url?: string
+  newTab?: boolean
+  listType?: string
+  fields?: B
+  children?: RichNode[]
+}
+
+/** Lexical keeps inline formats in a bitmask, Slate keeps boolean marks. */
+const FORMAT_FLAGS: Record<string, number> = {
+  bold: 1,
+  italic: 2,
+  strikethrough: 4,
+  underline: 8,
+}
+
+/** Slate / Payload v1 node names mapped onto their Lexical equivalent. */
+const RICH_ALIASES: Record<string, string> = {
+  h1: 'heading',
+  h2: 'heading',
+  h3: 'heading',
+  h4: 'heading',
+  h5: 'heading',
+  h6: 'heading',
+  ul: 'list',
+  ol: 'list',
+  li: 'listitem',
+  blockquote: 'quote',
+  hr: 'horizontalrule',
+  'horizontal-rule': 'horizontalrule',
+}
+
+function isMarked(node: RichNode, name: string): boolean {
+  if ((node as B)[name] === true) return true
+  const format = node.format
+  if (typeof format === 'string') return format.split(/[\s,]+/).includes(name)
+  const flag = FORMAT_FLAGS[name]
+  return typeof format === 'number' && !!flag && (format & flag) === flag
+}
+
+function richLeaf(node: RichNode, key: string): ReactNode {
+  const text = typeof node.text === 'string' ? node.text : ''
+  if (!text) return null
+  let out: ReactNode = text
+  if (isMarked(node, 'bold')) out = <strong>{out}</strong>
+  if (isMarked(node, 'italic')) out = <em>{out}</em>
+  if (isMarked(node, 'underline')) out = <u>{out}</u>
+  if (isMarked(node, 'strikethrough')) out = <s>{out}</s>
+  return <Fragment key={key}>{out}</Fragment>
+}
+
+/**
+ * Renders Lexical (Payload 3) and Slate (Payload 1/2) rich text, keeping
+ * headings, lists, quotes, links and inline formatting instead of flattening
+ * everything into plain paragraphs.
+ */
+function richNode(node: RichNode | null | undefined, key: string, ctx: Ctx): ReactNode {
+  if (!node) return null
+  if (typeof node.text === 'string' && !Array.isArray(node.children)) return richLeaf(node, key)
+
+  const raw = String(node.type ?? 'paragraph')
+  const type = RICH_ALIASES[raw] ?? raw
+  const tag = String(node.tag ?? raw)
+
+  if (type === 'linebreak') return <br key={key} />
+  if (type === 'horizontalrule') return <hr key={key} className="my-8 border-current/20" />
+
+  const kids = (Array.isArray(node.children) ? node.children : []).map((child, i) =>
+    richNode(child, key + '-' + i, ctx),
+  )
+  const empty = !kids.some(Boolean)
+
+  switch (type) {
+    case 'root':
+      return <Fragment key={key}>{kids}</Fragment>
+
+    case 'heading': {
+      const level = Math.min(Math.max(levelOf(tag, 3), 2), 6)
+      const Tag = ('h' + level) as any
+      return (
+        <Tag key={key} className={cx('mt-8 font-semibold tracking-tight', HEADING_SIZE[level])}>
+          {kids}
+        </Tag>
+      )
+    }
+
+    case 'list':
+      return tag === 'ol' || node.listType === 'number' ? (
+        <ol key={key} className="list-decimal space-y-2 pl-6">
+          {kids}
+        </ol>
+      ) : (
+        <ul key={key} className="list-disc space-y-2 pl-6">
+          {kids}
+        </ul>
+      )
+
+    case 'listitem':
+      return <li key={key}>{kids}</li>
+
+    case 'quote':
+      return (
+        <blockquote key={key} className="border-l-2 border-current/25 pl-5 italic">
+          {kids}
+        </blockquote>
+      )
+
+    case 'link':
+    case 'autolink': {
+      const fields = (node.fields || {}) as B
+      const href = withLocale(String(node.url ?? fields.url ?? '#'), ctx.locale)
+      const external = /^(https?:|mailto:|tel:)/i.test(href)
+      const newTab = Boolean(node.newTab ?? fields.newTab)
+      return (
+        <a
+          key={key}
+          href={href}
+          className="underline underline-offset-2 hover:opacity-70"
+          target={newTab ? '_blank' : undefined}
+          rel={newTab || external ? 'noopener noreferrer' : undefined}
+        >
+          {kids}
+        </a>
+      )
+    }
+
+    case 'paragraph':
+    default:
+      return empty ? null : <p key={key}>{kids}</p>
+  }
+}
+
+/** Accepts a Lexical root object, a Slate node array or a plain string. */
+function renderRichText(value: unknown, ctx: Ctx): ReactNode {
+  if (!value) return null
+
   if (typeof value === 'string') {
-    return value
+    const parts = value
       .split(/\n{2,}/)
       .map((part) => part.trim())
       .filter(Boolean)
+    if (!parts.length) return null
+    return (
+      <>
+        {parts.map((part, i) => (
+          <p key={i}>{part}</p>
+        ))}
+      </>
+    )
   }
 
-  const collect = (nodes: B[]): string =>
-    nodes
-      .map((node) => {
-        if (typeof node?.text === 'string') return node.text
-        if (Array.isArray(node?.children)) return collect(node.children as B[])
-        return ''
-      })
-      .join('')
-
-  const value_ = value as B
-  const roots: B[] = Array.isArray(value_)
-    ? (value_ as unknown as B[])
-    : Array.isArray(value_?.root?.children)
-      ? (value_.root.children as B[])
-      : []
-
-  const out: string[] = []
-  for (const node of roots) {
-    const text = Array.isArray(node?.children)
-      ? collect(node.children as B[])
-      : typeof node?.text === 'string'
-        ? node.text
-        : ''
-    if (text.trim()) out.push(text.trim())
+  if (Array.isArray(value)) {
+    return <>{(value as RichNode[]).map((node, i) => richNode(node, 'n-' + i, ctx))}</>
   }
-  return out
+
+  const root = (value as B)?.root
+  return root ? richNode(root as RichNode, 'root', ctx) : null
 }
 
 /** Keeps CMS-authored internal links inside the current next-intl locale. */
@@ -213,14 +340,25 @@ function Title({
   )
 }
 
-function Prose({ value, className }: { value?: unknown; className?: string }) {
-  const paragraphs = richTextToParagraphs(value)
-  if (!paragraphs.length) return null
+function Prose({
+  value,
+  className,
+  ctx,
+}: {
+  value?: unknown
+  className?: string
+  ctx?: Ctx
+}) {
+  const body = renderRichText(value, ctx || {})
+  if (!body) return null
   return (
-    <div className={cx('space-y-4 leading-relaxed opacity-90', className)}>
-      {paragraphs.map((paragraph, i) => (
-        <p key={i}>{paragraph}</p>
-      ))}
+    <div
+      className={cx(
+        'space-y-4 leading-relaxed opacity-90 [&_h2]:opacity-100 [&_h3]:opacity-100',
+        className,
+      )}
+    >
+      {body}
     </div>
   )
 }
