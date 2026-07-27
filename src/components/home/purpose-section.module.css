@@ -1,0 +1,187 @@
+.section {
+  padding: 4rem 1rem;
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  margin: 0 0 3rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(1, 1, 1);
+  text-align: center;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.5rem;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgb(238, 238, 238);
+  border-radius: 8px;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: imageZoom 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+.card.visible .image {
+  animation: imageZoom 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.content {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1.5rem;
+  animation: contentFadeIn 800ms ease-out forwards;
+  opacity: 0;
+}
+
+.card.visible .content {
+  animation: contentFadeIn 800ms ease-out 200ms forwards;
+}
+
+.textBlock {
+  display: grid;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(1, 1, 1);
+}
+
+.description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgb(66, 66, 66);
+}
+
+.linkBlock {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: rgb(1, 1, 1);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 300ms ease;
+}
+
+.link:hover {
+  background: rgb(50, 50, 50);
+  transform: translateX(4px);
+}
+
+.linkIcon {
+  font-size: 1.2rem;
+  transition: transform 300ms ease;
+}
+
+.link:hover .linkIcon {
+  transform: translateX(4px);
+}
+
+.linkText {
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes imageZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .content {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

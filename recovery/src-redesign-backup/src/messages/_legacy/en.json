@@ -1,0 +1,58 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products & Services",
+    "customers": "Customer Segments",
+    "standards": "Standards",
+    "news": "News & Articles",
+    "contact": "Contact Us",
+    "requestQuote": "Request Quotation",
+    "contactSales": "Contact Sales",
+    "language": "TH"
+  },
+  "Hero": {
+    "headline": "Elevating Quality of Life with International Standard Medical and Agricultural Products",
+    "description": "Arigeo Co., Ltd. (ARIGEO) is your trusted partner in the comprehensive distribution of pharmaceuticals, medical equipment, chemicals, and agricultural products. We are committed to delivering high-quality goods for better hygiene, safe healthcare, and the sustainable growth of businesses and agriculture.",
+    "ctaPrimary": "Explore Our Products",
+    "ctaSecondary": "Contact Sales"
+  },
+  "News": {
+    "latest": "Latest News",
+    "viewAll": "View All News →",
+    "headline1": "ARIGEO announces the expansion of its pharmaceutical and chemical product lines to support the hospital and laboratory market."
+  },
+  "WhyChoose": {
+    "title": "Why Choose ARIGEO",
+    "description": "We carefully select products and services considering quality, safety, compliance with standards, and suitability for the practical use of each customer group.",
+    "items": [
+      {
+        "title": "International Standards",
+        "desc": "All product groups pass a selection process from reliable manufacturers and distributors, complete with supporting documentation."
+      },
+      {
+        "title": "Covering Multiple Industries",
+        "desc": "Providing services for pharmaceuticals, medical supplies, medical equipment, chemicals, agriculture, and livestock."
+      },
+      {
+        "title": "Expert Service",
+        "desc": "Our team is ready to provide product information, compare options, and recommend products suitable for your application."
+      },
+      {
+        "title": "Procurement on Demand",
+        "desc": "Supporting general orders, corporate purchasing, specific item sourcing, and quotation requests."
+      }
+    ]
+  },
+  "Footer": {
+    "company": "ARIGEO COMPANY LIMITED",
+    "description": "Distributor of pharmaceuticals, medical supplies, medical equipment, scientific instruments, chemicals, and agricultural products with a commitment to quality, standards, and reliable service.",
+    "quickLinks": "Quick Links",
+    "productLinks": "Product Categories",
+    "connect": "Contact Us",
+    "address": "89/8 Soi Song Sa-at, Chom Phon, Chatuchak, Bangkok 10900",
+    "rights": "© 2026 ARIGEO COMPANY LIMITED. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}

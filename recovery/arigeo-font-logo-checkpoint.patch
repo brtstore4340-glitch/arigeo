@@ -1,0 +1,250 @@
+diff --git a/src/app/[locale]/layout.tsx b/src/app/[locale]/layout.tsx
+index 7ff5f6f..a761302 100644
+--- a/src/app/[locale]/layout.tsx
++++ b/src/app/[locale]/layout.tsx
+@@ -1,8 +1,21 @@
++import { IBM_Plex_Sans_Thai, Prompt } from 'next/font/google';
+ import { NextIntlClientProvider } from 'next-intl';
+ import { getMessages } from 'next-intl/server';
+ import '../globals.css';
+ import { ReactNode } from 'react';
+ 
++const prompt = Prompt({
++  subsets: ['latin'],
++  weight: ['400', '500', '600', '700'],
++  variable: '--font-prompt',
++});
++
++const ibmPlexSansThai = IBM_Plex_Sans_Thai({
++  subsets: ['thai', 'latin'],
++  weight: ['400', '500', '600', '700'],
++  variable: '--font-plex-thai',
++});
++
+ export default async function LocaleLayout({
+   children,
+   params
+@@ -15,11 +28,9 @@ export default async function LocaleLayout({
+   const messages = await getMessages();
+ 
+   return (
+-    <html lang={locale}>
++    <html lang={locale} className={`${prompt.variable} ${ibmPlexSansThai.variable}`}>
+       <body>
+-        <NextIntlClientProvider messages={messages}>
+-          {children}
+-        </NextIntlClientProvider>
++        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+       </body>
+     </html>
+   );
+diff --git a/src/app/globals.css b/src/app/globals.css
+index 6db8be1..7b735db 100644
+--- a/src/app/globals.css
++++ b/src/app/globals.css
+@@ -2,12 +2,10 @@
+ @tailwind components;
+ @tailwind utilities;
+ 
+-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
+-
+ :root {
+-  font-family: 'Kanit', sans-serif;
+   color: #111111;
+   background: #ffffff;
++
+   font-synthesis: none;
+   text-rendering: optimizeLegibility;
+   --red: #D50306;      /* Authoritative Brick Ember */
+@@ -18,11 +16,12 @@
+   --soft: #f7f7f7;
+   --radius: 18px;
+   --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
++  --font-sans: var(--font-prompt), var(--font-plex-thai), ui-sans-serif, system-ui, sans-serif;
+ }
+ 
+ * { box-sizing: border-box; }
+ html { scroll-behavior: smooth; }
+-body { margin: 0; min-width: 320px; background: #fff; color: var(--text); font-family: 'Kanit', sans-serif; -webkit-font-smoothing: antialiased; }
++body { margin: 0; min-width: 320px; background: #fff; color: var(--text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+ a { color: inherit; text-decoration: none; }
+ button, input { font: inherit; }
+ button { cursor: pointer; }
+diff --git a/src/components/Footer.tsx b/src/components/Footer.tsx
+index c239cc3..0447277 100644
+--- a/src/components/Footer.tsx
++++ b/src/components/Footer.tsx
+@@ -1,13 +1,6 @@
+ import { useTranslations } from "next-intl";
+ import { Link } from "@/i18n/routing";
+-
+-function BrandMark() {
+-  return (
+-    <Link className="brand" href="/" aria-label="ARIGEO home">
+-      <span>ARIGE</span><i />
+-    </Link>
+-  );
+-}
++import Logo from "@/components/Logo";
+ 
+ export default function Footer() {
+   const t = useTranslations("Footer");
+@@ -25,7 +18,9 @@ export default function Footer() {
+     <footer className="footer">
+       <div className="shell footer-main">
+         <div className="footer-brand">
+-          <BrandMark />
++          <Link className="brand" href="/" aria-label="ARIGEO home">
++            <Logo className="h-9 w-auto sm:h-10" />
++          </Link>
+           <p>{t("description")}</p>
+           <div className="socials">
+             {['in', '◎', '▶', 'f'].map((item) => (
+diff --git a/src/components/Header.tsx b/src/components/Header.tsx
+index 26a7a25..9cdc8b9 100644
+--- a/src/components/Header.tsx
++++ b/src/components/Header.tsx
+@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
+ import { Link, usePathname, useRouter } from "@/i18n/routing";
+ import { useState } from "react";
+ import { Globe, Search, Menu, X } from "lucide-react";
++import Logo from "@/components/Logo";
+ 
+ export default function Header() {
+   const t = useTranslations("Navigation");
+@@ -24,7 +25,7 @@ export default function Header() {
+       <div className="shell header-inner">
+         {/* Brand Logo */}
+         <Link className="brand" href="/" aria-label="ARIGEO home">
+-          <span>ARIGE</span><i />
++          <Logo className="h-9 w-auto sm:h-10" />
+         </Link>
+ 
+         {/* Desktop Nav */}
+diff --git a/src/components/_legacy/Footer.tsx b/src/components/_legacy/Footer.tsx
+index 74b9ec8..ab51694 100644
+--- a/src/components/_legacy/Footer.tsx
++++ b/src/components/_legacy/Footer.tsx
+@@ -1,4 +1,5 @@
+ import React from 'react';
++import Logo from '@/components/Logo';
+ 
+ const Footer = () => {
+   return (
+@@ -8,8 +9,7 @@ const Footer = () => {
+           
+           <div className="lg:col-span-1">
+             <div className="flex items-center gap-2 mb-6">
+-              <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain brightness-0 invert" />
+-              
++              <Logo className="h-10 w-auto" />
+             </div>
+             <p className="text-sm leading-relaxed mb-6">
+               ผู้จัดจำหน่ายยา เวชภัณฑ์ เครื่องมือแพทย์ เคมีภัณฑ์ และผลิตภัณฑ์เพื่อการเกษตร มุ่งเน้นคุณภาพ มาตรฐาน ความปลอดภัย และการเติบโตอย่างยั่งยืน
+diff --git a/src/components/_legacy/Header.tsx b/src/components/_legacy/Header.tsx
+index 15a0308..3c46331 100644
+--- a/src/components/_legacy/Header.tsx
++++ b/src/components/_legacy/Header.tsx
+@@ -1,6 +1,7 @@
+ "use client";
+ import React, { useState, useEffect } from 'react';
+ import { Menu, X } from 'lucide-react';
++import Logo from '@/components/Logo';
+ 
+ const Header = () => {
+   const [isScrolled, setIsScrolled] = useState(false);
+@@ -29,8 +30,7 @@ const Header = () => {
+       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
+         <div className="flex items-center gap-2">
+           {/* Logo Placeholder */}
+-          <img src="/images/logos/arigeo.png" alt="Arigeo Logo" className="h-10 w-auto object-contain" />
+-          
++          <Logo className="h-10 w-auto" />
+         </div>
+ 
+         {/* Desktop Navigation */}
+diff --git a/tailwind.config.ts b/tailwind.config.ts
+index c65b82d..fdc3409 100644
+--- a/tailwind.config.ts
++++ b/tailwind.config.ts
+@@ -12,53 +12,53 @@ const config: Config = {
+         background: "#ffffff",
+         foreground: "#111111", // black
+         arigeo: {
+-          red: "#D50306",      // Brick Ember — primary brand red
+-          darkred: "#C50C15",  // Brick Ember 2 — hover / pressed
+-          redtint: "#FBE6E7",  // 5% tint — badge/tag backgrounds
+-          black: "#010101",    // brand black — footer, headings
+-          gray: "#424242",     // secondary text (คงเดิม — palette ไม่มี mid-gray)
+-          light: "#FDFDFD",    // White — base surface
+-          surface: "#F3F3F4",  // Platinum — alternating sections, newsletter band
++          red: "#D50306", // Brick Ember — primary brand red
++          darkred: "#C50C15", // Brick Ember 2 — hover / pressed
++          redtint: "#FBE6E7", // 5% tint — badge/tag backgrounds
++          black: "#010101", // brand black — footer, headings
++          gray: "#424242", // secondary text (คงเดิม — palette ไม่มี mid-gray)
++          light: "#FDFDFD", // White — base surface
++          surface: "#F3F3F4", // Platinum — alternating sections, newsletter band
+           household: {
+             DEFAULT: "#F5EFE6",
+-            accent: "#B08D57"
++            accent: "#B08D57",
+           },
+           skincare: {
+             DEFAULT: "#EEF3F4",
+-            accent: "#6E9A9E"
+-          }
+-        }
++            accent: "#6E9A9E",
++          },
++        },
+       },
+       fontFamily: {
+-        sans: ['"Kanit"', 'sans-serif'],
++        sans: ["var(--font-sans)"],
+       },
+       animation: {
+-        'fade-in': 'fadeIn 0.8s ease-out forwards',
+-        'fade-up': 'fadeUp 0.8s ease-out forwards',
+-        'float': 'float 6s ease-in-out infinite',
+-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
++        "fade-in": "fadeIn 0.8s ease-out forwards",
++        "fade-up": "fadeUp 0.8s ease-out forwards",
++        float: "float 6s ease-in-out infinite",
++        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+       },
+       keyframes: {
+         fadeIn: {
+-          '0%': { opacity: '0' },
+-          '100%': { opacity: '1' },
++          "0%": { opacity: "0" },
++          "100%": { opacity: "1" },
+         },
+         fadeUp: {
+-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+-          '100%': { opacity: '1', transform: 'translateY(0)' },
++          "0%": { opacity: "0", transform: "translateY(20px)" },
++          "100%": { opacity: "1", transform: "translateY(0)" },
+         },
+         float: {
+-          '0%, 100%': { transform: 'translateY(0)' },
+-          '50%': { transform: 'translateY(-10px)' },
++          "0%, 100%": { transform: "translateY(0)" },
++          "50%": { transform: "translateY(-10px)" },
+         },
+         slide: {
+-          '0%': { transform: 'translateX(0)' },
+-          '100%': { transform: 'translateX(-50%)' },
+-        }
+-      }
++          "0%": { transform: "translateX(0)" },
++          "100%": { transform: "translateX(-50%)" },
++        },
++      },
+     },
+   },
+   plugins: [],
+ };
+-export default config;
+ 
++export default config;
