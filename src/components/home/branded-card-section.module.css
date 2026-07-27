@@ -1,13 +1,3 @@
-/* Marcusx Color Palette */
-:root {
-  --marcusx-primary: #2a2a2a;
-  --marcusx-secondary: #666666;
-  --marcusx-tertiary: #999999;
-  --marcusx-light: #f8f8f8;
-  --marcusx-border: rgba(42, 42, 42, 0.08);
-  --marcusx-accent: #0066cc;
-}
-
 .section {
   padding: clamp(2rem, 5vw, 4rem) 1rem;
   background: var(--marcusx-light);

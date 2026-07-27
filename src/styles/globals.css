@@ -5,6 +5,28 @@
   box-sizing: border-box;
 }
 
+/* Color Palettes */
+:root {
+  --marcusx-primary: #2a2a2a;
+  --marcusx-secondary: #666666;
+  --marcusx-tertiary: #999999;
+  --marcusx-light: #f8f8f8;
+  --marcusx-border: rgba(42, 42, 42, 0.08);
+  --marcusx-accent: #0066cc;
+  --arigeo-black: #010101;
+  --arigeo-gray: #666666;
+  --arigeo-red-ink: #D50306;
+  --arigeo-red: #D50306;
+  --color-primary-ink: #010101;
+  --color-primary-red: #D50306;
+  --color-primary-red-dark: #C50C15;
+  --color-text-secondary: #666666;
+  --color-surface: #F3F3F4;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition-normal: 300ms ease;
+  --radius-md: 8px;
+}
+
 html {
   scroll-behavior: smooth;
 }
