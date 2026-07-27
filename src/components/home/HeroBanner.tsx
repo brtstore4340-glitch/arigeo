@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocale } from "next-intl";
 import Link from "next/link";
 import Media from "@/components/ui/Media";
 import styles from "./hero-banner.module.css";
@@ -101,7 +100,7 @@ const defaultSlides = {
 } as const;
 
 export default function HeroBanner({ slides, autoplayInterval = 8000 }: Props) {
-  const locale = useLocale() === "th" ? "th" : "en";
+  const locale = "en";
   const content = slides ?? defaultSlides[locale];
 
   const [currentSlide, setCurrentSlide] = useState(0);
