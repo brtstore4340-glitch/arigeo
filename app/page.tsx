@@ -4,6 +4,8 @@ import PurposeSection from "@/components/home/PurposeSection";
 import BrandedCardSection from "@/components/home/BrandedCardSection";
 import NewsRelease from "@/components/home/NewsRelease";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <main>
