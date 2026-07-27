@@ -1,260 +1,154 @@
 /* ============================================================================
-   ARIGEO DESIGN TOKENS
+   ARIGEO DESIGN TOKENS - REDESIGNED 2026-07-28
+   Per ARIGEO Design System: soft blush red, flat borders, card tints
    ============================================================================ */
 
 :root {
-  /* Colors - Brand */
-  --color-primary-red: #D50306;
-  --color-primary-red-dark: #C50C15;
-  --color-primary-red-light: #FBE6E7;
-  --color-black: #010101;
-  --color-gray: #424242;
-  --color-light: #FDFDFD;
-  --color-surface: #F3F3F4;
+  /* ──────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - Revised 2026-07-23 per client feedback
+     ────────────────────────────────────────────────────────────────────────── */
 
-  /* Colors - Category Tints */
-  --color-household-bg: #F5EFE6;
-  --color-household-accent: #B08D57;
-  --color-skincare-bg: #EEF3F4;
-  --color-skincare-accent: #6E9A9E;
+  /* Primary Brand - Soft Corporate Blush (NOT saturated red) */
+  --arigeo-red: #f4cccc;        /* Blush fill - buttons, badges, dots ONLY */
+  --arigeo-red-dark: #e7a8a8;   /* Blush hover/pressed state */
+  --arigeo-red-ink: #783636;    /* Readable text/icon color ON red fills or white */
 
-  /* Colors - Customer Feedback Palette */
-  --color-pink-light: #F5D5D5;
-  --color-pink-accent: #F5C9C9;
-  --color-green-light: #E8F5E9;
-  --color-green-accent: #A8D5A8;
-  --color-blue-light: #E3F2FD;
-  --color-blue-accent: #90CAF9;
+  /* Neutrals */
+  --arigeo-black: #010101;      /* Near-black, not pure #000 */
+  --arigeo-gray: #424242;       /* Medium gray */
+  --arigeo-text-muted: #5c5c5c; /* Muted text, body secondary */
+  --arigeo-white: #FDFDFD;      /* Off-white, not pure white */
+  --arigeo-surface: #F3F3F4;    /* Platinum - section alternates, newsletter band */
+  --arigeo-line: #e9e9e9;       /* Border lines */
+  --arigeo-soft: #f7f7f7;       /* Soft background tint */
 
-  /* Colors - Semantic */
-  --color-text-primary: #010101;
-  --color-text-secondary: #424242;
-  --color-text-light: rgba(255, 255, 255, 0.9);
-  --color-border: #EEEEEE;
-  --color-bg-default: #FDFDFD;
-  --color-bg-secondary: #F3F3F4;
+  /* Legacy category tints (still used) */
+  --arigeo-household: #F5EFE6;
+  --arigeo-household-accent: #B08D57;
+  --arigeo-skincare: #EEF3F4;
+  --arigeo-skincare-accent: #6E9A9E;
 
-  /* Typography - Font Family */
-  --font-sans: "IBM Plex Sans Thai", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
+  /* NEW: Soft card tints trio - rotate through Purpose/Feature cards */
+  --card-green: #eef6f1;        /* Green card background */
+  --card-green-ink: #4c7a5d;    /* Green card text/accent */
+  --card-blue: #eef3f8;         /* Blue card background */
+  --card-blue-ink: #3e6e8e;     /* Blue card text/accent */
+  --card-gray: #f4f4f5;         /* Gray card background */
+  --card-gray-ink: #5c5c5c;     /* Gray card text/accent */
 
-  /* Typography - Size Scale */
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem; /* 16px */
-  --font-size-lg: 1.125rem; /* 18px */
-  --font-size-xl: 1.25rem; /* 20px */
-  --font-size-2xl: 1.5rem; /* 24px */
-  --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.5rem; /* 40px */
-  --font-size-5xl: 3.5rem; /* 56px */
+  /* Semantic aliases */
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-primary: var(--arigeo-red);
+  --color-primary-hover: var(--arigeo-red-dark);
+  --color-primary-ink: var(--arigeo-red-ink);
+  --color-surface: var(--arigeo-surface);
+  --color-border: var(--arigeo-line);
 
-  /* Typography - Line Height */
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-  --line-height-loose: 2;
+  /* ──────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - Revised 2026-07-23
+     IBM Plex Sans Thai is now the ONLY typeface (was: Prompt + IBM Plex)
+     Target: DB Helvethaica (commercial Thai, to be licensed)
+     ────────────────────────────────────────────────────────────────────────── */
 
-  /* Typography - Letter Spacing */
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-normal: 0;
-  --letter-spacing-wide: 0.05em;
+  --font-plex-thai: 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Google Sans', var(--font-plex-thai), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 
-  /* Typography - Font Weight */
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  /* Type scale */
+  --text-hero: clamp(46px, 4.4vw, 76px);
+  --text-h1: clamp(32px, 3vw, 52px);
+  --text-h2: 32px;
+  --text-h3: 22px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-eyebrow: 12px;
 
-  /* Spacing Scale */
-  --spacing-0: 0;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
-  --spacing-12: 3rem;
-  --spacing-16: 4rem;
-  --spacing-20: 5rem;
-  --spacing-24: 6rem;
+  /* Line height - looser for readability, especially Thai */
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 1.9;
 
-  /* Border Radius */
+  /* Letter spacing - display copy has NO negative tracking */
+  --tracking-tight: -0.045em;
+  --tracking-normal: -0.02em;
+  --tracking-wide: 0.02em;
+  --tracking-eyebrow: 0.14em;
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     SPACING - 4px base increments
+     ────────────────────────────────────────────────────────────────────────── */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 80px;
+
+  /* Section vertical rhythm - fluid clamp */
+  --section-spacing: clamp(72px, 6vw, 112px);
+
+  /* Page shell max-width and gutters */
+  --page-max-width: 1440px;
+  --page-gutter: 24px;
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     EFFECTS - borders, shadows, radii
+     ────────────────────────────────────────────────────────────────────────── */
+
+  /* Borders - hairline is now the dominant structural device */
+  --border-hairline: 1px solid rgba(17, 17, 17, 0.12);
+  --border-hairline-strong: 1px solid rgba(17, 17, 17, 0.16);
+
+  /* Shadows - reserved for floating chrome only, NOT grid cells */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+  /* Border radius - NEW flat-bordered system has zero radius */
   --radius-none: 0;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2);
+  /* ──────────────────────────────────────────────────────────────────────────
+     TRANSITIONS & EASING - hero wipe, hover states
+     ────────────────────────────────────────────────────────────────────────── */
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 300ms ease;
-  --transition-slow: 500ms ease;
+  /* Primary easing for new animations */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Z-Index Scale */
-  --z-dropdown: 10;
-  --z-sticky: 20;
-  --z-fixed: 30;
-  --z-modal-backdrop: 40;
-  --z-modal: 50;
-  --z-popover: 60;
-  --z-tooltip: 70;
-  --z-notification: 80;
+  /* Standard transition durations */
+  --transition-fast: 200ms;
+  --transition-normal: 300ms;
+  --transition-slow: 400ms;
+  --transition-hero: 2200ms;
 
-  /* Breakpoints (for reference in JS) */
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+  /* Z-index scale */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
 }
 
-/* ============================================================================
-   TYPOGRAPHY STYLES
-   ============================================================================ */
-
-body {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
-  background: var(--color-bg-default);
+/* Thai typography adjustments - looser leading, no negative tracking */
+html[lang="th"] body {
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
 }
 
-/* Headings */
-h1 {
-  font-size: var(--font-size-5xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
-  margin: 0 0 var(--spacing-4);
+html[lang="th"] h1,
+html[lang="th"] h2,
+html[lang="th"] h3,
+html[lang="th"] h4 {
+  letter-spacing: var(--tracking-normal);
 }
-
-h2 {
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
-  margin: 0 0 var(--spacing-3);
-}
-
-h3 {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  margin: 0 0 var(--spacing-3);
-}
-
-h4 {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  margin: 0 0 var(--spacing-2);
-}
-
-h5 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-normal);
-  margin: 0 0 var(--spacing-2);
-}
-
-h6 {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-normal);
-  margin: 0 0 var(--spacing-2);
-}
-
-/* Paragraphs */
-p {
-  margin: 0 0 var(--spacing-4);
-  line-height: var(--line-height-normal);
-}
-
-/* Links */
-a {
-  color: var(--color-primary-red);
-  text-decoration: none;
-  transition: color var(--transition-normal);
-}
-
-a:hover {
-  color: var(--color-primary-red-dark);
-  text-decoration: underline;
-}
-
-/* Lists */
-ul, ol {
-  margin: 0 0 var(--spacing-4);
-  padding-left: var(--spacing-6);
-}
-
-li {
-  margin-bottom: var(--spacing-2);
-  line-height: var(--line-height-normal);
-}
-
-/* Small Text */
-small, .text-sm {
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-normal);
-}
-
-/* Utility Classes */
-.text-xs { font-size: var(--font-size-xs); }
-.text-sm { font-size: var(--font-size-sm); }
-.text-base { font-size: var(--font-size-base); }
-.text-lg { font-size: var(--font-size-lg); }
-.text-xl { font-size: var(--font-size-xl); }
-.text-2xl { font-size: var(--font-size-2xl); }
-.text-3xl { font-size: var(--font-size-3xl); }
-.text-4xl { font-size: var(--font-size-4xl); }
-.text-5xl { font-size: var(--font-size-5xl); }
-
-.font-light { font-weight: var(--font-weight-light); }
-.font-normal { font-weight: var(--font-weight-normal); }
-.font-medium { font-weight: var(--font-weight-medium); }
-.font-semibold { font-weight: var(--font-weight-semibold); }
-.font-bold { font-weight: var(--font-weight-bold); }
-
-.leading-tight { line-height: var(--line-height-tight); }
-.leading-normal { line-height: var(--line-height-normal); }
-.leading-relaxed { line-height: var(--line-height-relaxed); }
-.leading-loose { line-height: var(--line-height-loose); }
-
-.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
-.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
-.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
-
-/* Color Utilities */
-.text-primary { color: var(--color-text-primary); }
-.text-secondary { color: var(--color-text-secondary); }
-.text-error { color: var(--color-primary-red); }
-
-.bg-primary { background: var(--color-primary-red); }
-.bg-surface { background: var(--color-surface); }
-.bg-household { background: var(--color-household-bg); }
-.bg-skincare { background: var(--color-skincare-bg); }
-
-/* Spacing Utilities */
-.m-0 { margin: var(--spacing-0); }
-.m-4 { margin: var(--spacing-4); }
-.m-8 { margin: var(--spacing-8); }
-.mt-4 { margin-top: var(--spacing-4); }
-.mb-4 { margin-bottom: var(--spacing-4); }
-.p-4 { padding: var(--spacing-4); }
-.p-8 { padding: var(--spacing-8); }
-
-/* Transitions */
-.transition-fast { transition: all var(--transition-fast); }
-.transition-normal { transition: all var(--transition-normal); }
-.transition-slow { transition: all var(--transition-slow); }

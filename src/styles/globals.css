@@ -1,30 +1,9 @@
-/* Global Styles */
+/* Global Styles - ARIGEO Design System 2026-07-28 */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* Color Palettes */
-:root {
-  --marcusx-primary: #2a2a2a;
-  --marcusx-secondary: #666666;
-  --marcusx-tertiary: #999999;
-  --marcusx-light: #f8f8f8;
-  --marcusx-border: rgba(42, 42, 42, 0.08);
-  --marcusx-accent: #0066cc;
-  --arigeo-black: #010101;
-  --arigeo-gray: #666666;
-  --arigeo-red-ink: #D50306;
-  --arigeo-red: #D50306;
-  --color-primary-ink: #010101;
-  --color-primary-red: #D50306;
-  --color-primary-red-dark: #C50C15;
-  --color-text-secondary: #666666;
-  --color-surface: #F3F3F4;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --transition-normal: 300ms ease;
-  --radius-md: 8px;
 }
 
 html {
@@ -32,60 +11,73 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
-    "Noto Sans Thai", sans-serif;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   background: #ffffff;
-  color: #010101;
-  line-height: 1.6;
+  color: var(--arigeo-black);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure images don't exceed their containers */
+/* Ensure images don't exceed containers */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Link styles */
+/* Links */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  line-height: 1.2;
+a:focus-visible {
+  outline: 2px solid var(--arigeo-red-ink);
+  outline-offset: 2px;
 }
 
-/* Button reset */
+/* Headings - no negative tracking, weight 800 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+}
+
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: 18px; }
+h5 { font-size: 16px; }
+h6 { font-size: 14px; }
+
+/* Buttons */
 button {
   font-family: inherit;
   cursor: pointer;
 }
 
-/* Section Background Colors - Customer Feedback Palette */
-section:nth-of-type(3) {
-  /* About/Core Values - Light Green */
-  background: linear-gradient(135deg, #ffffff 0%, #E8F5E9 100%);
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-section:nth-of-type(5) {
-  /* Brands Section - Light Blue */
-  background: linear-gradient(135deg, #f0f8ff 0%, #f5f0ff 100%);
+/* Forms */
+input, textarea, select {
+  font: inherit;
+  border: var(--border-hairline);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
 }
 
-section:nth-of-type(2) {
-  /* Purpose Section - Light Pink */
-  background: linear-gradient(135deg, #ffffff 0%, #F5D5D5 100%);
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--arigeo-red-ink);
+  box-shadow: 0 0 0 3px rgba(120, 54, 54, 0.1);
 }
 
 /* Respect user motion preferences */
@@ -96,12 +88,25 @@ section:nth-of-type(2) {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* Scroll behavior for smooth animations */
-@supports (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: smooth;
+/* Print styles */
+@media print {
+  body {
+    background: #fff;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  img {
+    max-width: 100%;
   }
 }
