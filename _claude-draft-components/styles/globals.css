@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme inline {
+  --color-brand: var(--color-brand-red);
+  --color-brand-hover: var(--color-brand-red-hover);
+  --color-brand-tint: var(--color-brand-red-tint);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-line: var(--color-line);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-household: var(--color-household);
+  --color-household-accent: var(--color-household-accent);
+  --color-skincare: var(--color-skincare);
+  --color-skincare-accent: var(--color-skincare-accent);
+
+  --font-sans: var(--font-sans);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+/* Carousel slide transition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

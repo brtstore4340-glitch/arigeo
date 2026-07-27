@@ -1,0 +1,9 @@
+{
+  "data": "ewogICJuYW1lIjogImFyaWdlby1wcm9qZWN0IiwKICAidmVyc2lvbiI6ICIwLjEuMCIsCiAgInByaXZhdGUiOiB0cnVlLAogICJzY3JpcHRzIjogewogICAgImRldiI6ICJuZXh0IGRldiIsCiAgICAiYnVpbGQiOiAibmV4dCBidWlsZCIsCiAgICAic3RhcnQiOiAibmV4dCBzdGFydCIsCiAgICAibGludCI6ICJuZXh0IGxpbnQiCiAgfSwKICAiZGVwZW5kZW5jaWVzIjogewogICAgImx1Y2lkZS1yZWFjdCI6ICJeMS4yMy4wIiwKICAgICJuZXh0IjogIjE0LjIuMzUiLAogICAgIm5leHQtaW50bCI6ICJeNC4xMy4xIiwKICAgICJyZWFjdCI6ICJeMTgiLAogICAgInJlYWN0LWRvbSI6ICJeMTgiCiAgfSwKICAiZGV2RGVwZW5kZW5jaWVzIjogewogICAgIkB0eXBlcy9ub2RlIjogIl4yMCIsCiAgICAiQHR5cGVzL3JlYWN0IjogIl4xOCIsCiAgICAiQHR5cGVzL3JlYWN0LWRvbSI6ICJeMTgiLAogICAgImVzbGludCI6ICJeOCIsCiAgICAiZXNsaW50LWNvbmZpZy1uZXh0IjogIjE0LjIuMzUiLAogICAgInBvc3Rjc3MiOiAiXjgiLAogICAgInRhaWx3aW5kY3NzIjogIl4zLjQuMSIsCiAgICAidHlwZXNjcmlwdCI6ICJeNSIKICB9Cn0K",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
+}

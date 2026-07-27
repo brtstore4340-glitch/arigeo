@@ -1,0 +1,27 @@
+{
+  "project": "ARIGEO Corporate Website",
+  "handoffDate": "2026-07-16",
+  "implementationComplete": false,
+  "baselineSource": "uploaded arigeo (1).zip",
+  "primaryVisualReference": "handoff/references/target-red-circle.png",
+  "primaryBusinessBrief": "handoff/references/Arigeo-Brief.pptx",
+  "currentVisualReference": "handoff/references/current-deployed-2026-07-16.png",
+  "frontend": "React 18 + Vite + Tailwind CSS",
+  "targetCms": "Payload CMS",
+  "publicAuthenticationRequired": false,
+  "locales": [
+    "en",
+    "th"
+  ],
+  "knownBuildValidated": false,
+  "nextAction": "Run clean install, lint, typecheck and build; do not reintroduce Base44",
+  "inputChecksums": {
+    "originalZipSha256": "80e46dd212ceb9cc484a37e20910a65f95345fb6cb51193b69cb06cf1484e1b6",
+    "briefPptxSha256": "427d8ef354d2234a718ed137a7d13a2c550245ba1b183e9b20bc6037161e94ff",
+    "targetImageSha256": "719f7ee9b172a1a2b05cd2baaf890eb7d8e45b437854730731047b7f90b9cd49",
+    "currentScreenshotSha256": "2aebff901ac41c2fe93bc7f4c433c5194fc0efbe065c9aca2a5482f6505c85a8"
+  },
+  "base44Removed": true,
+  "base44Allowed": false,
+  "publicAuthGateRemoved": true
+}
