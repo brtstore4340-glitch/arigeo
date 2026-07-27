@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_Thai } from "next/font/google";
+import Header from "@/components/layout/Header";
 import "../src/styles/globals.css";
 import "../src/styles/design-tokens.css";
 import "../src/styles/animations.css";
@@ -43,6 +44,7 @@ export default function RootLayout({
             "var(--font-sans, 'Inter', 'Noto Sans Thai', sans-serif)",
         }}
       >
+        <Header />
         {children}
       </body>
     </html>
