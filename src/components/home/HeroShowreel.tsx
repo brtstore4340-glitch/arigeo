@@ -14,7 +14,7 @@
 export default function HeroShowreel() {
   return (
     <section className="hero-showreel" style={{
-      backgroundImage: 'url(/images/lifestyle/family-outdoor-1.png)',
+      backgroundImage: 'url(/images/home/hero-lifestyle-family-household.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     }}>
