@@ -23,17 +23,20 @@
 .logo {
   flex-shrink: 0;
   margin-right: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .logoLink {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  height: 100%;
 }
 
 .logoImg {
-  height: 18px;
+  height: 100%;
   width: auto;
   display: block;
   transition: opacity 200ms ease;
