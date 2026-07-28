@@ -374,47 +374,7 @@ section:nth-of-type(2) {
   }
 }
 
-/* HomeRelatedContents */
-.home-related-contents {
-  padding: 4rem 2rem;
-  background: white;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.content-card {
-  padding: 2rem;
-  border: 1px solid rgba(17, 17, 17, 0.12);
-  border-radius: 4px;
-}
-
-.content-card .icon-badge {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.content-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: #010101;
-}
-
-.content-card p {
-  color: #666666;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.content-card a {
-  color: #D50306;
-  font-weight: 600;
-}
+/* HomeRelatedContents - Removed */
 
 /* BrandsIndex */
 .brands-index {
