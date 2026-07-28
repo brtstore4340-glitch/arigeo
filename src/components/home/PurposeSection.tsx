@@ -4,15 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./purpose-section.module.css";
 
 /**
- * PurposeSection (REDESIGN 2026-07-28)
- * Horizontal card layout: 2x2 grid + 1 full-width card
- * Image left, text right
+ * PurposeSection (CORRECTED 2026-07-28)
+ * Vertical card layout: 2x2 grid + 1 full-width card
+ * Image top (full width), text below
  *
  * Design System Spec:
- * - 2×2 grid of horizontal cards (image 40%, text 60%)
- * - 1 full-width horizontal card at bottom
+ * - 2×2 grid of vertical cards (image top, text below)
+ * - 1 full-width vertical card at bottom
  * - Flat borders, zero radius
- * - "อ่านต่อ" (Read more) link
+ * - Circular arrow link button
  */
 
 type PurposeCard = {
@@ -22,7 +22,6 @@ type PurposeCard = {
   imageUrl: string;
   imageAlt: string;
   link: string;
-  linkText: string;
   fullWidth?: boolean;
 };
 
@@ -35,7 +34,6 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-about.png",
     imageAlt: "About ARIGEO",
     link: "/about",
-    linkText: "อ่านต่อ",
   },
   {
     id: "sustainability",
@@ -45,7 +43,6 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-sustainability-alt.jpg",
     imageAlt: "Sustainability",
     link: "/sustainability",
-    linkText: "อ่านต่อ",
   },
   {
     id: "innovation",
@@ -55,7 +52,6 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-innovation.png",
     imageAlt: "Innovation",
     link: "/innovation",
-    linkText: "อ่านต่อ",
   },
   {
     id: "brands",
@@ -65,7 +61,6 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-brands.png",
     imageAlt: "Our Brands",
     link: "/brands",
-    linkText: "อ่านต่อ",
   },
   {
     id: "vision",
@@ -75,7 +70,6 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/hero-lifestyle-about-us.png",
     imageAlt: "Our Vision",
     link: "/vision",
-    linkText: "อ่านต่อ",
     fullWidth: true,
   },
 ];
@@ -111,7 +105,7 @@ export default function PurposeSection() {
       <div className={styles.container}>
         <h2 className={styles.sectionTitle}>Our Purpose & Values</h2>
 
-        {/* 2x2 Grid */}
+        {/* 2x2 Grid - Vertical Cards */}
         <div className={styles.gridContainer}>
           {purposeCards.slice(0, 4).map((card) => (
             <div
@@ -120,7 +114,7 @@ export default function PurposeSection() {
                 if (el) cardRefs.current[card.id] = el;
               }}
               data-card-id={card.id}
-              className={`${styles.card} ${styles.horizontalCard} ${
+              className={`${styles.card} ${
                 visibleCards.has(card.id) ? styles.visible : ""
               }`}
             >
@@ -134,10 +128,12 @@ export default function PurposeSection() {
               </div>
 
               <div className={styles.content}>
-                <h3 className={styles.title}>{card.title}</h3>
-                <p className={styles.description}>{card.description}</p>
+                <div>
+                  <h3 className={styles.title}>{card.title}</h3>
+                  <p className={styles.description}>{card.description}</p>
+                </div>
                 <a href={card.link} className={styles.link}>
-                  {card.linkText}
+                  →
                 </a>
               </div>
             </div>
@@ -164,10 +160,12 @@ export default function PurposeSection() {
           </div>
 
           <div className={styles.content}>
-            <h3 className={styles.title}>{purposeCards[4].title}</h3>
-            <p className={styles.description}>{purposeCards[4].description}</p>
+            <div>
+              <h3 className={styles.title}>{purposeCards[4].title}</h3>
+              <p className={styles.description}>{purposeCards[4].description}</p>
+            </div>
             <a href={purposeCards[4].link} className={styles.link}>
-              {purposeCards[4].linkText}
+              →
             </a>
           </div>
         </div>

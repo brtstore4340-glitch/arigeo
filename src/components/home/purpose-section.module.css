@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-/* 2x2 Grid Layout */
+/* 2x2 Grid Layout - Vertical Cards */
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -25,10 +25,10 @@
   margin-bottom: 2rem;
 }
 
-/* Horizontal Card Layout (Image Left, Text Right) */
+/* Vertical Card Layout (Image Top, Text Below) */
 .card {
   display: grid;
-  grid-template-columns: 40% 1fr;
+  grid-template-rows: auto 1fr;
   gap: 1.5rem;
   overflow: hidden;
   border: 1px solid rgba(17, 17, 17, 0.12);
@@ -43,9 +43,10 @@
 
 .imageWrapper {
   position: relative;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: rgb(238, 238, 238);
+  width: 100%;
 }
 
 .image {
@@ -75,7 +76,7 @@
 
 .title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
   color: rgb(1, 1, 1);
@@ -91,26 +92,30 @@
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(1, 1, 1);
+  border-radius: 50%;
   background: transparent;
-  color: #D50306;
+  color: rgb(1, 1, 1);
   text-decoration: none;
-  border-radius: 0;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1.25rem;
   transition: all 300ms ease;
 }
 
 .link:hover {
-  color: #C50C15;
-  transform: translateX(4px);
+  background: rgb(1, 1, 1);
+  color: white;
+  transform: scale(1.1);
 }
 
 /* Full-Width Card (5th item) */
 .fullWidthCard {
   grid-column: 1 / -1;
-  grid-template-columns: 35% 1fr;
+  grid-template-rows: auto 1fr;
 }
 
 .fullWidthCard .imageWrapper {
@@ -122,11 +127,12 @@
 }
 
 .fullWidthCard .title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .fullWidthCard .description {
   font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* Animations */
@@ -159,10 +165,6 @@
     gap: 1.5rem;
   }
 
-  .card {
-    grid-template-columns: 45% 1fr;
-  }
-
   .sectionTitle {
     font-size: 2rem;
   }
@@ -185,12 +187,7 @@
   }
 
   .card {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .card.visible {
-    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
   }
 
   .imageWrapper {
@@ -202,15 +199,11 @@
   }
 
   .title {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
 
   .description {
     font-size: 0.9rem;
-  }
-
-  .fullWidthCard {
-    grid-template-columns: 1fr;
   }
 
   .fullWidthCard .imageWrapper {
@@ -218,15 +211,15 @@
   }
 
   .fullWidthCard .content {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 
   .fullWidthCard .title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .fullWidthCard .description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -246,7 +239,7 @@
   }
 
   .title {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 
   .description {
@@ -254,7 +247,9 @@
   }
 
   .link {
-    font-size: 0.85rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.125rem;
   }
 }
 
