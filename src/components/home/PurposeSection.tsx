@@ -1,7 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import styles from "./purpose-section.module.css";
+/**
+ * PurposeSection (REDESIGN 2026-07-28)
+ * Kao-style asymmetric "Purpose" grid
+ *
+ * Design System Spec:
+ * - 4 half-width cards in 2×2 bordered grid (no gap, no radius)
+ * - Rotating soft tints: green/blue/gray/white with photos + copy + circular arrow
+ * - 1 full-width dark image card (Sustainability) with overlay copy
+ * - Card tints: green (#eef6f1), blue (#eef3f8), gray (#f4f4f5)
+ * - Flat borders, zero radius (Kao-style)
+ */
 
 type PurposeCard = {
   id: string;

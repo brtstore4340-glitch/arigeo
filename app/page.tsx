@@ -1,36 +1,50 @@
-import HeroBanner from "@/components/home/HeroBanner";
-import CoreValuesSection from "@/components/home/CoreValuesSection";
-import NewsCarousel from "@/components/home/NewsCarousel";
-import BrandsSection from "@/components/home/BrandsSection";
+/**
+ * ARIGEO Homepage - Design System v2026-07-28
+ * Rebuilding from ARIGEO Design System specification
+ *
+ * Component order (per design system):
+ * 1. HeroShowreel - Radial wipe animation
+ * 2. HomeIntroStatement - Eyebrow + title + line
+ * 3. LatestCarousel - 3-up carousel (cross-links)
+ * 4. NewsSection - Newsroom carousel
+ * 5. PurposeSection - Kao-style 2×2 grid + 1 full-width dark card
+ * 6. HomeRelatedContents - 3-card cross-link grid
+ * 7. NewsletterSection - Email subscribe
+ */
+
+import HeroShowreel from "@/components/home/HeroShowreel";
+import HomeIntroStatement from "@/components/home/HomeIntroStatement";
+import LatestCarousel from "@/components/home/LatestCarousel";
+import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
-import BrandedCardSection from "@/components/home/BrandedCardSection";
-import NewsRelease from "@/components/home/NewsRelease";
+import HomeRelatedContents from "@/components/home/HomeRelatedContents";
+import NewsletterSection from "@/components/home/NewsletterSection";
 
 export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
     <main>
-      {/* Hero Section with Zoom Animation */}
-      <HeroBanner />
+      {/* 1. Full-bleed hero with radial wipe animation */}
+      <HeroShowreel />
 
-      {/* Core Values Section with Team Photo + Category Cards */}
-      <CoreValuesSection />
+      {/* 2. Eyebrow + purpose headline + supporting line */}
+      <HomeIntroStatement />
 
-      {/* News Carousel with Slide Format */}
-      <NewsCarousel />
+      {/* 3. Latest carousel (cross-links) */}
+      <LatestCarousel heading="Latest" />
 
-      {/* Our Brands Section with Captain-Maid, Genuleaf, Ceratory */}
-      <BrandsSection />
+      {/* 4. News carousel */}
+      <NewsSection />
 
-      {/* Purpose/Mission Cards with Scroll Animations */}
+      {/* 5. Kao-style Purpose grid (2×2 cards + 1 full-width dark) */}
       <PurposeSection />
 
-      {/* Branded Cards with Marcusx Color Palette */}
-      <BrandedCardSection />
+      {/* 6. Related content 3-card grid */}
+      <HomeRelatedContents />
 
-      {/* News Release List with Image Zoom */}
-      <NewsRelease />
+      {/* 7. Newsletter subscription */}
+      <NewsletterSection />
     </main>
   );
 }
