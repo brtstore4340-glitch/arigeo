@@ -49,7 +49,7 @@ export default function BrandsIndex() {
   return (
     <section className="brands-index">
       <div className="brands-hero">
-        <img src="/images/home/hero-products.png" alt="Our Brands" />
+        {/* TODO: Add hero image */}
         <div className="hero-content">
           <h1>Our Brands</h1>
           <p>CONTENT REQUIRED — Brand overview copy pending corporate approval</p>

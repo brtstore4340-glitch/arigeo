@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+import styles from "./purpose-section.module.css";
+
 /**
  * PurposeSection (REDESIGN 2026-07-28)
  * Kao-style asymmetric "Purpose" grid
@@ -25,43 +28,43 @@ type PurposeCard = {
 const purposeCards: PurposeCard[] = [
   {
     id: "about",
-    title: "เกี่ยวกับคาโอ",
+    title: "About ARIGEO",
     description:
-      "เราพัฒนาผลิตภัณฑ์ที่มีคุณภาพสูงและยั่งยืน รวมถึงมอบการบริการที่จะทำให้ผู้คน สังคม และโลกใบนี้มีความเป็นอยู่ที่ดียิ่งขึ้น",
-    imageUrl: "/images/home/news-corporate-building.png",
-    imageAlt: "About Kao",
+      "CONTENT REQUIRED — About copy pending corporate approval",
+    imageUrl: "", // TODO: Add image
+    imageAlt: "About ARIGEO",
     link: "/about",
-    linkText: "อ่านเพิ่มเติม",
+    linkText: "Learn more",
   },
   {
     id: "sustainability",
-    title: "ความยั่งยืน",
+    title: "Sustainability",
     description:
-      "การสร้างผลิตภัณฑ์ที่ดีต่อสิ่งแวดล้อมและสังคม เป็นส่วนสำคัญของการดำเนินธุรกิจของเรา",
-    imageUrl: "/images/home/news-sustainability-globe.png",
+      "CONTENT REQUIRED — Sustainability copy pending corporate approval",
+    imageUrl: "", // TODO: Add image
     imageAlt: "Sustainability",
     link: "/sustainability",
-    linkText: "อ่านเพิ่มเติม",
+    linkText: "Learn more",
   },
   {
     id: "innovation",
-    title: "นวัตกรรม",
+    title: "Innovation",
     description:
-      "เราลงทุนในการวิจัยและพัฒนาเพื่อสร้างผลิตภัณฑ์ที่ตอบสนองความต้องการของผู้คน",
-    imageUrl: "/images/home/news-lifestyle-couple.png",
+      "CONTENT REQUIRED — Innovation copy pending corporate approval",
+    imageUrl: "", // TODO: Add image
     imageAlt: "Innovation",
     link: "/innovation",
-    linkText: "อ่านเพิ่มเติม",
+    linkText: "Learn more",
   },
   {
     id: "brands",
-    title: "แบรนด์ของเรา",
+    title: "Our Brands",
     description:
-      "แบรนด์ชั้นนำที่เชื่อถือได้ที่ช่วยให้ชีวิตของผู้คนดีขึ้นทุกวัน",
-    imageUrl: "/images/home/hero-products.png",
+      "CONTENT REQUIRED — Brands copy pending corporate approval",
+    imageUrl: "", // TODO: Add image
     imageAlt: "Our Brands",
     link: "/brands",
-    linkText: "อ่านเพิ่มเติม",
+    linkText: "Learn more",
   },
 ];
 

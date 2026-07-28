@@ -11,7 +11,7 @@
 
 interface CarouselItem {
   id: string;
-  image: string;
+  image?: string;
   category: string;
   title: string;
   href: string;
@@ -32,7 +32,7 @@ export default function LatestCarousel({ heading = "Latest", items = [] }: Props
         ) : (
           items.map((item) => (
             <article key={item.id} className="carousel-card">
-              <img src={item.image} alt={item.title} />
+              {item.image && <img src={item.image} alt={item.title} />}
               <span className="category">{item.category}</span>
               <h3>{item.title}</h3>
               <a href={item.href}>Read more →</a>
