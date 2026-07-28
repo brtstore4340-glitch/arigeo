@@ -61,8 +61,12 @@ export default function Header() {
         <div className={styles.topBar}>
           {/* Logo */}
           <div className={styles.logo}>
-            <Link href="/" aria-label="ARIGEO Home">
-              <span className={styles.logoText}>ARIGEO</span>
+            <Link href="/" aria-label="ARIGEO Home" className={styles.logoLink}>
+              <img
+                src="/images/logo.png"
+                alt="ARIGEO"
+                className={styles.logoImg}
+              />
             </Link>
           </div>
 

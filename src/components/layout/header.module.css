@@ -31,26 +31,25 @@
   margin-right: 2rem;
 }
 
-.logo a {
+.logoLink {
   text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.logoText {
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--marcusx-primary, #2a2a2a);
-  letter-spacing: -0.5px;
-  transition: color 200ms ease;
+.logoImg {
+  height: 18px;
+  width: auto;
+  display: block;
+  transition: opacity 200ms ease;
 }
 
-.logo a:hover .logoText {
-  color: var(--marcusx-accent, #0066cc);
+.logoLink:hover .logoImg {
+  opacity: 0.8;
 }
 
-.logo a:focus-visible {
+.logoLink:focus-visible {
   outline: 2px solid var(--marcusx-accent, #0066cc);
   outline-offset: 2px;
   border-radius: 2px;
