@@ -18,7 +18,6 @@ import LatestCarousel from "@/components/home/LatestCarousel";
 import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import HomeRelatedContents from "@/components/home/HomeRelatedContents";
-import NewsletterSection from "@/components/home/NewsletterSection";
 
 export const dynamic = "force-dynamic";
 
@@ -42,9 +41,6 @@ export default function Home() {
 
       {/* 6. Related content 3-card grid */}
       <HomeRelatedContents />
-
-      {/* 7. Newsletter subscription */}
-      <NewsletterSection />
     </main>
   );
 }
