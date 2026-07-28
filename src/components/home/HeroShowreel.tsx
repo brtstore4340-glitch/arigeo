@@ -13,10 +13,15 @@
 
 export default function HeroShowreel() {
   return (
-    <section className="hero-showreel">
-      {/* TODO: Implement radial wipe animation */}
-      <h1>We don't follow categories. We create them.</h1>
-      <a href="/about#core-values">Our core value</a>
+    <section className="hero-showreel" style={{
+      backgroundImage: 'url(/images/lifestyle/family-outdoor-1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
+      <div className="hero-overlay">
+        <h1>We don't follow categories. We create them.</h1>
+        <a href="/about#core-values">Our core value</a>
+      </div>
     </section>
   );
 }

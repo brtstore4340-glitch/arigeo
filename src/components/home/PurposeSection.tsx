@@ -31,7 +31,7 @@ const purposeCards: PurposeCard[] = [
     title: "About ARIGEO",
     description:
       "CONTENT REQUIRED — About copy pending corporate approval",
-    imageUrl: "", // TODO: Add image
+    imageUrl: "/images/team/team-culture-1.png",
     imageAlt: "About ARIGEO",
     link: "/about",
     linkText: "Learn more",
@@ -41,7 +41,7 @@ const purposeCards: PurposeCard[] = [
     title: "Sustainability",
     description:
       "CONTENT REQUIRED — Sustainability copy pending corporate approval",
-    imageUrl: "", // TODO: Add image
+    imageUrl: "/images/lifestyle/wellness-family-1.png",
     imageAlt: "Sustainability",
     link: "/sustainability",
     linkText: "Learn more",
@@ -51,7 +51,7 @@ const purposeCards: PurposeCard[] = [
     title: "Innovation",
     description:
       "CONTENT REQUIRED — Innovation copy pending corporate approval",
-    imageUrl: "", // TODO: Add image
+    imageUrl: "/images/products/beauty-natural-1.png",
     imageAlt: "Innovation",
     link: "/innovation",
     linkText: "Learn more",
@@ -61,7 +61,7 @@ const purposeCards: PurposeCard[] = [
     title: "Our Brands",
     description:
       "CONTENT REQUIRED — Brands copy pending corporate approval",
-    imageUrl: "", // TODO: Add image
+    imageUrl: "/images/products/product-premium-1.png",
     imageAlt: "Our Brands",
     link: "/brands",
     linkText: "Learn more",

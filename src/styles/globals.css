@@ -118,11 +118,28 @@ section:nth-of-type(2) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #010101 0%, #1a1a1a 100%);
   color: white;
   text-align: center;
   padding: 2rem;
   position: relative;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.hero-showreel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-showreel h1 {
