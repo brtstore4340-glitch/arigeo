@@ -5,14 +5,14 @@ import styles from "./purpose-section.module.css";
 
 /**
  * PurposeSection (REDESIGN 2026-07-28)
- * Kao-style asymmetric "Purpose" grid
+ * Horizontal card layout: 2x2 grid + 1 full-width card
+ * Image left, text right
  *
  * Design System Spec:
- * - 4 half-width cards in 2×2 bordered grid (no gap, no radius)
- * - Rotating soft tints: green/blue/gray/white with photos + copy + circular arrow
- * - 1 full-width dark image card (Sustainability) with overlay copy
- * - Card tints: green (#eef6f1), blue (#eef3f8), gray (#f4f4f5)
- * - Flat borders, zero radius (Kao-style)
+ * - 2×2 grid of horizontal cards (image 40%, text 60%)
+ * - 1 full-width horizontal card at bottom
+ * - Flat borders, zero radius
+ * - "อ่านต่อ" (Read more) link
  */
 
 type PurposeCard = {
@@ -23,6 +23,7 @@ type PurposeCard = {
   imageAlt: string;
   link: string;
   linkText: string;
+  fullWidth?: boolean;
 };
 
 const purposeCards: PurposeCard[] = [
@@ -34,7 +35,7 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-about.png",
     imageAlt: "About ARIGEO",
     link: "/about",
-    linkText: "Learn more",
+    linkText: "อ่านต่อ",
   },
   {
     id: "sustainability",
@@ -44,7 +45,7 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-sustainability-alt.jpg",
     imageAlt: "Sustainability",
     link: "/sustainability",
-    linkText: "Learn more",
+    linkText: "อ่านต่อ",
   },
   {
     id: "innovation",
@@ -54,7 +55,7 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-innovation.png",
     imageAlt: "Innovation",
     link: "/innovation",
-    linkText: "Learn more",
+    linkText: "อ่านต่อ",
   },
   {
     id: "brands",
@@ -64,7 +65,18 @@ const purposeCards: PurposeCard[] = [
     imageUrl: "/images/home/purpose-brands.png",
     imageAlt: "Our Brands",
     link: "/brands",
-    linkText: "Learn more",
+    linkText: "อ่านต่อ",
+  },
+  {
+    id: "vision",
+    title: "Our Vision",
+    description:
+      "CONTENT REQUIRED — Vision and future direction copy pending corporate approval",
+    imageUrl: "/images/home/hero-lifestyle-about-us.png",
+    imageAlt: "Our Vision",
+    link: "/vision",
+    linkText: "อ่านต่อ",
+    fullWidth: true,
   },
 ];
 
@@ -97,46 +109,67 @@ export default function PurposeSection() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>สำเร็จการศึกษาและการพัฒนา</h2>
+        <h2 className={styles.sectionTitle}>Our Purpose & Values</h2>
 
+        {/* 2x2 Grid */}
         <div className={styles.gridContainer}>
-          {purposeCards.map((card, idx) => (
+          {purposeCards.slice(0, 4).map((card) => (
             <div
               key={card.id}
               ref={(el) => {
                 if (el) cardRefs.current[card.id] = el;
               }}
               data-card-id={card.id}
-              className={`${styles.card} ${
+              className={`${styles.card} ${styles.horizontalCard} ${
                 visibleCards.has(card.id) ? styles.visible : ""
               }`}
             >
               <div className={styles.imageWrapper}>
-                <div className={styles.imagePlaceholder}>
-                  <img
-                    src={card.imageUrl}
-                    alt={card.imageAlt}
-                    className={styles.image}
-                    loading="lazy"
-                  />
-                </div>
+                <img
+                  src={card.imageUrl}
+                  alt={card.imageAlt}
+                  className={styles.image}
+                  loading="lazy"
+                />
               </div>
 
               <div className={styles.content}>
-                <div className={styles.textBlock}>
-                  <h3 className={styles.title}>{card.title}</h3>
-                  <p className={styles.description}>{card.description}</p>
-                </div>
-
-                <div className={styles.linkBlock}>
-                  <a href={card.link} className={styles.link}>
-                    <span className={styles.linkIcon}>→</span>
-                    <span className={styles.linkText}>{card.linkText}</span>
-                  </a>
-                </div>
+                <h3 className={styles.title}>{card.title}</h3>
+                <p className={styles.description}>{card.description}</p>
+                <a href={card.link} className={styles.link}>
+                  {card.linkText}
+                </a>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Full-width Card */}
+        <div
+          ref={(el) => {
+            if (el) cardRefs.current["vision"] = el;
+          }}
+          data-card-id="vision"
+          className={`${styles.card} ${styles.fullWidthCard} ${
+            visibleCards.has("vision") ? styles.visible : ""
+          }`}
+        >
+          <div className={styles.imageWrapper}>
+            <img
+              src={purposeCards[4].imageUrl}
+              alt={purposeCards[4].imageAlt}
+              className={styles.image}
+              loading="lazy"
+            />
+          </div>
+
+          <div className={styles.content}>
+            <h3 className={styles.title}>{purposeCards[4].title}</h3>
+            <p className={styles.description}>{purposeCards[4].description}</p>
+            <a href={purposeCards[4].link} className={styles.link}>
+              {purposeCards[4].linkText}
+            </a>
+          </div>
         </div>
       </div>
     </section>
