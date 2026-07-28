@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_Thai } from "next/font/google";
+import { Arimo, IBM_Plex_Sans_Thai } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "../src/styles/globals.css";
 import "../src/styles/design-tokens.css";
 import "../src/styles/animations.css";
 
-const inter = Inter({ subsets: ["latin"] });
-const notoSansThai = Noto_Sans_Thai({ subsets: ["thai"] });
+const arimo = Arimo({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-arimo",
+  display: "swap",
+});
+
+const plexThai = IBM_Plex_Sans_Thai({
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-plex-thai",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "ARIGEO - Kao Thailand",
@@ -39,10 +51,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#010101" />
       </head>
       <body
-        className={`${inter.className} ${notoSansThai.className}`}
+        className={`${arimo.variable} ${plexThai.variable}`}
         style={{
           fontFamily:
-            "var(--font-sans, 'Inter', 'Noto Sans Thai', sans-serif)",
+            "var(--font-sans, 'Arimo', 'IBM Plex Sans Thai', sans-serif)",
         }}
       >
         <Header />
