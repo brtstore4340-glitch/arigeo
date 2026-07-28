@@ -17,6 +17,8 @@ import HomeIntroStatement from "@/components/home/HomeIntroStatement";
 import LatestCarousel from "@/components/home/LatestCarousel";
 import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
+import BrandCarouselSection from "@/components/home/BrandCarouselSection";
+import HomeRelatedContents from "@/components/home/HomeRelatedContents";
 import NewsReleaseSection from "@/components/home/NewsReleaseSection";
 
 export const dynamic = "force-dynamic";
@@ -39,7 +41,13 @@ export default function Home() {
       {/* 5. Kao-style Purpose grid (2×2 cards + 1 full-width dark) */}
       <PurposeSection />
 
-      {/* 6. News & Press Releases */}
+      {/* 6. Brand Showcase */}
+      <BrandCarouselSection />
+
+      {/* 7. Related content 3-card grid */}
+      <HomeRelatedContents />
+
+      {/* 8. News & Press Releases */}
       <NewsReleaseSection />
     </main>
   );
