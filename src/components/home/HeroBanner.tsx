@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { useLocale } from "next-intl";
 import Media from "@/components/ui/Media";
 import { Button } from "@/components/ui/Button";

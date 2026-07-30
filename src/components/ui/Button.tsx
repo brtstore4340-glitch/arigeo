@@ -63,9 +63,10 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   showArrow?: boolean;
   style?: CSSProperties;
+  className?: string;
 }
 
-export function Button({ href, variant = 'primary', children, onClick, disabled, type = 'button', showArrow = true, style }: ButtonProps) {
+export function Button({ href, variant = 'primary', children, onClick, disabled, type = 'button', showArrow = true, style, className }: ButtonProps) {
   const [hover, setHover] = React.useState(false);
 
   const variantStyles = variantStyle[variant as keyof typeof variantStyle];
@@ -87,6 +88,7 @@ export function Button({ href, variant = 'primary', children, onClick, disabled,
     return (
       <a
         href={href}
+        className={className}
         style={cls}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
@@ -101,6 +103,7 @@ export function Button({ href, variant = 'primary', children, onClick, disabled,
       type={type}
       onClick={onClick}
       disabled={disabled}
+      className={className}
       style={cls}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
