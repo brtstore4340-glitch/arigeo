@@ -1620,34 +1620,32 @@ select:focus {
 
 .brand-carousel-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .brand-tile {
-  background: white;
-  padding: 2rem;
-  border: 1px solid rgba(17, 17, 17, 0.12);
-  border-radius: 0;
-  text-align: center;
-  transition: all 300ms ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.brand-tile:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
-}
-
-.brand-icon {
-  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  transition: all 300ms ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.brand-tile:hover {
+  transform: scale(1.05);
+}
+
+.brand-logo-wrapper {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .brand-logo {
@@ -1657,48 +1655,25 @@ select:focus {
   display: block;
 }
 
-.brand-name {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #010101;
-  margin: 0;
-}
-
-.brand-category {
-  font-size: 0.875rem;
-  color: #666666;
-  margin: 0;
-  font-weight: 500;
-}
-
 .brand-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: #D50306;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background 300ms ease;
+  color: inherit;
 }
-
-.brand-link:hover {
-  background: #C50C15;
-}
-
-.brand-pending {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: #F3F3F4;
-  color: #666666;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 0;
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .brand-carousel-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .brand-carousel-section {
     padding: 2rem 1.5rem;
@@ -1708,16 +1683,25 @@ select:focus {
     font-size: 1.875rem;
   }
 
-  .brand-tile {
-    padding: 1.5rem;
+  .brand-carousel-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
-  .brand-icon {
-    height: 60px;
+  .brand-logo-wrapper {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-carousel-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
   }
 
-  .brand-name {
-    font-size: 1.25rem;
+  .brand-logo-wrapper {
+    height: 80px;
+    padding: 0.5rem;
   }
 }
 
