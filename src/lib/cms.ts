@@ -35,7 +35,7 @@ async function cmsFetch<T>(
   path: string,
   { revalidate = DEFAULT_REVALIDATE }: { revalidate?: number } = {},
 ): Promise<T | null> {
-  const url = `${CMS_URL}/api/${path.replace(/^//, '')}`
+  const url = `${CMS_URL}/api/${path.replace(/^\//, '')}`
   try {
     const res = await fetch(url, {
       headers: { Accept: 'application/json' },

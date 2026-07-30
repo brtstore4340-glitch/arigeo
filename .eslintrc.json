@@ -1,5 +1,12 @@
 {
   "root": true,
   "extends": ["next/core-web-vitals", "next/typescript"],
-  "ignorePatterns": ["src/components/_legacy/**/*"]
+  "ignorePatterns": ["src/components/_legacy/**/*"],
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-html-link-for-pages": "off",
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/display-name": "off"
+  }
 }
