@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 import Link from "next/link";
 import styles from "./news-carousel.module.css";
 
@@ -11,12 +12,12 @@ type NewsCard = {
   categoryColor: string;
   title: string;
   description: string;
-  image: string;
+  image: string | null;
   alt: string;
   date?: string;
 };
 
-const newsCards: NewsCard[] = [
+const defaultCards: NewsCard[] = [
   {
     id: "news-1",
     href: "/about",
@@ -74,68 +75,30 @@ const newsCards: NewsCard[] = [
   },
 ];
 
+function fillMissingCards(cards: NewsCard[]): NewsCard[] {
+  const result = [...cards];
+  let counter = 0;
+  while (result.length < 5) {
+    result.push({
+      id: `coming-soon-${counter}`,
+      category: "COMING SOON",
+      categoryColor: "#999999",
+      title: "Coming Soon",
+      description: "New content coming soon",
+      image: null,
+      alt: "Coming soon",
+      href: "#",
+    });
+    counter++;
+  }
+  return result.slice(0, 5);
+}
+
+const newsCards = fillMissingCards(defaultCards);
+
 export default function NewsCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-  const [inView, setInView] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Intersection Observer for scroll animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Auto-play logic
-  useEffect(() => {
-    if (!isAutoPlay) return;
-
-    autoPlayRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % newsCards.length);
-    }, 6000);
-
-    return () => {
-      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
-    };
-  }, [isAutoPlay]);
-
-  const goToSlide = useCallback((index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlay(false);
-    // Resume autoplay after 10 seconds of inactivity
-    setTimeout(() => setIsAutoPlay(true), 10000);
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    goToSlide((currentIndex + 1) % newsCards.length);
-  }, [currentIndex, goToSlide]);
-
-  const prevSlide = useCallback(() => {
-    goToSlide((currentIndex - 1 + newsCards.length) % newsCards.length);
-  }, [currentIndex, goToSlide]);
-
-  const currentCard = newsCards[currentIndex];
-
   return (
-    <section
-      ref={containerRef}
-      className={`${styles.section} ${inView ? styles.visible : ""}`}
-      aria-label="News and stories carousel"
-    >
+    <section className={styles.section} aria-label="News and stories carousel">
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.header}>
@@ -149,50 +112,66 @@ export default function NewsCarousel() {
           </Link>
         </div>
 
-        {/* Carousel */}
-        <div className={styles.carousel}>
-          {/* Slides */}
-          <div className={styles.slideTrack}>
-            {newsCards.map((card, idx) => (
-              <article
-                key={card.id}
-                className={`${styles.slide} ${idx === currentIndex ? styles.active : ""}`}
-                aria-hidden={idx !== currentIndex}
-              >
-                {/* Image */}
-                <div className={styles.slideImage}>
-                  <img
-                    src={card.image}
-                    alt={card.alt}
-                    className={styles.image}
-                    loading={idx === currentIndex ? "eager" : "lazy"}
-                  />
-                </div>
+        {/* Splide Carousel */}
+        <Splide
+          options={{
+            type: "loop",
+            perPage: 1,
+            autoplay: true,
+            interval: 6000,
+            pauseOnHover: true,
+            arrows: true,
+            pagination: true,
+            speed: 900,
+            rewind: false,
+          }}
+          className={styles.carousel}
+        >
+          {newsCards.map((card) => (
+            <SplideSlide key={card.id}>
+              <article className={styles.slide}>
+                {/* Image with slow pan animation */}
+                {card.image ? (
+                  <div className={styles.slideImage}>
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      className={styles.image}
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.comingCard}>
+                    <span>{card.title}</span>
+                  </div>
+                )}
 
                 {/* Content */}
                 <div className={styles.slideContent}>
-                  <div className={styles.badge} style={{ backgroundColor: card.categoryColor }}>
+                  <div
+                    className={styles.badge}
+                    style={{ backgroundColor: card.categoryColor }}
+                  >
                     {card.category}
                   </div>
                   <h3 className={styles.slideTitle}>{card.title}</h3>
                   <p className={styles.slideDescription}>{card.description}</p>
                   {card.date && <span className={styles.slideDate}>{card.date}</span>}
-                  <Link href={card.href} className={styles.slideLink}>
-                    Read article
-                    <span aria-hidden="true">→</span>
-                  </Link>
+                  {card.href !== "#" && (
+                    <Link href={card.href} className={styles.slideLink}>
+                      Read article
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  )}
                 </div>
               </article>
-            ))}
-          </div>
+            </SplideSlide>
+          ))}
 
-          {/* Navigation */}
-          <div className={styles.controls}>
-            {/* Previous Button */}
+          {/* Controls */}
+          <div className={styles.splideControls}>
             <button
+              className="splide__arrow splide__arrow--prev"
               type="button"
-              onClick={prevSlide}
-              className={styles.navButton}
               aria-label="Previous slide"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -200,45 +179,28 @@ export default function NewsCarousel() {
               </svg>
             </button>
 
-            {/* Dots */}
-            <ol className={styles.dots} aria-label="Slide indicators">
-              {newsCards.map((_, idx) => (
-                <li key={idx}>
-                  <button
-                    type="button"
-                    onClick={() => goToSlide(idx)}
-                    className={`${styles.dot} ${idx === currentIndex ? styles.active : ""}`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                    aria-current={idx === currentIndex ? "page" : undefined}
-                  />
-                </li>
-              ))}
-            </ol>
+            <div className="splide__pagination" />
 
-            {/* Next Button */}
             <button
+              className="splide__arrow splide__arrow--next"
               type="button"
-              onClick={nextSlide}
-              className={styles.navButton}
               aria-label="Next slide"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 5l7 7-7 7" />
               </svg>
             </button>
-          </div>
 
-          {/* Play/Pause */}
-          <button
-            type="button"
-            onClick={() => setIsAutoPlay(!isAutoPlay)}
-            className={styles.playButton}
-            aria-label={isAutoPlay ? "Pause carousel" : "Play carousel"}
-            title={isAutoPlay ? "Pause" : "Play"}
-          >
-            {isAutoPlay ? "⏸" : "▶"}
-          </button>
-        </div>
+            <button
+              className="splide__toggle"
+              type="button"
+              aria-label="Toggle autoplay"
+            >
+              <span className="splide__toggle__play">▶</span>
+              <span className="splide__toggle__pause">⏸</span>
+            </button>
+          </div>
+        </Splide>
       </div>
     </section>
   );
