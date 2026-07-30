@@ -114,9 +114,26 @@ export default function NewsCarousel() {
       pagination: true,
       speed: 900,
       rewind: false,
+      breakpoints: {
+        768: {
+          perPage: 1,
+        },
+      },
     });
 
     splide.mount();
+
+    // Add click handlers for play/pause toggle
+    const toggleBtn = splideRef.current?.querySelector(".splide__toggle");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        if (splide.Components.AutoPlay.isPlaying()) {
+          splide.Components.AutoPlay.pause();
+        } else {
+          splide.Components.AutoPlay.play();
+        }
+      });
+    }
 
     return () => {
       splide.destroy();
