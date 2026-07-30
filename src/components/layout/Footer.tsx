@@ -174,9 +174,7 @@ export default function Footer() {
       {/* Logo and Description */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "auto minmax(0,460px)",
-          gap: 28,
+          display: "flex",
           alignItems: "center",
           justifyContent: "center",
           padding: "34px 0",
@@ -189,17 +187,6 @@ export default function Footer() {
             style={{ height: 38, width: "auto", objectFit: "contain" }}
           />
         </Link>
-        <p
-          style={{
-            margin: 0,
-            color: "#666",
-            fontSize: 13,
-            lineHeight: 1.8,
-          }}
-        >
-          Trusted household and skincare products that combine advanced
-          innovation with safety and care.
-        </p>
       </div>
 
       {/* Copyright Section */}

@@ -17,7 +17,6 @@ import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import BrandCarouselSection from "@/components/home/BrandCarouselSection";
 import NewsRelease from "@/components/home/NewsRelease";
-import Footer from "@/components/home/Footer";
 
 export const dynamic = "force-dynamic";
 
@@ -44,7 +43,6 @@ export default function Home() {
         <NewsRelease />
       </main>
 
-      <Footer />
     </>
   );
 }

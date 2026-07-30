@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import styles from "./news-section.module.css";
 
 type NewsCard = {
@@ -53,6 +52,7 @@ const CARDS_PER_PAGE = 2;
 
 export default function NewsSection() {
   const [currentPage, setCurrentPage] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
   const trackRef = useRef<HTMLUListElement>(null);
 
   const maxPages = Math.ceil(newsCards.length / CARDS_PER_PAGE);
@@ -70,18 +70,29 @@ export default function NewsSection() {
     setCurrentPage(page);
   }, []);
 
+  useEffect(() => {
+    if (!isPlaying || maxPages <= 1) return;
+
+    const timer = window.setInterval(() => {
+      setCurrentPage((prev) => (prev < maxPages - 1 ? prev + 1 : 0));
+    }, 5200);
+
+    return () => window.clearInterval(timer);
+  }, [isPlaying, maxPages]);
+
   return (
     <section className={styles.section}>
       <h2 className={styles.heading}>Latest</h2>
 
       <div className={styles.carousel}>
         <ul
+          id="news-section-track"
           ref={trackRef}
           className={styles.track}
           style={{ transform: `translateX(${translateX}%)` }}
         >
           {newsCards.map((card, idx) => (
-            <li key={idx} className={styles.slide}>
+            <li key={idx} id={`news-section-slide-${idx + 1}`} className={styles.slide}>
               {card.comingSoon ? (
                 <div className={styles.card}>
                   <div className={styles.imageWrapper}>
@@ -115,55 +126,61 @@ export default function NewsSection() {
       </div>
 
       <div className={styles.controls}>
-        <button
-          type="button"
-          onClick={handlePrev}
-          className={styles.navButton}
-          disabled={currentPage === 0}
-          aria-label="Previous"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 5l-7 7 7 7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
+        <div className={`${styles.arrows} ${styles.arrowsLtr}`}>
+          <button
+            type="button"
+            onClick={handlePrev}
+            className={`${styles.navButton} ${styles.prevButton}`}
+            disabled={currentPage === 0}
+            aria-label="Go to previous slide"
+            aria-controls="news-section-track"
+          >
+            Previous
+          </button>
+        </div>
 
-        <ol className={styles.pagination}>
+        <ul className={styles.pagination} role="tablist" aria-label="Select a slide to show">
           {Array.from({ length: maxPages }).map((_, idx) => (
-            <li key={idx}>
+            <li key={idx} role="presentation">
               <button
                 type="button"
+                role="tab"
                 onClick={() => goToPage(idx)}
                 className={`${styles.dot} ${
                   idx === currentPage ? styles.dotActive : ""
                 }`}
+                aria-controls={`news-section-slide-${idx + 1}`}
                 aria-label={`Go to page ${idx + 1}`}
+                aria-selected={idx === currentPage}
+                tabIndex={idx === currentPage ? 0 : -1}
               />
             </li>
           ))}
-        </ol>
+        </ul>
+
+        <div className={styles.arrows}>
+          <button
+            type="button"
+            onClick={handleNext}
+            className={`${styles.navButton} ${styles.nextButton}`}
+            disabled={currentPage === maxPages - 1}
+            aria-label="Next slide"
+            aria-controls="news-section-track"
+          >
+            Next
+          </button>
+        </div>
 
         <button
           type="button"
-          onClick={handleNext}
-          className={styles.navButton}
-          disabled={currentPage === maxPages - 1}
-          aria-label="Next"
+          onClick={() => setIsPlaying((current) => !current)}
+          className={`${styles.toggle} ${isPlaying ? styles.toggleActive : ""}`}
+          aria-controls="news-section-track"
+          aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
+          aria-pressed={isPlaying}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M9 5l7 7-7 7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <span className={styles.togglePlay}>Play</span>
+          <span className={styles.togglePause}>Pause</span>
         </button>
       </div>
     </section>
