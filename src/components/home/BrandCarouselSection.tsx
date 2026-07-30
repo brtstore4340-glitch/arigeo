@@ -13,9 +13,9 @@
 interface Brand {
   id: string;
   name: string;
-  icon: string;
+  logo: string;
   category: string;
-  href: string;
+  href?: string;
   pending?: boolean;
 }
 
@@ -23,21 +23,21 @@ const brands: Brand[] = [
   {
     id: "captain-maid",
     name: "Captain-Maid",
-    icon: "🧹",
+    logo: "/images/brands/captain-maid-logo.png",
     category: "Hygiene Living Care",
     href: "https://captain-maid.com",
   },
   {
     id: "genuleaf",
     name: "GenuLeaf",
-    icon: "🌿",
+    logo: "/images/brands/genuleaf-logo.png",
     category: "Health Beauty Care",
     pending: true,
   },
   {
     id: "ceratory",
     name: "CeraTory",
-    icon: "💙",
+    logo: "/images/brands/ceratory-logo.png",
     category: "Health Beauty Care",
     pending: true,
   },
@@ -63,7 +63,13 @@ export default function BrandCarouselSection() {
               className="brand-tile"
               data-brand-id={brand.id}
             >
-              <div className="brand-icon">{brand.icon}</div>
+              <div className="brand-icon">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="brand-logo"
+                />
+              </div>
               <h3 className="brand-name">{brand.name}</h3>
               <p className="brand-category">{brand.category}</p>
 
