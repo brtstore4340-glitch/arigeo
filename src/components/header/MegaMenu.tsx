@@ -120,7 +120,7 @@ export default function MegaMenu({ items }: Props) {
               href={item.href}
               className={styles.menuLink}
               onClick={() => {
-                if (item?.submenu) {
+                if ('submenu' in item && item.submenu) {
                   setOpenSubmenu(
                     openSubmenu === item.label ? null : item.label
                   );
@@ -130,7 +130,7 @@ export default function MegaMenu({ items }: Props) {
               }}
             >
               {item.label}
-              {item.submenu && (
+              {'submenu' in item && item.submenu && (
                 <span
                   className={`${styles.chevron} ${
                     openSubmenu === item.label ? styles.open : ""
