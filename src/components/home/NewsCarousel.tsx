@@ -79,7 +79,7 @@ export default function NewsCarousel() {
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [inView, setInView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const autoPlayRef = useRef<NodeJS.Timeout>();
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
   // Intersection Observer for scroll animation
   useEffect(() => {
