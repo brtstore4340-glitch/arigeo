@@ -5,10 +5,10 @@
  */
 
 export const socialLinks = {
-  facebook: "https://www.facebook.com/arigeo",
-  instagram: "https://www.instagram.com/arigeo",
-  youtube: "https://www.youtube.com/@arigeo",
-  tiktok: "https://www.tiktok.com/@arigeo",
+  facebook: "https://www.facebook.com/KaoIndustrialThailand/",
+  instagram: "https://www.instagram.com/liesethailand/",
+  youtube: "https://www.youtube.com/watch?v=7I6lCcZWnXs",
+  tiktok: "",
 };
 
 export const siteInfo = {

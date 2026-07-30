@@ -1,43 +1,36 @@
 "use client";
 
+import { socialLinks as officialSocialLinks } from "@/data/site-config";
+
 interface SocialLink {
   id: string;
   name: string;
   icon: string;
-  href?: string;
+  href: string;
   label: string;
 }
 
 const socialLinks: SocialLink[] = [
   {
-    id: "linkedin",
-    name: "LinkedIn",
-    icon: "/images/social/facebook.png",
-    label: "LinkedIn — Awaiting official URL",
-  },
-  {
     id: "instagram",
     name: "Instagram",
     icon: "/images/social/instagram.png",
-    label: "Instagram — Awaiting official URL",
+    href: officialSocialLinks.instagram,
+    label: "Instagram",
   },
   {
     id: "youtube",
     name: "YouTube",
     icon: "/images/social/youtube.png",
-    label: "YouTube — Awaiting official URL",
+    href: officialSocialLinks.youtube,
+    label: "YouTube",
   },
   {
     id: "facebook",
     name: "Facebook",
     icon: "/images/social/facebook.png",
-    label: "Facebook — Awaiting official URL",
-  },
-  {
-    id: "tiktok",
-    name: "TikTok",
-    icon: "/images/social/tiktok.png",
-    label: "TikTok — Awaiting official URL",
+    href: officialSocialLinks.facebook,
+    label: "Facebook",
   },
 ];
 
@@ -75,9 +68,11 @@ export default function FollowUs() {
         }}
       >
         {socialLinks.map((link) => (
-          <button
+          <a
             key={link.id}
-            type="button"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
             title={link.label}
             aria-label={link.label}
             style={{
@@ -89,7 +84,7 @@ export default function FollowUs() {
               background: "#fff",
               color: "#111",
               border: "1px solid rgba(17,17,17,0.16)",
-              cursor: link.href ? "pointer" : "help",
+              cursor: "pointer",
               padding: 0,
             }}
           >
@@ -102,7 +97,7 @@ export default function FollowUs() {
                 objectFit: "contain",
               }}
             />
-          </button>
+          </a>
         ))}
       </div>
     </section>

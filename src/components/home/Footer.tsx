@@ -14,7 +14,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
-            <img src="/images/social/facebook-color.png" alt="Facebook" />
+            <img src="/images/social/facebook.png" alt="Facebook" />
           </a>
           <a
             href={socialLinks.instagram}
@@ -22,7 +22,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            <img src="/images/social/instagram-color.png" alt="Instagram" />
+            <img src="/images/social/instagram.png" alt="Instagram" />
           </a>
           <a
             href={socialLinks.youtube}
@@ -30,16 +30,18 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="YouTube"
           >
-            <img src="/images/social/youtube-color.png" alt="YouTube" />
+            <img src="/images/social/youtube.png" alt="YouTube" />
           </a>
-          <a
-            href={socialLinks.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="TikTok"
-          >
-            <img src="/images/social/tiktok-color.png" alt="TikTok" />
-          </a>
+          {socialLinks.tiktok && (
+            <a
+              href={socialLinks.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <img src="/images/social/tiktok.png" alt="TikTok" />
+            </a>
+          )}
         </div>
       </div>
     </footer>

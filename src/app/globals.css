@@ -432,7 +432,12 @@ img { display: block; max-width: 100%; }
   border: 1px solid rgba(255, 255, 255, 0.12);
   transition: background-color .2s ease, transform .2s ease, border-color .2s ease;
 }
-.socials__item svg { width: 18px; height: 18px; }
+.socials__item svg,
+.socials__item img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
 .socials__item:hover,
 .socials__item:focus-visible {
   background: var(--red);
