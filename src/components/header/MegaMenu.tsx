@@ -143,7 +143,7 @@ export default function MegaMenu({ items }: Props) {
             </Link>
 
             {/* Submenu */}
-            {item.submenu && (
+            {'submenu' in item && item.submenu && (
               <ul className={`${styles.submenu} ${
                 openSubmenu === item.label ? styles.open : ""
               }`}>
