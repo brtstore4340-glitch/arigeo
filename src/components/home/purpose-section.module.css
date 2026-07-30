@@ -139,6 +139,75 @@
   margin-left: 2px;
 }
 
+/* Sustainability Full Hero Section */
+.sustainabilityHero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  min-height: 650px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.sustainabilityImage {
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.sustainabilityOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.sustainabilityContent {
+  position: absolute;
+  z-index: 2;
+  left: 48px;
+  bottom: 70px;
+  max-width: 650px;
+  color: white;
+}
+
+.sustainabilityContent h3 {
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 18px;
+}
+
+.sustainabilityContent p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 38px;
+}
+
+.sustainabilityLink {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.playCircle {
+  width: 44px;
+  height: 44px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playCircle svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  margin-left: 3px;
+}
+
 /* Full-Width Card (5th item) */
 .fullWidthCard {
   grid-column: 1 / -1;
@@ -269,6 +338,25 @@
 
   .description {
     font-size: 0.9rem;
+  }
+
+  .sustainabilityHero {
+    height: 75vh;
+    min-height: 520px;
+  }
+
+  .sustainabilityContent {
+    left: 24px;
+    right: 24px;
+    bottom: 40px;
+  }
+
+  .sustainabilityContent h3 {
+    font-size: 34px;
+  }
+
+  .sustainabilityContent p {
+    font-size: 15px;
   }
 
   .fullWidthCard {

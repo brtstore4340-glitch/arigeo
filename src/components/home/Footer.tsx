@@ -1,151 +1,54 @@
 "use client";
 
+import { socialLinks, siteInfo } from "@/data/site-config";
+
 export default function Footer() {
   return (
-    <footer
-      style={{
-        backgroundColor: "#010101",
-        color: "#fff",
-        padding: "40px 24px",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1420px",
-          marginInline: "auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "20px",
-        }}
-      >
-        {/* Logo */}
-        <div>
-          <img
-            src="/images/brands/arigeo.png"
-            alt="ARIGEO"
-            style={{
-              height: "40px",
-              width: "auto",
-              objectFit: "contain",
-            }}
-          />
+    <footer className="arigeo-footer">
+      <div className="arigeo-footer-inner">
+        {/* Color Logo */}
+        <div className="footer-logo">
+          <a href="/">
+            <img src={siteInfo.logo} alt={siteInfo.name} />
+          </a>
         </div>
 
-        {/* Social Media Icons */}
-        <div
-          style={{
-            display: "flex",
-            gap: "12px",
-          }}
-        >
+        {/* Social Media */}
+        <div className="footer-social">
           <a
-            href="#"
-            title="Facebook"
+            href={socialLinks.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Facebook"
-            style={{
-              width: "40px",
-              height: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              opacity: 0.7,
-              transition: "opacity 0.3s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
           >
-            <img
-              src="/images/social/facebook.png"
-              alt="Facebook"
-              style={{
-                width: "24px",
-                height: "24px",
-                objectFit: "contain",
-              }}
-            />
+            <img src="/images/social/facebook-color.png" alt="Facebook" />
           </a>
 
           <a
-            href="#"
-            title="Instagram"
+            href={socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
-            style={{
-              width: "40px",
-              height: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              opacity: 0.7,
-              transition: "opacity 0.3s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
           >
-            <img
-              src="/images/social/instagram.png"
-              alt="Instagram"
-              style={{
-                width: "24px",
-                height: "24px",
-                objectFit: "contain",
-              }}
-            />
+            <img src="/images/social/instagram-color.png" alt="Instagram" />
           </a>
 
           <a
-            href="#"
-            title="YouTube"
+            href={socialLinks.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="YouTube"
-            style={{
-              width: "40px",
-              height: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              opacity: 0.7,
-              transition: "opacity 0.3s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
           >
-            <img
-              src="/images/social/youtube.png"
-              alt="YouTube"
-              style={{
-                width: "24px",
-                height: "24px",
-                objectFit: "contain",
-              }}
-            />
+            <img src="/images/social/youtube-color.png" alt="YouTube" />
           </a>
 
           <a
-            href="#"
-            title="TikTok"
+            href={socialLinks.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="TikTok"
-            style={{
-              width: "40px",
-              height: "40px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              opacity: 0.7,
-              transition: "opacity 0.3s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
           >
-            <img
-              src="/images/social/tiktok.png"
-              alt="TikTok"
-              style={{
-                width: "24px",
-                height: "24px",
-                objectFit: "contain",
-              }}
-            />
+            <img src="/images/social/tiktok-color.png" alt="TikTok" />
           </a>
         </div>
       </div>

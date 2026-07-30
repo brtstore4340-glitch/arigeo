@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./purpose-section.module.css";
 
 /**
@@ -142,34 +143,34 @@ export default function PurposeSection() {
           ))}
         </div>
 
-        {/* Full-width Card */}
-        <div
-          ref={(el) => {
-            if (el) cardRefs.current["vision"] = el;
-          }}
-          data-card-id="vision"
-          className={`${styles.card} ${styles.fullWidthCard} ${
-            visibleCards.has("vision") ? styles.visible : ""
-          }`}
-        >
-          <div className={styles.imageWrapper}>
-            <img
-              src={purposeCards[4].imageUrl}
-              alt={purposeCards[4].imageAlt}
-              className={styles.image}
-              loading="lazy"
-            />
-          </div>
+        {/* Sustainability Full Hero */}
+        <div className={styles.sustainabilityHero}>
+          <Image
+            src="/images/sustainability/windmill.jpg"
+            alt="Sustainability"
+            fill
+            priority
+            className={styles.sustainabilityImage}
+          />
 
-          <div className={styles.content}>
-            <div>
-              <h3 className={styles.title}>{purposeCards[4].title}</h3>
-              <p className={styles.description}>{purposeCards[4].description}</p>
-            </div>
-            <a href={purposeCards[4].link} className={styles.link} aria-label={purposeCards[4].title}>
-              <svg viewBox="0 0 24 24" width="27" height="27" aria-hidden="true">
-                <polygon points="6,2.5 21.5,12 6,21.5" fill="currentColor" />
-              </svg>
+          <div className={styles.sustainabilityOverlay} />
+
+          <div className={styles.sustainabilityContent}>
+            <h3>ความยั่งยืน</h3>
+
+            <p>
+              ส่งเสริมกลยุทธ์ความยั่งยืน หรือที่เราเรียกว่า
+              Kirei Lifestyle Plan เพื่อมุ่งไปสู่อนาคตที่มั่นคงและยั่งยืน
+            </p>
+
+            <a href="/sustainability" className={styles.sustainabilityLink}>
+              <span className={styles.playCircle}>
+                <svg viewBox="0 0 24 24">
+                  <polygon points="8,5 19,12 8,19" />
+                </svg>
+              </span>
+
+              <span>อ่านเพิ่มเติม</span>
             </a>
           </div>
         </div>
