@@ -142,24 +142,60 @@
 /* Full-Width Card (5th item) */
 .fullWidthCard {
   grid-column: 1 / -1;
-  grid-template-rows: auto 1fr;
+  position: relative;
+  display: block;
+  min-height: 400px;
+  overflow: hidden;
 }
 
 .fullWidthCard .imageWrapper {
-  aspect-ratio: 16 / 9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.fullWidthCard .image {
+  animation: imageZoom 1000ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .fullWidthCard .content {
-  padding: 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: white;
 }
 
 .fullWidthCard .title {
-  font-size: 1.75rem;
+  font-size: 2rem;
+  color: white;
+  margin-top: auto;
 }
 
 .fullWidthCard .description {
   font-size: 1rem;
   line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fullWidthCard .link {
+  border-color: white;
+  color: white;
+  align-self: flex-start;
+}
+
+.fullWidthCard .link:hover {
+  background: white;
+  color: #010101;
 }
 
 /* Animations */
@@ -233,12 +269,16 @@
     font-size: 0.9rem;
   }
 
+  .fullWidthCard {
+    min-height: 350px;
+  }
+
   .fullWidthCard .imageWrapper {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: auto;
   }
 
   .fullWidthCard .content {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
   }
 
   .fullWidthCard .title {
