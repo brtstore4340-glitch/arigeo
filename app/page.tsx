@@ -19,8 +19,7 @@ import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import BrandCarouselSection from "@/components/home/BrandCarouselSection";
 import HomeRelatedContents from "@/components/home/HomeRelatedContents";
-import SocialProofSection from "@/components/home/SocialProofSection";
-import NewsReleaseSection from "@/components/home/NewsReleaseSection";
+import NewsRelease from "@/components/home/NewsRelease";
 
 export const dynamic = "force-dynamic";
 
@@ -48,11 +47,8 @@ export default function Home() {
       {/* 7. Related content 3-card grid */}
       <HomeRelatedContents />
 
-      {/* 8. Social Proof & Awards */}
-      <SocialProofSection />
-
-      {/* 9. News & Press Releases */}
-      <NewsReleaseSection />
+      {/* 8. News & Press Releases */}
+      <NewsRelease />
     </main>
   );
 }
