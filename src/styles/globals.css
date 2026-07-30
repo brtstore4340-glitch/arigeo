@@ -1664,7 +1664,6 @@ select:focus {
   text-decoration: none;
   color: inherit;
 }
-}
 
 /* Responsive */
 @media (max-width: 1024px) {

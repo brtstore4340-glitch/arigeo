@@ -49,19 +49,26 @@ const newsCards: NewsCard[] = [
   },
 ];
 
+const CARDS_PER_PAGE = 2;
+
 export default function NewsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const trackRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % newsCards.length);
-    }, 6000);
+  const maxPages = Math.ceil(newsCards.length / CARDS_PER_PAGE);
+  const translateX = -(currentPage * (100 / Math.ceil(newsCards.length / CARDS_PER_PAGE)));
 
-    return () => clearInterval(interval);
+  const handlePrev = useCallback(() => {
+    setCurrentPage((prev) => (prev > 0 ? prev - 1 : maxPages - 1));
+  }, [maxPages]);
+
+  const handleNext = useCallback(() => {
+    setCurrentPage((prev) => (prev < maxPages - 1 ? prev + 1 : 0));
+  }, [maxPages]);
+
+  const goToPage = useCallback((page: number) => {
+    setCurrentPage(page);
   }, []);
-
-  const translateX = -(currentIndex * (100 / newsCards.length));
 
   return (
     <section className={styles.section}>
@@ -105,6 +112,59 @@ export default function NewsSection() {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className={styles.controls}>
+        <button
+          type="button"
+          onClick={handlePrev}
+          className={styles.navButton}
+          disabled={currentPage === 0}
+          aria-label="Previous"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 5l-7 7 7 7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        <ol className={styles.pagination}>
+          {Array.from({ length: maxPages }).map((_, idx) => (
+            <li key={idx}>
+              <button
+                type="button"
+                onClick={() => goToPage(idx)}
+                className={`${styles.dot} ${
+                  idx === currentPage ? styles.dotActive : ""
+                }`}
+                aria-label={`Go to page ${idx + 1}`}
+              />
+            </li>
+          ))}
+        </ol>
+
+        <button
+          type="button"
+          onClick={handleNext}
+          className={styles.navButton}
+          disabled={currentPage === maxPages - 1}
+          aria-label="Next"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 5l7 7-7 7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </section>
   );
