@@ -5,11 +5,12 @@ import Link from "next/link";
 import styles from "./news-section.module.css";
 
 type NewsCard = {
-  href: string;
+  href?: string;
   category: string;
   title: string;
-  image: string;
-  alt: string;
+  image?: string;
+  alt?: string;
+  comingSoon?: boolean;
 };
 
 const newsCards: NewsCard[] = [
@@ -42,35 +43,25 @@ const newsCards: NewsCard[] = [
     alt: "Brands you can trust",
   },
   {
-    href: "/sustainability",
-    category: "Sustainability",
-    title: "Growing responsibly for the planet",
-    image: "/images/home/news-sustainability-globe.png",
-    alt: "Growing responsibly for the planet",
+    category: "Coming Soon",
+    title: "More stories coming soon",
+    comingSoon: true,
   },
 ];
 
-const CARD_WIDTH = 33.3333;
-const CARDS_PER_PAGE = 3;
-
 export default function NewsSection() {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const trackRef = useRef<HTMLUListElement>(null);
 
-  const maxPages = Math.ceil(newsCards.length / CARDS_PER_PAGE);
-  const translateX = -(currentPage * CARD_WIDTH);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % newsCards.length);
+    }, 6000);
 
-  const handlePrev = useCallback(() => {
-    setCurrentPage((prev) => (prev > 0 ? prev - 1 : maxPages - 1));
-  }, [maxPages]);
-
-  const handleNext = useCallback(() => {
-    setCurrentPage((prev) => (prev < maxPages - 1 ? prev + 1 : 0));
-  }, [maxPages]);
-
-  const goToPage = useCallback((page: number) => {
-    setCurrentPage(page);
+    return () => clearInterval(interval);
   }, []);
+
+  const translateX = -(currentIndex * (100 / newsCards.length));
 
   return (
     <section className={styles.section}>
@@ -80,79 +71,40 @@ export default function NewsSection() {
         <ul
           ref={trackRef}
           className={styles.track}
-          style={{ transform: `translateX(calc(${translateX}% + 0px))` }}
+          style={{ transform: `translateX(${translateX}%)` }}
         >
           {newsCards.map((card, idx) => (
             <li key={idx} className={styles.slide}>
-              <Link href={card.href} className={styles.card}>
-                <div className={styles.imageWrapper}>
-                  <img
-                    src={card.image}
-                    alt={card.alt}
-                    className={styles.image}
-                  />
+              {card.comingSoon ? (
+                <div className={styles.card}>
+                  <div className={styles.imageWrapper}>
+                    <div className={styles.comingSoon}>
+                      <span>Coming Soon</span>
+                    </div>
+                  </div>
+                  <div className={styles.content}>
+                    <span className={styles.category}>{card.category}</span>
+                    <h3 className={styles.title}>{card.title}</h3>
+                  </div>
                 </div>
-                <div className={styles.content}>
-                  <span className={styles.category}>{card.category}</span>
-                  <h3 className={styles.title}>{card.title}</h3>
-                </div>
-              </Link>
+              ) : (
+                <a href={card.href} className={styles.card}>
+                  <div className={styles.imageWrapper}>
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      className={styles.image}
+                    />
+                  </div>
+                  <div className={styles.content}>
+                    <span className={styles.category}>{card.category}</span>
+                    <h3 className={styles.title}>{card.title}</h3>
+                  </div>
+                </a>
+              )}
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className={styles.controls}>
-        <button
-          type="button"
-          onClick={handlePrev}
-          className={styles.navButton}
-          disabled={currentPage === 0}
-          aria-label="Previous"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 5l-7 7 7 7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-
-        <ol className={styles.pagination}>
-          {Array.from({ length: maxPages }).map((_, idx) => (
-            <li key={idx}>
-              <button
-                type="button"
-                onClick={() => goToPage(idx)}
-                className={`${styles.dot} ${
-                  idx === currentPage ? styles.dotActive : ""
-                }`}
-                aria-label={`Go to page ${idx + 1}`}
-              />
-            </li>
-          ))}
-        </ol>
-
-        <button
-          type="button"
-          onClick={handleNext}
-          className={styles.navButton}
-          disabled={currentPage === maxPages - 1}
-          aria-label="Next"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M9 5l7 7-7 7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
       </div>
     </section>
   );
