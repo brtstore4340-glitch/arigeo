@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Tag } from "@/components/ui/Tag";
 import styles from "./news-section.module.css";
 
 type NewsCard = {
@@ -101,7 +102,7 @@ export default function NewsSection() {
                     </div>
                   </div>
                   <div className={styles.content}>
-                    <span className={styles.category}>{card.category}</span>
+                    <Tag tone="brand">{card.category}</Tag>
                     <h3 className={styles.title}>{card.title}</h3>
                   </div>
                 </div>
@@ -117,6 +118,7 @@ export default function NewsSection() {
                   <div className={styles.content}>
                     <span className={styles.category}>{card.category}</span>
                     <h3 className={styles.title}>{card.title}</h3>
+                    <a href={card.href} className={styles.readMore}>Read more informations.</a>
                   </div>
                 </a>
               )}

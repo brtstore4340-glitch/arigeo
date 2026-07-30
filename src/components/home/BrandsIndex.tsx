@@ -1,5 +1,7 @@
 "use client";
 
+import { Tag } from "@/components/ui/Tag";
+
 /**
  * BrandsIndex
  * Full /brands page recreation
@@ -78,7 +80,7 @@ export default function BrandsIndex() {
           <article key={brand.id} className="brand-tile">
             <div className="brand-logo">{brand.logo}</div>
             <h3>{brand.name}</h3>
-            <p className="brand-category">{brand.category}</p>
+            <Tag tone="default">{brand.category}</Tag>
             {brand.pending ? (
               <p className="pending-state">Product details under verification</p>
             ) : (

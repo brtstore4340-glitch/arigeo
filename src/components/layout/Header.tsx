@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 function IconSearch() {
@@ -108,15 +108,38 @@ const navItems: NavItem[] = [
 ];
 
 export default function Header() {
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSub, setActiveSub] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+
+  // Scroll behavior: close menu when scrolling down
+  useEffect(() => {
+    let lastScrollY = 0;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && menuOpen) {
+        // Scroll down → close menu
+        setMenuOpen(false);
+        setActiveSub(null);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [menuOpen]);
 
   return (
     <header
       style={{
-        position: "relative",
-        zIndex: 70,
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
         background: "#fff",
         color: "#111",
         borderBottom: "1px solid #ddd",
@@ -124,23 +147,15 @@ export default function Header() {
       }}
       role="banner"
     >
-      <style>{`
-        .ds-header-desktop-nav, .ds-header-utility-nav { display: flex; }
-        .ds-header-hamburger { display: none; }
-        @media (max-width: 1023px) {
-          .ds-header-desktop-nav, .ds-header-utility-nav { display: none; }
-          .ds-header-hamburger { display: flex; }
-        }
-      `}</style>
       <div
         style={{
           height: 80,
           maxWidth: 1440,
           margin: "auto",
-          padding: "0 48px",
+          padding: "0 64px",
           display: "flex",
           alignItems: "center",
-          gap: 32,
+          gap: menuOpen ? 40 : 0,
         }}
       >
         {/* Logo */}
@@ -153,6 +168,7 @@ export default function Header() {
             height: "100%",
             flexShrink: 0,
             textDecoration: "none",
+            marginRight: menuOpen ? 0 : "auto",
           }}
         >
           <img
@@ -166,164 +182,119 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav
-          aria-label="Primary navigation"
-          className="ds-header-desktop-nav"
-          style={{
-            flex: 1,
-            minWidth: 0,
-            height: "100%",
-            justifyContent: "flex-end",
-          }}
-        >
-          <ul
+        {/* Main Menu - Shows when menuOpen is true */}
+        {menuOpen && (
+          <nav
+            className="mega-menu"
             style={{
-              height: "100%",
               display: "flex",
+              gap: 40,
               alignItems: "center",
-              justifyContent: "center",
-              gap: 2,
-              listStyle: "none",
-              margin: 0,
-              padding: 0,
+              flex: 1,
             }}
           >
-            {navItems.map((item) => {
-              const open = openMenu === item.key;
-              return (
-                <li
-                  key={item.key}
-                  style={{
-                    position: "relative",
-                    height: "100%",
-                    display: "flex",
-                  }}
-                  onMouseEnter={() =>
-                    item.children?.length && setOpenMenu(item.key)
-                  }
-                  onMouseLeave={() => setOpenMenu(null)}
-                >
-                  {item.children && item.children.length > 0 ? (
+            {navItems.map((item) => (
+              <div
+                key={item.key}
+                style={{
+                  position: "relative",
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: 16,
+                }}
+              >
+                {item.children && item.children.length > 0 ? (
+                  <>
                     <button
                       type="button"
                       onClick={() =>
-                        setOpenMenu(open ? null : item.key)
+                        setActiveSub(
+                          activeSub === item.key ? null : item.key
+                        )
                       }
                       style={{
-                        height: "100%",
                         border: 0,
-                        background: "#fff",
+                        background: "none",
                         display: "flex",
                         alignItems: "center",
                         gap: 8,
-                        fontSize: 17,
-                        padding: "0 18px",
-                        whiteSpace: "nowrap",
+                        fontSize: 16,
+                        padding: 0,
                         cursor: "pointer",
                         color: "#111",
                         fontWeight: 500,
+                        fontFamily: "inherit",
                       }}
+                      aria-expanded={activeSub === item.key}
                     >
                       {item.label}
-                      <span aria-hidden="true">＋</span>
+                      <span aria-hidden="true">+</span>
                     </button>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      style={{
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        fontSize: 17,
-                        padding: "0 18px",
-                        whiteSpace: "nowrap",
-                        color: "#111",
-                        textDecoration: "none",
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                  {item.children && item.children.length > 0 && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "100%",
-                        left: "50%",
-                        width: 440,
-                        padding: 24,
-                        background: "#fff",
-                        border: "1px solid #ddd",
-                        boxShadow: "0 16px 40px rgba(17,17,17,.18)",
-                        opacity: open ? 1 : 0,
-                        visibility: open ? "visible" : "hidden",
-                        transform: `translate(-50%, ${open ? 0 : 8}px)`,
-                        transition: ".25s ease, transform .25s ease",
-                      }}
-                    >
+
+                    {/* Submenu */}
+                    {activeSub === item.key && (
                       <div
                         style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          padding: "0 0 16px",
-                          fontSize: 20,
-                          borderBottom: "1px solid #ddd",
+                          position: "absolute",
+                          top: 80,
+                          left: 0,
+                          width: 240,
+                          background: "#fff",
+                          boxShadow:
+                            "0 10px 30px rgba(0, 0, 0, 0.15)",
+                          padding: 20,
+                          borderRadius: 4,
                         }}
                       >
-                        <Link
-                          href={item.href}
-                          style={{
-                            textDecoration: "none",
-                            color: "#111",
-                          }}
-                        >
-                          {item.label}
-                        </Link>
-                        <span aria-hidden="true">→</span>
-                      </div>
-                      <ul
-                        style={{
-                          listStyle: "none",
-                          margin: 0,
-                          padding: "8px 0 0",
-                        }}
-                      >
-                        {item.children.map((c) => (
-                          <li key={c.key}>
-                            <Link
-                              href={c.href}
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                padding: "12px 4px",
-                                borderBottom: "1px solid #eee",
-                                color: "#111",
-                                textDecoration: "none",
-                              }}
-                            >
-                              {c.label}
-                              <span aria-hidden="true">→</span>
-                            </Link>
-                          </li>
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.key}
+                            href={child.href}
+                            style={{
+                              display: "block",
+                              padding: "12px 0",
+                              color: "#111",
+                              textDecoration: "none",
+                              fontSize: 14,
+                              borderBottom: "1px solid #f0f0f0",
+                            }}
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
                         ))}
-                      </ul>
-                    </div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    style={{
+                      color: "#111",
+                      textDecoration: "none",
+                      fontSize: 16,
+                      fontWeight: 500,
+                    }}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </nav>
+        )}
 
         {/* Utility Navigation */}
         <nav
           aria-label="Utility navigation"
-          className="ds-header-utility-nav"
           style={{
+            display: "flex",
             alignItems: "center",
             height: "100%",
             flexShrink: 0,
+            marginLeft: menuOpen ? 0 : "auto",
+            gap: 0,
           }}
         >
           <button
@@ -373,33 +344,33 @@ export default function Header() {
               Search
             </span>
           </button>
+          <button
+            type="button"
+            aria-expanded={menuOpen}
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+              setActiveSub(null);
+            }}
+            style={{
+              height: "100%",
+              minWidth: 58,
+              justifyContent: "center",
+              padding: "0 19px",
+              display: "flex",
+              alignItems: "center",
+              border: 0,
+              borderLeft: "1px solid #e1e1e1",
+              background: "#fff",
+              cursor: "pointer",
+              color: "#111",
+              fontFamily: "inherit",
+              fontSize: 18,
+            }}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </nav>
-
-        {/* Mobile Hamburger */}
-        <button
-          type="button"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-          className="ds-header-hamburger"
-          style={{
-            width: 44,
-            height: 44,
-            padding: 10,
-            border: 0,
-            background: "#fff",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            gap: 5,
-            cursor: "pointer",
-            marginLeft: "auto",
-          }}
-          aria-label="Toggle menu"
-        >
-          <span style={{ display: "block", width: 24, height: 2, background: "#111" }} />
-          <span style={{ display: "block", width: 24, height: 2, background: "#111" }} />
-          <span style={{ display: "block", width: 24, height: 2, background: "#111" }} />
-        </button>
       </div>
 
       {/* Search Bar */}
@@ -408,9 +379,9 @@ export default function Header() {
           style={{
             position: "absolute",
             top: 80,
-            right: 48,
+            right: 64,
             zIndex: 90,
-            width: "min(520px, calc(100% - 40px))",
+            width: "min(520px, calc(100% - 128px))",
             padding: 18,
             background: "#fff",
             boxShadow: "0 12px 30px rgba(0,0,0,.12)",
