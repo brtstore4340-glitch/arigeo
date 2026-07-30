@@ -120,7 +120,7 @@ export default function MegaMenu({ items }: Props) {
               href={item.href}
               className={styles.menuLink}
               onClick={() => {
-                if (item.submenu) {
+                if (item?.submenu) {
                   setOpenSubmenu(
                     openSubmenu === item.label ? null : item.label
                   );
