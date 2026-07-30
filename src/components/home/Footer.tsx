@@ -6,220 +6,151 @@ export default function Footer() {
       style={{
         backgroundColor: "#010101",
         color: "#fff",
-        padding: "60px 24px 40px",
+        padding: "40px 24px",
       }}
     >
       <div
         style={{
           maxWidth: "1420px",
           marginInline: "auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "20px",
         }}
       >
-        {/* Logo & Social */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingBottom: "40px",
-            borderBottom: "1px solid rgba(255,255,255,0.1)",
-            marginBottom: "40px",
-            flexWrap: "wrap",
-            gap: "20px",
-          }}
-        >
-          {/* Logo */}
-          <div>
-            <img
-              src="/images/brands/arigeo.png"
-              alt="ARIGEO"
-              style={{
-                height: "40px",
-                width: "auto",
-                objectFit: "contain",
-              }}
-            />
-          </div>
-
-          {/* Social Media Icons */}
-          <div
+        {/* Logo */}
+        <div>
+          <img
+            src="/images/brands/arigeo.png"
+            alt="ARIGEO"
             style={{
-              display: "flex",
-              gap: "12px",
+              height: "40px",
+              width: "auto",
+              objectFit: "contain",
             }}
-          >
-            <a
-              href="#"
-              title="Facebook"
-              aria-label="Facebook"
-              style={{
-                width: "40px",
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: 0.7,
-                transition: "opacity 0.3s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
-            >
-              <img
-                src="/images/social/facebook.png"
-                alt="Facebook"
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  objectFit: "contain",
-                  filter: "brightness(0) invert(1)",
-                }}
-              />
-            </a>
-
-            <a
-              href="#"
-              title="Instagram"
-              aria-label="Instagram"
-              style={{
-                width: "40px",
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: 0.7,
-                transition: "opacity 0.3s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
-            >
-              <img
-                src="/images/social/instagram.png"
-                alt="Instagram"
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  objectFit: "contain",
-                  filter: "brightness(0) invert(1)",
-                }}
-              />
-            </a>
-
-            <a
-              href="#"
-              title="YouTube"
-              aria-label="YouTube"
-              style={{
-                width: "40px",
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: 0.7,
-                transition: "opacity 0.3s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
-            >
-              <img
-                src="/images/social/youtube.png"
-                alt="YouTube"
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  objectFit: "contain",
-                  filter: "brightness(0) invert(1)",
-                }}
-              />
-            </a>
-
-            <a
-              href="#"
-              title="TikTok"
-              aria-label="TikTok"
-              style={{
-                width: "40px",
-                height: "40px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                opacity: 0.7,
-                transition: "opacity 0.3s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
-            >
-              <img
-                src="/images/social/tiktok.png"
-                alt="TikTok"
-                style={{
-                  width: "24px",
-                  height: "24px",
-                  objectFit: "contain",
-                  filter: "brightness(0) invert(1)",
-                }}
-              />
-            </a>
-          </div>
+          />
         </div>
 
-        {/* Footer Bottom */}
+        {/* Social Media Icons */}
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: "14px",
-            opacity: 0.7,
-            flexWrap: "wrap",
-            gap: "20px",
+            gap: "12px",
           }}
         >
-          <p style={{ margin: 0 }}>
-            © 2026 ARIGEO. All rights reserved.
-          </p>
-          <div
+          <a
+            href="#"
+            title="Facebook"
+            aria-label="Facebook"
             style={{
+              width: "40px",
+              height: "40px",
               display: "flex",
-              gap: "24px",
+              alignItems: "center",
+              justifyContent: "center",
+              opacity: 0.7,
+              transition: "opacity 0.3s",
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
           >
-            <a
-              href="#"
+            <img
+              src="/images/social/facebook.png"
+              alt="Facebook"
               style={{
-                color: "#fff",
-                textDecoration: "none",
-                transition: "opacity 0.3s",
+                width: "24px",
+                height: "24px",
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-            >
-              Privacy
-            </a>
-            <a
-              href="#"
+            />
+          </a>
+
+          <a
+            href="#"
+            title="Instagram"
+            aria-label="Instagram"
+            style={{
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              opacity: 0.7,
+              transition: "opacity 0.3s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
+          >
+            <img
+              src="/images/social/instagram.png"
+              alt="Instagram"
               style={{
-                color: "#fff",
-                textDecoration: "none",
-                transition: "opacity 0.3s",
+                width: "24px",
+                height: "24px",
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-            >
-              Terms
-            </a>
-            <a
-              href="#"
+            />
+          </a>
+
+          <a
+            href="#"
+            title="YouTube"
+            aria-label="YouTube"
+            style={{
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              opacity: 0.7,
+              transition: "opacity 0.3s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
+          >
+            <img
+              src="/images/social/youtube.png"
+              alt="YouTube"
               style={{
-                color: "#fff",
-                textDecoration: "none",
-                transition: "opacity 0.3s",
+                width: "24px",
+                height: "24px",
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-            >
-              Contact
-            </a>
-          </div>
+            />
+          </a>
+
+          <a
+            href="#"
+            title="TikTok"
+            aria-label="TikTok"
+            style={{
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              opacity: 0.7,
+              transition: "opacity 0.3s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.7")}
+          >
+            <img
+              src="/images/social/tiktok.png"
+              alt="TikTok"
+              style={{
+                width: "24px",
+                height: "24px",
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)",
+              }}
+            />
+          </a>
         </div>
       </div>
     </footer>
