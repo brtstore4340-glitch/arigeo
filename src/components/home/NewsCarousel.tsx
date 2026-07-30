@@ -1,7 +1,8 @@
 "use client";
 
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import { useEffect, useRef } from "react";
+import Splide from "@splidejs/splide";
+import "@splidejs/splide/css";
 import Link from "next/link";
 import styles from "./news-carousel.module.css";
 
@@ -97,6 +98,31 @@ function fillMissingCards(cards: NewsCard[]): NewsCard[] {
 const newsCards = fillMissingCards(defaultCards);
 
 export default function NewsCarousel() {
+  const splideRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!splideRef.current) return undefined;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const splide: any = new Splide(splideRef.current, {
+      type: "loop",
+      perPage: 1,
+      autoplay: true,
+      interval: 6000,
+      pauseOnHover: true,
+      arrows: true,
+      pagination: true,
+      speed: 900,
+      rewind: false,
+    });
+
+    splide.mount();
+
+    return () => {
+      splide.destroy();
+    };
+  }, []);
+
   return (
     <section className={styles.section} aria-label="News and stories carousel">
       <div className={styles.container}>
@@ -113,59 +139,50 @@ export default function NewsCarousel() {
         </div>
 
         {/* Splide Carousel */}
-        <Splide
-          options={{
-            type: "loop",
-            perPage: 1,
-            autoplay: true,
-            interval: 6000,
-            pauseOnHover: true,
-            arrows: true,
-            pagination: true,
-            speed: 900,
-            rewind: false,
-          }}
-          className={styles.carousel}
-        >
-          {newsCards.map((card) => (
-            <SplideSlide key={card.id}>
-              <article className={styles.slide}>
-                {/* Image with slow pan animation */}
-                {card.image ? (
-                  <div className={styles.slideImage}>
-                    <img
-                      src={card.image}
-                      alt={card.alt}
-                      className={styles.image}
-                    />
-                  </div>
-                ) : (
-                  <div className={styles.comingCard}>
-                    <span>{card.title}</span>
-                  </div>
-                )}
+        <div ref={splideRef} className={`splide ${styles.carousel}`}>
+          <div className="splide__track">
+            <ul className="splide__list">
+              {newsCards.map((card) => (
+                <li key={card.id} className="splide__slide">
+                  <article className={styles.slide}>
+                    {/* Image with slow pan animation */}
+                    {card.image ? (
+                      <div className={styles.slideImage}>
+                        <img
+                          src={card.image}
+                          alt={card.alt}
+                          className={styles.image}
+                        />
+                      </div>
+                    ) : (
+                      <div className={styles.comingCard}>
+                        <span>{card.title}</span>
+                      </div>
+                    )}
 
-                {/* Content */}
-                <div className={styles.slideContent}>
-                  <div
-                    className={styles.badge}
-                    style={{ backgroundColor: card.categoryColor }}
-                  >
-                    {card.category}
-                  </div>
-                  <h3 className={styles.slideTitle}>{card.title}</h3>
-                  <p className={styles.slideDescription}>{card.description}</p>
-                  {card.date && <span className={styles.slideDate}>{card.date}</span>}
-                  {card.href !== "#" && (
-                    <Link href={card.href} className={styles.slideLink}>
-                      Read article
-                      <span aria-hidden="true">→</span>
-                    </Link>
-                  )}
-                </div>
-              </article>
-            </SplideSlide>
-          ))}
+                    {/* Content */}
+                    <div className={styles.slideContent}>
+                      <div
+                        className={styles.badge}
+                        style={{ backgroundColor: card.categoryColor }}
+                      >
+                        {card.category}
+                      </div>
+                      <h3 className={styles.slideTitle}>{card.title}</h3>
+                      <p className={styles.slideDescription}>{card.description}</p>
+                      {card.date && <span className={styles.slideDate}>{card.date}</span>}
+                      {card.href !== "#" && (
+                        <Link href={card.href} className={styles.slideLink}>
+                          Read article
+                          <span aria-hidden="true">→</span>
+                        </Link>
+                      )}
+                    </div>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Controls */}
           <div className={styles.splideControls}>
@@ -200,7 +217,7 @@ export default function NewsCarousel() {
               <span className="splide__toggle__pause">⏸</span>
             </button>
           </div>
-        </Splide>
+        </div>
       </div>
     </section>
   );
