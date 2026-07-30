@@ -8,8 +8,7 @@
  * 3. NewsSection - Newsroom carousel
  * 4. PurposeSection - Kao-style 2×2 grid + 1 full-width dark card
  * 5. BrandCarouselSection - Brand showcase
- * 6. HomeRelatedContents - 3-card cross-link grid
- * 7. NewsRelease - Press releases (Kao layout)
+ * 6. NewsRelease - Press releases (Kao layout)
  */
 
 import HeroShowreel from "@/components/home/HeroShowreel";
@@ -17,7 +16,6 @@ import HomeIntroStatement from "@/components/home/HomeIntroStatement";
 import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import BrandCarouselSection from "@/components/home/BrandCarouselSection";
-import HomeRelatedContents from "@/components/home/HomeRelatedContents";
 import NewsRelease from "@/components/home/NewsRelease";
 
 export const dynamic = "force-dynamic";
@@ -40,10 +38,7 @@ export default function Home() {
       {/* 6. Brand Showcase */}
       <BrandCarouselSection />
 
-      {/* 7. Related content 3-card grid */}
-      <HomeRelatedContents />
-
-      {/* 8. News & Press Releases */}
+      {/* 6. News & Press Releases */}
       <NewsRelease />
     </main>
   );
