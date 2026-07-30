@@ -144,7 +144,7 @@
   grid-column: 1 / -1;
   position: relative;
   display: block;
-  min-height: 400px;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -270,7 +270,7 @@
   }
 
   .fullWidthCard {
-    min-height: 350px;
+    min-height: 100vh;
   }
 
   .fullWidthCard .imageWrapper {
