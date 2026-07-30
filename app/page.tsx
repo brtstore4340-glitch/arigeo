@@ -23,26 +23,28 @@ export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (
-    <main>
-      {/* 1. Full-bleed hero with radial wipe animation */}
-      <HeroShowreel />
+    <>
+      <main>
+        {/* 1. Full-bleed hero with radial wipe animation */}
+        <HeroShowreel />
 
-      {/* 2. Eyebrow + purpose headline + supporting line */}
-      <HomeIntroStatement />
+        {/* 2. Eyebrow + purpose headline + supporting line */}
+        <HomeIntroStatement />
 
-      {/* 3. News carousel */}
-      <NewsSection />
+        {/* 3. News carousel */}
+        <NewsSection />
 
-      {/* 5. Kao-style Purpose grid (2×2 cards + 1 full-width dark) */}
-      <PurposeSection />
+        {/* 5. Kao-style Purpose grid (2×2 cards + 1 full-width dark) */}
+        <PurposeSection />
 
-      {/* 6. Brand Showcase */}
-      <BrandCarouselSection />
+        {/* 6. Brand Showcase */}
+        <BrandCarouselSection />
 
-      {/* 6. News & Press Releases */}
-      <NewsRelease />
-    </main>
+        {/* 6. News & Press Releases */}
+        <NewsRelease />
+      </main>
 
-    <Footer />
+      <Footer />
+    </>
   );
 }
