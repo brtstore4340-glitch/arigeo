@@ -2039,41 +2039,42 @@ select:focus {
   padding: 40px 24px;
 }
 
-.arigeo-footer-inner {
+.footer-follow {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
 }
 
-.footer-logo img {
-  height: 48px;
-  width: auto;
-  object-fit: contain;
+.footer-follow-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
+  color: #2a2a2a;
 }
 
-.footer-social {
+.footer-social-color {
   display: flex;
   gap: 16px;
 }
 
-.footer-social a {
-  width: 40px;
-  height: 40px;
+.footer-social-color a {
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform 0.3s;
 }
 
-.footer-social img {
-  width: 26px;
-  height: 26px;
+.footer-social-color img {
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
-.footer-social a:hover {
-  transform: translateY(-3px);
+.footer-social-color a:hover {
+  transform: scale(1.1);
 }
 
