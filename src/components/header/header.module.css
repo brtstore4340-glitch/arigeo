@@ -1,0 +1,273 @@
+.header {
+  height: 80px;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0 64px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Main Menu */
+.mainMenu {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-right: 40px;
+  flex: 1;
+}
+
+.menuItem {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.menuItemContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menuItem a {
+  color: #2a2a2a;
+  text-decoration: none;
+  transition: color 300ms ease;
+  display: inline-block;
+}
+
+.menuItem a:hover {
+  color: #d50306;
+}
+
+.expandBtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2a2a2a;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 300ms ease, transform 300ms ease;
+}
+
+.expandBtn:hover {
+  color: #d50306;
+  transform: rotate(45deg);
+}
+
+/* Submenu */
+.submenu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 240px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  border-radius: 4px;
+  animation: submenuSlideDown 200ms ease;
+}
+
+@keyframes submenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submenuLink {
+  display: block;
+  padding: 12px 0;
+  color: #2a2a2a;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 300ms ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.submenuLink:last-child {
+  border-bottom: none;
+}
+
+.submenuLink:hover {
+  color: #d50306;
+  padding-left: 4px;
+}
+
+/* Right Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.language {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2a2a2a;
+  cursor: pointer;
+  transition: color 300ms ease;
+}
+
+.language:hover {
+  color: #d50306;
+}
+
+.searchBtn,
+.menuToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #2a2a2a;
+  transition: color 300ms ease, transform 300ms ease;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchBtn:hover,
+.menuToggle:hover {
+  color: #d50306;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .header {
+    padding: 0 40px;
+  }
+
+  .mainMenu {
+    gap: 24px;
+  }
+
+  .actions {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0 20px;
+    height: 70px;
+  }
+
+  .mainMenu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    margin-right: 0;
+    background: white;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px;
+    border-radius: 0;
+    box-shadow: none;
+    animation: menuSlideDown 300ms ease;
+  }
+
+  @keyframes menuSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .menuItem {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .menuItem:last-child {
+    border-bottom: none;
+  }
+
+  .submenu {
+    position: static;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px 0 0 20px;
+    box-shadow: none;
+    background: #f9f9f9;
+  }
+
+  .submenuLink {
+    padding: 8px 0;
+    font-size: 13px;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .language {
+    font-size: 11px;
+  }
+
+  .searchBtn,
+  .menuToggle {
+    font-size: 16px;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .mainMenu {
+    padding: 16px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .searchBtn,
+  .menuToggle {
+    font-size: 14px;
+  }
+}

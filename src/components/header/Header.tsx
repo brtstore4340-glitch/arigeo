@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
-import styles from "./header/header.module.css";
+import styles from "./header.module.css";
 
 type SubMenuItem = {
   label: string;
@@ -103,6 +103,7 @@ export default function Header() {
   const locale = useLocale() as "th" | "en";
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSub, setActiveSub] = useState<string | null>(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const currentMenuItems = menuItems[locale] || menuItems.en;
 

@@ -2180,3 +2180,20 @@ select:focus {
 .splide.is-playing .splide__toggle__pause {
   opacity: 1;
 }
+
+/* Fixed Header Offset */
+main {
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-top: 60px;
+  }
+}
