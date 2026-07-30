@@ -7,7 +7,7 @@
  * Design System Spec:
  * - 3-column row (one row, all 3 brands visible)
  * - Logo only, no text
- * - Kao-style flat borders, zero radius
+ * - Flat borders, zero radius
  */
 
 interface Brand {

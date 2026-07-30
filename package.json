@@ -1,7 +1,7 @@
 {
   "name": "arigeo-project",
   "version": "1.0.0",
-  "description": "ARIGEO Homepage - Kao Thailand with animated components",
+  "description": "ARIGEO Homepage with animated components",
   "private": true,
   "scripts": {
     "dev": "next dev",

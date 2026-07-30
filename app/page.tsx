@@ -6,9 +6,9 @@
  * 1. HeroShowreel - Radial wipe animation
  * 2. HomeIntroStatement - Eyebrow + title + line
  * 3. NewsSection - Newsroom carousel
- * 4. PurposeSection - Kao-style 2×2 grid + 1 full-width dark card
+ * 4. PurposeSection - 2×2 grid + 1 full-width dark card
  * 5. BrandCarouselSection - Brand showcase
- * 6. NewsRelease - Press releases (Kao layout)
+ * 6. NewsRelease - Press releases
  */
 
 import HeroShowreel from "@/components/home/HeroShowreel";
@@ -33,7 +33,7 @@ export default function Home() {
         {/* 3. News carousel */}
         <NewsSection />
 
-        {/* 5. Kao-style Purpose grid (2×2 cards + 1 full-width dark) */}
+        {/* 5. Purpose grid (2×2 cards + 1 full-width dark) */}
         <PurposeSection />
 
         {/* 6. Brand Showcase */}

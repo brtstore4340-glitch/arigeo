@@ -1,5 +1,5 @@
 /* Global Styles - ARIGEO Design System 2026-07-28 */
-/* Layout & Component Tokens (Kao Thailand Homepage) */
+/* Layout & Component Tokens (ARIGEO Homepage) */
 
 * {
   margin: 0;
@@ -1133,7 +1133,7 @@ select:focus {
   line-height: 1.6;
 }
 
-/* LatestCarousel - Kao Thailand (Splide infinite loop) */
+/* LatestCarousel - ARIGEO (Splide infinite loop) */
 .latest-carousel {
   padding: 4rem 2rem;
   background: #f8f8f8;

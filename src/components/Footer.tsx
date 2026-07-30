@@ -1,35 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Logo from "@/components/Logo";
-import { socialLinks as officialSocialLinks } from "@/data/site-config";
-
-type SocialItem = {
-  key: "instagram" | "youtube" | "facebook";
-  label: string;
-  href: string;
-  icon: string;
-};
-
-const socialItems: SocialItem[] = [
-  {
-    key: "instagram",
-    label: "Instagram",
-    href: officialSocialLinks.instagram,
-    icon: "/images/social/instagram.png",
-  },
-  {
-    key: "youtube",
-    label: "YouTube",
-    href: officialSocialLinks.youtube,
-    icon: "/images/social/youtube.png",
-  },
-  {
-    key: "facebook",
-    label: "Facebook",
-    href: officialSocialLinks.facebook,
-    icon: "/images/social/facebook.png",
-  },
-];
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -51,20 +22,6 @@ export default function Footer() {
             <Logo className="h-9 w-[176px] sm:h-10 sm:w-[196px]" />
           </Link>
           <p>{t("description")}</p>
-          <div className="socials">
-            {socialItems.map((item) => (
-              <a
-                href={item.href}
-                key={item.key}
-                className="socials__item"
-                aria-label={item.label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={item.icon} alt="" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
         </div>
 
         {columns.map((col) => (

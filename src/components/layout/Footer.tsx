@@ -2,28 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { socialLinks } from "@/data/site-config";
-
-const socialItems = [
-  {
-    key: "facebook",
-    label: "Facebook",
-    href: socialLinks.facebook,
-    icon: "/images/social/facebook.png",
-  },
-  {
-    key: "instagram",
-    label: "Instagram",
-    href: socialLinks.instagram,
-    icon: "/images/social/instagram.png",
-  },
-  {
-    key: "youtube",
-    label: "YouTube",
-    href: socialLinks.youtube,
-    icon: "/images/social/youtube.png",
-  },
-];
 
 const primaryLinks = [
   { label: "Home", href: "/" },
@@ -77,73 +55,6 @@ export default function Footer() {
           }}
         />
       </a>
-
-      {/* Follow Us Section */}
-      <div
-        style={{
-          display: "flex",
-          minHeight: 104,
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 28,
-          borderBottom: "1px solid rgba(17,17,17,0.12)",
-          textAlign: "center",
-          flexDirection: "column",
-          padding: "20px 0",
-        }}
-      >
-        <h2
-          style={{
-            margin: 0,
-            fontSize: "clamp(20px,2vw,28px)",
-            fontWeight: 800,
-          }}
-        >
-          Follow us
-        </h2>
-        <div
-          style={{
-            display: "flex",
-            gap: 12,
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
-          {socialItems.map((item) => (
-            <a
-              key={item.key}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={item.label}
-              aria-label={item.label}
-              style={{
-                width: 46,
-                height: 46,
-                borderRadius: 999,
-                display: "grid",
-                placeItems: "center",
-                background: "#fff",
-                color: "#111",
-                border: "1px solid rgba(17,17,17,0.16)",
-                cursor: "pointer",
-                padding: 0,
-              }}
-            >
-              <img
-                src={item.icon}
-                alt=""
-                aria-hidden="true"
-                style={{
-                  width: 24,
-                  height: 24,
-                  objectFit: "contain",
-                }}
-              />
-            </a>
-          ))}
-        </div>
-      </div>
 
       {/* Footer Navigation */}
       <nav

@@ -165,36 +165,6 @@ export default function NewsArticlePage({
             </p>
           </div>
 
-          {/* Share */}
-          <div className="mt-8 border-t border-slate-200 pt-8">
-            <p className="text-sm font-semibold text-slate-900">
-              {t.share}
-            </p>
-            <div className="mt-3 flex gap-3">
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? window.location.href : ''}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 transition"
-              >
-                Facebook
-              </a>
-              <a
-                href={`https://twitter.com/intent/tweet?url=${typeof window !== 'undefined' ? window.location.href : ''}&text=${title}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 transition"
-              >
-                Twitter
-              </a>
-              <a
-                href={`mailto:?subject=${title}&body=${typeof window !== 'undefined' ? window.location.href : ''}`}
-                className="inline-flex items-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-medium text-slate-900 hover:bg-slate-50 transition"
-              >
-                Email
-              </a>
-            </div>
-          </div>
         </div>
       </article>
     </div>

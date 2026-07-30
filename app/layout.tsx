@@ -29,11 +29,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ARIGEO - Kao Thailand",
+  title: "ARIGEO",
   description:
     "ARIGEO: High-quality, sustainable products for everyday care. Experience beauty and wellness with our innovative product line.",
   openGraph: {
-    title: "ARIGEO - Kao Thailand",
+    title: "ARIGEO",
     description: "High-quality, sustainable products for everyday care",
     images: [
       {

@@ -7,7 +7,7 @@
  * Design System Spec:
  * - Round icon badge, bold title, body copy, "Read more" link
  * - Cards lift and border-tint red on hover
- * - Kao-style flat borders, zero radius
+ * - Flat borders, zero radius
  */
 
 interface ContentCard {
