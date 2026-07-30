@@ -12,7 +12,6 @@
 
 interface ProofItem {
   id: string;
-  icon: string;
   title: string;
   year: string;
   description: string;
@@ -21,42 +20,36 @@ interface ProofItem {
 const proofItems: ProofItem[] = [
   {
     id: "best-employer",
-    icon: "🏆",
     title: "Best Places to Work",
     year: "2026",
     description: "Recognized as one of Thailand's best employers by WorkVenture",
   },
   {
     id: "sustainability",
-    icon: "🌱",
     title: "Carbon Neutral Certified",
     year: "2026",
     description: "Achieved carbon neutrality through sustainable practices",
   },
   {
     id: "innovation",
-    icon: "🔬",
     title: "Innovation Leader",
     year: "2025",
     description: "Top R&D achievements in health and beauty industry",
   },
   {
     id: "quality",
-    icon: "✅",
     title: "ISO 9001 Certified",
     year: "2024",
     description: "Quality management system certified and verified",
   },
   {
     id: "diversity",
-    icon: "👥",
     title: "Diversity & Inclusion",
     year: "2026",
     description: "Champion for workplace diversity and equal opportunity",
   },
   {
     id: "customer",
-    icon: "⭐",
     title: "Customer Choice Award",
     year: "2025",
     description: "Top-rated by customers for product quality and service",
@@ -99,7 +92,6 @@ export default function SocialProofSection() {
         <div className="social-proof-grid">
           {proofItems.map((item) => (
             <div key={item.id} className="proof-card" data-proof-id={item.id}>
-              <div className="proof-icon">{item.icon}</div>
               <h3 className="proof-title">{item.title}</h3>
               <div className="proof-year">{item.year}</div>
               <p className="proof-description">{item.description}</p>

@@ -12,7 +12,7 @@
 
 interface ContentCard {
   id: string;
-  icon: string;
+  icon?: string;
   title: string;
   description: string;
   href: string;
@@ -21,21 +21,18 @@ interface ContentCard {
 const defaultItems: ContentCard[] = [
   {
     id: "products",
-    icon: "📦",
     title: "Our Products",
     description: "Explore our complete range of household care and skincare solutions.",
     href: "/products",
   },
   {
     id: "innovation",
-    icon: "💡",
     title: "Innovation",
     description: "Discover how we're advancing research and technology in everyday care.",
     href: "/innovation",
   },
   {
     id: "contact",
-    icon: "📧",
     title: "Get in Touch",
     description: "Have questions? We'd love to hear from you.",
     href: "/contact",
@@ -51,12 +48,10 @@ export default function HomeRelatedContents({ items = defaultItems }: Props) {
     <section className="home-related-contents">
       <div className="content-grid">
         {items.map((item) => (
-          <article key={item.id} className="content-card">
-            <div className="icon-badge">{item.icon}</div>
+          <a key={item.id} href={item.href} className="content-card">
             <h3>{item.title}</h3>
             <p>{item.description}</p>
-            <a href={item.href}>Read more →</a>
-          </article>
+          </a>
         ))}
       </div>
     </section>
