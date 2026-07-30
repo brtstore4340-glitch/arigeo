@@ -169,7 +169,8 @@
   padding: 3rem 2rem;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   height: 100%;
   color: white;
@@ -190,7 +191,8 @@
 .fullWidthCard .link {
   border-color: white;
   color: white;
-  align-self: flex-start;
+  flex-shrink: 0;
+  margin-left: 2rem;
 }
 
 .fullWidthCard .link:hover {
