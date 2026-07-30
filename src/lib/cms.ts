@@ -88,6 +88,7 @@ export function mapCmsProduct(doc: Record<string, any>): Product {
   const gallery = images.map((i) => toImageUrl(i?.image ?? i)).filter(Boolean)
 
   return {
+    id: String(doc._id ?? doc.slug ?? ''),
     slug: String(doc.slug ?? ''),
     nameEn: String(doc.name ?? ''),
     nameTh: String(doc.name ?? ''),
