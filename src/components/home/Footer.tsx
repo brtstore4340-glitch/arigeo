@@ -63,7 +63,6 @@ export default function Footer() {
                 width: "24px",
                 height: "24px",
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
               }}
             />
           </a>
@@ -91,7 +90,6 @@ export default function Footer() {
                 width: "24px",
                 height: "24px",
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
               }}
             />
           </a>
@@ -119,7 +117,6 @@ export default function Footer() {
                 width: "24px",
                 height: "24px",
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
               }}
             />
           </a>
@@ -147,7 +144,6 @@ export default function Footer() {
                 width: "24px",
                 height: "24px",
                 objectFit: "contain",
-                filter: "brightness(0) invert(1)",
               }}
             />
           </a>
