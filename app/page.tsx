@@ -5,16 +5,15 @@
  * Component order (per design system):
  * 1. HeroShowreel - Radial wipe animation
  * 2. HomeIntroStatement - Eyebrow + title + line
- * 3. LatestCarousel - 3-up carousel (cross-links)
- * 4. NewsSection - Newsroom carousel
- * 5. PurposeSection - Kao-style 2×2 grid + 1 full-width dark card
+ * 3. NewsSection - Newsroom carousel
+ * 4. PurposeSection - Kao-style 2×2 grid + 1 full-width dark card
+ * 5. BrandCarouselSection - Brand showcase
  * 6. HomeRelatedContents - 3-card cross-link grid
- * 7. NewsletterSection - Email subscribe
+ * 7. NewsRelease - Press releases (Kao layout)
  */
 
 import HeroShowreel from "@/components/home/HeroShowreel";
 import HomeIntroStatement from "@/components/home/HomeIntroStatement";
-import LatestCarousel from "@/components/home/LatestCarousel";
 import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import BrandCarouselSection from "@/components/home/BrandCarouselSection";
@@ -32,10 +31,7 @@ export default function Home() {
       {/* 2. Eyebrow + purpose headline + supporting line */}
       <HomeIntroStatement />
 
-      {/* 3. Latest carousel (cross-links) */}
-      <LatestCarousel heading="Latest" />
-
-      {/* 4. News carousel */}
+      {/* 3. News carousel */}
       <NewsSection />
 
       {/* 5. Kao-style Purpose grid (2×2 cards + 1 full-width dark) */}
