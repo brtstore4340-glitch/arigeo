@@ -17,7 +17,7 @@ import NewsSection from "@/components/home/NewsSection";
 import PurposeSection from "@/components/home/PurposeSection";
 import BrandCarouselSection from "@/components/home/BrandCarouselSection";
 import NewsRelease from "@/components/home/NewsRelease";
-import FollowUs from "@/components/home/FollowUs";
+import Footer from "@/components/home/Footer";
 
 export const dynamic = "force-dynamic";
 
@@ -41,9 +41,8 @@ export default function Home() {
 
       {/* 6. News & Press Releases */}
       <NewsRelease />
-
-      {/* 7. Follow Us - Social Media Links */}
-      <FollowUs />
     </main>
+
+    <Footer />
   );
 }
