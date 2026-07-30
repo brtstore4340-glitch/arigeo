@@ -1133,54 +1133,278 @@ select:focus {
   line-height: 1.6;
 }
 
-/* LatestCarousel */
+/* LatestCarousel - Kao Thailand (Splide infinite loop) */
 .latest-carousel {
   padding: 4rem 2rem;
-  background: #F3F3F4;
+  background: #f8f8f8;
 }
 
 .latest-carousel h2 {
   font-size: 2rem;
   margin-bottom: 2rem;
   color: #010101;
+  max-width: 1420px;
+  margin-inline: auto;
 }
 
-.latest-carousel .carousel-track {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.carousel-root {
+  max-width: 1420px;
+  margin-inline: auto;
 }
 
+.carousel-wrapper {
+  position: relative;
+  left: -32%;
+  width: 98%;
+}
+
+@media (max-width: 640px) {
+  .carousel-wrapper {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.carousel-track {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: auto;
+}
+
+/* 4 cards per page (desktop) in 892px viewport → 205px each */
 .carousel-card {
-  background: white;
-  border: 1px solid rgba(17, 17, 17, 0.12);
-  padding: 1.5rem;
-  transition: transform 300ms ease, box-shadow 300ms ease;
+  flex: 0 0 auto;
+  width: calc((100% - 72px) / 4);
+  margin-right: 24px;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.carousel-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+@media (max-width: 1024px) {
+  .carousel-card {
+    width: calc((100% - 48px) / 3);
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-card {
+    width: 100%;
+  }
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  aspect-ratio: 275 / 184;
+}
+
+.card-media img {
+  display: block;
+  width: 100% !important;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+  transform: scale(1);
+  transition: transform 1.2s var(--k-ease, cubic-bezier(0.25, 0.1, 0.25, 1));
+}
+
+.card-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background-color: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .carousel-card:hover .card-media::after {
+    opacity: 0.1;
+  }
+  .carousel-card:hover .card-media img {
+    transform: scale(1.06);
+  }
+  .carousel-card:hover h3 {
+    text-decoration: underline;
+  }
 }
 
 .carousel-card .category {
   display: block;
-  font-size: 0.75rem;
-  color: #D50306;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #d50306;
+  font-weight: 600;
 }
 
 .carousel-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+  margin: 4px 0 0;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.32px;
   color: #010101;
+  font-weight: 600;
 }
 
-.carousel-card a {
-  color: #D50306;
-  font-weight: 600;
+@media (max-width: 640px) {
+  .carousel-card .category {
+    margin-top: 8px;
+  }
+}
+
+/* Splide overrides */
+.splide__track {
+  overflow: visible;
+}
+
+.splide__slide {
+  padding: 0;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  gap: 40px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+.pagination li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #010101;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.is-active {
+  background-color: #010101;
+}
+
+.arrow {
+  display: grid;
+  place-content: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #010101;
+  border-radius: 50%;
+  background: transparent;
+  color: #010101;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 0;
+  font-size: 0;
+}
+
+.arrow:hover {
+  background-color: #010101;
+  color: #fff;
+}
+
+.arrow::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.arrow--prev::before {
+  transform: rotate(-135deg);
+}
+
+.arrow--next::before {
+  transform: rotate(45deg);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: 40px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 0;
+}
+
+.toggle::before {
+  content: "⏸";
+  font-size: 20px;
+  color: #010101;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.toggle.is-stop::before {
+  content: "▶";
+}
+
+@media (max-width: 640px) {
+  .carousel-controls {
+    margin-top: 24px;
+    gap: 16px;
+  }
+  .pagination li {
+    width: 24px;
+    height: 24px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+  .toggle {
+    width: 32px;
+    height: 32px;
+    margin-left: 0;
+  }
 }
 
 /* NewsReleaseSection - Press releases & news */
