@@ -111,42 +111,81 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSub, setActiveSub] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const [interactionReveal, setInteractionReveal] = useState(false);
 
-  // Scroll behavior: close menu when scrolling down
+  const revealHeader = () => {
+    setHeaderHidden(false);
+    setInteractionReveal(true);
+  };
+
+  const releaseHeader = () => {
+    if (window.scrollY > 120 && !menuOpen && !searchOpen) {
+      setInteractionReveal(false);
+    }
+  };
+
+  // Invisible UI pattern: hide navigation while reading, reveal on upward intent.
   useEffect(() => {
-    let lastScrollY = 0;
+    let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
 
-      if (currentScrollY > lastScrollY && menuOpen) {
-        // Scroll down → close menu
-        setMenuOpen(false);
+      if (currentScrollY < 24) {
+        setHeaderHidden(false);
+        setInteractionReveal(false);
+      } else if (delta > 8 && !menuOpen && !searchOpen) {
+        setHeaderHidden(true);
+        setInteractionReveal(false);
         setActiveSub(null);
+      } else if (delta < -8) {
+        setHeaderHidden(false);
       }
 
-      lastScrollY = currentScrollY;
+      lastScrollY = Math.max(currentScrollY, 0);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [menuOpen]);
+  }, [menuOpen, searchOpen]);
+
+  const isHeaderHidden =
+    headerHidden && !menuOpen && !searchOpen && !interactionReveal;
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        background: "#fff",
-        color: "#111",
-        borderBottom: "1px solid #ddd",
-        fontFamily: "var(--font-sans)",
-      }}
-      role="banner"
-    >
+    <>
+      {isHeaderHidden && (
+        <button
+          type="button"
+          className="hidden-menu-handle"
+          aria-label="Reveal navigation"
+          onClick={revealHeader}
+          onPointerEnter={revealHeader}
+          onFocus={revealHeader}
+        />
+      )}
+      <header
+        className="invisible-site-header"
+        data-hidden={isHeaderHidden ? "true" : "false"}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          background: "#fff",
+          color: "#111",
+          borderBottom: "1px solid #ddd",
+          fontFamily: "var(--font-sans)",
+        }}
+        role="banner"
+        onPointerEnter={revealHeader}
+        onPointerLeave={releaseHeader}
+        onFocusCapture={revealHeader}
+        onBlurCapture={releaseHeader}
+      >
       <div
         style={{
           height: 80,
@@ -420,6 +459,7 @@ export default function Header() {
           </button>
         </form>
       )}
-    </header>
+      </header>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import { Tag } from "@/components/ui/Tag";
 import styles from "./news-section.module.css";
 
@@ -47,6 +48,21 @@ const newsCards: NewsCard[] = [
     title: "More stories coming soon",
     comingSoon: true,
   },
+  {
+    category: "Coming Soon",
+    title: "Product highlights coming soon",
+    comingSoon: true,
+  },
+  {
+    category: "Coming Soon",
+    title: "Brand stories coming soon",
+    comingSoon: true,
+  },
+  {
+    category: "Coming Soon",
+    title: "Sustainability updates coming soon",
+    comingSoon: true,
+  },
 ];
 
 const CARDS_PER_PAGE = 2;
@@ -57,7 +73,10 @@ export default function NewsSection() {
   const trackRef = useRef<HTMLUListElement>(null);
 
   const maxPages = Math.ceil(newsCards.length / CARDS_PER_PAGE);
-  const translateX = -(currentPage * (100 / Math.ceil(newsCards.length / CARDS_PER_PAGE)));
+  const trackStyle = {
+    "--news-offset": `-${currentPage * (100 / maxPages)}%`,
+    "--item-count": newsCards.length,
+  } as CSSProperties;
 
   const handlePrev = useCallback(() => {
     setCurrentPage((prev) => (prev > 0 ? prev - 1 : maxPages - 1));
@@ -90,7 +109,7 @@ export default function NewsSection() {
           id="news-section-track"
           ref={trackRef}
           className={styles.track}
-          style={{ transform: `translateX(${translateX}%)` }}
+          style={trackStyle}
         >
           {newsCards.map((card, idx) => (
             <li key={idx} id={`news-section-slide-${idx + 1}`} className={styles.slide}>
@@ -118,7 +137,7 @@ export default function NewsSection() {
                   <div className={styles.content}>
                     <span className={styles.category}>{card.category}</span>
                     <h3 className={styles.title}>{card.title}</h3>
-                    <a href={card.href} className={styles.readMore}>Read more informations.</a>
+                    <span className={styles.readMore}>Read more informations.</span>
                   </div>
                 </a>
               )}

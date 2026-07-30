@@ -1,10 +1,22 @@
 .section {
-  padding: 3rem 1rem;
-  background: rgb(246, 246, 244);
+  --item-count: 8;
+  --news-offset: 0%;
+  --news-gap: 16px;
+  --arigeo-red: #d50306;
+  --arigeo-ink: #111111;
+  --arigeo-muted: #4e4d4e;
+  --arigeo-cream: #f6f6f4;
+  padding: 3.75rem 1rem 3rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(246, 246, 244, 0.96)),
+    var(--arigeo-cream);
   font-family: "IBM Plex Sans", "Noto Sans Thai", var(--font-sans);
   display: flex;
   flex-direction: column;
   gap: 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
 }
 
 .heading {
@@ -12,11 +24,26 @@
   font-size: 1.875rem;
   font-weight: 700;
   line-height: 1.2;
-  color: rgb(1, 1, 1);
+  color: var(--arigeo-ink);
 }
 
 .carousel {
   overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 64px,
+    #000 calc(100% - 64px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 64px,
+    #000 calc(100% - 64px),
+    transparent 100%
+  );
 }
 
 .track {
@@ -24,13 +51,14 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 16px;
-  transform: translateX(0);
-  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  gap: var(--news-gap);
+  transform: translate3d(var(--news-offset), 0, 0);
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .slide {
-  flex: 0 0 458.5px;
+  flex: 0 0 calc((100% - var(--news-gap)) / 2);
   min-width: 0;
   animation: slideInUp 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
@@ -62,12 +90,15 @@
   height: 408.266px;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s;
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 320ms ease;
   cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  filter: drop-shadow(0 18px 34px rgba(17, 17, 17, 0.12));
 }
 
 .imageWrapper {
@@ -75,7 +106,8 @@
   height: 343.875px;
   overflow: hidden;
   background: rgb(238, 238, 238);
-  border-radius: 16px;
+  border: 1px solid rgba(213, 3, 6, 0.12);
+  border-radius: 10px;
   position: relative;
   display: flex;
   align-items: center;
@@ -89,11 +121,11 @@
   height: 100%;
   object-fit: cover;
   animation: zoomInImage 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  transition: transform 0.3s;
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .card:hover .image {
-  transform: scale(1.05);
+  transform: scale(1.035);
 }
 
 .comingSoon {
@@ -102,7 +134,9 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: rgba(17, 17, 17, 0.8);
+  background:
+    linear-gradient(135deg, rgba(213, 3, 6, 0.88), rgba(17, 17, 17, 0.86)),
+    var(--arigeo-ink);
   font-size: 24px;
   font-weight: 700;
   color: #fff;
@@ -118,18 +152,28 @@
   opacity: 0;
 }
 
+.category {
+  width: fit-content;
+  color: var(--arigeo-red);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
 .readMore {
   font-size: 14px;
   font-weight: 500;
   color: var(--color-primary-ink);
   text-decoration: none;
   margin-top: 4px;
-  transition: color 180ms ease;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
-.readMore:hover {
-  text-decoration: underline;
-  color: rgb(1, 1, 1);
+.card:hover .readMore {
+  color: var(--arigeo-red);
+  transform: translateX(2px);
 }
 
 
@@ -138,7 +182,7 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 1.4;
-  color: rgb(1, 1, 1);
+  color: var(--arigeo-ink);
 }
 
 .controls {
@@ -147,7 +191,7 @@
   width: min(816px, calc(100vw - 32px));
   height: 48px;
   margin: 36px auto 0;
-  color: rgb(78, 77, 78);
+  color: var(--arigeo-muted);
   font-family: Helvetica-Thai-Light, Neue-Helvetica-Paneuropean-Light, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -177,7 +221,7 @@
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: rgb(78, 77, 78);
+  color: var(--arigeo-muted);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,8 +252,8 @@
 
 .navButton:hover:not(:disabled),
 .toggle:hover {
-  background: rgba(78, 77, 78, 0.08);
-  color: rgb(1, 1, 1);
+  background: rgba(213, 3, 6, 0.08);
+  color: var(--arigeo-red);
 }
 
 .navButton:disabled {
