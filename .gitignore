@@ -1,8 +1,7 @@
-node_modules/
-.next/
-.vercel/
-recovery/
-_claude-draft-components/
-arigeo-web-draft/
-*.tsbuildinfo
-*.ps1
+node_modules
+.next
+.env
+.env.local
+.env.*.local
+dist
+build

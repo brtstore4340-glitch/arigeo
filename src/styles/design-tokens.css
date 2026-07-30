@@ -1,0 +1,154 @@
+/* ============================================================================
+   ARIGEO DESIGN TOKENS - REDESIGNED 2026-07-28
+   Per ARIGEO Design System: soft blush red, flat borders, card tints
+   ============================================================================ */
+
+:root {
+  /* ──────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - Revised 2026-07-23 per client feedback
+     ────────────────────────────────────────────────────────────────────────── */
+
+  /* Primary Brand - Soft Corporate Blush (NOT saturated red) */
+  --arigeo-red: #f4cccc;        /* Blush fill - buttons, badges, dots ONLY */
+  --arigeo-red-dark: #e7a8a8;   /* Blush hover/pressed state */
+  --arigeo-red-ink: #783636;    /* Readable text/icon color ON red fills or white */
+
+  /* Neutrals */
+  --arigeo-black: #010101;      /* Near-black, not pure #000 */
+  --arigeo-gray: #424242;       /* Medium gray */
+  --arigeo-text-muted: #5c5c5c; /* Muted text, body secondary */
+  --arigeo-white: #FDFDFD;      /* Off-white, not pure white */
+  --arigeo-surface: #F3F3F4;    /* Platinum - section alternates, newsletter band */
+  --arigeo-line: #e9e9e9;       /* Border lines */
+  --arigeo-soft: #f7f7f7;       /* Soft background tint */
+
+  /* Legacy category tints (still used) */
+  --arigeo-household: #F5EFE6;
+  --arigeo-household-accent: #B08D57;
+  --arigeo-skincare: #EEF3F4;
+  --arigeo-skincare-accent: #6E9A9E;
+
+  /* NEW: Soft card tints trio - rotate through Purpose/Feature cards */
+  --card-green: #eef6f1;        /* Green card background */
+  --card-green-ink: #4c7a5d;    /* Green card text/accent */
+  --card-blue: #eef3f8;         /* Blue card background */
+  --card-blue-ink: #3e6e8e;     /* Blue card text/accent */
+  --card-gray: #f4f4f5;         /* Gray card background */
+  --card-gray-ink: #5c5c5c;     /* Gray card text/accent */
+
+  /* Semantic aliases */
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-primary: var(--arigeo-red);
+  --color-primary-hover: var(--arigeo-red-dark);
+  --color-primary-ink: var(--arigeo-red-ink);
+  --color-surface: var(--arigeo-surface);
+  --color-border: var(--arigeo-line);
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - Revised 2026-07-23
+     IBM Plex Sans Thai is now the ONLY typeface (was: Prompt + IBM Plex)
+     Target: DB Helvethaica (commercial Thai, to be licensed)
+     ────────────────────────────────────────────────────────────────────────── */
+
+  --font-plex-thai: 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Google Sans', var(--font-plex-thai), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Type scale */
+  --text-hero: clamp(46px, 4.4vw, 76px);
+  --text-h1: clamp(32px, 3vw, 52px);
+  --text-h2: 32px;
+  --text-h3: 22px;
+  --text-body-lg: 18px;
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-eyebrow: 12px;
+
+  /* Line height - looser for readability, especially Thai */
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 1.9;
+
+  /* Letter spacing - display copy has NO negative tracking */
+  --tracking-tight: -0.045em;
+  --tracking-normal: -0.02em;
+  --tracking-wide: 0.02em;
+  --tracking-eyebrow: 0.14em;
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     SPACING - 4px base increments
+     ────────────────────────────────────────────────────────────────────────── */
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+  --space-5xl: 80px;
+
+  /* Section vertical rhythm - fluid clamp */
+  --section-spacing: clamp(72px, 6vw, 112px);
+
+  /* Page shell max-width and gutters */
+  --page-max-width: 1440px;
+  --page-gutter: 24px;
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     EFFECTS - borders, shadows, radii
+     ────────────────────────────────────────────────────────────────────────── */
+
+  /* Borders - hairline is now the dominant structural device */
+  --border-hairline: 1px solid rgba(17, 17, 17, 0.12);
+  --border-hairline-strong: 1px solid rgba(17, 17, 17, 0.16);
+
+  /* Shadows - reserved for floating chrome only, NOT grid cells */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+  /* Border radius - NEW flat-bordered system has zero radius */
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-pill: 9999px;
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     TRANSITIONS & EASING - hero wipe, hover states
+     ────────────────────────────────────────────────────────────────────────── */
+
+  /* Primary easing for new animations */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Standard transition durations */
+  --transition-fast: 200ms;
+  --transition-normal: 300ms;
+  --transition-slow: 400ms;
+  --transition-hero: 2200ms;
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+}
+
+/* Thai typography adjustments - looser leading, no negative tracking */
+html[lang="th"] body {
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+}
+
+html[lang="th"] h1,
+html[lang="th"] h2,
+html[lang="th"] h3,
+html[lang="th"] h4 {
+  letter-spacing: var(--tracking-normal);
+}

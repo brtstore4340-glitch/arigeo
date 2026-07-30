@@ -1,0 +1,48 @@
+{
+  "description": "Zeus Oracle - Fleet Orchestrator",
+  "permissions": {
+    "git.commit": "ask",
+    "git.push": "ask",
+    "git.branch.create": "deny",
+    "git.branch.delete": "deny",
+    "git.force_push": "deny",
+    "git.rebase": "ask"
+  },
+  "enforcement": {
+    "require_approval_before_commit": true,
+    "require_approval_before_push": true,
+    "enforce_branch_protection": true,
+    "commit_message_validation": "type: description format required",
+    "allowed_commit_branches": ["main", "develop", "feature/*"],
+    "allowed_push_branches": ["develop", "feature/*"],
+    "forbidden_push_branches": ["main"],
+    "max_concurrent_commits": 1
+  },
+  "agents": {
+    "hermes": {
+      "role": "executor",
+      "can_commit": true,
+      "can_push": true,
+      "can_force_push": false,
+      "requires_approval": true
+    },
+    "stratum": {
+      "role": "implementer",
+      "can_commit": true,
+      "can_push": true,
+      "can_force_push": false,
+      "requires_approval": true
+    },
+    "aris": {
+      "role": "reviewer",
+      "can_commit": false,
+      "can_push": false,
+      "can_force_push": false
+    },
+    "default": {
+      "can_commit": false,
+      "can_push": false,
+      "can_force_push": false
+    }
+  }
+}

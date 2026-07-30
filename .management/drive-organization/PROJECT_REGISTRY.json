@@ -1,0 +1,166 @@
+{
+  "registry": {
+    "version": "1.0",
+    "created": "2026-06-24T18:33Z",
+    "coordinator": "Codex Oracle",
+    "projects": [
+      {
+        "id": 1,
+        "name": "mission-control",
+        "category": "00-ACTIVE",
+        "type": "Monorepo Hub",
+        "path": "/mnt/d/00-ACTIVE/mission-control",
+        "original": "/mnt/d/01 Main Work/Boots/Agentic AI/mission-control",
+        "link_type": "symlink",
+        "priority": "CRITICAL",
+        "status": "Active",
+        "git": true,
+        "description": "Central orchestration + multi-project hub"
+      },
+      {
+        "id": 2,
+        "name": "Agentic AI",
+        "category": "01-FRAMEWORKS",
+        "type": "Framework",
+        "path": "/mnt/d/01-FRAMEWORKS/Agentic-AI",
+        "original": "/mnt/d/01 Main Work/Boots/Agentic AI",
+        "link_type": "symlink",
+        "priority": "CRITICAL",
+        "status": "Active",
+        "git": true,
+        "description": "Multi-model agentic system framework"
+      },
+      {
+        "id": 3,
+        "name": "vehicle-booking-system",
+        "category": "00-ACTIVE",
+        "type": "App",
+        "path": "/mnt/d/00-ACTIVE/vehicle-booking-system",
+        "original": "/mnt/d/01 Main Work/Boots/Agentic AI/vehicle-booking-system",
+        "link_type": "symlink",
+        "priority": "HIGH",
+        "status": "Active",
+        "git": true,
+        "description": "Online car reservation system (Vite + React + Supabase)"
+      },
+      {
+        "id": 4,
+        "name": "Boots-POS",
+        "category": "00-ACTIVE",
+        "type": "Business App",
+        "path": "/mnt/d/00-ACTIVE/Boots-POS",
+        "original": "/mnt/d/01 Main Work/Boots/Boots-POS",
+        "link_type": "symlink",
+        "priority": "HIGH",
+        "status": "Active",
+        "git": true,
+        "description": "Point of Sale system"
+      },
+      {
+        "id": 5,
+        "name": "Boots-MedicineTrack",
+        "category": "00-ACTIVE",
+        "type": "Pharmacy System",
+        "path": "/mnt/d/00-ACTIVE/Boots-MedicineTrack",
+        "original": "/mnt/d/01 Main Work/Boots/Boots-MedicineTrack",
+        "link_type": "symlink",
+        "priority": "HIGH",
+        "status": "Active",
+        "git": true,
+        "description": "Medicine/Pharmacy tracking system"
+      },
+      {
+        "id": 6,
+        "name": "ร้านยาคุณภาพ",
+        "category": "02-REFERENCE",
+        "type": "Pharmacy Repository",
+        "path": "/mnt/d/02-REFERENCE/pharmacy-tracking",
+        "original": "/mnt/d/01 Main Work/ร้านยาคุณภาพ",
+        "link_type": "symlink",
+        "priority": "HIGH",
+        "status": "Maintenance",
+        "git": true,
+        "description": "Pharmacy (ร้านขายยา) git repository"
+      },
+      {
+        "id": 7,
+        "name": "forge-omega-v2",
+        "category": "01-FRAMEWORKS",
+        "type": "Framework",
+        "path": "/mnt/d/01-FRAMEWORKS/forge-omega-v2",
+        "original": "/mnt/d/Git/forge-omega-v2",
+        "link_type": "symlink",
+        "priority": "MEDIUM",
+        "status": "Maintenance",
+        "git": true,
+        "description": "Game/Oracle framework"
+      },
+      {
+        "id": 8,
+        "name": "Boots-DSM-Project",
+        "category": "00-ACTIVE",
+        "type": "Analytics",
+        "path": "/mnt/d/00-ACTIVE/Boots-DSM-Project",
+        "original": "/mnt/d/01 Main Work/Boots/Boots-DSM-Project",
+        "link_type": "symlink",
+        "priority": "HIGH",
+        "status": "Active",
+        "git": true,
+        "description": "Data Science/Analysis project"
+      },
+      {
+        "id": 9,
+        "name": "Boots-QR Generator",
+        "category": "01-FRAMEWORKS",
+        "type": "Tool",
+        "path": "/mnt/d/01-FRAMEWORKS/Boots-QR-Generator",
+        "original": "/mnt/d/01 Main Work/Boots/Boots-QR Generator",
+        "link_type": "symlink",
+        "priority": "MEDIUM",
+        "status": "Active",
+        "git": true,
+        "description": "QR code generation tool"
+      },
+      {
+        "id": 10,
+        "name": "portfolio",
+        "category": "02-REFERENCE",
+        "type": "Professional",
+        "path": "/mnt/d/02-REFERENCE/portfolio",
+        "original": "/mnt/d/01 Main Work/Boots/Agentic AI/portfolio",
+        "link_type": "symlink",
+        "priority": "HIGH",
+        "status": "Paused",
+        "git": true,
+        "description": "Professional portfolio/resume"
+      }
+    ],
+    "categories": {
+      "00-ACTIVE": {
+        "description": "Active projects in development",
+        "count": 5,
+        "priority": "CRITICAL"
+      },
+      "01-FRAMEWORKS": {
+        "description": "Frameworks and tools",
+        "count": 3,
+        "priority": "HIGH"
+      },
+      "02-REFERENCE": {
+        "description": "Reference and knowledge repositories",
+        "count": 2,
+        "priority": "HIGH"
+      },
+      "03-ARCHIVE": {
+        "description": "Completed/archived projects",
+        "count": 0,
+        "priority": "LOW"
+      },
+      "04-EXPERIMENTAL": {
+        "description": "Research and WIP projects",
+        "count": 0,
+        "priority": "LOW"
+      }
+    }
+  }
+}

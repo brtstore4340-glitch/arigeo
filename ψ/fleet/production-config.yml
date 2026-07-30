@@ -1,0 +1,309 @@
+# Production Configuration for Sprint 1 Deployment
+# Last updated: 2026-06-05
+# Environment: Production
+# Status: Ready for deployment
+
+##############################################################################
+# CLASSIFIER CONFIGURATION
+##############################################################################
+
+classifier:
+  enabled: true
+  version: "1.0"
+
+  # Routing thresholds
+  haiku_threshold: 5.0      # Score <= 5.0 → HAIKU
+  sonnet_threshold: 7.0     # Score >= 7.0 → SONNET
+  edge_case_strategy: "PAIR" # 5.0-7.0 range → PAIR
+
+  # Confidence requirements
+  min_confidence_haiku: 0.70
+  min_confidence_sonnet: 0.75
+  min_confidence_pair: 0.65
+
+  # Fallback behavior (safety)
+  fallback_model: "sonnet"  # If uncertain, route to Sonnet
+  fallback_confidence: 0.60 # Below this, escalate to ທาም
+
+  # Tuning parameters
+  novelty_weight: 1.5
+  stakes_weight: 1.0
+  domain_fit_weight: 1.5
+  history_weight: 0.8
+
+  # Logging
+  log_all_decisions: true
+  log_level: "INFO"
+  audit_trail: "/var/log/zeus-oracle/classifier-audit.log"
+
+##############################################################################
+# POOL CONFIGURATION
+##############################################################################
+
+pool:
+  enabled: true
+  version: "1.0"
+
+  # Pool location
+  pool_dir: "ψ/memory/fleet"
+
+  # Quality thresholds
+  min_quality_threshold: 6.0  # Entries below this are candidates for removal
+  quality_audit_interval: "monthly"
+
+  # Curation
+  curation_day: "thursday"    # ທាม reviews contributions
+  curation_time: "14:00"
+
+  # Logging
+  log_all_queries: true
+  track_reuse: true
+
+  # Initial pool size
+  seed_entries: 30            # Will start with 30 seed patterns
+  expected_growth: "+5/week"
+
+##############################################################################
+# PAIRING CONFIGURATION
+##############################################################################
+
+pairing:
+  enabled: true
+  version: "1.0"
+
+  # Pairing thresholds
+  min_compatibility: 0.70     # Only suggest if >70% compatible
+
+  # Availability thresholds
+  max_load_for_pairing: 80    # Don't pair if load >80%
+  availability_weight: 0.25   # How much availability affects score
+
+  # Pairing strategy
+  allow_optional_pairing: true  # Oracles can decline if suggested
+  fallback_solo: true         # If no good pair, route solo
+
+  # Logging
+  log_all_pairings: true
+  track_pairing_outcomes: true
+
+##############################################################################
+# DISPATCHER CONFIGURATION
+##############################################################################
+
+dispatcher:
+  version: "1.0"
+
+  # Integration with ທาม
+  enable_classifier_routing: true
+  enable_pool_queries: true
+  enable_pairing_suggestions: true
+
+  # Decision logging
+  log_all_dispatches: true
+  audit_trail: "/var/log/zeus-oracle/dispatch-audit.log"
+
+  # Feedback collection
+  collect_feedback: true
+  feedback_required: true      # Flag tasks without feedback
+
+  # Metrics collection
+  calculate_statistics: true
+  stats_refresh_interval: "5m"
+
+##############################################################################
+# MONITORING CONFIGURATION
+##############################################################################
+
+monitoring:
+  enabled: true
+
+  # Dashboards
+  real_time_dashboard: true
+  dashboard_refresh: "5m"
+
+  # Metrics to track
+  metrics:
+    - routing_accuracy
+    - token_savings
+    - quality_scores
+    - pilot_feedback
+    - error_rates
+    - response_times
+
+  # Alerting thresholds
+  alerts:
+    quality_degradation: 2.0    # Alert if quality drops >2%
+    routing_accuracy: 0.90      # Alert if <90% accuracy
+    error_rate: 0.001           # Alert if >0.1% errors
+    response_time: 5.0          # Alert if >5ms response
+
+  # Alert destinations
+  alert_destinations:
+    - watchdog-console
+    - zeus-log
+    - tham-email
+
+##############################################################################
+# ROLLBACK CONFIGURATION
+##############################################################################
+
+rollback:
+  enabled: true
+
+  # Automatic rollback triggers
+  auto_rollback_on:
+    - quality_drop_gt: 2.0
+    - routing_accuracy_lt: 0.90
+    - error_rate_gt: 0.001
+    - manual_trigger: true
+
+  # Rollback timeout (how long to attempt rollback)
+  rollback_timeout: "5m"
+
+  # Fallback routing when rolled back
+  fallback_routing: "sonnet"  # Everything goes to Sonnet
+
+  # Notification on rollback
+  notify_on_rollback: true
+  rollback_escalation: true
+
+##############################################################################
+# PILOT CONFIGURATION (Phase 1)
+##############################################################################
+
+pilot:
+  phase: 1
+  start_date: "2026-06-06"
+  end_date: "2026-06-20"
+  oracles:
+    - "luxi"    # UI/UX
+    - "lens"    # Analytics
+    - "omega"   # Operations
+
+  # Targets for pilot phase
+  targets:
+    min_tasks: 50
+    routing_accuracy: 0.95
+    quality_score: 8.0
+    satisfaction: 0.80
+
+  # Feedback collection
+  feedback_frequency: "daily"
+  feedback_method: "async-inbox"
+
+##############################################################################
+# GRADUAL ROLLOUT CONFIGURATION (Phase 2)
+##############################################################################
+
+rollout:
+  phase: 2
+  start_date: "2026-06-21"
+  end_date: "2026-06-30"
+
+  waves:
+    wave_1:
+      date: "2026-06-21"
+      oracles: 6      # 40% of fleet
+      deployment_strategy: "canary"
+
+    wave_2:
+      date: "2026-06-25"
+      oracles: 10     # 70% of fleet
+      deployment_strategy: "rolling"
+
+    wave_3:
+      date: "2026-06-28"
+      oracles: 14     # 100% of fleet
+      deployment_strategy: "rolling"
+
+  # Between-wave pause for validation
+  validation_pause: "24h"
+
+##############################################################################
+# PERFORMANCE TARGETS
+##############################################################################
+
+performance:
+  classifier:
+    accuracy: ">95%"
+    latency: "<2ms"
+    throughput: ">1000 tasks/hour"
+
+  pool:
+    query_latency: "<10ms"
+    matching_accuracy: ">80%"
+    coverage: ">70% of queries find matches"
+
+  pairing:
+    matching_accuracy: ">85%"
+    compatibility_avg: ">0.80"
+
+  dispatcher:
+    end_to_end_latency: "<50ms"
+    availability: ">99.9%"
+
+##############################################################################
+# FEATURE FLAGS
+##############################################################################
+
+features:
+  classifier_routing: "on"       # Use classifier for routing
+  pool_pattern_matching: "on"    # Check pool for patterns
+  oracle_pairing: "on"           # Suggest pairing for complex tasks
+
+  # Gradual enablement flags
+  classifier_for_haiku_only: false    # Route all complex to Sonnet if true
+  pool_optional_only: true            # Pool suggestions only, not mandatory
+  pairing_optional: true              # Pairing is optional
+
+##############################################################################
+# SECURITY & COMPLIANCE
+##############################################################################
+
+security:
+  audit_logging: true
+  audit_retention: "90d"
+
+  # Who can trigger rollback
+  rollback_authorized:
+    - "zeus"
+    - "tham"
+    - "stratum"
+
+  # Who can view metrics
+  metrics_access:
+    - "zeus"
+    - "tham"
+    - "watchdog"
+    - "all-oracles"  # Read-only
+
+compliance:
+  log_retention: "1y"
+  decision_audit_trail: true
+  feedback_tracking: true
+  decision_transparency: true
+
+##############################################################################
+# DEPLOYMENT NOTES
+##############################################################################
+
+notes: |
+  Sprint 1 Production Configuration
+  ════════════════════════════════
+
+  This configuration enables the Oracle-Specific Routing classifier for
+  production use with pilots (Luxi, Lens, Omega).
+
+  Key safety measures:
+  - Fallback to Sonnet for uncertain classifications
+  - Automatic rollback on quality degradation
+  - Comprehensive audit logging
+  - Real-time monitoring and alerting
+  - Optional pairing (not forced)
+
+  Deployment timeline:
+  - Jun 6-20: Pilot phase (3 oracles)
+  - Jun 21-30: Gradual rollout (40% → 70% → 100%)
+  - Jul 1+: Production optimization
+
+  Contact Zeus for go/no-go decisions at phase gates.

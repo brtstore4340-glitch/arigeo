@@ -1,0 +1,296 @@
+.section {
+  padding: clamp(2rem, 5vw, 4rem) 0;
+  background: linear-gradient(135deg, #f0f8ff 0%, #f5f0ff 100%);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #d50306;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0 0 16px 0;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 900;
+  color: var(--marcusx-primary, #2a2a2a);
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw, 16px);
+  color: var(--marcusx-secondary, #666);
+  line-height: 1.6;
+}
+
+/* Brands Grid */
+.brandsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+@media (max-width: 768px) {
+  .brandsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Brand Card */
+.brandCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: brandCardFade 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+@keyframes brandCardFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brandCard.visible {
+  animation: brandCardFade 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.brandCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo Wrapper */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f0f8ff 0%, #f5f0ff 100%);
+  border-radius: 8px;
+  animation: logoScale 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms forwards;
+  opacity: 0;
+}
+
+.brandCard.visible .logoWrapper {
+  animation: logoScale 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 200ms forwards;
+}
+
+@keyframes logoScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo {
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Brand Info */
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.brandName {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 900;
+  color: var(--marcusx-primary, #2a2a2a);
+  line-height: 1.2;
+}
+
+.brandTagline {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #0066cc;
+}
+
+.brandDescription {
+  margin: 0;
+  font-size: clamp(14px, 1vw, 16px);
+  color: var(--marcusx-secondary, #666);
+  line-height: 1.6;
+}
+
+/* Categories */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.categoryTag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #f0f8ff;
+  border: 1px solid #d0e8ff;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0066cc;
+  transition: all 200ms ease;
+}
+
+.brandCard:hover .categoryTag {
+  background: #0066cc;
+  color: #ffffff;
+  border-color: #0066cc;
+}
+
+/* Brand Link */
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #d50306;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  margin-top: 8px;
+  width: fit-content;
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.brandLink:hover {
+  gap: 12px;
+  color: #a50205;
+}
+
+.brandLink:focus-visible {
+  outline: 2px solid var(--marcusx-accent, #0066cc);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.brandLink span {
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.brandLink:hover span {
+  transform: translateX(4px);
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(135deg, #d50306 0%, #a50205 100%);
+  border-radius: 12px;
+  color: #ffffff;
+  animation: ctaSectionFade 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+}
+
+@keyframes ctaSectionFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ctaTitle {
+  margin: 0 0 12px 0;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.ctaDescription {
+  margin: 0 0 1.5rem 0;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #ffffff;
+  color: #d50306;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ctaButton:hover {
+  gap: 12px;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.ctaButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .brandCard,
+  .logoWrapper,
+  .brandLink,
+  .ctaSection,
+  .categoryTag {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .brandCard.visible {
+    opacity: 1;
+  }
+}

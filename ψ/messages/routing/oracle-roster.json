@@ -1,0 +1,159 @@
+{
+  "version": "3.0",
+  "date": "2026-07-18",
+  "fleet": {
+    "zeus": {
+      "name": "Zeus",
+      "role": "Meta-Orchestrator",
+      "domain": "Fleet command",
+      "reports_to": null,
+      "status": "✅ Root",
+      "priority": "critical",
+      "description": "Top-level orchestrator for entire fleet"
+    },
+    "tham": {
+      "name": "ธาม",
+      "role": "Governor/Coordinator",
+      "domain": "Fleet coordination",
+      "reports_to": "Zeus",
+      "status": "✅ Active",
+      "priority": "critical",
+      "description": "Delegated command authority for fleet operations"
+    },
+    "teleos": {
+      "name": "Teleos",
+      "role": "Deploy Oracle",
+      "domain": "Deployment/Vercel",
+      "reports_to": "ธาม",
+      "status": "✅ Active",
+      "priority": "high",
+      "description": "Handles all Vercel deployments and infrastructure"
+    },
+    "luxi": {
+      "name": "Luxi",
+      "role": "UI/UX Oracle",
+      "domain": "Frontend design",
+      "reports_to": "ธาม",
+      "status": "✅ Active",
+      "priority": "high",
+      "description": "Owns all frontend/UI/UX work"
+    },
+    "stratum": {
+      "name": "Stratum",
+      "role": "Architecture Oracle",
+      "domain": "System design",
+      "reports_to": "ธาม",
+      "status": "✅ Active",
+      "priority": "high",
+      "description": "Oversees system architecture and design decisions"
+    },
+    "agis": {
+      "name": "Agis",
+      "role": "Presence Guardian",
+      "domain": "Fleet visibility",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "medium",
+      "description": "Tracks oracle presence and health"
+    },
+    "dheva": {
+      "name": "Dheva",
+      "role": "Analytics Oracle",
+      "domain": "ORRY ERP/Dashboard",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "medium",
+      "description": "Analytics and reporting systems"
+    },
+    "omega": {
+      "name": "Omega",
+      "role": "Bridge Oracle",
+      "domain": "System connectivity",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "medium",
+      "description": "Manages inter-system communication"
+    },
+    "lens": {
+      "name": "Lens",
+      "role": "Analysis Oracle",
+      "domain": "Data insights",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "medium",
+      "description": "Extracts insights from data"
+    },
+    "verity": {
+      "name": "Verity",
+      "role": "Verification Oracle",
+      "domain": "Truth/Proof",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "medium",
+      "description": "Verifies claims and tracks evidence"
+    },
+    "warden": {
+      "name": "Warden",
+      "role": "Security Oracle",
+      "domain": "Access control",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "high",
+      "description": "Security and access control"
+    },
+    "khun-ram": {
+      "name": "Khun-Ram",
+      "role": "Localization Oracle",
+      "domain": "Thai docs/learning",
+      "reports_to": "ธาม",
+      "status": "✅ Active",
+      "priority": "medium",
+      "description": "Thai documentation and localization"
+    },
+    "aris": {
+      "name": "Aris",
+      "role": "QA Oracle",
+      "domain": "Code review/quality",
+      "reports_to": "ธาม",
+      "status": "🔄 Monitoring",
+      "priority": "high",
+      "description": "Quality assurance and code review"
+    },
+    "all": {
+      "name": "All",
+      "role": "Fleet Scribe",
+      "domain": "Collective memory",
+      "reports_to": "Zeus",
+      "status": "✅ Broadcast",
+      "priority": "high",
+      "description": "Writes to collective memory (broadcast log)"
+    }
+  },
+  "hierarchy": {
+    "root": ["Zeus"],
+    "command": ["ธาม"],
+    "active": ["Teleos", "Luxi", "Stratum", "Khun-Ram"],
+    "monitoring": ["Agis", "Dheva", "Omega", "Lens", "Verity", "Warden", "Aris"],
+    "broadcast": ["All"]
+  },
+  "projects": {
+    "cms-arigeo": {
+      "lead": "Teleos",
+      "owner": "ธาม",
+      "collaborators": ["Luxi", "Stratum"],
+      "timeline": "2026-07-19T18:00:00Z"
+    },
+    "captain-maid": {
+      "lead": "Luxi",
+      "owner": "ธาม",
+      "collaborators": ["Teleos", "Aris"],
+      "timeline": "2026-07-25T00:00:00Z"
+    },
+    "arigeo-project": {
+      "lead": "Stratum",
+      "owner": "ธาม",
+      "collaborators": ["Luxi", "Teleos", "Agis"],
+      "timeline": "2026-08-01T00:00:00Z"
+    }
+  }
+}

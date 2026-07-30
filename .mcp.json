@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "headroom": {
+      "type": "stdio",
+      "command": "headroom",
+      "args": ["mcp"],
+      "env": {
+        "HEADROOM_PROXY_URL": "http://localhost:8787"
+      }
+    },
+    "arra-oracle-v3": {
+      "type": "stdio",
+      "command": "bunx",
+      "args": ["--bun", "arra-oracle@github:Soul-Brews-Studio/arra-oracle-v3"],
+      "env": {
+        "ORACLE_DB_PATH": "/home/user/.claude/oracle-data"
+      }
+    }
+  }
+}
