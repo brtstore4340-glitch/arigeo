@@ -1,169 +1,107 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import styles from "./news-release.module.css";
+import s from "./news-release.module.css";
 
-type NewsItem = {
-  id: string;
+interface NewsItem {
+  id: number;
+  href: string;
+  datetime: string;
   date: string;
+  group: string;
   category: string;
   title: string;
-  image: string;
-  link: string;
-};
+  img: string;
+}
 
-const newsItems: NewsItem[] = [
+const news: NewsItem[] = [
   {
-    id: "1",
+    id: 1,
+    href: "/news/1",
+    datetime: "2026-07-25",
     date: "2026-07-25",
-    category: "ธุรกิจ",
+    group: "Press Release",
+    category: "Business | Finance",
     title: "ผลิตภัณฑ์ ARIGEO ได้รับการรับรองมาตรฐานสากล",
-    image: "/images/home/news-corporate-building.png",
-    link: "/news/1",
+    img: "/images/home/news-corporate-building.png",
   },
   {
-    id: "2",
+    id: 2,
+    href: "/news/2",
+    datetime: "2026-07-20",
     date: "2026-07-20",
-    category: "วิจัยและพัฒนา",
+    group: "Innovation",
+    category: "R&D | Technology",
     title: "นวัตกรรมใหม่ในการพัฒนาผลิตภัณฑ์ที่ปลอดภัย",
-    image: "/images/home/news-product-handwash.png",
-    link: "/news/2",
+    img: "/images/home/news-product-handwash.png",
   },
   {
-    id: "3",
+    id: 3,
+    href: "/news/3",
+    datetime: "2026-07-15",
     date: "2026-07-15",
-    category: "ความยั่งยืน",
+    group: "Sustainability",
+    category: "Environment | CSR",
     title: "ARIGEO มุ่งสู่ความเป็นเลิศด้านความยั่งยืน",
-    image: "/images/home/news-sustainability-globe.png",
-    link: "/news/3",
+    img: "/images/home/news-sustainability-globe.png",
   },
   {
-    id: "4",
+    id: 4,
+    href: "/news/4",
+    datetime: "2026-07-10",
     date: "2026-07-10",
-    category: "ชุมชน",
+    group: "Community",
+    category: "Social | Outreach",
     title: "กิจกรรมสัมพันธ์โครงการดูแลชุมชน",
-    image: "/images/home/news-lifestyle-couple.png",
-    link: "/news/4",
+    img: "/images/home/news-lifestyle-couple.png",
   },
   {
-    id: "5",
+    id: 5,
+    href: "/news/5",
+    datetime: "2026-07-05",
     date: "2026-07-05",
-    category: "บุคลากร",
+    group: "Corporate",
+    category: "HR | Training",
     title: "ทีมงาน ARIGEO เข้ารับการอบรมด้านความปลอดภัย",
-    image: "/images/home/news-corporate-building.png",
-    link: "/news/5",
+    img: "/images/home/news-corporate-building.png",
   },
 ];
 
 export default function NewsRelease() {
-  const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
-  const itemRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const itemId = entry.target.getAttribute("data-news-id");
-            if (itemId) {
-              setVisibleItems((prev) => new Set(prev).add(itemId));
-            }
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    Object.values(itemRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>ข่าวประชาสัมพันธ์</h2>
-        </div>
+    <section className={s.section}>
+      <div className={s.container}>
+        <h2 className={s.title}>News Release</h2>
 
-        <div className={styles.newsList}>
-          {newsItems.map((item, idx) => (
-            <article
-              key={item.id}
-              ref={(el) => {
-                if (el) itemRefs.current[item.id] = el;
-              }}
-              data-news-id={item.id}
-              className={`${styles.newsItem} ${
-                visibleItems.has(item.id) ? styles.visible : ""
-              }`}
-            >
-              <Link href={item.link} className={styles.newsLink}>
-                <div className={styles.contentArea}>
-                  <div className={styles.metaBlock}>
-                    <time className={styles.date}>{item.date}</time>
-                    <span className={styles.tag}>{item.category}</span>
-                  </div>
-
-                  <div className={styles.textBlock}>
-                    <h3 className={styles.newsTitle}>{item.title}</h3>
-                  </div>
-
-                  <div className={styles.cta}>
-                    <span className={styles.ctaText}>อ่านเพิ่มเติม</span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className={styles.ctaIcon}
-                    >
-                      <path
-                        d="M5 12h14M13 6l6 6-6 6"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+        <ul className={s.list}>
+          {news.map((n) => (
+            <li className={s.item} key={n.id}>
+              <a className={s.link} href={n.href}>
+                <div className={s.inner}>
+                  <div className={s.text}>
+                    <span className={s.bullet} aria-hidden="true" />
+                    <p className={s.headline}>{n.title}</p>
+                    <div className={s.time}>
+                      <time dateTime={n.datetime}>{n.date}</time>
+                    </div>
+                    <div className={s.labels}>
+                      <span className={s.tag}>{n.group}</span>
+                      <span className={s.tag}>{n.category}</span>
+                    </div>
                   </div>
                 </div>
-
-                <div className={styles.imageArea}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className={styles.newsImage}
-                    loading="lazy"
-                  />
-                </div>
-              </Link>
-            </article>
+                <p className={s.thumb}>
+                  <img src={n.img} alt="" loading="lazy" />
+                </p>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        <div className={styles.footer}>
-          <Link href="/news" className={styles.allNewsLink}>
-            <span>ดูข่าวทั้งหมด</span>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              className={styles.footerIcon}
-            >
-              <path
-                d="M5 12h14M13 6l6 6-6 6"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
+        <div className={s.footer}>
+          <a className={s.viewAll} href="/news">
+            <span className={s.viewAllIcon} aria-hidden="true" />
+            <span>View all news</span>
+          </a>
         </div>
       </div>
     </section>
