@@ -15,6 +15,13 @@ const primaryLinks = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+const socialLinks = [
+  { label: "LinkedIn", icon: "/images/social/linkedin.svg" },
+  { label: "Instagram", icon: "/images/social/instagram.svg" },
+  { label: "YouTube", icon: "/images/social/youtube.svg" },
+  { label: "Facebook", icon: "/images/social/facebook.svg" },
+];
+
 export default function Footer() {
   return (
     <footer
@@ -55,6 +62,72 @@ export default function Footer() {
           }}
         />
       </a>
+
+      {/* Follow Us */}
+      <div
+        style={{
+          display: "flex",
+          minHeight: 104,
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 28,
+          borderBottom: "1px solid rgba(17,17,17,0.12)",
+          textAlign: "center",
+          flexDirection: "column",
+          padding: "20px 0",
+        }}
+      >
+        <h2
+          style={{
+            margin: 0,
+            fontSize: "clamp(20px,2vw,28px)",
+            fontWeight: 800,
+          }}
+        >
+          Follow us
+        </h2>
+        <div
+          style={{
+            display: "flex",
+            gap: 12,
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
+          {socialLinks.map((social) => (
+            <button
+              key={social.label}
+              type="button"
+              title="Awaiting Official URL"
+              aria-label={`${social.label} — Awaiting official URL`}
+              style={{
+                width: 46,
+                height: 46,
+                borderRadius: 999,
+                display: "grid",
+                placeItems: "center",
+                background: "#fff",
+                color: "#111",
+                border: "1px solid rgba(17,17,17,0.16)",
+                cursor: "help",
+                padding: 0,
+              }}
+            >
+              <img
+                src={social.icon}
+                alt=""
+                aria-hidden="true"
+                style={{
+                  width: 20,
+                  height: 20,
+                  objectFit: "contain",
+                  display: "block",
+                }}
+              />
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Footer Navigation */}
       <nav
