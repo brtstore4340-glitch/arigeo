@@ -420,11 +420,11 @@ img { display: block; max-width: 100%; }
 .footer { border-top: 1px solid #eee; background: #fff; }
 .footer-main { display: grid; grid-template-columns: 1.4fr repeat(6,1fr); gap: 28px; padding: 64px 0; }
 .footer-brand p { max-width: 290px; color: #666; font-size: 13px; line-height: 1.8; margin: 15px 0; }
-.socials { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.socials { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
 .socials__item {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
   display: inline-grid;
   place-items: center;
   background: #111;
@@ -434,8 +434,8 @@ img { display: block; max-width: 100%; }
 }
 .socials__item svg,
 .socials__item img {
-  width: 18px;
-  height: 18px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 .socials__item:hover,
