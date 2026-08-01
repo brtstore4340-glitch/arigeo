@@ -18,12 +18,12 @@ type Props = {
 const defaultItems = {
   th: [
     {
-      label: "เกี่ยวกับคาโอ",
+      label: "เกี่ยวกับ ARIGEO",
       href: "/th/about",
       submenu: [
         { label: "จุดมุ่งหมายและการสร้างคุณค่า", href: "/th/about#purpose" },
-        { label: "เกี่ยวกับคาโอ ประเทศไทย", href: "/th/about" },
-        { label: "เกี่ยวกับกลุ่มคาโอ", href: "https://www.kao.com/" },
+        { label: "เกี่ยวกับ ARIGEO", href: "/th/about" },
+        { label: "เกี่ยวกับบริษัท", href: "/th/about" },
         { label: "การปฏิบัติตามกฎระเบียบ", href: "/th/compliance" },
       ],
     },
@@ -55,12 +55,12 @@ const defaultItems = {
   ],
   en: [
     {
-      label: "About Kao",
+      label: "About ARIGEO",
       href: "/en/about",
       submenu: [
         { label: "Purpose & Value", href: "/en/about#purpose" },
-        { label: "About Kao Thailand", href: "/en/about" },
-        { label: "About Kao Group", href: "https://www.kao.com/" },
+        { label: "About ARIGEO", href: "/en/about" },
+        { label: "About the company", href: "/en/about" },
         { label: "Compliance", href: "/en/compliance" },
       ],
     },

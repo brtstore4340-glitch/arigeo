@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./brands-section.module.css";
 
 type Brand = {

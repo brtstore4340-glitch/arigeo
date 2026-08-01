@@ -1,5 +1,7 @@
 "use client";
 
+import { Tag } from "@/components/ui/Tag";
+
 /**
  * BrandsIndex
  * Full /brands page recreation
@@ -7,7 +9,7 @@
  * Design System Spec:
  * - Full-bleed hero photo + blush-topped title panel
  * - "All / Hygiene Living Care / Health Beauty Care" radio filter
- * - Two bordered-heading brand-tile grids (no gap, no radius - Kao-style)
+ * - Two bordered-heading brand-tile grids (no gap, no radius)
  * - Captain Maid links out (real logo)
  * - GenuLeaf/CeraTory show logos with "Product details under verification" pending state
  */
@@ -78,7 +80,7 @@ export default function BrandsIndex() {
           <article key={brand.id} className="brand-tile">
             <div className="brand-logo">{brand.logo}</div>
             <h3>{brand.name}</h3>
-            <p className="brand-category">{brand.category}</p>
+            <Tag tone="default">{brand.category}</Tag>
             {brand.pending ? (
               <p className="pending-state">Product details under verification</p>
             ) : (

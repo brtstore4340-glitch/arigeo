@@ -2,7 +2,7 @@
 
 /**
  * NewsReleaseSection
- * Press releases and news listing (Kao-style pattern)
+ * Press releases and news listing
  *
  * Design System Spec:
  * - Title: "ข่าวประชาสัมพันธ์" (News Release)

@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { useLocale } from "next-intl";
 import Media from "@/components/ui/Media";
+import { Button } from "@/components/ui/Button";
 import styles from "./hero-banner.module.css";
 
 export type HeroSlide = {
@@ -172,10 +172,9 @@ export default function HeroBanner({ slides, autoplayInterval = 8000 }: Props) {
             <span className={styles.line1}>{slide.headline1}</span>
           </h1>
           <p className={styles.body}>{slide.body}</p>
-          <Link href={slide.ctaHref} className={styles.cta}>
+          <Button href={slide.ctaHref} variant="primary">
             {slide.ctaText}
-            <span className={styles.arrow} aria-hidden="true">→</span>
-          </Link>
+          </Button>
         </div>
       </div>
 

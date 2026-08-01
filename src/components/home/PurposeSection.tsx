@@ -55,13 +55,13 @@ const purposeCards: PurposeCard[] = [
     link: "/brands",
   },
   {
-    id: "vision",
-    title: "Our Vision",
+    id: "careers",
+    title: "Careers",
     description:
-      "CONTENT REQUIRED — Vision and future direction copy pending corporate approval",
-    imageUrl: "/images/home/hero-lifestyle-about-us.png",
-    imageAlt: "Our Vision",
-    link: "/vision",
+      "CONTENT REQUIRED — Careers copy pending corporate approval",
+    imageUrl: "/images/home/purpose-careers.png",
+    imageAlt: "ARIGEO careers",
+    link: "/careers",
   },
   {
     id: "sustainability",
@@ -146,7 +146,7 @@ export default function PurposeSection() {
         {/* Sustainability Full Hero */}
         <div className={styles.sustainabilityHero}>
           <Image
-            src="/images/sustainability/windmill.jpg"
+            src="/images/home/purpose-sustainable.png"
             alt="Sustainability"
             fill
             priority

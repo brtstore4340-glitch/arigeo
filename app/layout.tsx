@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Arimo, IBM_Plex_Sans_Thai } from "next/font/google";
+import { Arimo, IBM_Plex_Sans_Thai, Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "../src/styles/globals.css";
@@ -21,12 +21,19 @@ const plexThai = IBM_Plex_Sans_Thai({
   display: "swap",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "ARIGEO - Kao Thailand",
+  title: "ARIGEO",
   description:
     "ARIGEO: High-quality, sustainable products for everyday care. Experience beauty and wellness with our innovative product line.",
   openGraph: {
-    title: "ARIGEO - Kao Thailand",
+    title: "ARIGEO",
     description: "High-quality, sustainable products for everyday care",
     images: [
       {
@@ -51,7 +58,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#010101" />
       </head>
       <body
-        className={`${arimo.variable} ${plexThai.variable}`}
+        className={`${arimo.variable} ${plexThai.variable} ${inter.variable}`}
         style={{
           fontFamily:
             "var(--font-sans, 'Arimo', 'IBM Plex Sans Thai', sans-serif)",

@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { Tag } from "@/components/ui/Tag";
 import styles from "./news-section.module.css";
 
 type NewsCard = {
@@ -47,123 +47,137 @@ const newsCards: NewsCard[] = [
     title: "More stories coming soon",
     comingSoon: true,
   },
+  {
+    category: "Coming Soon",
+    title: "Product highlights coming soon",
+    comingSoon: true,
+  },
+  {
+    category: "Coming Soon",
+    title: "Brand stories coming soon",
+    comingSoon: true,
+  },
+  {
+    category: "Coming Soon",
+    title: "Sustainability updates coming soon",
+    comingSoon: true,
+  },
 ];
 
-const CARDS_PER_PAGE = 2;
-
 export default function NewsSection() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const trackRef = useRef<HTMLUListElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const resumeTimerRef = useRef<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
-  const maxPages = Math.ceil(newsCards.length / CARDS_PER_PAGE);
-  const translateX = -(currentPage * (100 / Math.ceil(newsCards.length / CARDS_PER_PAGE)));
-
-  const handlePrev = useCallback(() => {
-    setCurrentPage((prev) => (prev > 0 ? prev - 1 : maxPages - 1));
-  }, [maxPages]);
-
-  const handleNext = useCallback(() => {
-    setCurrentPage((prev) => (prev < maxPages - 1 ? prev + 1 : 0));
-  }, [maxPages]);
-
-  const goToPage = useCallback((page: number) => {
-    setCurrentPage(page);
+  useEffect(() => {
+    return () => {
+      if (resumeTimerRef.current) {
+        window.clearTimeout(resumeTimerRef.current);
+      }
+    };
   }, []);
 
+  const scrollCards = (direction: "previous" | "next") => {
+    setIsPaused(true);
+    if (resumeTimerRef.current) {
+      window.clearTimeout(resumeTimerRef.current);
+    }
+
+    const carousel = carouselRef.current;
+
+    if (!carousel) return;
+
+    carousel.scrollBy({
+      left: direction === "next" ? carousel.clientWidth * 0.82 : carousel.clientWidth * -0.82,
+      behavior: "smooth",
+    });
+
+    resumeTimerRef.current = window.setTimeout(() => {
+      setIsPaused(false);
+    }, 2200);
+  };
+
+  const renderCard = (card: NewsCard, idx: number, duplicate = false) => (
+    <li
+      key={`${duplicate ? "duplicate" : "primary"}-${idx}`}
+      id={duplicate ? undefined : `news-section-slide-${idx + 1}`}
+      className={styles.slide}
+      aria-hidden={duplicate}
+    >
+      {card.comingSoon ? (
+        <div className={styles.card}>
+          <div className={styles.imageWrapper}>
+            <div className={styles.comingSoon}>
+              <span>Coming Soon</span>
+            </div>
+          </div>
+          <div className={styles.content}>
+            <Tag tone="brand">{card.category}</Tag>
+            <h3 className={styles.title}>{card.title}</h3>
+          </div>
+        </div>
+      ) : (
+        <a href={card.href} className={styles.card} tabIndex={duplicate ? -1 : undefined}>
+          <div className={styles.imageWrapper}>
+            <img
+              src={card.image}
+              alt={card.alt}
+              className={styles.image}
+            />
+          </div>
+          <div className={styles.content}>
+            <span className={styles.category}>{card.category}</span>
+            <h3 className={styles.title}>{card.title}</h3>
+            <span className={styles.readMore}>Read more informations.</span>
+          </div>
+        </a>
+      )}
+    </li>
+  );
+
   return (
-    <section className={styles.section}>
+    <section
+      className={`${styles.section} ${isPaused ? styles.paused : ""}`}
+      aria-label="Latest news"
+    >
       <h2 className={styles.heading}>Latest</h2>
 
-      <div className={styles.carousel}>
+      <div
+        ref={carouselRef}
+        className={styles.carousel}
+        onPointerEnter={() => setIsPaused(true)}
+        onPointerLeave={() => setIsPaused(false)}
+        onFocus={() => setIsPaused(true)}
+        onBlur={() => setIsPaused(false)}
+      >
         <ul
-          ref={trackRef}
+          id="news-section-track"
           className={styles.track}
-          style={{ transform: `translateX(${translateX}%)` }}
+          aria-label="Latest news and stories"
         >
-          {newsCards.map((card, idx) => (
-            <li key={idx} className={styles.slide}>
-              {card.comingSoon ? (
-                <div className={styles.card}>
-                  <div className={styles.imageWrapper}>
-                    <div className={styles.comingSoon}>
-                      <span>Coming Soon</span>
-                    </div>
-                  </div>
-                  <div className={styles.content}>
-                    <span className={styles.category}>{card.category}</span>
-                    <h3 className={styles.title}>{card.title}</h3>
-                  </div>
-                </div>
-              ) : (
-                <a href={card.href} className={styles.card}>
-                  <div className={styles.imageWrapper}>
-                    <img
-                      src={card.image}
-                      alt={card.alt}
-                      className={styles.image}
-                    />
-                  </div>
-                  <div className={styles.content}>
-                    <span className={styles.category}>{card.category}</span>
-                    <h3 className={styles.title}>{card.title}</h3>
-                  </div>
-                </a>
-              )}
-            </li>
-          ))}
+          {newsCards.map((card, idx) => renderCard(card, idx))}
+          {newsCards.map((card, idx) => renderCard(card, idx, true))}
         </ul>
       </div>
 
       <div className={styles.controls}>
         <button
           type="button"
-          onClick={handlePrev}
-          className={styles.navButton}
-          disabled={currentPage === 0}
-          aria-label="Previous"
+          onClick={() => scrollCards("previous")}
+          className={`${styles.navButton} ${styles.prevButton}`}
+          aria-label="Scroll latest news left"
+          aria-controls="news-section-track"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 5l-7 7 7 7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          Previous
         </button>
-
-        <ol className={styles.pagination}>
-          {Array.from({ length: maxPages }).map((_, idx) => (
-            <li key={idx}>
-              <button
-                type="button"
-                onClick={() => goToPage(idx)}
-                className={`${styles.dot} ${
-                  idx === currentPage ? styles.dotActive : ""
-                }`}
-                aria-label={`Go to page ${idx + 1}`}
-              />
-            </li>
-          ))}
-        </ol>
-
         <button
           type="button"
-          onClick={handleNext}
-          className={styles.navButton}
-          disabled={currentPage === maxPages - 1}
-          aria-label="Next"
+          onClick={() => scrollCards("next")}
+          className={`${styles.navButton} ${styles.nextButton}`}
+          aria-label="Scroll latest news right"
+          aria-controls="news-section-track"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M9 5l7 7-7 7"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          Next
         </button>
       </div>
     </section>
