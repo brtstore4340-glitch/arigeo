@@ -2384,6 +2384,10 @@ main {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
