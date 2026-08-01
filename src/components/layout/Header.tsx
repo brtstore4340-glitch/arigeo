@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 function IconSearch() {
@@ -72,14 +72,60 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSub, setActiveSub] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
   const closeMenu = () => {
     setMenuOpen(false);
     setActiveSub(null);
   };
 
+  useEffect(() => {
+    if (menuOpen || searchOpen) {
+      setHeaderHidden(false);
+    }
+  }, [menuOpen, searchOpen]);
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const updateHeaderVisibility = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY < 24 || menuOpen || searchOpen) {
+        setHeaderHidden(false);
+      } else if (scrollDelta > 6 && currentScrollY > 96) {
+        setHeaderHidden(true);
+      } else if (scrollDelta < -6) {
+        setHeaderHidden(false);
+      }
+
+      lastScrollY.current = Math.max(currentScrollY, 0);
+      ticking.current = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking.current) {
+        window.requestAnimationFrame(updateHeaderVisibility);
+        ticking.current = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [menuOpen, searchOpen]);
+
   return (
-    <header className="siz-site-nav invisible-site-header" role="banner">
+    <header
+      className="siz-site-nav invisible-site-header"
+      data-hidden={headerHidden ? "true" : undefined}
+      role="banner"
+    >
       <div className="siz-site-nav__wrapper">
         <button
           type="button"
