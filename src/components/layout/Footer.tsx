@@ -11,8 +11,6 @@ const primaryLinks = [
   { label: "Our Brands", href: "/brands" },
   { label: "Newsroom", href: "/newsroom" },
   { label: "Careers", href: "/careers" },
-  { label: "Products", href: "/products" },
-  { label: "Contact Us", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -101,14 +99,13 @@ export default function Footer() {
               title="Awaiting Official URL"
               aria-label={`${social.label} — Awaiting official URL`}
               style={{
-                width: 46,
-                height: 46,
-                borderRadius: 999,
+                width: 54,
+                height: 54,
                 display: "grid",
                 placeItems: "center",
-                background: "#fff",
+                background: "transparent",
                 color: "#111",
-                border: "1px solid rgba(17,17,17,0.16)",
+                border: 0,
                 cursor: "help",
                 padding: 0,
               }}
@@ -118,8 +115,8 @@ export default function Footer() {
                 alt=""
                 aria-hidden="true"
                 style={{
-                  width: 20,
-                  height: 20,
+                  width: 30,
+                  height: 30,
                   objectFit: "contain",
                   display: "block",
                 }}

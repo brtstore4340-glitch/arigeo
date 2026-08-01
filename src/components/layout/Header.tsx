@@ -94,11 +94,11 @@ export default function Header() {
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY.current;
 
-      if (currentScrollY < 24 || menuOpen || searchOpen) {
+      if (currentScrollY < 12 || menuOpen || searchOpen) {
         setHeaderHidden(false);
-      } else if (scrollDelta > 6 && currentScrollY > 96) {
+      } else if (scrollDelta > 1 && currentScrollY > 24) {
         setHeaderHidden(true);
-      } else if (scrollDelta < -6) {
+      } else if (scrollDelta < -1) {
         setHeaderHidden(false);
       }
 

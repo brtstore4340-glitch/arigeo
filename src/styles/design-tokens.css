@@ -42,6 +42,7 @@
   --color-primary: var(--arigeo-red);
   --color-primary-hover: var(--arigeo-red-dark);
   --color-primary-ink: var(--arigeo-red-ink);
+  --color-primary-tint: rgba(244, 204, 204, 0.55);
   --color-surface: var(--arigeo-surface);
   --color-border: var(--arigeo-line);
 
@@ -111,6 +112,8 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --shadow-btn-primary: 0 10px 24px rgba(120, 54, 54, 0.12);
+  --shadow-btn-primary-hover: 0 14px 30px rgba(120, 54, 54, 0.18);
 
   /* Border radius - NEW flat-bordered system has zero radius */
   --radius-none: 0;
