@@ -79,7 +79,7 @@ export default function Header() {
   };
 
   return (
-    <header className="siz-site-nav" role="banner">
+    <header className="siz-site-nav invisible-site-header" role="banner">
       <div className="siz-site-nav__wrapper">
         <button
           type="button"
@@ -109,12 +109,11 @@ export default function Header() {
                     <>
                       <button
                         type="button"
-                        className="siz-site-nav-main__link"
+                        className="siz-site-nav-main__link siz-site-nav-main__link--has-submenu"
                         aria-expanded={activeSub === item.key}
                         onClick={() => setActiveSub(activeSub === item.key ? null : item.key)}
                       >
                         <span>{item.label}</span>
-                        <span aria-hidden="true">+</span>
                       </button>
                       <ul className={`siz-site-nav-sub ${activeSub === item.key ? "is-open" : ""}`}>
                         {item.children.map((child) => (
