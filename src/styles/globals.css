@@ -2618,3 +2618,48 @@ main {
     top: 76px;
   }
 }
+
+
+/* ============================================================
+   Site header: white background + soft bottom fade
+   - พื้นหลังขาวทึบตลอดความสูงแถบเมนู แล้วไล่จางหายใต้แถบ
+   - พื้นหลังอยู่บน element เดียวกับที่ถูก transform จึงซ่อน/โผล่พร้อมโลโก้และเมนู
+   ============================================================ */
+.siz-site-nav {
+  background: none;
+}
+
+.siz-site-nav__wrapper {
+  background-color: transparent;
+}
+
+.siz-site-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% + 16px);
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0,
+    #ffffff calc(100% - 22px),
+    rgba(255, 255, 255, 0.75) calc(100% - 14px),
+    rgba(255, 255, 255, 0.35) calc(100% - 7px),
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.invisible-site-header {
+  opacity: 1;
+  transition:
+    transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 280ms ease,
+    box-shadow 240ms ease;
+}
+
+.invisible-site-header[data-hidden="true"] {
+  opacity: 0;
+}
