@@ -169,3 +169,83 @@
     font-size: 0.9rem;
   }
 }
+
+
+/* ============================================================
+   Soft radial wipe (feathered 100px edge) + hero layout
+   ============================================================ */
+@property --wipeR {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@keyframes softWipe {
+  from {
+    --wipeR: 0px;
+  }
+  to {
+    --wipeR: calc(50vw + 100vh + 120px);
+  }
+}
+
+/* Hero sits under the fixed header (main has padding-top 80/70/60px),
+   copy block is pushed into the lower 60% of the section */
+.section {
+  justify-content: flex-end;
+  padding-bottom: 7vh;
+  margin-top: -80px;
+}
+
+/* Feathered 100px wipe edge, 4x slower than the original 2200ms */
+.backgroundImage {
+  clip-path: none;
+  animation: softWipe 8800ms cubic-bezier(0.25, 0.6, 0.35, 1) forwards;
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 100%,
+    #000 0,
+    #000 var(--wipeR),
+    rgba(0, 0, 0, 0) calc(var(--wipeR) + 100px)
+  );
+  mask-image: radial-gradient(
+    circle at 50% 100%,
+    #000 0,
+    #000 var(--wipeR),
+    rgba(0, 0, 0, 0) calc(var(--wipeR) + 100px)
+  );
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Bottom layer holds the previous photo so no black frame is visible
+   while the next photo wipes in */
+.prevLayer {
+  animation: none;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* Heading scaled down 30% */
+.heading {
+  font-size: clamp(1.4rem, 5.6vw, 3.15rem);
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: -70px;
+  }
+
+  .heading {
+    font-size: clamp(1.05rem, 4.2vw, 1.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    margin-top: -60px;
+  }
+
+  .heading {
+    font-size: clamp(0.875rem, 3.5vw, 1.3125rem);
+  }
+}
