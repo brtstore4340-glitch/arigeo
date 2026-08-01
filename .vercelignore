@@ -1,11 +1,24 @@
-../arigeo-project-wt-*
-../control_fleet
-../forge_app_builder
-../arra-oracle-v3
-../captain-maid
-../captain-maid-wt-*
-../cms-arigeo
-../mawui-oracle
-../Bkk-dev-space
-../marcuxz-web
-../ram-voice-chat
+# Build/deploy only the Next.js app. These project-management and fleet
+# artifacts live in the repo root on master but are not runtime inputs.
+.ai/
+.claude/
+.management/
+.registry/
+.vercel/
+architecture/
+ψ/
+
+# Root-level drafts, reports, archives, and local build artifacts.
+*.md
+*.txt
+*.html
+*.ps1
+*.zip
+*.tsbuildinfo
+.mcp.json
+CAPTAIN-MAID-*.json
+
+# Legacy Domo gallery images are not imported by the production app.
+public/images/domo/img-*.png
+public/images/domo/asset-9.png
+public/images/domo/asset-10.png
