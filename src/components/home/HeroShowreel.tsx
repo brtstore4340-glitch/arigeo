@@ -8,8 +8,8 @@ import styles from "./hero-showreel.module.css";
  * Full-bleed cinematic hero with radial "wipe" photo crossfade + staggered tagline reveal
  *
  * Design System Spec:
- * - Radial wipe clip-path: circle(0% → 150% at 50% 100%), 2200ms, cubic-bezier(0.16,1,0.3,1)
- * - 6 lifestyle photos rotating (8 second cycle)
+ * - Radial wipe mask with a feathered 100px edge, 8800ms, cubic-bezier(0.25,0.6,0.35,1)
+ * - 6 lifestyle photos rotating (12 second cycle), previous photo kept underneath
  * - Tagline reveals line-by-line with stagger
  * - Fixed copy: "We don't follow categories. We create them." → links to /about#core-values
  */
@@ -24,25 +24,42 @@ const heroImages = [
 ];
 
 export default function HeroShowreel() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageIndexes, setImageIndexes] = useState({
+    current: 0,
+    previous: -1,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 8000); // 8 second cycle (2.2s animation + 5.8s hold)
+      setImageIndexes(({ current }) => ({
+        previous: current,
+        current: (current + 1) % heroImages.length,
+      }));
+    }, 12000); // 12 second cycle (8.8s wipe + hold)
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section className={styles.section}>
+      {/* Previous photo stays fully visible underneath, so no black frame
+          appears while the next photo wipes in */}
+      {imageIndexes.previous >= 0 && (
+        <div
+          className={`${styles.backgroundImage} ${styles.prevLayer}`}
+          style={{
+            backgroundImage: `url(${heroImages[imageIndexes.previous]})`,
+          }}
+        />
+      )}
+
       {/* Rotating Background Image with Radial Wipe */}
       <div
         className={styles.backgroundImage}
         style={{
-          backgroundImage: `url(${heroImages[currentImageIndex]})`,
+          backgroundImage: `url(${heroImages[imageIndexes.current]})`,
         }}
-        key={currentImageIndex}
+        key={imageIndexes.current}
       />
 
       {/* Dark Overlay */}
