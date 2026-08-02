@@ -6,26 +6,35 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         background: "#ffffff",
-        foreground: "#111111", // black
+        "background-dark": "#0A0E27",
+        foreground: "#111111",
+        "foreground-dark": "#F5F5F5",
         arigeo: {
-          red: "#D50306", // Brick Ember — primary brand red
-          darkred: "#C50C15", // Brick Ember 2 — hover / pressed
-          redtint: "#FBE6E7", // 5% tint — badge/tag backgrounds
-          black: "#010101", // brand black — footer, headings
-          gray: "#424242", // secondary text (คงเดิม — palette ไม่มี mid-gray)
-          light: "#FDFDFD", // White — base surface
-          surface: "#F3F3F4", // Platinum — alternating sections, newsletter band
+          red: "#D50306",
+          darkred: "#C50C15",
+          redtint: "#FBE6E7",
+          black: "#010101",
+          gray: "#424242",
+          light: "#FDFDFD",
+          surface: "#F3F3F4",
+          "surface-dark": "#1A1E3F",
+          "text-dark": "#E0E0E0",
           household: {
             DEFAULT: "#F5EFE6",
+            "dark": "#2A2416",
             accent: "#B08D57",
+            "accent-dark": "#D4AF87",
           },
           skincare: {
             DEFAULT: "#EEF3F4",
+            "dark": "#1A2526",
             accent: "#6E9A9E",
+            "accent-dark": "#8FB5B9",
           },
         },
       },

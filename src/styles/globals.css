@@ -52,6 +52,16 @@
   --k-arc-offset: -4.02778vw;
   --k-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+html.dark {
+  --arigeo-black: #F5F5F5;
+  --arigeo-gray: #B8B8B8;
+  --color-surface: #1A1E3F;
+  --color-light: #0A0E27;
+  --marcusx-light: #1A1E2E;
+  --marcusx-border: rgba(245, 245, 245, 0.08);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -67,6 +77,12 @@ body {
   letter-spacing: var(--tracking-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+html.dark body {
+  background: #0A0E27;
+  color: #F5F5F5;
 }
 
 /* Ensure images don't exceed containers */

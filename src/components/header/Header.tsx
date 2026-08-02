@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import styles from "./header.module.css";
 
 type SubMenuItem = {
@@ -187,6 +188,7 @@ export default function Header() {
 
       {/* Right Actions */}
       <div className={styles.actions}>
+        <ThemeToggle />
         <LocaleSwitcher />
 
         <button
