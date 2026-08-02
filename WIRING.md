@@ -83,3 +83,44 @@ const products = await getProducts()
 
 Client components should fetch in a server parent (or a route handler) and pass
 the data down, since `getProducts` runs on the server.
+
+## Production Resilience (Phase 1)
+
+### Circuit Breaker & Timeout
+
+The CMS adapter (`src/lib/cms.ts`) includes automatic resilience:
+
+- **Timeout**: 5 seconds per request (AbortController)
+- **Circuit Breaker**: Fails fast after 5 consecutive failures
+- **Graceful Degradation**: Pages render with null data if CMS unavailable
+
+### Health Check Endpoint
+
+Verify CMS connectivity before deploy:
+
+```bash
+# Local test
+npm run build
+npm run start
+curl http://localhost:3000/api/health | jq '.'
+# Expected: { "cmsConnectivity": "ok", ... }
+
+# Production test
+curl https://arigeo-project.vercel.app/api/health | jq '.'
+```
+
+Status codes:
+- `200 OK` — CMS reachable
+- `503 Service Unavailable` — CMS down or timeout
+
+### Monitoring
+
+Check Vercel logs for:
+- `[cms] circuit breaker open` — CMS failing repeatedly
+- `[cms] request failed` — Individual request errors
+- `[cms] timeout` — AbortError from 5s timeout
+
+If circuit breaker activates, either:
+1. Wait for CMS recovery (counter resets on success)
+2. Deploy a rollback version with static fallback data
+3. Check `/api/health` endpoint for diagnosis

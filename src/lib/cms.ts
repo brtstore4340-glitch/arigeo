@@ -23,6 +23,12 @@ const CMS_URL = (
 /** Revalidate CMS data every 5 minutes by default (ISR-friendly). */
 const DEFAULT_REVALIDATE = 300
 
+/** Request timeout in milliseconds. */
+const FETCH_TIMEOUT_MS = 5000
+
+/** Circuit breaker: fail fast after N consecutive failures. */
+const CIRCUIT_BREAKER_THRESHOLD = 5
+
 type PayloadList<T> = {
   docs: T[]
   totalDocs: number
@@ -31,23 +37,49 @@ type PayloadList<T> = {
   hasNextPage: boolean
 }
 
+/** Circuit breaker state. */
+let circuitBreakerFailures = 0
+
 async function cmsFetch<T>(
   path: string,
   { revalidate = DEFAULT_REVALIDATE }: { revalidate?: number } = {},
 ): Promise<T | null> {
   const url = `${CMS_URL}/api/${path.replace(/^\//, '')}`
+
+  if (circuitBreakerFailures >= CIRCUIT_BREAKER_THRESHOLD) {
+    console.warn(`[cms] circuit breaker open (${circuitBreakerFailures} failures) — failing fast`)
+    return null
+  }
+
   try {
-    const res = await fetch(url, {
-      headers: { Accept: 'application/json' },
-      next: { revalidate },
-    })
-    if (!res.ok) {
-      console.error(`[cms] ${res.status} ${res.statusText} for ${url}`)
-      return null
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
+
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: { Accept: 'application/json' },
+        next: { revalidate },
+      })
+
+      clearTimeout(timeout)
+
+      if (!res.ok) {
+        circuitBreakerFailures++
+        console.error(`[cms] ${res.status} ${res.statusText} for ${url} (failures: ${circuitBreakerFailures})`)
+        return null
+      }
+
+      circuitBreakerFailures = 0
+      return (await res.json()) as T
+    } finally {
+      clearTimeout(timeout)
     }
-    return (await res.json()) as T
   } catch (err) {
-    console.error(`[cms] request failed for ${url}`, err)
+    circuitBreakerFailures++
+    console.error(
+      `[cms] request failed for ${url} (failures: ${circuitBreakerFailures}): ${err instanceof Error ? err.message : String(err)}`,
+    )
     return null
   }
 }
