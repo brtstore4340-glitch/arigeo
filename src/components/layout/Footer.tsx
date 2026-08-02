@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const primaryLinks = [
   { label: "Home", href: "/" },
@@ -110,13 +111,13 @@ export default function Footer() {
                 padding: 0,
               }}
             >
-              <img
+              <Image
                 src={social.icon}
                 alt=""
                 aria-hidden="true"
+                width={30}
+                height={30}
                 style={{
-                  width: 30,
-                  height: 30,
                   objectFit: "contain",
                   display: "block",
                 }}
@@ -171,10 +172,12 @@ export default function Footer() {
         }}
       >
         <Link href="/" aria-label="ARIGEO home" style={{ display: "inline-flex", alignItems: "center" }}>
-          <img
+          <Image
             src="/images/logo.png"
             alt="ARIGEO logo"
-            style={{ height: 38, width: "auto", objectFit: "contain" }}
+            width={38}
+            height={38}
+            style={{ objectFit: "contain" }}
           />
         </Link>
       </div>

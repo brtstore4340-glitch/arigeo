@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./header.module.css";
 
 type SubMenuItem = {
@@ -141,7 +142,7 @@ export default function Header() {
       {/* Logo */}
       <div className={styles.logo}>
         <Link href={locale === "th" ? "/th" : "/en"}>
-          <img src="/images/logo.png" alt="ARIGEO" width={40} height={40} />
+          <Image src="/images/logo.png" alt="ARIGEO" width={40} height={40} priority />
         </Link>
       </div>
 
