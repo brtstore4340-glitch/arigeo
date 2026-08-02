@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 /**
  * HomeIntroStatement
  * Homepage lead statement below hero
@@ -11,10 +13,12 @@
  */
 
 export default function HomeIntroStatement() {
+  const t = useTranslations();
+
   return (
     <section className="home-intro-statement">
-      <span className="eyebrow">OUR MISSION</span>
-      <h2>Quality care for everyday life</h2>
+      <span className="eyebrow">{t("hero.title")}</span>
+      <h2>{t("hero.subtitle")}</h2>
       <p>ARIGEO is committed to delivering quality health, science, and household solutions that elevate everyday life.</p>
     </section>
   );

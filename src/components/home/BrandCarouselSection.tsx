@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 /**
  * BrandCarouselSection
  * Showcase ARIGEO sub-brands - logo only
@@ -40,12 +42,14 @@ const brands: Brand[] = [
 ];
 
 export default function BrandCarouselSection() {
+  const t = useTranslations();
+
   return (
     <section className="brand-carousel-section">
       <div className="brand-carousel-container">
         {/* Section Title */}
         <div className="brand-carousel-header">
-          <h2 className="brand-carousel-title">Our Brands</h2>
+          <h2 className="brand-carousel-title">{t("brands.title")}</h2>
           <p className="brand-carousel-subtitle">
             Trusted brands that deliver quality and innovation
           </p>
