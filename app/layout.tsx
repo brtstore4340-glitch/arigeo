@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Arimo, IBM_Plex_Sans_Thai, Inter } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import "../src/styles/globals.css";
 import "../src/styles/design-tokens.css";
 import "../src/styles/animations.css";
@@ -64,9 +62,7 @@ export default function RootLayout({
             "var(--font-sans, 'Arimo', 'IBM Plex Sans Thai', sans-serif)",
         }}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );
