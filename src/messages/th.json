@@ -1,5 +1,41 @@
 {
   "common": {
     "language": "ไทย"
+  },
+  "nav": {
+    "aboutUs": "เกี่ยวกับเรา",
+    "sustainability": "ความยั่งยืน",
+    "innovation": "นวัตกรรม",
+    "brands": "แบรนด์ของเรา",
+    "newsroom": "ข่าวสาร",
+    "careers": "สมัครงาน"
+  },
+  "hero": {
+    "title": "ARIGEO",
+    "subtitle": "ค้นพบโซลูชันดูแลแบบพรีเมียม"
+  },
+  "brands": {
+    "title": "แบรนด์ของเรา",
+    "captain": "Captain Maid",
+    "genuleaf": "Genuleaf",
+    "ceratory": "Ceratory",
+    "viewAll": "ดูแบรนด์ทั้งหมด"
+  },
+  "news": {
+    "title": "ข่าวสารล่าสุด",
+    "readMore": "อ่านต่อ"
+  },
+  "footer": {
+    "copyright": "สงวนลิขสิทธิ์ © Arigeo Co., Ltd. สงวนสิทธิทั้งหมด",
+    "termsOfUse": "ข้อกำหนดการใช้งาน",
+    "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+    "sitemap": "แผนผังไซต์",
+    "followUs": "ติดตามเรา"
+  },
+  "cta": {
+    "explore": "สำรวจ",
+    "shop": "ช้อปเลย",
+    "learnMore": "เรียนรู้เพิ่มเติม",
+    "contact": "ติดต่อเรา"
   }
 }

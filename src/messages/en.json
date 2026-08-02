@@ -1,5 +1,41 @@
 {
   "common": {
     "language": "English"
+  },
+  "nav": {
+    "aboutUs": "About Us",
+    "sustainability": "Sustainability",
+    "innovation": "Innovation",
+    "brands": "Our Brands",
+    "newsroom": "Newsroom",
+    "careers": "Careers"
+  },
+  "hero": {
+    "title": "ARIGEO",
+    "subtitle": "Discover Premium Care Solutions"
+  },
+  "brands": {
+    "title": "Our Brands",
+    "captain": "Captain Maid",
+    "genuleaf": "Genuleaf",
+    "ceratory": "Ceratory",
+    "viewAll": "View All Brands"
+  },
+  "news": {
+    "title": "Latest News",
+    "readMore": "Read More"
+  },
+  "footer": {
+    "copyright": "Copyright © Arigeo Co., Ltd. All rights reserved.",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "sitemap": "Sitemap",
+    "followUs": "Follow Us"
+  },
+  "cta": {
+    "explore": "Explore",
+    "shop": "Shop Now",
+    "learnMore": "Learn More",
+    "contact": "Contact Us"
   }
 }
