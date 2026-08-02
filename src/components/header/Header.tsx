@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
+import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
 import styles from "./header.module.css";
 
 type SubMenuItem = {
@@ -186,7 +187,7 @@ export default function Header() {
 
       {/* Right Actions */}
       <div className={styles.actions}>
-        <span className={styles.language}>{locale.toUpperCase()}</span>
+        <LocaleSwitcher />
 
         <button
           type="button"

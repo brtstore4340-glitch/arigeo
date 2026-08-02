@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
 
 const primaryLinks = [
   { label: "Home", href: "/" },
@@ -206,7 +207,7 @@ export default function Footer() {
           <p style={{ margin: 0, fontSize: 12, color: "#666" }}>
             Copyright © Arigeo Co., Ltd. All rights reserved.
           </p>
-          <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center" }}>
             <a href="#" style={{ fontSize: 12, color: "#555", textDecoration: "none" }}>
               Terms of Use
             </a>
@@ -216,6 +217,7 @@ export default function Footer() {
             <a href="#" style={{ fontSize: 12, color: "#555", textDecoration: "none" }}>
               Sitemap
             </a>
+            <LocaleSwitcher />
           </div>
         </div>
       </div>
